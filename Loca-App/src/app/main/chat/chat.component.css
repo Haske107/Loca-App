@@ -1,0 +1,91 @@
+md-sidenav{
+  min-width: 300px;
+}
+.chatCard {
+  margin: 10px;
+}
+
+.message-screen {
+  height: 600px;
+  width: 600px;
+  margin: 0;
+}
+
+.message{
+  margin: 8px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.sidenav-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  min-width: 30px;
+  line-height: 30px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+.createChat {
+width: 100%;
+}
+
+.spacer {
+  height: 40px;
+}
+
+.well {
+  background-color: snow;
+  position: absolute;
+  bottom: 14px;
+ margin-left: 4%;
+  margin-bottom: 0;
+  width: 400px;
+  border-radius: 1px;
+  padding: 0;
+}
+
+
+.sendMessage  {
+  position:fixed;
+  right: 30px;
+  bottom: 15px;
+}
+
+.inputA {
+  border: 0;
+  background-color: transparent;
+  width: 398px;
+  color: #0097A7;
+}
+
+.chatspace  {
+  height: 470px;
+  overflow-y: scroll;
+}
+
+.emptychat  {
+margin:  0 auto;
+  position: fixed;
+  top: 50%;
+  right: 40%;
+opacity: .5;
+}
+
+
+.panel-body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+}
+
+.panel-header {
+  font-family: 'Shrikhand', cursive;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 30px;
+}

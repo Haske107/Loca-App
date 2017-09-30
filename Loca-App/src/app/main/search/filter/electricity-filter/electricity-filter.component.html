@@ -1,0 +1,10 @@
+<md-card [ngStyle]="{'top': ParentTopOffset,'left': ParentLeftOffset }">
+  <md-grid-list cols="2" rowHeight="1:1">
+    <md-grid-tile [ngStyle]="state.Yes && {backgroundColor: '#00838f'} || {backgroundColor: '#26c6da' }" (click)="toggleElectricity('Yes')">
+      <h3>Yes</h3>
+    </md-grid-tile>
+    <md-grid-tile [ngStyle]="state.No && {backgroundColor: '#00838f'} || {backgroundColor: '#26c6da' }" (click)="toggleElectricity('No')">
+      <h3>No</h3>
+    </md-grid-tile>
+  </md-grid-list>
+</md-card>

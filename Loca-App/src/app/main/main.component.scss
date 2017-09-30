@@ -1,0 +1,169 @@
+h3 {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 40px;
+}
+
+h5  {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 200;
+  line-height: 16px;
+  color: white;
+  margin: 10px 10px 15px 15px;
+  outline: none;
+  letter-spacing: 1px;
+
+}
+
+h5:hover  {
+  color: #f8ed0d;
+}
+
+
+
+md-toolbar{
+  background-image: url('./../../assets/materials/Blue Gradient Side Panel.png ');
+  background-size: cover;
+}
+.Icon{
+  font-size:40px;
+  height:40px;
+  width: 40px;
+  margin-right: 4px;
+  position: fixed;
+  top: 3px;
+
+  left: 10px;
+}
+
+.Title {
+  color: white;
+  position: fixed;
+  left: 60px;
+  top: 3px;
+}
+
+.Item{
+  float: left;
+  outline: none;
+}
+
+.profile-button  {
+  float: right
+}
+
+.form-control, .btn {
+  border-radius: 1px;
+  height: 33px;
+}
+
+.btn-default  {
+  background-color: #795548;
+  color: #fff;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.input-group  {
+  padding-left: 5px;
+  padding-right: 10%;
+}
+
+.Header {
+  position: fixed;
+  left: 25px;
+  top: 6px;
+  width: calc(100% - 40);
+}
+
+
+
+.dropdown-container {
+  position: fixed;
+  top: 3px;
+  right: 15px;
+  transition: .3s ease;
+}
+
+
+.dropdown-toggle, .dropdown-toggle:hover,.dropdown-toggle:active ,.dropdown-toggle:focus {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: .3s ease;
+  width: 10px;
+  outline: none;
+  box-shadow: none;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  align-self: flex-end;
+
+
+}
+.signin {
+  color: white;
+  position: fixed;
+  top: 5px;
+  right: 15px;
+  border-radius: 4px;
+  height: 33px;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: transparent;
+}
+.signin:hover {
+  color: #0098b0;
+}
+.signin:active  {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+}
+
+.space {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.spacer {
+  height: 45px;
+}
+md-toolbar  {
+  position: fixed;
+  top: 0;
+}
+
+.Search-Input {
+  height: 30px;
+  border: none;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  margin-bottom: 17px;
+}
+
+.Search-Button{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 30px;
+  margin-bottom: 17px;
+
+
+}
+
+

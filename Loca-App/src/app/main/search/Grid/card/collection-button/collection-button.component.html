@@ -1,0 +1,16 @@
+<button md-icon-button [mdMenuTriggerFor]="menu" class="iconbutton">
+  <md-icon svgIcon="plus"></md-icon>
+</button>
+
+<md-menu #menu="mdMenu">
+  <button md-menu-item *ngFor="let collection of collections" (click)="onCollectionClick(collection._id)">
+    <span>
+      {{collection.name}}
+    </span>
+  </button>
+  <button md-menu-item *ngIf="collections.length < 1" [disabled]="true">
+    <span>
+      No Options
+    </span>
+  </button>
+</md-menu>

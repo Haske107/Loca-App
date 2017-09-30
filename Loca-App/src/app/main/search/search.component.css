@@ -1,0 +1,216 @@
+button:focus {
+  outline:0;
+}
+
+
+
+h3  {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 30px;
+  color: white;
+  margin: 10px;
+}
+
+
+
+.filterRow  {
+  width: 100%;
+  min-height: 40px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  z-index: 0;
+  display: flex;
+}
+
+
+.filter-label {
+  font-size: 16px;
+  color: silver;
+  margin: 0;
+}
+.row  {
+  width: 100%;
+
+}
+
+.rate-input {
+  margin-right: 20px;
+  width: 40px;
+}
+.rate-slider  {
+  color: white;
+  margin-top: 19px;
+  width: 100%;
+}
+
+.filter-info-card  {
+  padding: 4px;
+  width: 80%;
+  margin-left: 10%;
+}
+.view-toggle  {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
+
+.sort-menu  {
+  align-self: flex-end;
+  height: 30px;
+  width: 200px;
+  margin: 5px;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  border: 1px solid silver;
+
+}
+
+.add-location {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  height: 35px;
+  width: 35px;
+}
+
+.plusicon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.sidenav-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
+
+.search {
+  margin: 20px;
+}
+
+
+
+
+.mat-card {
+  padding: 0;
+}
+
+.row  {
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.grid-split {
+  padding-right:1px;
+  padding-left: 0;
+  height: 900px;
+  overflow-y: scroll;
+}
+
+.map-split  {
+  padding-left: 0;
+  padding-right: 0;
+
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.18), 0 5px 5px 0 rgba(0,0,0,.18);
+}
+
+.list-split {
+  height: calc(100vh - 85px);
+  overflow-y: scroll;
+  padding: 0;
+}
+.map  {
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+
+}
+
+.example-container  {
+  overflow-x:hidden;
+}
+
+.filter-card  {
+  background-color: white;
+  position: absolute;
+  left: 25px;
+  top: 130px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+}
+
+.search-icon  {
+  padding-top: 10px;
+}
+
+
+.filter-bar{
+  background-color: transparent;
+  position: absolute;
+  top: 90px;
+  z-index: 2;
+  height: 40px ;
+  padding-left: 20px;
+}
+
+.btn{
+  height: 30px;
+  margin: 5px 0;
+  padding: 0 4px;
+}
+.filter-button  {
+  height: 30px;
+  margin: 5px 0;
+  border: 1px solid silver;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.grid{
+  height: calc(100vh - 85px);
+  overflow-y: scroll;
+}
+
+.Search-Input {
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 9px;
+  width: 48%;
+}
+
+.rate-filter  {
+  padding-top: 0;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 9px;
+  border-radius: 4px;
+  border: 1px solid silver;
+  color: grey;
+}
+
+p {
+  margin: 4px;
+  line-height: 15px;
+}
+
+.view-buttons {
+  padding: 0 5px;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 9px;
+  border-radius: 4px;
+  border: 1px solid silver;
+  background-color: #F7F7F7;
+}
+.view-button  {
+  height: 15px;
+  width: 15px;
+  margin: 4px;
+}

@@ -1,0 +1,41 @@
+
+
+<div class="spacer">
+
+</div>
+<!-- PAGE CONTENT -->
+  <router-outlet ></router-outlet>
+<!-- MAIN TOOLBAR CONTENT -->
+<md-toolbar style="height:45px; min-height: 45px;" >
+  <!-- PROFILE DROP-DOWN BUTTON -->
+  <span class="col-md-4">
+        <button md-button type="button" color="accent" class="btn signin" *ngIf="!isSignedIn" (click)="openDialog()">
+          <h5>  Log in / Sign up</h5>
+        </button>
+    <!-- IF SIGNED IN -->
+        <div class="dropdown-container"  *ngIf="isSignedIn"  dropdown [isOpen]="isOpen" (isOpenChange)="change($event)">
+          <img src="{{Profile.picture}}" class="avatar" dropdownToggle>
+          <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li role="menuitem"><a class="dropdown-item"  [routerLink]="'myprofile'">My Profile</a></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="openChat()">Messages</a></li>
+            <li role="menuitem"><a class="dropdown-item" [routerLink]="'mycollections'">Collections</a></li>
+            <li role="menuitem"><a class="dropdown-item"[routerLink]="'post'">Post Location</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="logOut()">Log Out</a>
+            </li>
+          </ul>
+        </div>
+    </span>
+  <!-- LOGO  & TITLE -->
+  <md-icon class="Item Icon" svgIcon="binos"  [routerLink]="'/'"></md-icon>
+  <h3 class="Item Title"  [routerLink]="'/'">Loca</h3>
+  <div class="Header row">
+    <h5 style="margin-left: 175px;" [routerLink]="'/main/search'">Search</h5>
+    <h5>|</h5>
+    <h5 [routerLink]="'/main/collections'">Community Collections</h5>
+    <h5>|</h5>
+    <h5 [routerLink]="'/main/permits'">Permits</h5>
+    <h5>|</h5>
+    <h5 [routerLink]="'/main/post'">Post a Location</h5>
+  </div>
+</md-toolbar>

@@ -1,0 +1,13 @@
+  <img class="avatar" src="https://loca-app.herokuapp.com/files/{{location._id}}" (click)="toLocationProfile(location)" >
+  <md-grid-tile-footer>
+    {{location.name}}
+    <app-collection-button
+      [collections]="collections"
+      [location]="location"
+      class="addToCollection"
+    >
+    </app-collection-button>
+  </md-grid-tile-footer>
+
+
+

@@ -1,0 +1,10 @@
+.profileCard  {
+  margin: 2%;
+}
+
+.chatButton {
+  margin: 20px;
+}
+md-dialog {
+  overflow: hidden;
+}

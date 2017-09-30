@@ -1,0 +1,134 @@
+
+
+
+<!-- FILTER BAR -->
+<div class="row filterRow" (window:resize)="onResize($event)" >
+      <input
+        type="text"
+        class="form-control Search-Input"
+        placeholder="Search Locations..."
+        [(ngModel)]="query"
+        (keyup)="updateInput(query)">
+      <button
+        md-button
+        class="rate-filter"
+        (click)="setRateState(!rateState)"
+        #rate>
+        <p>Day Rate</p>
+      </button>
+      <button
+        md-button
+        class="rate-filter"
+        (click)="setDistanceState(!distanceState)"
+        #distance>
+        <p>Distance</p>
+      </button>
+      <button
+        md-button
+        class="rate-filter"
+        (click)="setTypeState(!typeState)"
+        #type>
+        <p>Type</p>
+      </button>
+      <button
+        md-button
+        class="rate-filter"
+        (click)="setElectricityState(!electricityState)"
+        #electricity>
+        <p>Electricity</p>
+      </button>
+      <button
+        md-button
+        class="rate-filter"
+        (click)="setBathroomState(!bathroomState)"
+        #bathroom>
+        <p>Bathrooms</p>
+      </button>
+  <div
+    class="view-buttons">
+    <md-icon
+      *ngIf="state !== 'grid'"
+      class="view-button"
+      svgIcon="grid"
+      (click)="toggleView('grid')">
+    </md-icon>
+    <md-icon
+      *ngIf="state === 'grid'"
+      class="view-button"
+      svgIcon="grid-blue"
+      (click)="toggleView('grid')">
+    </md-icon>
+    <md-icon
+      *ngIf="state !== 'map'"
+      class="view-button"
+      svgIcon="marker"
+      (click)="toggleView('map')">
+    </md-icon >
+    <md-icon
+      *ngIf="state === 'map'"
+      class="view-button"
+      svgIcon="marker-blue"
+      (click)="toggleView('map')">
+    </md-icon >
+    <md-icon
+      *ngIf="state !== 'split'"
+      class="view-button"
+      svgIcon="split"
+      (click)="toggleView('split')" >
+    </md-icon>
+    <md-icon
+      *ngIf="state === 'split'"
+      class="view-button"
+      svgIcon="split-blue"
+      (click)="toggleView('split')" >
+    </md-icon>
+  </div>
+</div>
+
+
+
+
+<!-- PAGE CONTENTS -->
+<div class="grid" *ngIf="state === 'grid'">
+    <grid  [locations]="locations"></grid>
+  </div>
+
+  <div class="map" *ngIf="state === 'map'" >
+    <app-map [locations]="locations" ></app-map>
+  </div>
+
+  <div class="row" *ngIf="state === 'split'">
+    <div class="col-md-7 map-split">
+      <app-map  [locations]="locations" ></app-map>
+    </div>
+    <div class="col-md-5 list-split">
+      <app-list [locations]="locations"></app-list>
+    </div>
+  </div>
+
+<!-- FILTER COMPONENTS -->
+<app-type-filter #typefilter
+                 *ngIf="typeState"
+                 [ParentTop]="TypeButtonTop"
+                 [ParentLeft]="TypeButtonLeft"
+></app-type-filter>
+<app-electricity-filter #electricityfilter
+                        *ngIf="electricityState"
+                        [ParentTop]="ElectricityButtonTop"
+                        [ParentLeft]="ElectricityButtonLeft">
+</app-electricity-filter>
+<app-bathroom-filter #bathroomfilter
+                     *ngIf="bathroomState"
+                     [ParentTop]="BathroomButtonTop"
+                     [ParentLeft]="BathroomButtonLeft">
+</app-bathroom-filter>
+<app-distance-filter #distancefilter
+                     *ngIf="distanceState"
+                     [ParentTop]="DistanceButtonTop"
+                     [ParentLeft]="DistanceButtonLeft">
+</app-distance-filter>
+<app-rate-filter #ratefilter
+                 *ngIf="rateState"
+                 [ParentTop]="RateButtonTop"
+                 [ParentLeft]="RateButtonLeft">
+</app-rate-filter>

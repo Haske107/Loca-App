@@ -1,0 +1,22 @@
+<div class="row" *ngFor="let location of locations
+     | filter: searchString: 'name'
+     | typeFilter: typeObject
+     | electricityFilter: electrictyObject
+     | bathroomFilter: bathroomObject
+     | rateFilter: rateObject">
+  <div class="col-sm-2 photo-container">
+    <img src="https://loca-app.herokuapp.com/files/{{location._id}}" style="width: 100%; height: 100%;">
+  </div>
+  <div class="col-sm-8">
+    <h5>{{location.name}}</h5>
+    <p>{{location.description}}</p>
+  </div>
+  <div class="col-sm-2">
+    <md-chip-list>
+      <md-chip >
+        ${{location.rate }}/Day
+      </md-chip>
+    </md-chip-list>
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~nouislider/distribute/nouislider.min.css";
+@import '~@angular/material/theming';
+@include mat-core();
+@import '_variables.scss';
+
+$main-primary: mat-palette($mat-cyan, 400, 200, 800);
+$main-accent:  mat-palette($mat-grey, 400, 200, 800);
+
+$main-theme: mat-light-theme($main-primary, $main-accent);
+
+@include angular-material-theme($main-theme);
+
+@import url('https://fonts.googleapis.com/css?family=Saira+Condensed:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+/*
+font-family: 'Roboto', sans-serif;
+font-family: 'Shrikhand', cursive;
+*/
+
+.mat-dialog-container {
+  padding: 0 !important;
+}

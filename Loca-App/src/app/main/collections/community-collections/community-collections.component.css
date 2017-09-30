@@ -1,0 +1,80 @@
+app-collection-card {
+}
+.flexcontainer  {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: inline-flex;
+}
+app-collection-preview  {
+  width:45%;
+  margin-top: 10px;
+}
+.Create-Collection-Card {
+  margin-top: 10px;
+  width: 75%;
+  align-self: flex-start;
+  background-color: #00bcd4;
+
+}
+app-collection-search {
+margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+md-sidenav-container  {
+}
+md-sidenav  {
+  width: 25%;
+  overflow: visible;
+}
+md-grid-list  {
+  margin-top: 20px;
+}
+md-grid-tile{
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+app-collection-card {
+  height: 100%;
+}
+.header {
+  max-height:30px;
+  margin: 0;
+}
+.row  {
+  padding-top: 40px;
+  padding-lefT: 40px;
+  padding-right: 40px;
+  height: 100%;
+  width: 100%;
+}
+.left-panel {
+  padding-top: 0;
+  padding-left: 20px;
+}
+.new-collection-button1  {
+  width: 200px;
+  height: 48px;
+  position: absolute;
+  top: 120px;
+  right: 32%;
+}
+.new-collection-button2  {
+  width: 200px;
+  height: 48px;
+  position: absolute;
+  top: 120px;
+  right: 58%;
+}
+.new-collection-button3  {
+  width: 200px;
+  height: 48px;
+  position: absolute;
+  top: 120px;
+  right: 45%;
+}
+
+.all  {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: inline-flex;
+  padding-top: 10px;
+}

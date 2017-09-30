@@ -1,0 +1,17 @@
+
+
+<agm-map #googlemap [latitude]="CurrentLocation.lat" [longitude]="CurrentLocation.lng" [styles]="">
+  <agm-marker
+    *ngFor="let location of locations
+     | filter: searchString: 'name'
+     | typeFilter: typeObject
+     | electricityFilter: electrictyObject
+     | bathroomFilter: bathroomObject
+     | rateFilter: rateObject
+"
+    (markerClick)="toLocationProfile(location)"
+    [latitude]="location.coordinates.lat"
+    [longitude]="location.coordinates.lng"
+    [iconUrl]="'./../../../../assets/icons/'+ location.type +'.png'">
+  </agm-marker>
+</agm-map>

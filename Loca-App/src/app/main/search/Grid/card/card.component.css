@@ -1,0 +1,33 @@
+.avatar {
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+  justify-content: center;
+}
+
+
+.photo {
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+
+  justify-content: center;
+}
+
+
+.md-grid-tile-header {
+  background-color: snow;
+}
+
+.md-grid-tile-footer {
+  background-color: snow;
+}
+
+app-collection-button  {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.card{
+}

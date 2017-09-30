@@ -1,0 +1,28 @@
+
+<div class="row">
+
+  <md-card class="col-md-8 col-centered">
+Parameter Form
+    <br>
+
+
+    <md-input-container>
+      <input mdInput type="text"  placeholder="Total Price" [(ngModel)]="price">
+    </md-input-container>
+
+    <br>
+    <button md-fab color="accent" (click)="download()" >PDF
+    </button>
+  </md-card>
+</div>
+
+<div class="row">
+  <md-card class="col-md-8 col-centered">
+    Location Agreement
+    <iframe id="pdf" [src]='url' width="100%" height="500px" #pdf></iframe>
+  </md-card>
+</div>
+
+
+
+

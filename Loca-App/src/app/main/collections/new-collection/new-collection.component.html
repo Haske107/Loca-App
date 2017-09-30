@@ -1,0 +1,27 @@
+
+<md-card class="maincard">
+    <h4>
+      CREATE NEW COLLECTION
+
+    </h4>
+  <md-card-content>
+    <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
+      <md-card style="" class="titleinputtop">
+        <md-input-container style="width: 100%"  class="title-input">
+          <input mdInput placeholder="Collection Title" formControlName="Name">
+        </md-input-container>
+      </md-card>
+      <br>
+      <md-card style=" " class="textinputbottom">
+        <md-input-container class="text-input">
+          <textarea mdInput placeholder="A small description..." formControlName="Subtitle" >
+      </textarea>
+        </md-input-container>
+      </md-card>
+    </form>
+  </md-card-content>
+  <button md-raised-button class="new-collection-button3" [disabled]="!collectionForm.valid" type="submit" (click)="onSubmit()">CREATE NEW COLLECTION</button>
+
+</md-card>
+
+
