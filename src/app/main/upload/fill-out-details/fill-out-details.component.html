@@ -1,3 +1,77 @@
-<p>
-  fill-out-details works!
-</p>
+<md-card class="center-card">
+  <md-card-header>
+
+  </md-card-header>
+  <h3>
+    Post a location using this form
+  </h3>
+  <hr>
+  <md-card-content>
+    <form [formGroup]="LocationData" >
+      <md-input-container class="threefourth-width">
+        <input mdInput formControlName="streetAddress" placeholder="Street Address" value="">
+      </md-input-container>
+      <md-input-container class="zip-width">
+        <input mdInput formControlName="zip"  placeholder="Zip or Postal" value="">
+      </md-input-container>
+      <br>
+      <md-input-container>
+        <input mdInput formControlName="city"  placeholder="City" value="">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput formControlName="state"  placeholder="State" value="">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput formControlName="country"  placeholder="Country" value="">
+      </md-input-container>
+      <hr>
+
+      <md-input-container class="threefourth-width">
+        <input mdInput formControlName="name" placeholder="Property Title" value="">
+      </md-input-container>
+      <md-select placeholder="Location Type" formControlName="type" >
+        <md-option *ngFor="let type of Types" [value]="type.value" >
+          {{ type.value }}
+        </md-option>
+      </md-select>
+      <br>
+      <md-input-container class="full-width">
+        <textarea mdInput formControlName="description"  placeholder="Description" value=""></textarea>
+      </md-input-container>
+      <md-input-container class="bathrooms">
+        <input mdInput formControlName="bathrooms" placeholder="Bathrooms" type="number" value="2">
+      </md-input-container>
+      <md-input-container class="parking">
+        <input mdInput formControlName="parking" placeholder="Parking" type="number" value="4">
+      </md-input-container>
+      <md-select placeholder="Electricity" formControlName="electricity" >
+        <md-option [value]="true" >
+          Yes
+        </md-option>
+        <md-option [value]="false" >
+          No
+        </md-option>
+      </md-select>
+      <md-input-container class="deposit">
+        <input mdInput formControlName="deposit" placeholder="Deposit ($)"  value="200">
+      </md-input-container>
+      <md-input-container class="rate">
+        <input mdInput formControlName="rate" placeholder="Rate per Day ($)"  value="0">
+      </md-input-container>
+      <hr>
+
+    </form>
+    Add some rules
+    <div class="fabs">
+      <button  class="lilfab" md-mini-fab (click)="addRule()" ><md-icon  svgIcon="plus"></md-icon></button>
+      <button  class="lilfab" md-mini-fab (click)="removeRule()"><md-icon  svgIcon="minus"></md-icon></button>
+    </div>
+    <md-list >
+      <md-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
+        <md-input-container class="listtext">
+          <input mdInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
