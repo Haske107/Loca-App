@@ -6,7 +6,7 @@ LOCA
 
 
 INSTALL via Node.js command line interface
-1) npm install -g @Angular/Cli@Latest //this globally installs angular command line interface
+1) npm install -g @angular/cli@latest //this globally installs angular command line interface
 2) npm install -g nodemon //this globally installs the node.js file monitor
 3) cd Loca-App // navigate to the app root folder
 4) npm install // this reads the package.json file for the app dependencies and installs them
