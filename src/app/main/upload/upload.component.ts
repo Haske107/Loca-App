@@ -6,7 +6,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
-import {MdSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 import {LocationService} from '../../services/location.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class UploadComponent implements OnInit {
     locationID = '';
     state = 0;
 
-    constructor(private authService: AuthService, private router: Router, private snackBar: MdSnackBar)   {
+    constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar)   {
 
     }
 

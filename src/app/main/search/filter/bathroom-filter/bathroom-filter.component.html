@@ -1,10 +1,10 @@
-<md-card [ngStyle]="{'top': ParentTopOffset,'left': ParentLeftOffset }">
-  <md-grid-list cols="2" rowHeight="1:1">
-    <md-grid-tile [ngStyle]="state.Yes && {backgroundColor: '#00838f'} || {backgroundColor: '#26c6da' }" (click)="toggleBathroom('Yes')">
+<mat-card [ngStyle]="{'top': ParentTopOffset,'left': ParentLeftOffset }">
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile [ngStyle]="state.Yes && {backgroundColor: '#00838f'} || {backgroundColor: '#26c6da' }" (click)="toggleBathroom('Yes')">
       <h3>Yes</h3>
-    </md-grid-tile>
-    <md-grid-tile [ngStyle]="state.No && {backgroundColor: '#00838f'} || {backgroundColor: '#26c6da' }" (click)="toggleBathroom('No')">
+    </mat-grid-tile>
+    <mat-grid-tile [ngStyle]="state.No && {backgroundColor: '#00838f'} || {backgroundColor: '#26c6da' }" (click)="toggleBathroom('No')">
       <h3>No</h3>
-    </md-grid-tile>
-  </md-grid-list>
-</md-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>

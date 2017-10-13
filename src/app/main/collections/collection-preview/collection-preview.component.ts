@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Collection} from "../../../ts models/collection.model";
-import {MdIconRegistry} from "@angular/material";
+import {MatIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Router} from "@angular/router";
 import {LocationService} from "../../../services/location.service";
@@ -19,7 +19,7 @@ export class CollectionPreviewComponent implements OnInit {
 
   @Output() selection = new EventEmitter();
 
-  constructor(private iconRegistry: MdIconRegistry,
+  constructor(private iconRegistry: MatIconRegistry,
               private sanitizer: DomSanitizer,
               private router: Router,
               public locationService: LocationService) {

@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {Collection} from "../../../ts models/collection.model";
 import {CollectionService} from "../../../services/collection.service";
-import {MdSnackBar} from "@angular/material";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-new-collection',
@@ -17,7 +17,7 @@ export class NewCollectionComponent implements OnInit {
   @Output() onSubmitClick = new EventEmitter();
 
 
-  constructor(private collectionService: CollectionService, public snackBar: MdSnackBar) { }
+  constructor(private collectionService: CollectionService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.collectionForm = new FormGroup({

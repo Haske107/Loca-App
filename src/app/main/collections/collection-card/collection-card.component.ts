@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Collection} from "../../../ts models/collection.model";
 import {Location} from "../../../ts models/location.model";
 import {CollectionService} from "../../../services/collection.service";
-import {MdDialog, MdIconRegistry, MdSnackBar} from "@angular/material";
+import {MatDialog, MatIconRegistry, MatSnackBar} from "@angular/material";
 import {DeleteObject} from "./delete.object.model";
 import {DomSanitizer} from "@angular/platform-browser";
 
@@ -32,9 +32,9 @@ export class CollectionCardComponent implements OnInit {
   confirmDeleteArray: string[]= [];
   isOwner: boolean;
   constructor(private collectionService: CollectionService,
-              private snackBar: MdSnackBar,
-              private dialog: MdDialog,
-              private iconRegistry: MdIconRegistry,
+              private snackBar: MatSnackBar,
+              private dialog: MatDialog,
+              private iconRegistry: MatIconRegistry,
               private sanitizer: DomSanitizer
   ) {
     iconRegistry.addSvgIcon('flag',sanitizer.bypassSecurityTrustResourceUrl('assets/icons/flag.svg'));

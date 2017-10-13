@@ -2,7 +2,7 @@ import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {CollectionService} from "../../../services/collection.service";
 import {Collection} from "../../../ts models/collection.model";
 import  {_} from "underscore"
-import {MdDialog} from "@angular/material";
+import {MatDialog} from "@angular/material";
 import {NewCollectionComponent} from "../new-collection/new-collection.component";
 
 @Component({
@@ -23,7 +23,7 @@ export class CommunityCollectionsComponent implements OnInit, AfterContentInit {
   selectedCollection: Collection;
   selectedCollectionLocations: Location[];
 
-  constructor(private collectionService: CollectionService, private dialog: MdDialog)   {}
+  constructor(private collectionService: CollectionService, private dialog: MatDialog)   {}
 
   ngOnInit()  {
 

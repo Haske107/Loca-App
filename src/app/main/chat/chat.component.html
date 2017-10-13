@@ -1,11 +1,11 @@
- <md-sidenav-container class="message-screen">
+ <mat-sidenav-container class="message-screen">
 
     <!-- SIDENAV TOGGLE BUTTON -->
-    <button md-raised-button class="sidenav-button" (click)="sideNav.open()">Chats</button>
+    <button mat-raised-button class="sidenav-button" (click)="sideNav.open()">Chats</button>
 
     <!-- SIDENAV CONTENT -->
-    <md-sidenav #sideNav (close)="scrollToBottom()">
-      <button md-raised-button class="createChat" (click)="createChat()">Create Chat</button>
+    <mat-sidenav #sideNav (close)="scrollToBottom()">
+      <button mat-raised-button class="createChat" (click)="createChat()">Create Chat</button>
       <div class="chatCard panel panel-default" *ngFor="let chat of Chats" >
         <div class="selecter" (click)="setCurrentChat(chat)">
           <div class="panel-header">
@@ -18,13 +18,13 @@
           </div>
         </div>
       </div>
-    </md-sidenav>
+    </mat-sidenav>
 
 
   <!-- HEADER -->
-  <md-toolbar color="primary" class="header">
+  <mat-toolbar color="primary" class="header">
     <span *ngFor="let user of currentRecipents">{{user}}</span>
-  </md-toolbar>
+  </mat-toolbar>
     <!--CHAT SPACE -->
     <div *ngIf="currentChat" class="chatspace" #chatSpace>
       <div class="panel panel-default message" *ngFor="let message of currentChat.Messages">
@@ -35,11 +35,11 @@
     </div>
     <!-- INPUT SPACE & FOOTER -->
     <div class="form" (submit)="sendMessage(Message)">
-      <md-toolbar color="primary" class="footer">
+      <mat-toolbar color="primary" class="footer">
         <div class="well">
           <input  class="inputA" id="message" type="text" [(ngModel)]="Message">
         </div>
-      </md-toolbar>
-      <button md-raised-button class="sendMessage" type="submit" (click)="sendMessage(Message)" >SEND</button>
+      </mat-toolbar>
+      <button mat-raised-button class="sendMessage" type="submit" (click)="sendMessage(Message)" >SEND</button>
     </div>
-</md-sidenav-container>
+</mat-sidenav-container>
