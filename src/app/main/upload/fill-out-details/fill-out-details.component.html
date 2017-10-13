@@ -3,7 +3,7 @@
 
   </md-card-header>
   <h3>
-    Post a location using this form
+    Give us some more information about your location!
   </h3>
   <hr>
   <md-card-content>
@@ -61,17 +61,5 @@
       <hr>
 
     </form>
-    Add some rules
-    <div class="fabs">
-      <button  class="lilfab" md-mini-fab (click)="addRule()" ><md-icon  svgIcon="plus"></md-icon></button>
-      <button  class="lilfab" md-mini-fab (click)="removeRule()"><md-icon  svgIcon="minus"></md-icon></button>
-    </div>
-    <md-list >
-      <md-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
-        <md-input-container class="listtext">
-          <input mdInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
-        </md-input-container>
-      </md-list-item>
-    </md-list>
   </md-card-content>
 </md-card>

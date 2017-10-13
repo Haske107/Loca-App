@@ -12,7 +12,6 @@ export class FillOutDetailsComponent implements OnInit {
 
   @Output() idEmitter = new EventEmitter<string>();
   LocationData: FormGroup;
-  RulesArray: string[] = ['Shoes off inside','No photos or videos'];
     Types = [
         {value: 'Home'},
         {value: 'Business'},
@@ -23,8 +22,7 @@ export class FillOutDetailsComponent implements OnInit {
     ];
 
   constructor() { }
-  // TODO: get location info from the first step (verify location) and fill fields
-  // TODO: press next button = pass location to upload photo - submit UNTIL review-and-submit
+
   ngOnInit() {
 
       this.LocationData = new FormGroup({
@@ -35,7 +33,6 @@ export class FillOutDetailsComponent implements OnInit {
           country: new FormControl(null , Validators.required),
           name: new FormControl(null , Validators.required),
           description: new FormControl(null , Validators.required),
-          rules: new FormControl(this.RulesArray),
           deposit: new FormControl(null , Validators.required),
           rate: new FormControl(null , Validators.required),
           type: new FormControl(null , Validators.required),
@@ -44,19 +41,4 @@ export class FillOutDetailsComponent implements OnInit {
           parking: new FormControl(null , Validators.required),
       });
   }
-  addRule() {
-      this.RulesArray.push('');
-      console.log(this.RulesArray);
-  }
-
-  removeRule()  {
-      if (this.RulesArray.length > 1) {
-          this.RulesArray.pop();
-      }
-  }
-
-  customTrackBy(index: number, obj: any): any {
-      return index;
-  }
-
 }

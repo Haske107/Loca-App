@@ -1,0 +1,22 @@
+<md-card class="center-card">
+    <md-card-header>
+
+    </md-card-header>
+    <h3>
+        Add some rules
+    </h3>
+    <hr>
+    <md-card-content>
+        <div class="fabs">
+            <button  class="lilfab" md-mini-fab (click)="addRule()" ><md-icon  svgIcon="plus"></md-icon></button>
+            <button  class="lilfab" md-mini-fab (click)="removeRule()"><md-icon  svgIcon="minus"></md-icon></button>
+        </div>
+        <md-list >
+            <md-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
+                <md-input-container class="listtext">
+                    <input mdInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
+                </md-input-container>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+</md-card>
