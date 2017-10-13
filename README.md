@@ -1,6 +1,22 @@
-# LocaApp
+LOCA
+===
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.2.
+### Location Location Location
+#### A web application designed to help users share filming locations with their friends, post their own properties, and get everyone the permits they need!
+
+
+INSTALL via Node.js command line interface
+1) npm install -g @angular/cli@latest //this globally installs angular command line interface
+2) npm install -g nodemon //this globally installs the node.js file monitor
+3) cd Loca-App // navigate to the app root folder
+4) npm install // this reads the package.json file for the app dependencies and installs them
+5) npm link // this connects the local version of angular-cli and the global one you installed earlier
+6) ng serve // ng activates angular cli, serve builds the app and serves it to port 4200, this also restarts when you modify any files and save.
+7) open a second terminal
+8) cd Loca-App/Server //navigate to the backend dungeon
+9) nodemon www // starts the server on port 3000, and restarts on any saved backend changes.
+10) http://localhost:4200 in your browser
+
 
 ## Development server
 
