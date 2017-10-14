@@ -1,4 +1,4 @@
-mat-card{
+md-card{
   width: 400px;
   background-color: white;
   position: absolute;
@@ -6,16 +6,16 @@ mat-card{
   padding: 10px;
 }
 
-mat-grid-list  {
+md-grid-list  {
   width: 100%;
   height: 100%;
   margin: 0;
 }
 
-mat-grid-tile  {
+md-grid-tile  {
   background-color: #26c6da;
 }
-mat-grid-tile:hover  {
+md-grid-tile:hover  {
   background-color: #00838f;
 }
 h3  {

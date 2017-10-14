@@ -1,26 +1,26 @@
 
 <div class="row">
 
-  <mat-card class="col-md-8 col-centered">
+  <md-card class="col-md-8 col-centered">
 Parameter Form
     <br>
 
 
-    <mat-form-field>
-      <input matInput type="text"  placeholder="Total Price" [(ngModel)]="price">
-    </mat-form-field>
+    <md-form-field>
+      <input mdInput type="text"  placeholder="Total Price" [(ngModel)]="price">
+    </md-form-field>
 
     <br>
-    <button mat-fab color="accent" (click)="download()" >PDF
+    <button md-fab color="accent" (click)="download()" >PDF
     </button>
-  </mat-card>
+  </md-card>
 </div>
 
 <div class="row">
-  <mat-card class="col-md-8 col-centered">
+  <md-card class="col-md-8 col-centered">
     Location Agreement
     <iframe id="pdf" [src]='url' width="100%" height="500px" #pdf></iframe>
-  </mat-card>
+  </md-card>
 </div>
 
 

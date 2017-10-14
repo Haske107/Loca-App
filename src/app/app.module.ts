@@ -43,7 +43,6 @@ import {AngularMaterialsModule} from './angular-materials.module';
         AuthService,
         LocationService,
         FileService,
-        {provide: MATERIAL_COMPATIBILITY_MODE, useValue: true}
     ],
     bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 
 
-<mat-grid-list cols="4" rowHeight="1:1" gutterSize="4px">
-  <mat-grid-tile *ngFor="let location of locations
+<md-grid-list cols="4" rowHeight="1:1" gutterSize="4px">
+  <md-grid-tile *ngFor="let location of locations
      | filter: searchString: 'name'
      | typeFilter: typeObject
      | electricityFilter: electrictyObject
@@ -11,5 +11,5 @@
       [location]="location"
       [collections]="collections"
     ></app-card>
-  </mat-grid-tile>
-</mat-grid-list>
+  </md-grid-tile>
+</md-grid-list>

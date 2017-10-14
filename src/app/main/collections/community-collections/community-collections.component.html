@@ -1,30 +1,30 @@
 
 <!-- ALL PUBLIC COLLECTIONS -->
-<mat-sidenav-container>
-  <mat-sidenav #sidenav>
+<md-sidenav-container>
+  <md-sidenav #sidenav>
     <app-collection-preview
       [selectedCollectionLocations]="selectedCollectionLocations"
       (selected)="selectCollection($event)"
       [collection]="selectedCollection"
       [Focus]="inFocus"
     >      </app-collection-preview>
-  </mat-sidenav>
+  </md-sidenav>
   <div class="row" style="padding-top: 10px;" >
     <div class="col-md-9">
     <app-collection-search>
     </app-collection-search>
-    <mat-grid-list cols="3" height="1:1" gutterSize="4px">
-      <mat-grid-tile *ngFor="let collection of collections" >
+    <md-grid-list cols="3" height="1:1" gutterSize="4px">
+      <md-grid-tile *ngFor="let collection of collections" >
         <app-collection-card  [collection]="collection"   (selection)="selectCollection(collection)" (deleteClicked)="deletecollection($event)"></app-collection-card>
-      </mat-grid-tile>
-    </mat-grid-list>
+      </md-grid-tile>
+    </md-grid-list>
     </div>
     <div class="col-md-3" >
         <app-new-collection (onSubmitClick)="saveCollection($event)">
         </app-new-collection>
     </div>
   </div>
-</mat-sidenav-container>
+</md-sidenav-container>
 
 
 

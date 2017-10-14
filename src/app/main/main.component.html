@@ -6,10 +6,10 @@
 <!-- PAGE CONTENT -->
   <router-outlet ></router-outlet>
 <!-- MAIN TOOLBAR CONTENT -->
-<mat-toolbar style="height:45px; min-height: 45px;" >
+<md-toolbar style="height:45px; min-height: 45px;" >
   <!-- PROFILE DROP-DOWN BUTTON -->
   <span class="col-md-4">
-        <button mat-button type="button" color="accent" class="btn signin" *ngIf="!isSignedIn" (click)="openDialog()">
+        <button md-button type="button" color="accent" class="btn signin" *ngIf="!isSignedIn" (click)="openDialog()">
           <h5>  Log in / Sign up</h5>
         </button>
     <!-- IF SIGNED IN -->
@@ -27,7 +27,7 @@
         </div>
     </span>
   <!-- LOGO  & TITLE -->
-  <mat-icon class="Item Icon" svgIcon="binos"  [routerLink]="'/'"></mat-icon>
+  <md-icon class="Item Icon" svgIcon="binos"  [routerLink]="'/'"></md-icon>
   <h3 class="Item Title"  [routerLink]="'/'">Loca</h3>
   <div class="Header row">
     <h5 style="margin-left: 175px;" [routerLink]="'/main/search'">Search</h5>
@@ -38,4 +38,4 @@
     <h5>|</h5>
     <h5 [routerLink]="'/main/post'">Post a Location</h5>
   </div>
-</mat-toolbar>
+</md-toolbar>

@@ -10,35 +10,35 @@
         [(ngModel)]="query"
         (keyup)="updateInput(query)">
       <button
-        mat-button
+        md-button
         class="rate-filter"
         (click)="setRateState(!rateState)"
         #rate>
         <p>Day Rate</p>
       </button>
       <button
-        mat-button
+        md-button
         class="rate-filter"
         (click)="setDistanceState(!distanceState)"
         #distance>
         <p>Distance</p>
       </button>
       <button
-        mat-button
+        md-button
         class="rate-filter"
         (click)="setTypeState(!typeState)"
         #type>
         <p>Type</p>
       </button>
       <button
-        mat-button
+        md-button
         class="rate-filter"
         (click)="setElectricityState(!electricityState)"
         #electricity>
         <p>Electricity</p>
       </button>
       <button
-        mat-button
+        md-button
         class="rate-filter"
         (click)="setBathroomState(!bathroomState)"
         #bathroom>
@@ -46,42 +46,42 @@
       </button>
   <div
     class="view-buttons">
-    <mat-icon
+    <md-icon
       *ngIf="state !== 'grid'"
       class="view-button"
       svgIcon="grid"
       (click)="toggleView('grid')">
-    </mat-icon>
-    <mat-icon
+    </md-icon>
+    <md-icon
       *ngIf="state === 'grid'"
       class="view-button"
       svgIcon="grid-blue"
       (click)="toggleView('grid')">
-    </mat-icon>
-    <mat-icon
+    </md-icon>
+    <md-icon
       *ngIf="state !== 'map'"
       class="view-button"
       svgIcon="marker"
       (click)="toggleView('map')">
-    </mat-icon >
-    <mat-icon
+    </md-icon >
+    <md-icon
       *ngIf="state === 'map'"
       class="view-button"
       svgIcon="marker-blue"
       (click)="toggleView('map')">
-    </mat-icon >
-    <mat-icon
+    </md-icon >
+    <md-icon
       *ngIf="state !== 'split'"
       class="view-button"
       svgIcon="split"
       (click)="toggleView('split')" >
-    </mat-icon>
-    <mat-icon
+    </md-icon>
+    <md-icon
       *ngIf="state === 'split'"
       class="view-button"
       svgIcon="split-blue"
       (click)="toggleView('split')" >
-    </mat-icon>
+    </md-icon>
   </div>
 </div>
 

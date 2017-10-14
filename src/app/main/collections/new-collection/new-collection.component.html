@@ -1,27 +1,27 @@
 
-<mat-card class="maincard">
+<md-card class="maincard">
     <h4>
       CREATE NEW COLLECTION
 
     </h4>
-  <mat-card-content>
+  <md-card-content>
     <form [formGroup]="collectionForm" (ngSubmit)="onSubmit()">
-      <mat-card style="" class="titleinputtop">
-        <mat-form-field style="width: 100%"  class="title-input">
-          <input matInput placeholder="Collection Title" formControlName="Name">
-        </mat-form-field>
-      </mat-card>
+      <md-card style="" class="titleinputtop">
+        <md-form-field style="width: 100%"  class="title-input">
+          <input mdInput placeholder="Collection Title" formControlName="Name">
+        </md-form-field>
+      </md-card>
       <br>
-      <mat-card style=" " class="textinputbottom">
-        <mat-form-field class="text-input">
-          <textarea matInput placeholder="A small description..." formControlName="Subtitle" >
+      <md-card style=" " class="textinputbottom">
+        <md-form-field class="text-input">
+          <textarea mdInput placeholder="A small description..." formControlName="Subtitle" >
       </textarea>
-        </mat-form-field>
-      </mat-card>
+        </md-form-field>
+      </md-card>
     </form>
-  </mat-card-content>
-  <button mat-raised-button class="new-collection-button3" [disabled]="!collectionForm.valid" type="submit" (click)="onSubmit()">CREATE NEW COLLECTION</button>
+  </md-card-content>
+  <button md-raised-button class="new-collection-button3" [disabled]="!collectionForm.valid" type="submit" (click)="onSubmit()">CREATE NEW COLLECTION</button>
 
-</mat-card>
+</md-card>
 
 
