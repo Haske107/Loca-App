@@ -5,9 +5,7 @@ import {MatDialog, MatIconRegistry, MatSnackBar} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {LocationService} from '../../services/location.service';
 import {Location} from '../../ts models/location.model';
-import {MatSidenavModule} from '@angular/material';
 import {SearchService} from "../../services/search.service";
-import {TypeFilterComponent} from "./filter/type-filter/type-filter.component";
 
 /**
  * Created by Jeff on 7/8/2017.

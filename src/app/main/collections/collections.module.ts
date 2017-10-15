@@ -6,7 +6,6 @@ import {NewCollectionComponent} from './new-collection/new-collection.component'
 import {CollectionSearchComponent} from './collection-search/collection-search.component';
 import {CollectionPreviewComponent} from './collection-preview/collection-preview.component';
 import {CommunityCollectionsComponent} from './community-collections/community-collections.component';
-import {CollectionButtonComponent} from '../search/Grid/card/collection-button/collection-button.component';
 import {AngularMaterialsModule} from "../../angular-materials.module";
 import {ReactiveFormsModule} from "@angular/forms";
 

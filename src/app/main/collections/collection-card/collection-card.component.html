@@ -1,37 +1,37 @@
 
 
-    <md-grid-list *ngIf="locations.length >= 9" cols="3" rowHeight="1:1">
-      <md-grid-tile *ngFor="let location of locations">
+    <mat-grid-list *ngIf="locations.length >= 9" cols="3" rowHeight="1:1">
+      <mat-grid-tile *ngFor="let location of locations">
         <img src="https://loca-app.herokuapp.com/files/{{location._id}}" style="width: 100%; height: 100%">
-      </md-grid-tile>
-    </md-grid-list>
-    <md-grid-list *ngIf="locations.length >= 6 && locations.length < 9" cols="2" Height="1:1">
-      <md-grid-tile *ngFor="let location of locations">
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list *ngIf="locations.length >= 6 && locations.length < 9" cols="2" Height="1:1">
+      <mat-grid-tile *ngFor="let location of locations">
         <img src="https://loca-app.herokuapp.com/files/{{location._id}}" style="width: 100%; height: 100%">
-      </md-grid-tile>
-    </md-grid-list>
-    <md-grid-list *ngIf="collection.locations.length < 6" cols="1" height="1:1">
-      <md-grid-tile *ngFor="let location of locations; let i = index">
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list *ngIf="collection.locations.length < 6" cols="1" height="1:1">
+      <mat-grid-tile *ngFor="let location of locations; let i = index">
         <img *ngIf="i === 0"  src="https://loca-app.herokuapp.com/files/{{location._id}}" style="width: 100%; height: 100%">
-      </md-grid-tile>
-    </md-grid-list>
+      </mat-grid-tile>
+    </mat-grid-list>
 
 
     <div class="nub">
-      <md-icon class="nubicon" svgIcon="Glass" color="primary"  (click)="emitSelection(collection)" ></md-icon>
+      <mat-icon class="nubicon" svgIcon="Glass" color="primary"  (click)="emitSelection(collection)" ></mat-icon>
     </div>
-    <md-grid-tile-footer *ngIf="Profile">
+    <mat-grid-tile-footer *ngIf="Profile">
       <img src="{{Profile.picture}} " style="width: 40px; height: 40px; border-radius: 20px; ">
       <div class="footer-info">
         <h6>{{collection.name}}</h6>
         <p>{{Profile.name}}</p>
       </div>
-  <md-icon class="stack" color="primary" svgIcon="stack"> </md-icon>
+  <mat-icon class="stack" color="primary" svgIcon="stack"> </mat-icon>
   <p class="stack-number">{{collection.locations.length}}</p>
   <!---
-  <md-icon svgIcon="Trash Can" color="primary"  (click)="deleteClicked.emit(collection._id)" class="trash"></md-icon>
+  <mat-icon svgIcon="Trash Can" color="primary"  (click)="deleteClicked.emit(collection._id)" class="trash"></mat-icon>
   -->
-     </md-grid-tile-footer>
+     </mat-grid-tile-footer>
 
 
 
