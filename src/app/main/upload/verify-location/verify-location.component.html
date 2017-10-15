@@ -1,3 +1,43 @@
-<p>
-  verify-location works!
-</p>
+<div class="container">
+  <div class="row title">
+    <div class="col-md-8 offset-md-2">
+      <h3>Let's see if we can find your property.</h3>
+    </div>
+  </div>
+  <div class="row">
+
+      <!-- ADDRESS BLOCK -->
+      <mat-card class="col-md-5 ">
+        <mat-input-container class="FWidth">
+          <input matInput placeholder="Street" [(ngModel)]="Street">
+        </mat-input-container>
+        <br>
+        <div>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="City"  [(ngModel)]="City" >
+          </mat-input-container>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="State"  [(ngModel)]="State">
+          </mat-input-container>
+        </div>
+        <div>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="Country" >
+          </mat-input-container>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="Postal" >
+          </mat-input-container>
+        </div>
+        <button mat-button (click)="onSubmit()">Submit</button>
+      </mat-card>
+
+      <!-- MAP COMPONENT -->
+      <mat-card class="col-md-5 offset-md-1 mapCard">
+          <agm-map #googlemaps [latitude]="lat" [longitude]="lng" [styles]="">
+              <agm-marker [latitude]="lat" [longitude]="lng" >
+              </agm-marker>
+          </agm-map>
+      </mat-card>
+
+  </div>
+</div>

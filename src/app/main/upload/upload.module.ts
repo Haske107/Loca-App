@@ -8,6 +8,7 @@ import {FillOutDetailsComponent} from './fill-out-details/fill-out-details.compo
 import {ReviewAndSubmitComponent} from './review-and-submit/review-and-submit.component';
 import {UploadPhotosComponent} from './upload-photos/upload-photos.component';
 import {VerifyLocationComponent} from './verify-location/verify-location.component';
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
   imports: [
@@ -15,8 +16,10 @@ import {VerifyLocationComponent} from './verify-location/verify-location.compone
       AngularMaterialsModule,
       FormsModule,
       ReactiveFormsModule,
-      Routing
-
+      Routing,
+      AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
+      })
   ],
   declarations: [
       UploadComponent,
