@@ -1,0 +1,110 @@
+h3 {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 34px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 40px;
+  text-align: left;
+}
+h5  {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 200;
+  text-align: left;
+}
+p {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 200;
+  text-align: left;
+}
+.FWidth {
+  width: 100%;
+}
+
+.HWidth   {
+  width: 48%;
+}
+
+
+
+// ADDRESS CARD
+.address-block  {
+  margin-top: 25px;
+}
+.Map  {
+  margin-top: 15px;
+}
+
+.container  {
+  padding-bottom: 5px;
+}
+.row {
+  margin-top: 30px;
+  padding-left: 8.25%;
+}
+.submit-button  {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+}
+
+
+// MAP CARD
+agm-map {
+  height: 300px;
+  width: 100%;
+  z-index: 2
+}
+.mapCard  {
+  padding: 0;
+}
+.upper-drawer {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  height: 30px;
+  border-bottom: 2px solid dimgrey;
+}
+.upper-drawer-title {
+  margin-top: 3px;
+  text-align: center;
+}
+.option-button-yes  {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  bottom: 0;
+  height: 50px;
+}
+.option-button-no {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  bottom: 0;
+  height: 50px;
+
+}
+.option-button-done {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+  height: 50px;
+
+}
+.lower-drawer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  background-color: white;
+  transition: .3s ease;
+}

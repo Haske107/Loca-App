@@ -1,3 +1,54 @@
-<p>
-  verify-location works!
-</p>
+<div class="container">
+  <div class="row title">
+    <div class="col-md-8 ">
+      <h3>Let's see if we can find your property.</h3>
+        <h5>
+            Are you currently on the property? <strong style="color: deepskyblue; cursor: pointer" (click)="getCurrentLocation()">Click Here</strong> to give us your exact location.
+        </h5>
+    </div>
+  </div>
+  <div class="row content-row">
+
+      <!-- ADDRESS CARD -->
+      <mat-card class="col-md-5 ">
+        <mat-input-container class="FWidth">
+          <input matInput placeholder="Street" [(ngModel)]="Street">
+        </mat-input-container>
+        <br>
+        <div>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="City"  [(ngModel)]="City" >
+          </mat-input-container>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="State"  [(ngModel)]="State">
+          </mat-input-container>
+        </div>
+        <div>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="Country" >
+          </mat-input-container>
+          <mat-input-container class="HWidth">
+            <input matInput placeholder="Postal" >
+          </mat-input-container>
+        </div>
+        <button mat-button class="submit-button" color="primary" (click)="onSubmit()">Submit</button>
+      </mat-card>
+
+      <!-- MAP CARD -->
+      <mat-card class="col-md-5 offset-md-1 mapCard">
+          <div class="upper-drawer" [ngStyle]="{'display' : display}">
+              <p class="upper-drawer-title">{{title}}</p>
+          </div>
+          <agm-map #googlemaps [latitude]="lat" [longitude]="lng" [styles]="">
+              <agm-marker [latitude]="lat" [longitude]="lng"  [markerDraggable]="drag" (dragEnd)="setMarkerCoords($event)" [ngStyle]="{'display' : display}">
+              </agm-marker>
+          </agm-map>
+          <div class="lower-drawer" [ngStyle]="{'display' : display, 'height': height}">
+              <button mat-button color="primary" class="option-button-yes"  [ngStyle]="{'display': buttonDisplay }"(click)="ifYes()"> Yes</button>
+              <button mat-button color="warn" class="option-button-no" [ngStyle]="{'display': buttonDisplay }" (click)="ifNo()"> No</button>
+              <button mat-button color="primary" class="option-button-done" [ngStyle]="{'display': doneDisplay }" (click)="done()">Done</button>
+          </div>
+      </mat-card>
+
+  </div>
+</div>
