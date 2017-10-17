@@ -26,7 +26,11 @@ h5:hover  {
 }
 
 
-
+.dropdown-menu  {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
 mat-toolbar{
   background-image: url('./../../assets/materials/Blue Gradient Side Panel.png ');
   background-size: cover;

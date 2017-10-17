@@ -33,7 +33,7 @@ import {MatNativeDateModule, MatProgressSpinnerModule} from '@angular/material';
       MatGridListModule, MatTabsModule, MatMenuModule, MatIconModule, MatInputModule, MatDialogModule,
       MatSnackBarModule, MatCheckboxModule, MatProgressBarModule, MatAutocompleteModule, MatSlideToggleModule,
       MatProgressSpinnerModule, MatRadioModule, MatSidenavModule, MatDatepickerModule, MatNativeDateModule, MatTableModule,
-      MatStepperModule
+      MatStepperModule, MatProgressSpinnerModule
   ],
     exports: [
         // ANGULAR MATERIALS
