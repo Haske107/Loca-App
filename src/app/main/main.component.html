@@ -15,7 +15,7 @@
     <!-- IF SIGNED IN -->
         <div class="dropdown-container"  *ngIf="isSignedIn"  dropdown [isOpen]="isOpen" (isOpenChange)="change($event)">
           <img src="{{Profile.picture}}" class="avatar" dropdownToggle>
-          <ul *dropdownMenu class="dropdown-menu" role="menu">
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
             <li role="menuitem"><a class="dropdown-item"  [routerLink]="'myprofile'">My Profile</a></li>
             <li role="menuitem"><a class="dropdown-item" (click)="openChat()">Messages</a></li>
             <li role="menuitem"><a class="dropdown-item" [routerLink]="'mycollections'">Collections</a></li>

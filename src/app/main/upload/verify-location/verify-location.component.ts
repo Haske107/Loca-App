@@ -13,7 +13,11 @@ export class VerifyLocationComponent implements OnInit {
     @Output() locationFound = new EventEmitter<any>();
     @ViewChild('googlemaps') googlemap ;
 
-
+    MapDisplay = 'inline';
+    LoadingDisplay = 'none';
+    textcolor = 'lightgrey';
+    color = 'grey';
+    cursor = 'not-allowed';
     height =  '0px';
     display = 'none';
     buttonDisplay = 'none';
@@ -127,6 +131,11 @@ export class VerifyLocationComponent implements OnInit {
 
     ifYes() {
         this.locationFound.emit({lat: this.lat, lng: this.lng});
+        this.color = '#7acc85';
+        this.textcolor = 'white';
+        this.cursor = 'pointer';
+        this.display = 'none';
+
     }
     ifNo()  {
         this.drag = true;
@@ -139,13 +148,23 @@ export class VerifyLocationComponent implements OnInit {
         this.doneDisplay = 'none';
         this.drag = false;
         this.locationFound.emit({lat: this.mlat, lng: this.mlng});
+        this.color = '#7acc85';
+        this.textcolor = 'white';
+        this.cursor = 'pointer';
+
     }
     setMarkerCoords(event: any)   {
         this.mlat = event.coords.lat;
         this.mlng = event.coords.lng;
     }
     getCurrentLocation()    {
+        //turn on loading screen
+        this.MapDisplay = 'none';
+        this.LoadingDisplay = "inline";
         navigator.geolocation.getCurrentPosition(position => {
+            //turn off loading screen
+            this.LoadingDisplay = 'none';
+            this.MapDisplay = 'inline';
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
             this.googlemap.triggerResize();
