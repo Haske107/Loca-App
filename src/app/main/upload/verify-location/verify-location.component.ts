@@ -9,6 +9,7 @@ export class VerifyLocationComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
   }
 

@@ -19,7 +19,6 @@ export class FileService {
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
-
   uploadPhotos(locationID: string, formdata: FormData)  {
     const headers = new Headers({
       'content': 'FormData'});
@@ -30,5 +29,4 @@ export class FileService {
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
-
 }
