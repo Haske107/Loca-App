@@ -9,20 +9,20 @@
   <md-card-content>
     <form [formGroup]="LocationData" >
       <md-input-container class="threefourth-width">
-        <input mdInput formControlName="streetAddress" placeholder="Street Address" value="">
+        <input mdInput formControlName="streetAddress" placeholder="Street Address">
       </md-input-container>
       <md-input-container class="zip-width">
-        <input mdInput formControlName="zip"  placeholder="Zip or Postal" value="">
+        <input mdInput formControlName="zip"  placeholder="Zip or Postal">
       </md-input-container>
       <br>
       <md-input-container>
-        <input mdInput formControlName="city"  placeholder="City" value="">
+        <input mdInput formControlName="city"  placeholder="City">
       </md-input-container>
       <md-input-container>
-        <input mdInput formControlName="state"  placeholder="State" value="">
+        <input mdInput formControlName="state"  placeholder="State">
       </md-input-container>
       <md-input-container>
-        <input mdInput formControlName="country"  placeholder="Country" value="">
+        <input mdInput formControlName="country"  placeholder="Country">
       </md-input-container>
       <hr>
 
@@ -38,12 +38,26 @@
       <md-input-container class="full-width">
         <textarea mdInput formControlName="description"  placeholder="Description" value=""></textarea>
       </md-input-container>
-      <md-input-container class="bathrooms">
-        <input mdInput formControlName="bathrooms" placeholder="Bathrooms" type="number" value="2">
-      </md-input-container>
-      <md-input-container class="parking">
-        <input mdInput formControlName="parking" placeholder="Parking" type="number" value="4">
-      </md-input-container>
+
+        <div class="fabs">
+          <h1>
+            Bathrooms
+          </h1>
+          <div>{{ numBathrooms }}</div>
+          <button  class="lilfab" md-mini-fab (click)="incrementBathroom()" ><md-icon  svgIcon="plus"></md-icon></button>
+          <button  class="lilfab" md-mini-fab (click)="decrementBathroom()"><md-icon  svgIcon="minus"></md-icon></button>
+        </div>
+
+      <div class="fabs">
+        <h1>
+          Parking
+        </h1>
+        <div>{{ numParking }}</div>
+        <button  class="lilfab" md-mini-fab (click)="incrementParking()" ><md-icon  svgIcon="plus"></md-icon></button>
+        <button  class="lilfab" md-mini-fab (click)="decrementParking()"><md-icon  svgIcon="minus"></md-icon></button>
+      </div>
+
+
       <md-select placeholder="Electricity" formControlName="electricity" >
         <md-option [value]="true" >
           Yes
