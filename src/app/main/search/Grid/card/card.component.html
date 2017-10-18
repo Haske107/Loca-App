@@ -1,5 +1,9 @@
   <img class="avatar" src="https://loca-app.herokuapp.com/files/{{location._id}}" (click)="toLocationProfile(location)" >
 
+  <div (mouseover)="isHovering = true" (mouseleave)="isHovering = false">
+      <h3 [ngStyle]="{'opacity': 1 || !isHovering }">{{location.name}}</h3>
+  </div>
+
 
 
 

@@ -18,6 +18,9 @@ export class CardComponent implements OnInit {
   @Input() collections: Collection[];
   filtered: Collection[] = [];
 
+
+  isHovering = false;
+
   constructor(private fileService: FileService, private cdr: ChangeDetectorRef, private locationService: LocationService)  {}
 
   ngOnInit() {
