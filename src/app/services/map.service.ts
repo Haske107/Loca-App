@@ -15,7 +15,7 @@ export class MapService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.get('https://maps.googleapis.com/maps/api/geocode/json' +
+    return this.http.get('http://maps.googleapis.com/maps/api/geocode/json' +
       '?address=' + location.address.streetAddress +
       ',' + location.address.city +
       ',' +location.address.state +

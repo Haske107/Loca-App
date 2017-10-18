@@ -20,7 +20,7 @@ export class LocationService    {
 
   //CRD
   getLocations(){
-    return this.http.get('https://loca-app.herokuapp.com/location')
+    return this.http.get('http://localhost:3000/location')
       .map((response: Response) => {
         const Locations = response.json().obj;
         let transformedLocations: Location[] = [];
@@ -60,14 +60,14 @@ export class LocationService    {
         const token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('https://loca-app.herokuapp.com/location' + token , body, {headers: headers})
+        return this.http.post('http://localhost:3000/location' + token , body, {headers: headers})
             .map((response: Response)=> response.json())
             .catch((error: Response)=> Observable.throw(error.json()));
     }
   getLocationsInRange(DistanceObject: any) {
     let body = DistanceObject;
     console.log(body);
-    return this.http.post('https://loca-app.herokuapp.com/location/search/', body )
+    return this.http.post('http://localhost:3000/location/search/', body )
       .map((response: Response) => {
         const Locations = response.json().obj;
         let transformedLocations: Location[] = [];

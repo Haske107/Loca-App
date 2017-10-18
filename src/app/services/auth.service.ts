@@ -77,7 +77,7 @@ export class AuthService   {
     const token = localStorage.getItem('access_token')
       ? '?token=' + localStorage.getItem('access_token')
       : '';
-    return this.http.get('https://loca-app.herokuapp.com/user/' + token, {headers: headers})
+    return this.http.get('http://localhost:3000/user/' + token, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }

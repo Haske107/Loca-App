@@ -5,7 +5,7 @@
     <div class="upload-box">
       <p>Drag your images here</p>
     </div>
-    <input class="image-input" type="file">
+    <input class="image-input" type="file" #ImageUploadInput (change)="onChange($event)" >
 
   </div>
 </div>

@@ -17,7 +17,7 @@ export class ChatService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     const header = new Headers({'content-type' : 'application/json'});
-    return this.http.post('https://loca-app.herokuapp.com/chat/createChat' + token, body, {headers: header})
+    return this.http.post('http://localhost:3000/chat/createChat' + token, body, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -28,7 +28,7 @@ export class ChatService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     const header = new Headers({'content-type' : 'application/json'});
-    return this.http.post('https://loca-app.herokuapp.com/chat/createMessage/' + chatID + token, body, {headers: header})
+    return this.http.post('http://localhost:3000/chat/createMessage/' + chatID + token, body, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -38,7 +38,7 @@ export class ChatService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     const header = new Headers({'content-type' : 'application/json'});
-    return this.http.get('https://loca-app.herokuapp.com/chat/getMessages/' + currentChat._id + token, {headers: header})
+    return this.http.get('http://localhost:3000/chat/getMessages/' + currentChat._id + token, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -48,7 +48,7 @@ export class ChatService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.get('https://loca-app.herokuapp.com/chat/getChats/' + userID + token, {headers: header})
+    return this.http.get('http://localhost:3000/chat/getChats/' + userID + token, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -59,7 +59,7 @@ export class ChatService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('https://loca-app.herokuapp.com/chat/deleteChat' + userID + token, body, {headers: header})
+    return this.http.patch('http://localhost:3000/chat/deleteChat' + userID + token, body, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
