@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-upload-photos',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload-photos.component.scss']
 })
 export class UploadPhotosComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
