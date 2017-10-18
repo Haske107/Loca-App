@@ -1,4 +1,26 @@
 
-<div class="header-image" *ngIf="location" >
-  <img class="header-image" src="https://loca-app.herokuapp.com/files/{{location._id}}">
+<div *ngIf="location" >
+    <div class="Image">
+        <img align="center" width="50%" height="50%" src="https://loca-app.herokuapp.com/files/{{location._id}}">
+    </div>
+      <h1 style="text-align:left">{{location.name}}</h1>
+        <div class="Details">
+            <p>Description: {{location.description}}</p>
+            <p>Uploaded on: {{location.uploadDate}}</p>
+            <p>Deposit Amount: ${{location.deposit}}</p>
+
+        </div>
 </div>
+
+<!--
+<div *ngIf="Location">
+    <div class="wrapper">
+        <div class="left">
+            <img align="left" width="100%" height="100%" src="https://loca-app.herokuapp.com/files/{{location._id}}">
+        </div>
+        <div class="right">
+            <h1>{{location.name}}</h1>
+        </div>
+    </div>
+</div>
+ -->
