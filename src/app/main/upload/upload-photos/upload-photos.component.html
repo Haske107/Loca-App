@@ -5,7 +5,7 @@
     <div class="upload-box">
       <p>Drag your images here</p>
     </div>
-    <input class="image-input" type="file" #ImageUploadInput (change)="onChange($event)" >
-
+    <input class="image-input" type="file" #FileInput >
+  <button md-raised-button (click)="uploadFile()">Upload</button>
   </div>
 </div>
