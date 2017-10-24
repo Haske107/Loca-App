@@ -4,8 +4,15 @@
   background-color: whitesmoke;
   border-radius: 5px;
   text-align: center;
-  ;
+  border: 1px solid lightgrey;
 }
 .image-input {
 
+}
+
+
+.inner-shadow {
+  -moz-box-shadow:    inset 0 0 30px #bdbdbd;
+  -webkit-box-shadow: inset 0 0 30px #bdbdbd;
+  box-shadow:         inset 0 0 30px #bdbdbd;
 }

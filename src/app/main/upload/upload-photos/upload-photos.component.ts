@@ -7,6 +7,7 @@ import {Location} from '../../../ts models/location.model';
   templateUrl: './upload-photos.component.html',
   styleUrls: ['./upload-photos.component.scss']
 })
+
 export class UploadPhotosComponent implements OnInit {
 
     // GAIN LIVE ACCESS TO THE HTML FILE INPUT ELEMENT
@@ -15,6 +16,7 @@ export class UploadPhotosComponent implements OnInit {
     // AN INSTANCE OF THE CURRENT LOCATION BEING UPLOADED IS INJECTED INTO THIS COMPONENT
         // HAS TO HAVE BEEN INITILIAZED BY THE DATABASE IN ORDER TO RECEIVE UNIQUE ID
     @Input()location: Location;
+    location_id = 'testing-DELETE ME ASAP';
 
   constructor(private fileService: FileService) { }
 
@@ -31,13 +33,13 @@ export class UploadPhotosComponent implements OnInit {
         // ASSIGN KEYWORD PHOTO FOR THE SERVER
             // MAKE A FOR LOOP TO MAKE IT MORE DYNAMIC
         formData.append('photo', FileList[0]);
-    // LETS DOUBLE CHECK THAT THE INJECTED LOCATION HAS AN ID
+      // LETS DOUBLE CHECK THAT THE INJECTED LOCATION HAS AN ID
         if (!this.location._id)   {
             // FOR NOW, SINCE WE WONT HAVE ONE INJECTED FOR DEV PURPOSES, WE WILL REPLACE IT
-            this.location._id = 'testing-DELETE ME ASAP';
+
         }
       // CALL THE MAGICAL FILE SERVICE TO SEND IT INTO WONDERLAND
-        this.fileService.uploadPhoto( this.location._id, formData)
+        this.fileService.uploadPhoto( this.location_id, formData)
             .subscribe(
                 data =>  {
                     // 201 SOMETHING GOOD HAPPENED
@@ -49,6 +51,21 @@ export class UploadPhotosComponent implements OnInit {
                 }
             );
   }
+
+
+
+
+  //DROP FUNCTIONS
+
+    onDragOver(event: any)  {
+        event.preventDefault();
+        //console.log(event);
+    }
+    onDrop(event: any)  {
+        event.preventDefault();
+        console.log(event.dataTransfer.getData("File"));
+    }
+
 
 
 }

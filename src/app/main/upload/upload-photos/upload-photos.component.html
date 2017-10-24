@@ -2,10 +2,10 @@
   <div class="col-md-6 offset-md-3">
     <h5>You're going to need some photos of your space</h5>
     <p>You are allowed up to 10 photos<br>Upload them all at once or one at a time</p>
-    <div class="upload-box">
+    <div class="upload-box inner-shadow" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
       <p>Drag your images here</p>
     </div>
     <input class="image-input" type="file" #FileInput >
-  <button md-raised-button (click)="uploadFile()">Upload</button>
+  <button mat-raised-button (click)="uploadFile()" >Upload</button>
   </div>
 </div>
