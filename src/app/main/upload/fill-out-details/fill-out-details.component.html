@@ -7,11 +7,11 @@
   </h3>
   <hr>
   <md-card-content>
-    <form [formGroup]="LocationData" >
-      <md-input-container class="threefourth-width">
+    <form [formGroup]="AddressData" >
+      <md-input-container >
         <input mdInput formControlName="streetAddress" placeholder="Street Address">
       </md-input-container>
-      <md-input-container class="zip-width">
+      <md-input-container>
         <input mdInput formControlName="zip"  placeholder="Zip or Postal">
       </md-input-container>
       <br>
@@ -25,8 +25,10 @@
         <input mdInput formControlName="country"  placeholder="Country">
       </md-input-container>
       <hr>
+    </form>
 
-      <md-input-container class="threefourth-width">
+    <form [formGroup]="LocationData" >
+      <md-input-container>
         <input mdInput formControlName="name" placeholder="Property Title" value="">
       </md-input-container>
       <md-select placeholder="Location Type" formControlName="type" >
@@ -35,45 +37,49 @@
         </md-option>
       </md-select>
       <br>
-      <md-input-container class="full-width">
+      <md-input-container >
         <textarea mdInput formControlName="description"  placeholder="Description" value=""></textarea>
       </md-input-container>
+      <md-input-container>
+        <input mdInput formControlName="deposit" placeholder="Deposit ($)"  value="200">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput formControlName="rate" placeholder="Rate per Day ($)"  value="0">
+      </md-input-container>
+      <hr>
+    </form>
 
-        <div class="fabs">
-          <h1>
-            Bathrooms
-          </h1>
-          <div>{{ numBathrooms }}</div>
-          <button  class="lilfab" md-mini-fab (click)="incrementBathroom()" ><md-icon  svgIcon="plus"></md-icon></button>
-          <button  class="lilfab" md-mini-fab (click)="decrementBathroom()"><md-icon  svgIcon="minus"></md-icon></button>
-        </div>
+    <form [formGroup]="DetailsData" >
 
-      <div class="fabs">
+      <div class="details">
+        <h1>
+          Bathrooms
+        </h1>
+        <div>{{ numBathrooms }}</div>
+        <button (click)="incrementBathroom()" >+</button>
+        <button (click)="decrementBathroom()">-</button>
+      </div>
+
+      <div class="details">
         <h1>
           Parking
         </h1>
         <div>{{ numParking }}</div>
-        <button  class="lilfab" md-mini-fab (click)="incrementParking()" ><md-icon  svgIcon="plus"></md-icon></button>
-        <button  class="lilfab" md-mini-fab (click)="decrementParking()"><md-icon  svgIcon="minus"></md-icon></button>
+        <button (click)="incrementParking()" >+</button>
+        <button (click)="decrementParking()">-</button>
       </div>
 
-
-      <md-select placeholder="Electricity" formControlName="electricity" >
-        <md-option [value]="true" >
-          Yes
-        </md-option>
-        <md-option [value]="false" >
-          No
-        </md-option>
-      </md-select>
-      <md-input-container class="deposit">
-        <input mdInput formControlName="deposit" placeholder="Deposit ($)"  value="200">
-      </md-input-container>
-      <md-input-container class="rate">
-        <input mdInput formControlName="rate" placeholder="Rate per Day ($)"  value="0">
-      </md-input-container>
-      <hr>
+      <div class="details">
+        <h1>
+          Electricity
+        </h1>
+        <button id="trueBtn" (click)="electricityTrue()" >Yes</button>
+        <button id="falseBtn" (click)="electricityFalse()">No</button>
+      </div>
 
     </form>
   </md-card-content>
+
+  <button (click)="nextStep()">NEXT PAGE</button>
+
 </md-card>

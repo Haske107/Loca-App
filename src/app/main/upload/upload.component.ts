@@ -20,11 +20,11 @@ export class UploadComponent implements OnInit {
     locationID = '';
     state = 0;
 
-    propertyAddress = '1 University Dr';
-    propertyZip = '92867';
-    propertyCity = 'Orange';
-    propertyState = 'CA';
-    propertyCountry = 'USA';
+    propertyAddress = '';
+    propertyZip = '';
+    propertyCity = '';
+    propertyState = '';
+    propertyCountry = '';
 
 
     // from upload component
@@ -34,7 +34,7 @@ export class UploadComponent implements OnInit {
     numBathrooms = 0;
     numParking = 0;
     electricity = false;
-    desposit = 0.0;
+    deposit = 0.0;
     ratePerDay = 0.0;
 
     // from rules component
