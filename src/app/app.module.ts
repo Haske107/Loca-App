@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {Routing} from './app.routing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 
 // Other Goodies
