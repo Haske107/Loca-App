@@ -24,9 +24,11 @@ import {MatRadioModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material';
 import {MatSidenavModule} from '@angular/material';
 import {MatNativeDateModule, MatProgressSpinnerModule} from '@angular/material';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   imports: [
+      HttpClientModule,
     CommonModule,
       // ANGULAR MATERIALS
       MatCardModule, MatButtonModule, MatToolbarModule, MatSelectModule, MatListModule, MatChipsModule,

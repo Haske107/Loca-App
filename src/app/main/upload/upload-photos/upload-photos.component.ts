@@ -56,14 +56,16 @@ export class UploadPhotosComponent implements OnInit {
 
 
   //DROP FUNCTIONS
-
     onDragOver(event: any)  {
         event.preventDefault();
-        //console.log(event);
+        event.dataTransfer.setData("file", "FileInput");
+        console.log(event);
+
     }
     onDrop(event: any)  {
         event.preventDefault();
-        console.log(event.dataTransfer.getData("File"));
+        event.target.appendChild(document.getElementById("FileInput"));
+        console.log(event);
     }
 
 
