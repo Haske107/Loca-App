@@ -1,10 +1,9 @@
 // Angular Goodies
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {Routing} from './app.routing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MATERIAL_COMPATIBILITY_MODE} from '@angular/material';
 
 
 // Other Goodies
@@ -37,7 +36,7 @@ import {AngularMaterialsModule} from './angular-materials.module';
         MainModule,
         BrowserModule,
         Routing,
-        HttpModule,
+        HttpClientModule,
          ],
     providers:  [
         AuthService,
