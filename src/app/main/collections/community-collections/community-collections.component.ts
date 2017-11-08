@@ -1,7 +1,6 @@
 import {AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
 import {CollectionService} from "../../../services/collection.service";
 import {Collection} from "../../../ts models/collection.model";
-import  {_} from "underscore"
 import {MatDialog} from "@angular/material";
 import {NewCollectionComponent} from "../new-collection/new-collection.component";
 
@@ -30,15 +29,7 @@ export class CommunityCollectionsComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit()  {
-    this.collectionService.getPublicCollections()
-      .subscribe(
-        (collections: Collection[]) => {
-          let userID = localStorage.getItem('userID');
-          this.collections = collections;
-          this.subscribedcollections = _.filter(this.collections, collection => {
-            return _.contains(collection.followers, userID)
-          });
-        });
+
   }
 
   onChange()  {
