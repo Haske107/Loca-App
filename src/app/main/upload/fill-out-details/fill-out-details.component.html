@@ -1,85 +1,102 @@
-<md-card class="center-card">
-  <md-card-header>
+<body>
 
-  </md-card-header>
-  <h3>
-    Give us some more information about your location!
-  </h3>
-  <hr>
-  <md-card-content>
-    <form [formGroup]="AddressData" >
-      <md-input-container >
-        <input mdInput formControlName="streetAddress" placeholder="Street Address">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput formControlName="zip"  placeholder="Zip or Postal">
-      </md-input-container>
-      <br>
-      <md-input-container>
-        <input mdInput formControlName="city"  placeholder="City">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput formControlName="state"  placeholder="State">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput formControlName="country"  placeholder="Country">
-      </md-input-container>
-      <hr>
-    </form>
+<h1>
+  Location Details
+</h1>
+<hr>
+<form [formGroup]="AddressData" >
+  <md-input-container class="details">
+    <input mdInput formControlName="streetAddress" placeholder="Street Address">
+  </md-input-container>
+  <md-input-container class="details">
+    <input mdInput formControlName="zip"  placeholder="Zip or Postal">
+  </md-input-container>
+  <md-input-container class="details">
+    <input mdInput formControlName="city"  placeholder="City">
+  </md-input-container>
+  <md-input-container class="details">
+    <input mdInput formControlName="state"  placeholder="State">
+  </md-input-container>
+  <md-input-container class="details">
+    <input mdInput formControlName="country"  placeholder="Country">
+  </md-input-container>
+</form>
 
-    <form [formGroup]="LocationData" >
-      <md-input-container>
-        <input mdInput formControlName="name" placeholder="Property Title" value="">
-      </md-input-container>
-      <md-select placeholder="Location Type" formControlName="type" >
-        <md-option *ngFor="let type of Types" [value]="type.value" >
-          {{ type.value }}
-        </md-option>
-      </md-select>
-      <br>
-      <md-input-container >
-        <textarea mdInput formControlName="description"  placeholder="Description" value=""></textarea>
-      </md-input-container>
-      <md-input-container>
-        <input mdInput formControlName="deposit" placeholder="Deposit ($)"  value="200">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput formControlName="rate" placeholder="Rate per Day ($)"  value="0">
-      </md-input-container>
-      <hr>
-    </form>
+<form [formGroup]="LocationData" >
+  <md-input-container class="details">
+    <input mdInput formControlName="name" placeholder="Property Title" value="">
+  </md-input-container>
+  <md-select placeholder="Location Type" formControlName="type" class="details">
+    <md-option *ngFor="let type of Types" [value]="type.value" >
+      {{ type.value }}
+    </md-option>
+  </md-select>
+  <md-input-container class="details">
+    <textarea mdInput formControlName="description"  placeholder="Description" value=""></textarea>
+  </md-input-container>
+  <md-input-container class="details">
+    <input mdInput formControlName="deposit" placeholder="Deposit ($USD)"  value="200">
+  </md-input-container>
+  <md-input-container class="details">
+    <input mdInput formControlName="rate" placeholder="Rate per Day ($USD)"  value="0">
+  </md-input-container>
+</form>
 
-    <form [formGroup]="DetailsData" >
+<form [formGroup]="DetailsData" >
 
-      <div class="details">
-        <h1>
-          Bathrooms
-        </h1>
-        <div>{{ numBathrooms }}</div>
-        <button (click)="incrementBathroom()" >+</button>
-        <button (click)="decrementBathroom()">-</button>
-      </div>
+  <div class="detailsBottom">
+    <h2> Bathrooms </h2>
+    <button class="elecbtn" (click)="decrementBathroom()">
+      <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
+    </button>
+    <button class="elecbtn" (click)="incrementBathroom()" >
+      <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
+    </button>
+    <h2 class="nums">{{ numBathrooms }}</h2>
+  </div>
 
-      <div class="details">
-        <h1>
-          Parking
-        </h1>
-        <div>{{ numParking }}</div>
-        <button (click)="incrementParking()" >+</button>
-        <button (click)="decrementParking()">-</button>
-      </div>
+  <div class="detailsBottom">
+    <h2> Parking </h2>
+    <button class="elecbtn" (click)="decrementParking()">
+      <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
+    </button>
+    <button class="elecbtn" (click)="incrementParking()" >
+      <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
+    </button>
+    <h2 class="nums">{{ numParking }}</h2>
+  </div>
 
-      <div class="details">
-        <h1>
-          Electricity
-        </h1>
-        <button id="trueBtn" (click)="electricityTrue()" >Yes</button>
-        <button id="falseBtn" (click)="electricityFalse()">No</button>
-      </div>
+  <div class="detailsBottom">
+    <h2> Electricity </h2>
+    <button class="elecbtnNo" id="falseBtn" (click)="electricityFalse()">
+      <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+      </svg>
+    </button>
+    <button class="elecbtnYes" id="trueBtn" (click)="electricityTrue()" >
+      <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+      </svg>
+    </button>
+  </div>
 
-    </form>
-  </md-card-content>
+</form>
 
-  <button (click)="nextStep()">NEXT PAGE</button>
+<button class="stepBtn" (click)="nextStep()" md-button mdStepperPrevious="">BACK</button>
+<button class="stepBtn" (click)="nextStep()" md-button mdStepperNext>NEXT</button>
 
-</md-card>
+</body>

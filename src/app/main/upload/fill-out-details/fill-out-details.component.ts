@@ -1,14 +1,14 @@
-import {Component, EventEmitter, Host, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Host, OnInit, Output, OnDestroy, OnChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UploadComponent} from '../upload.component';
-import {document} from "ngx-bootstrap/utils/facade/browser";
+import {document} from 'ngx-bootstrap/utils/facade/browser';
 
 @Component({
   selector: 'app-fill-out-details',
   templateUrl: './fill-out-details.component.html',
   styleUrls: ['./fill-out-details.component.scss']
 })
-export class FillOutDetailsComponent implements OnInit {
+export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
 
   // Jason and Lili
     private addr = '';
@@ -65,7 +65,7 @@ export class FillOutDetailsComponent implements OnInit {
           streetAddress: new FormControl(null, Validators.required),
           city: new FormControl(null , Validators.required),
           state: new FormControl(null , Validators.required),
-          zip: new FormControl(null , Validators.required),
+          zip: new FormControl(null , [Validators.required, Validators.pattern('\\d\\d\\d\\d\\d')]),
           country: new FormControl(null , Validators.required),
       });
 
@@ -92,10 +92,17 @@ export class FillOutDetailsComponent implements OnInit {
       this.LocationData.get('name').setValue(this.propertyTitle);
       this.LocationData.get('description').setValue(this.locationDescription);
       this.LocationData.get('type').setValue(this.locationType);
-      this.LocationData.get('deposit').setValue(this.deposit);
-      this.LocationData.get('rate').setValue(this.ratePerDay);
+      // this.LocationData.get('deposit').setValue(this.deposit.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+      // this.LocationData.get('rate').setValue(this.ratePerDay.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+      this.LocationData.get('deposit').setValue(this.deposit.toFixed(2));
+      this.LocationData.get('rate').setValue(this.ratePerDay.toFixed(2));
   }
-
+  ngOnDestroy() {
+      this.nextStep();
+  }
+  ngOnChanges() {
+      this.nextStep();
+  }
 
     nextStep() {
         this.parent.propertyAddress = this.AddressData.get('streetAddress').value;
@@ -135,13 +142,13 @@ export class FillOutDetailsComponent implements OnInit {
 
     electricityTrue() {
       this.electricity = true;
-      document.getElementById('trueBtn').style.background = '#828282';
-      document.getElementById('falseBtn').style.background = '#FFFFFF';
+      document.getElementById('trueBtn').style.background = '#32b9d7';
+      document.getElementById('falseBtn').style.background = '#828282';
     }
 
     electricityFalse() {
         this.electricity = false;
-        document.getElementById('trueBtn').style.background = '#FFFFFF';
-        document.getElementById('falseBtn').style.background = '#828282';
+        document.getElementById('trueBtn').style.background = '#828282';
+        document.getElementById('falseBtn').style.background = '#32b9d7';
     }
 }
