@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 @Injectable()
 export class LocationService    {
 
-  public location : Location;
+  public location: Location;
 
   constructor(private http: Http, private router: Router){}
 
@@ -53,6 +53,9 @@ export class LocationService    {
       })
       .catch((error: Response)=> Observable.throw(error.json()));
   };
+
+
+
   saveLocation(location: Location){
         const body = JSON.stringify(location);
         const headers = new Headers({
