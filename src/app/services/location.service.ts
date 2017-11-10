@@ -1,31 +1,37 @@
 /**
  * Created by Jeff Haskell on 7/12/2017.
  */
-import {Http, Response, Headers} from "@angular/http";
-import {Injectable} from "@angular/core";
+import {Http, Response, Headers} from '@angular/http';
+import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
-
-import {Location} from "../ts models/location.model";
-import {QueryForm} from "../ts models/queryform.model";
-import {Router} from "@angular/router";
+import {Observable} from 'rxjs/Observable';
+import {Location} from '../ts models/location.model';
+import {QueryForm} from '../ts models/queryform.model';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class LocationService    {
 
   public location: Location;
 
-  constructor(private http: Http, private router: Router){}
+  constructor(private http: Http, private router: Router) {}
 
-
-  //CRD
-  getLocations(){
+  getLocation(location_id: string) {
+    return this.http.get('https://localhost:3000/location/find?_ID=' + location_id)
+        .map((response: Response) =>  {
+          const Location = response.json().location;
+          console.log(Location);
+          return null;
+        })
+        .catch((error: Response) => Observable.throw(error.json()));
+  }
+  getLocations() {
     return this.http.get('https://loca-app.herokuapp.com/location')
       .map((response: Response) => {
         const Locations = response.json().obj;
-        let transformedLocations: Location[] = [];
-        for(let loca of Locations)  {
-          let location : Location = {
+        const transformedLocations: Location[] = [];
+        for (const loca of Locations)  {
+          const location: Location = {
             _id: loca._id,
             collections: loca.collections,
             views: loca.views,
@@ -51,12 +57,9 @@ export class LocationService    {
         }
         return transformedLocations;
       })
-      .catch((error: Response)=> Observable.throw(error.json()));
-  };
-
-
-
-  saveLocation(location: Location){
+      .catch((error: Response) => Observable.throw(error.json()));
+  }
+  saveLocation(location: Location) {
         const body = JSON.stringify(location);
         const headers = new Headers({
             'Content-Type': 'application/json'});
@@ -64,18 +67,18 @@ export class LocationService    {
             ? '?token=' + localStorage.getItem('id_token')
             : '';
         return this.http.post('https://loca-app.herokuapp.com/location' + token , body, {headers: headers})
-            .map((response: Response)=> response.json())
-            .catch((error: Response)=> Observable.throw(error.json()));
+            .map((response: Response) => response.json())
+            .catch((error: Response) => Observable.throw(error.json()));
     }
   getLocationsInRange(DistanceObject: any) {
-    let body = DistanceObject;
+    const body = DistanceObject;
     console.log(body);
     return this.http.post('https://loca-app.herokuapp.com/location/search/', body )
       .map((response: Response) => {
         const Locations = response.json().obj;
-        let transformedLocations: Location[] = [];
-        for(let loca of Locations)  {
-          let location : Location = {
+        const transformedLocations: Location[] = [];
+        for (const loca of Locations)  {
+          const location: Location = {
             _id: loca._id,
             collections: loca.collections,
             views: loca.views,
@@ -101,49 +104,12 @@ export class LocationService    {
         }
         return transformedLocations;
       })
-      .catch((error: Response)=> Observable.throw(error.json()));
-  };
-  searchLocation(query: QueryForm) {}
-  deleteLocation(locationID: string)  {}
-  //UPDATES
-  updateAddress(locationID: string, newAddress: {
-    streetAddress: string,
-    city: string,
-    state: string,
-    zip: string,
-    country: string
-  })  {}
-  updateName(locationID: string, newName: string)  {
-
+      .catch((error: Response) => Observable.throw(error.json()));
   }
-  updateDescription(locationID: string, newDescription: string) {
-
-  }
-  updateRules(locationID: string, newRules: string[]) {
-
-  }
-  updateDeposit(locationID: string, newDeposit: number) {
-
-  }
-  updateRate(locationID: string, newRate: number) {
-
-  }
-  updateType(locationID: string, newType: string) {
-
-  }
-  updateBathrooms(locationID: string, newBathrooms: number) {
-
-  }
-  updateElectricity(locationID: string, newElectricity: boolean)  {
-
-  }
-  updateParkingSpots(locationID: string, newPakringSpots: number) {
-
-  }
-  //
   toProfilePage(location: Location) {
-    this.location = location;
-    this.router.navigateByUrl('/main/locationprofile');
+      this.location = location;
+      localStorage.setItem('currloc', JSON.stringify(location));
+      this.router.navigateByUrl('/main/locationprofile');
   }
   getCurrentLocation() {
     return this.location;
