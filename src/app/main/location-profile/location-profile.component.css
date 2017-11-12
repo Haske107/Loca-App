@@ -1,5 +1,9 @@
 @charset "utf-8";
 /* Global Styles */
+.MainCard	{
+	margin: 20px;
+	border: none;
+}
 
 body {
 	margin-left: auto;
