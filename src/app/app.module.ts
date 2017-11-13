@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {Routing} from './app.routing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//
+
 
 // Other Goodies
 import 'hammerjs';
