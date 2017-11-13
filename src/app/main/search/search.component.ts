@@ -109,7 +109,7 @@ export class SearchComponent implements OnInit {
 
 
     //VIEW STATE MONITOR
-    state = 'split';
+    state = 'grid';
     //INJECTED LOCATIONS
     locations: Location[];
 

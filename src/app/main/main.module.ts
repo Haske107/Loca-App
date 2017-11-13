@@ -11,11 +11,11 @@ import {CollectionsModule} from './collections/collections.module';
 import {RegulationsModule} from './regulations/regulations.module';
 import {ChatModule} from './chat/chat.module';
 import {LocationProfileModule} from './location-profile/location-profile.module';
-import {Routing} from "../app.routing";
-import {BsDropdownModule} from "ngx-bootstrap";
-import {BrowserModule} from "@angular/platform-browser";
-import {HttpModule} from "@angular/http";
-import {AngularMaterialsModule} from "../angular-materials.module";
+import {Routing} from '../app.routing';
+import {BsDropdownModule} from 'ngx-bootstrap';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpModule} from '@angular/http';
+import {AngularMaterialsModule} from '../angular-materials.module';
 
 // MODULES
 @NgModule({

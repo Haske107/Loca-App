@@ -61,7 +61,7 @@ export class MapComponent implements OnInit {
       }
     );
 
-    //STYLE THE MAP
+    // STYLE THE MAP
     this.googlemap.styles = [
       {
         "featureType": "landscape.natural",
