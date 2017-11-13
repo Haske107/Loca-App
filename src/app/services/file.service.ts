@@ -15,7 +15,7 @@ export class FileService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('https://loca-app.herokuapp.com/files/main/:'+ locationID + token, formdata, {headers: headers} )
+    return this.http.post('http://localhost:3000/files/main/:'+ locationID + token, formdata, {headers: headers} )
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
@@ -25,7 +25,7 @@ export class FileService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('https://loca-app.herokuapp.com/files/other/:'+ locationID + token, formdata, {headers: headers} )
+    return this.http.post('http://localhost:3000/files/other/:'+ locationID + token, formdata, {headers: headers} )
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }

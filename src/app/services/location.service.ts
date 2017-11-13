@@ -16,6 +16,7 @@ export class LocationService    {
 
   constructor(private http: Http, private router: Router) {}
 
+
   getLocation(location_id: string) {
     return this.http.get('https://localhost:3000/location/find?_ID=' + location_id)
         .map((response: Response) =>  {
@@ -73,7 +74,7 @@ export class LocationService    {
   getLocationsInRange(DistanceObject: any) {
     const body = DistanceObject;
     console.log(body);
-    return this.http.post('https://loca-app.herokuapp.com/location/search/', body )
+    return this.http.post('http://localhost:3000/location/search/', body )
       .map((response: Response) => {
         const Locations = response.json().obj;
         const transformedLocations: Location[] = [];

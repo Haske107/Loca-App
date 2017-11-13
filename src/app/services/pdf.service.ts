@@ -11,14 +11,14 @@ export class PdfService {
 
   getAgreement1() {
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.get('https://loca-app.herokuapp.com/pdf/Agreement1', {headers: headers})
+    return this.http.get('http://localhost:3000/pdf/Agreement1', {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
 
   updateAgreement1(PDF: FormData) {
     const headers = new Headers({'Content': 'FormData'});
-    return this.http.post('https://loca-app.herokuapp.com/pdf/Agreement1',PDF, {headers: headers})
+    return this.http.post('http://localhost:3000/pdf/Agreement1',PDF, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }

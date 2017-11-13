@@ -14,7 +14,7 @@ export class CollectionService {
 
   //READ
   getPublicCollections() {
-    return this.http.get('https://loca-app.herokuapp.com/collection/community/')
+    return this.http.get('http://localhost:3000/collection/community/')
         .map((response: Response) => {
           const Collections = response.json().obj;
           let transformedCollections: Collection[] = [];
@@ -38,7 +38,7 @@ export class CollectionService {
         .catch((error: Response)=> Observable.throw(error.json()));
   };
   getPrivateCollections() {
-    return this.http.get('https://loca-app.herokuapp.com/collection/private/' + localStorage.getItem('userID'))
+    return this.http.get('http://localhost:3000/collection/private/' + localStorage.getItem('userID'))
       .map((response: Response) => {
         const Collections = response.json().obj;
         let transformedCollections: Collection[] = [];
@@ -62,7 +62,7 @@ export class CollectionService {
       .catch((error: Response)=> Observable.throw(error.json()));
   };
   getCreatedCollections() {
-    return this.http.get('https://loca-app.herokuapp.com/collection/created/' + localStorage.getItem('userID'))
+    return this.http.get('http://localhost:3000/collection/created/' + localStorage.getItem('userID'))
       .map((response: Response) => {
         const Collections = response.json().obj;
         let transformedCollections: Collection[] = [];
@@ -91,7 +91,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.get('https://loca-app.herokuapp.com/collection/locations/' + collectionID + token , {headers: headers})
+    return this.http.get('http://localhost:3000/collection/locations/' + collectionID + token , {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
@@ -104,7 +104,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.delete('https://loca-app.herokuapp.com/collection/remove/' + collectionID + token , {headers: headers})
+    return this.http.delete('http://localhost:3000/collection/remove/' + collectionID + token , {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
@@ -115,7 +115,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('https://loca-app.herokuapp.com/collection/' + localStorage.getItem('userID') + token, body, {headers: headers})
+    return this.http.post('http://localhost:3000/collection/' + localStorage.getItem('userID') + token, body, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
@@ -128,7 +128,7 @@ export class CollectionService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('https://loca-app.herokuapp.com/collection/updatePublicity/' + collectionID + token, null,  {headers: headers})
+    return this.http.patch('http://localhost:3000/collection/updatePublicity/' + collectionID + token, null,  {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
@@ -140,7 +140,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.patch('https://loca-app.herokuapp.com/collection/addLocation/' + collectionID + token, body, {headers: headers})
+    return this.http.patch('http://localhost:3000/collection/addLocation/' + collectionID + token, body, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }
@@ -151,7 +151,7 @@ export class CollectionService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('https://loca-app.herokuapp.com/collection/removeLocation/' + collectionID + token , body, {headers: headers})
+    return this.http.patch('http://localhost:3000/collection/removeLocation/' + collectionID + token , body, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> error.json());
   }
