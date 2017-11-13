@@ -2,16 +2,16 @@
 <div class="row">
   <div class="col-lg-8 offset-lg-2 page">
     <h2> City of Orange</h2>
-    <md-list>
-      <md-list-item class="item1" [routerLink]="'rulesregulations'" (click)="toggleSection(1)"><h3>Rules and Regulations</h3></md-list-item>
+    <mat-list>
+      <mat-list-item class="item1" [routerLink]="'rulesregulations'" (click)="toggleSection(1)"><h3>Rules and Regulations</h3></mat-list-item>
       <router-outlet *ngIf="current === 1" ></router-outlet>
-      <md-list-item class="item2" [routerLink]="'socialservices'" (click)="toggleSection(2)"><h3>Social Services</h3></md-list-item>
+      <mat-list-item class="item2" [routerLink]="'socialservices'" (click)="toggleSection(2)"><h3>Social Services</h3></mat-list-item>
       <router-outlet *ngIf="current === 2"></router-outlet>
-      <md-list-item class="item3" [routerLink]="'permit'" (click)="toggleSection(3)"><h3>Permit</h3></md-list-item>
+      <mat-list-item class="item3" [routerLink]="'permit'" (click)="toggleSection(3)"><h3>Permit</h3></mat-list-item>
       <router-outlet *ngIf="current === 3"></router-outlet>
-      <md-list-item class="item4" [routerLink]="'students'" (click)="toggleSection(4)"><h3>Students</h3></md-list-item>
+      <mat-list-item class="item4" [routerLink]="'students'" (click)="toggleSection(4)"><h3>Students</h3></mat-list-item>
       <router-outlet *ngIf="current === 4"></router-outlet>
-    </md-list>
+    </mat-list>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {ChatComponent} from '../chat/chat.component';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {CollectionService} from '../../services/collection.service';
 import {Collection} from '../../ts models/collection.model';
 
@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
   username1 = '';
   CreatedCollections: Collection[] = [];
 
-  constructor( private userservice: UserService, private collectionService: CollectionService, private dialog: MdDialog ) { }
+  constructor( private userservice: UserService, private collectionService: CollectionService, private dialog: MatDialog ) { }
 
   ngOnInit() {
     this.userservice.getUser( localStorage.getItem( 'userID' ) )

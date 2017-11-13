@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, NgZone} from '@angular/c
 import {Collection} from "../../../../../ts models/collection.model";
 import {Location} from "../../../../../ts models/location.model";
 import {CollectionService} from "../../../../../services/collection.service";
-import {MdIconRegistry, MdSnackBar} from "@angular/material";
+import {MatIconRegistry, MatSnackBar} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
@@ -18,9 +18,9 @@ export class CollectionButtonComponent implements OnInit {
 
 
   constructor(private collectionService: CollectionService,
-              private snackbar: MdSnackBar,
+              private snackbar: MatSnackBar,
               private zone: NgZone,
-              private iconRegistry: MdIconRegistry,
+              private iconRegistry: MatIconRegistry,
               private sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
     'plus',

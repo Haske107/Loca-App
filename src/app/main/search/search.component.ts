@@ -1,13 +1,11 @@
 import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
-import {MdDialog, MdIconRegistry, MdSnackBar} from '@angular/material';
+import {MatDialog, MatIconRegistry, MatSnackBar} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {LocationService} from '../../services/location.service';
 import {Location} from '../../ts models/location.model';
-import {MdSidenavModule} from '@angular/material';
 import {SearchService} from "../../services/search.service";
-import {TypeFilterComponent} from "./filter/type-filter/type-filter.component";
 
 /**
  * Created by Jeff on 7/8/2017.
@@ -16,7 +14,7 @@ import {TypeFilterComponent} from "./filter/type-filter/type-filter.component";
     selector: 'searchPage',
     templateUrl: 'search.component.html',
     styleUrls: ['search.component.css'],
-    providers: [MdIconRegistry]
+    providers: [MatIconRegistry]
 })
 
 export class SearchComponent implements OnInit {
@@ -111,17 +109,17 @@ export class SearchComponent implements OnInit {
 
 
     //VIEW STATE MONITOR
-    state = 'split';
+    state = 'grid';
     //INJECTED LOCATIONS
     locations: Location[];
 
     @Input() opened;
 
-    constructor(private dialog: MdDialog,
-                private snackBar: MdSnackBar,
+    constructor(private dialog: MatDialog,
+                private snackBar: MatSnackBar,
                 private authService: AuthService,
                 private router: Router,
-                private iconRegistry: MdIconRegistry,
+                private iconRegistry: MatIconRegistry,
                 private sanitizer: DomSanitizer,
                 private LocationService: LocationService,
                 private searchService: SearchService)   {

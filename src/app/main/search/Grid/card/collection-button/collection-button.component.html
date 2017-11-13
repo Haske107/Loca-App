@@ -1,8 +1,8 @@
-<button md-icon-button [mdMenuTriggerFor]="menu" class="iconbutton">
-  <md-icon svgIcon="plus"></md-icon>
+<button md-icon-button [matMenuTriggerFor]="menu" class="iconbutton">
+  <mat-icon svgIcon="plus"></mat-icon>
 </button>
 
-<md-menu #menu="mdMenu">
+<mat-menu #menu="matMenu">
   <button md-menu-item *ngFor="let collection of collections" (click)="onCollectionClick(collection._id)">
     <span>
       {{collection.name}}
@@ -13,4 +13,4 @@
       No Options
     </span>
   </button>
-</md-menu>
+</mat-menu>

@@ -9,6 +9,7 @@ import {ReviewAndSubmitComponent} from './review-and-submit/review-and-submit.co
 import {UploadPhotosComponent} from './upload-photos/upload-photos.component';
 import {VerifyLocationComponent} from './verify-location/verify-location.component';
 import {LocationRulesComponent} from './location-rules/location-rules.component';
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
   imports: [
@@ -16,8 +17,10 @@ import {LocationRulesComponent} from './location-rules/location-rules.component'
       AngularMaterialsModule,
       FormsModule,
       ReactiveFormsModule,
-      Routing
-
+      Routing,
+      AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
+      })
   ],
   declarations: [
       UploadComponent,

@@ -5,6 +5,6 @@
 .chatButton {
   margin: 20px;
 }
-md-dialog {
+mat-dialog {
   overflow: hidden;
 }

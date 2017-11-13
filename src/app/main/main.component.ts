@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialog, MdIconRegistry} from '@angular/material';
+import {MatDialog, MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
@@ -18,9 +18,9 @@ export class MainComponent implements OnInit {
   isSignedIn  = false;
   isOpen = false;
 
-  constructor(private iconRegistry: MdIconRegistry,
+  constructor(private iconRegistry: MatIconRegistry,
               private sanitizer: DomSanitizer,
-              private dialog: MdDialog,
+              private dialog: MatDialog,
               private searchService: SearchService,
               private authService: AuthService,
               private SearchService: SearchService,
