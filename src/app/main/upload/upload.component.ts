@@ -20,13 +20,36 @@ export class UploadComponent implements OnInit {
     locationID = '';
     state = 0;
 
-    constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar)   {
+    propertyAddress = '';
+    propertyZip = '';
+    propertyCity = '';
+    propertyState = '';
+    propertyCountry = '';
+
+
+    // from upload component
+    propertyTitle = '';
+    locationType = '';
+    locationDescription = '';
+    numBathrooms = 0;
+    numParking = 0;
+    electricity = false;
+    deposit = 0.0;
+    ratePerDay = 0.0;
+
+    // from rules component
+    rulesArr = [];
+
+
+    constructor(private authService: AuthService, private router: Router, private snackBar: MdSnackBar)   {
+
 
     }
 
     ngOnInit()  {
 
     }
+
     setID(ID: string){
       this.locationID = ID;
       this.state = 1;
