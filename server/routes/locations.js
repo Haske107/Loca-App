@@ -25,6 +25,28 @@ locationRoutes.get('/', function(req, res, next)    {
             });
         });
 });
+
+
+//FIND SPECIFIC LOCATION
+locationRoutes.get('/find', function(req, res)  {
+    Location.find({_id: req.query._ID})
+        .exec(function(err, Location)    {
+            if(err) {
+                return res.status(500).json({
+                    title: "Some error searching for location",
+                    error: err
+                });
+            }
+            if(Location)    {
+                return res.status(200).json({
+                    title: "Success!",
+                    result: Location
+                });
+            }
+        });
+});
+
+
 //SEARCH LOCATIONS WITHIN RANGE
 locationRoutes.post('/search', function(req,res) {
   Location.find()

@@ -29,7 +29,6 @@ export class CommunityCollectionsComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit()  {
-
   }
 
   onChange()  {
