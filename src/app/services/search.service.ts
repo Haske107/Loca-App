@@ -57,7 +57,7 @@ export class SearchService {
   };
   TempDistance = {
     CurrentLocation: {lat: 33.7928203, lng: -117.8514},
-    Distance: 30
+    Distance: 100
   };
   TempRate = {
     low: 0,

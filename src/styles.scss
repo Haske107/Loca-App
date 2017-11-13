@@ -24,3 +24,6 @@ font-family: 'Shrikhand', cursive;
 .mat-dialog-container {
   padding: 0 !important;
 }
+
+
+mat-card:focus, button:focus {outline: 0};
