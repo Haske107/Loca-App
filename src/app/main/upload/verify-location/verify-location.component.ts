@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
 import {MapService} from '../../../services/map.service';
 import {inlineInterpolate} from "@angular/core/src/view";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
     selector: 'app-verify-location',
@@ -35,11 +36,12 @@ export class VerifyLocationComponent implements OnInit {
     Postal  = '';
 
 
-    constructor(private mapService: MapService) {
+    constructor(private mapService: MapService, @Inject(DOCUMENT) private document: Document) {
 
     }
 
     ngOnInit() {
+        console.log(this.document.location.href);
         this.googlemap.styles = [
             {
                 'featureType': 'landscape.natural',
@@ -172,6 +174,11 @@ export class VerifyLocationComponent implements OnInit {
             this.display = 'inline';
             this.buttonDisplay = 'inline';
         });
+        //populate input form
+
+        // ask to verify
+
+        //
     }
 
 

@@ -4,6 +4,7 @@ mat-card{
   position: absolute;
   border-radius: 8px;
   padding: 10px;
+  cursor: pointer;
 }
 
 mat-grid-list  {

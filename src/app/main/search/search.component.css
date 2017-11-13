@@ -16,6 +16,10 @@ h3  {
 }
 
 
+button{
+  cursor: pointer;
+}
+
 
 .filterRow  {
   width: 100%;
