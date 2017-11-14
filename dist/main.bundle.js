@@ -3098,6 +3098,7 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_search_service__ = __webpack_require__("../../../../../src/app/services/search.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__URLSwitcher__ = __webpack_require__("../../../../../src/URLSwitcher.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3109,10 +3110,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ListComponent = /** @class */ (function () {
     function ListComponent(searchService) {
         this.searchService = searchService;
         this.searchString = '';
+        this.Prod = __WEBPACK_IMPORTED_MODULE_2__URLSwitcher__["b" /* Prod */];
+        this.Dev = __WEBPACK_IMPORTED_MODULE_2__URLSwitcher__["a" /* Dev */];
     }
     ListComponent.prototype.ngOnInit = function () {
         var _this = this;

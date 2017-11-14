@@ -1,21 +1,26 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Location} from './../../../ts models/location.model';
-import {SearchService} from "../../../services/search.service";
-
+import {SearchService} from '../../../services/search.service';
+import {Prod, Dev} from '../../../../URLSwitcher';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  Prod;
+  Dev;
   electrictyObject: {};
   typeObject: {};
   bathroomObject: {};
-  searchString: string = '';
+  searchString = '';
   rateObject: {};
   @Input() locations: Location[];
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService) {
+    this.Prod = Prod;
+    this.Dev = Dev;
+  }
 
   ngOnInit() {
     this.searchService.onRate.subscribe(
