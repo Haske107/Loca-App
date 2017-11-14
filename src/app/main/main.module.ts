@@ -14,7 +14,7 @@ import {LocationProfileModule} from './location-profile/location-profile.module'
 import {Routing} from '../app.routing';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {AngularMaterialsModule} from '../angular-materials.module';
 
 // MODULES
@@ -30,7 +30,7 @@ import {AngularMaterialsModule} from '../angular-materials.module';
       LocationProfileModule,
       BrowserModule,
       Routing,
-      HttpModule,
+      HttpClientModule,
       AngularMaterialsModule,
 
       BsDropdownModule.forRoot(),
