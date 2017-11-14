@@ -581,7 +581,7 @@ var ChatService = /** @class */ (function () {
             ? '?token=' + localStorage.getItem('token')
             : '';
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'content-type': 'application/json' });
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createChat' + token, body, { headers: header })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createChat' + token, body, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -591,7 +591,7 @@ var ChatService = /** @class */ (function () {
             ? '?token=' + localStorage.getItem('token')
             : '';
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'content-type': 'application/json' });
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createMessage/' + chatID + token, body, { headers: header })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createMessage/' + chatID + token, body, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -600,7 +600,7 @@ var ChatService = /** @class */ (function () {
             ? '?token=' + localStorage.getItem('token')
             : '';
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'content-type': 'application/json' });
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getMessages/' + currentChat._id + token, { headers: header })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getMessages/' + currentChat._id + token, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -609,7 +609,7 @@ var ChatService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getChats/' + userID + token, { headers: header })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getChats/' + userID + token, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -619,7 +619,7 @@ var ChatService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/deleteChat' + userID + token, body, { headers: header })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/deleteChat' + userID + token, body, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -637,7 +637,7 @@ var ChatService = /** @class */ (function () {
 /***/ "../../../../../src/app/main/collections/collection-card/collection-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n    <mat-grid-list *ngIf=\"locations.length >= 9\" cols=\"3\" rowHeight=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"http://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"locations.length >= 6 && locations.length < 9\" cols=\"2\" Height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"http://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"collection.locations.length < 6\" cols=\"1\" height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations; let i = index\">\n        <img *ngIf=\"i === 0\"  src=\"http://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n\n\n    <div class=\"nub\">\n      <mat-icon class=\"nubicon\" svgIcon=\"Glass\" color=\"primary\"  (click)=\"emitSelection(collection)\" ></mat-icon>\n    </div>\n    <mat-grid-tile-footer *ngIf=\"Profile\">\n      <img src=\"{{Profile.picture}} \" style=\"width: 40px; height: 40px; border-radius: 20px; \">\n      <div class=\"footer-info\">\n        <h6>{{collection.name}}</h6>\n        <p>{{Profile.name}}</p>\n      </div>\n  <mat-icon class=\"stack\" color=\"primary\" svgIcon=\"stack\"> </mat-icon>\n  <p class=\"stack-number\">{{collection.locations.length}}</p>\n  <!---\n  <mat-icon svgIcon=\"Trash Can\" color=\"primary\"  (click)=\"deleteClicked.emit(collection._id)\" class=\"trash\"></mat-icon>\n  -->\n     </mat-grid-tile-footer>\n\n\n\n"
+module.exports = "\n\n    <mat-grid-list *ngIf=\"locations.length >= 9\" cols=\"3\" rowHeight=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"https://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"locations.length >= 6 && locations.length < 9\" cols=\"2\" Height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"https://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"collection.locations.length < 6\" cols=\"1\" height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations; let i = index\">\n        <img *ngIf=\"i === 0\"  src=\"https://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n\n\n    <div class=\"nub\">\n      <mat-icon class=\"nubicon\" svgIcon=\"Glass\" color=\"primary\"  (click)=\"emitSelection(collection)\" ></mat-icon>\n    </div>\n    <mat-grid-tile-footer *ngIf=\"Profile\">\n      <img src=\"{{Profile.picture}} \" style=\"width: 40px; height: 40px; border-radius: 20px; \">\n      <div class=\"footer-info\">\n        <h6>{{collection.name}}</h6>\n        <p>{{Profile.name}}</p>\n      </div>\n  <mat-icon class=\"stack\" color=\"primary\" svgIcon=\"stack\"> </mat-icon>\n  <p class=\"stack-number\">{{collection.locations.length}}</p>\n  <!---\n  <mat-icon svgIcon=\"Trash Can\" color=\"primary\"  (click)=\"deleteClicked.emit(collection._id)\" class=\"trash\"></mat-icon>\n  -->\n     </mat-grid-tile-footer>\n\n\n\n"
 
 /***/ }),
 
@@ -857,7 +857,7 @@ var DeleteObject = /** @class */ (function () {
 /***/ "../../../../../src/app/main/collections/collection-preview/collection-preview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"maincard\">\n  <h4 *ngIf=\"!Focus\">\n    PREVIEW CONTENTS\n  </h4>\n  <h4 *ngIf=\"Focus\"> {{collection.name}}</h4>\n  <hr style=\"color:white\">\n  <mat-card-content>\n    <mat-card class=\"slab\" *ngFor=\"let location of selectedCollectionLocations\">\n      <img class=\"slab-image\" src=\"http://' + Prod + '/files/{{location._id}}\">\n      <h5 class=\"slab-h4\">{{location.name}}</h5>\n      <div class=\"select\" (click)=\"toLocationProfile(location)\"><mat-icon svgIcon=\"arrow-right\"></mat-icon></div>\n    </mat-card>\n  </mat-card-content>\n</mat-card>\n\n"
+module.exports = "<mat-card class=\"maincard\">\n  <h4 *ngIf=\"!Focus\">\n    PREVIEW CONTENTS\n  </h4>\n  <h4 *ngIf=\"Focus\"> {{collection.name}}</h4>\n  <hr style=\"color:white\">\n  <mat-card-content>\n    <mat-card class=\"slab\" *ngFor=\"let location of selectedCollectionLocations\">\n      <img class=\"slab-image\" src=\"https://' + Prod + '/files/{{location._id}}\">\n      <h5 class=\"slab-h4\">{{location.name}}</h5>\n      <div class=\"select\" (click)=\"toLocationProfile(location)\"><mat-icon svgIcon=\"arrow-right\"></mat-icon></div>\n    </mat-card>\n  </mat-card-content>\n</mat-card>\n\n"
 
 /***/ }),
 
@@ -2097,7 +2097,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/search/Grid/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <img class=\"avatar\" src=\"http://{{Prod}}/files/{{location._id}}\" (click)=\"toLocationProfile(location)\" >\n\n\n\n  <!--\n  <div (mouseover)=\"isHovering = true\" (mouseleave)=\"isHovering = false\">\n      <h3 [ngStyle]=\"{'opacity': 1 || !isHovering }\">{{location.name}}</h3>\n  </div>\n\n-->\n\n\n"
+module.exports = "  <img class=\"avatar\" src=\"https://{{Prod}}/files/{{location._id}}\" (click)=\"toLocationProfile(location)\" >\n\n\n\n  <!--\n  <div (mouseover)=\"isHovering = true\" (mouseleave)=\"isHovering = false\">\n      <h3 [ngStyle]=\"{'opacity': 1 || !isHovering }\">{{location.name}}</h3>\n  </div>\n\n-->\n\n\n"
 
 /***/ }),
 
@@ -3069,7 +3069,7 @@ var TypeFilterPipe = /** @class */ (function () {
 /***/ "../../../../../src/app/main/search/list/list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\" *ngFor=\"let location of locations\n     | filter: searchString: 'name'\n     | typeFilter: typeObject\n     | electricityFilter: electrictyObject\n     | bathroomFilter: bathroomObject\n     | rateFilter: rateObject\">\n  <div class=\"col-sm-2 photo-container\">\n    <img src=\"http://{{Prod}}/files/{{location._id}}\" style=\"width: 100%; height: 100%;\">\n  </div>\n  <div class=\"col-sm-8\">\n    <h5>{{location.name}}</h5>\n    <p>{{location.description}}</p>\n  </div>\n  <div class=\"col-sm-2\">\n    <mat-chip-list>\n      <mat-chip >\n        ${{location.rate }}/Day\n      </mat-chip>\n    </mat-chip-list>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"row\" *ngFor=\"let location of locations\n     | filter: searchString: 'name'\n     | typeFilter: typeObject\n     | electricityFilter: electrictyObject\n     | bathroomFilter: bathroomObject\n     | rateFilter: rateObject\">\n  <div class=\"col-sm-2 photo-container\">\n    <img src=\"https://{{Prod}}/files/{{location._id}}\" style=\"width: 100%; height: 100%;\">\n  </div>\n  <div class=\"col-sm-8\">\n    <h5>{{location.name}}</h5>\n    <p>{{location.description}}</p>\n  </div>\n  <div class=\"col-sm-2\">\n    <mat-chip-list>\n      <mat-chip >\n        ${{location.rate }}/Day\n      </mat-chip>\n    </mat-chip-list>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -3685,7 +3685,7 @@ var SearchModule = /** @class */ (function () {
 /***/ "../../../../../src/app/main/upload/fill-out-details/fill-out-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body>\n\n<h1>\n  Location Details\n</h1>\n<hr>\n<form [formGroup]=\"AddressData\" >\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"streetAddress\" placeholder=\"Street Address\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"zip\"  placeholder=\"Zip or Postal\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"city\"  placeholder=\"City\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"state\"  placeholder=\"State\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"country\"  placeholder=\"Country\">\n  </mat-input-container>\n</form>\n<form [formGroup]=\"LocationData\" >\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"name\" placeholder=\"Property Title\" value=\"\">\n  </mat-input-container>\n  <mat-select placeholder=\"Location Type\" formControlName=\"type\" class=\"details\">\n    <mat-option *ngFor=\"let type of Types\" [value]=\"type.value\" >\n      {{ type.value }}\n    </mat-option>\n  </mat-select>\n  <mat-input-container class=\"details\">\n    <textarea matInput formControlName=\"description\"  placeholder=\"Description\" value=\"\"></textarea>\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"deposit\" placeholder=\"Deposit ($USD)\"  value=\"200\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"rate\" placeholder=\"Rate per Day ($USD)\"  value=\"0\">\n  </mat-input-container>\n</form>\n\n<form [formGroup]=\"DetailsData\" >\n\n  <div class=\"detailsBottom\">\n    <h2> Bathrooms </h2>\n    <button class=\"elecbtn\" (click)=\"decrementBathroom()\">\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <button class=\"elecbtn\" (click)=\"incrementBathroom()\" >\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <h2 class=\"nums\">{{ numBathrooms }}</h2>\n  </div>\n\n  <div class=\"detailsBottom\">\n    <h2> Parking </h2>\n    <button class=\"elecbtn\" (click)=\"decrementParking()\">\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <button class=\"elecbtn\" (click)=\"incrementParking()\" >\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <h2 class=\"nums\">{{ numParking }}</h2>\n  </div>\n\n  <div class=\"detailsBottom\">\n    <h2> Electricity </h2>\n    <button class=\"elecbtnNo\" id=\"falseBtn\" (click)=\"electricityFalse()\">\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"/>\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n      </svg>\n    </button>\n    <button class=\"elecbtnYes\" id=\"trueBtn\" (click)=\"electricityTrue()\" >\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z\"/>\n      </svg>\n    </button>\n  </div>\n\n</form>\n\n<button class=\"stepBtn\" (click)=\"nextStep()\" mat-button matStepperPrevious=\"\">BACK</button>\n<button class=\"stepBtn\" (click)=\"nextStep()\" mat-button matStepperNext>NEXT</button>\n</body>"
+module.exports = "<body>\n\n<h1>\n  Location Details\n</h1>\n<hr>\n<form [formGroup]=\"AddressData\" >\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"streetAddress\" placeholder=\"Street Address\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"zip\"  placeholder=\"Zip or Postal\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"city\"  placeholder=\"City\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"state\"  placeholder=\"State\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"country\"  placeholder=\"Country\">\n  </mat-input-container>\n</form>\n<form [formGroup]=\"LocationData\" >\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"name\" placeholder=\"Property Title\" value=\"\">\n  </mat-input-container>\n  <mat-select placeholder=\"Location Type\" formControlName=\"type\" class=\"details\">\n    <mat-option *ngFor=\"let type of Types\" [value]=\"type.value\" >\n      {{ type.value }}\n    </mat-option>\n  </mat-select>\n  <mat-input-container class=\"details\">\n    <textarea matInput formControlName=\"description\"  placeholder=\"Description\" value=\"\"></textarea>\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"deposit\" placeholder=\"Deposit ($USD)\"  value=\"200\">\n  </mat-input-container>\n  <mat-input-container class=\"details\">\n    <input matInput formControlName=\"rate\" placeholder=\"Rate per Day ($USD)\"  value=\"0\">\n  </mat-input-container>\n</form>\n\n<form [formGroup]=\"DetailsData\" >\n\n  <div class=\"detailsBottom\">\n    <h2> Bathrooms </h2>\n    <button class=\"elecbtn\" (click)=\"decrementBathroom()\">\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"https://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <button class=\"elecbtn\" (click)=\"incrementBathroom()\" >\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"https://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <h2 class=\"nums\">{{ numBathrooms }}</h2>\n  </div>\n\n  <div class=\"detailsBottom\">\n    <h2> Parking </h2>\n    <button class=\"elecbtn\" (click)=\"decrementParking()\">\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"https://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <button class=\"elecbtn\" (click)=\"incrementParking()\" >\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"https://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"/>\n      </svg>\n    </button>\n    <h2 class=\"nums\">{{ numParking }}</h2>\n  </div>\n\n  <div class=\"detailsBottom\">\n    <h2> Electricity </h2>\n    <button class=\"elecbtnNo\" id=\"falseBtn\" (click)=\"electricityFalse()\">\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"https://www.w3.org/2000/svg\">\n        <path d=\"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z\"/>\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n      </svg>\n    </button>\n    <button class=\"elecbtnYes\" id=\"trueBtn\" (click)=\"electricityTrue()\" >\n      <svg fill=\"#FFFFFF\" height=\"48\" viewBox=\"0 0 24 24\" width=\"48\" xmlns=\"https://www.w3.org/2000/svg\">\n        <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n        <path d=\"M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z\"/>\n      </svg>\n    </button>\n  </div>\n\n</form>\n\n<button class=\"stepBtn\" (click)=\"nextStep()\" mat-button matStepperPrevious=\"\">BACK</button>\n<button class=\"stepBtn\" (click)=\"nextStep()\" mat-button matStepperNext>NEXT</button>\n</body>"
 
 /***/ }),
 
@@ -4690,7 +4690,7 @@ var AuthService = /** @class */ (function () {
                 primaryColor: '#00bcd4',
             },
             auth: {
-                redirectUrl: 'http://localhost:4200/loading',
+                redirectUrl: 'https://localhost:4200/loading',
                 responseType: 'token id_token',
                 params: {
                     scope: 'openid profile email'
@@ -4747,7 +4747,7 @@ var AuthService = /** @class */ (function () {
         var token = localStorage.getItem('access_token')
             ? '?token=' + localStorage.getItem('access_token')
             : '';
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_6__URLSwitcher__["b" /* Prod */] + '/user/' + token, { headers: headers })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_6__URLSwitcher__["b" /* Prod */] + '/user/' + token, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4792,7 +4792,7 @@ var CollectionService = /** @class */ (function () {
     }
     // READ
     CollectionService.prototype.getPublicCollections = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/community/')
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/community/')
             .map(function (response) {
             var Collections = response.json().obj;
             var transformedCollections = [];
@@ -4817,7 +4817,7 @@ var CollectionService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
     CollectionService.prototype.getPrivateCollections = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/private/' + localStorage.getItem('userID'))
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/private/' + localStorage.getItem('userID'))
             .map(function (response) {
             var Collections = response.json().obj;
             var transformedCollections = [];
@@ -4842,7 +4842,7 @@ var CollectionService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
     CollectionService.prototype.getCreatedCollections = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/created/' + localStorage.getItem('userID'))
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/created/' + localStorage.getItem('userID'))
             .map(function (response) {
             var Collections = response.json().obj;
             var transformedCollections = [];
@@ -4873,7 +4873,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/locations/' + collectionID + token, { headers: headers })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/locations/' + collectionID + token, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4885,7 +4885,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.delete('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/remove/' + collectionID + token, { headers: headers })
+        return this.http.delete('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/remove/' + collectionID + token, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4897,7 +4897,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/' + localStorage.getItem('userID') + token, body, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/' + localStorage.getItem('userID') + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4909,7 +4909,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/updatePublicity/' + collectionID + token, null, { headers: headers })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/updatePublicity/' + collectionID + token, null, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4922,7 +4922,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/addLocation/' + collectionID + token, body, { headers: headers })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/addLocation/' + collectionID + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4934,7 +4934,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/removeLocation/' + collectionID + token, body, { headers: headers })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/removeLocation/' + collectionID + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return error.json(); });
     };
@@ -4987,7 +4987,7 @@ var FileService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/main/:' + locationID + token, formdata, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/main/:' + locationID + token, formdata, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -4998,7 +4998,7 @@ var FileService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/other/:' + locationID + token, formdata, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/other/:' + locationID + token, formdata, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5106,7 +5106,7 @@ var LocationService = /** @class */ (function () {
     LocationService.prototype.getLocationsInRange = function (DistanceObject) {
         var body = DistanceObject;
         console.log(body);
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location/search/', body)
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location/search/', body)
             .map(function (response) {
             var Locations = response.json().obj;
             var transformedLocations = [];
@@ -5366,7 +5366,7 @@ var UserService = /** @class */ (function () {
     }
     UserService.prototype.getUser = function (userID) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/user/getUserByID/' + userID, { headers: headers })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/user/getUserByID/' + userID, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };

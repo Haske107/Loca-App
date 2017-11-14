@@ -15,12 +15,12 @@ INSTALL via Node.js command line interface
 7) open a second terminal
 8) cd Loca-App/Server //navigate to the backend dungeon
 9) nodemon www // starts the server on port 3000, and restarts on any saved backend changes.
-10) http://localhost:4200 in your browser
+10) https://localhost:4200 in your browser
 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `https://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -36,7 +36,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng e2e` to execute the end-to-end tests via [Protractor](https://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
 ## Further help

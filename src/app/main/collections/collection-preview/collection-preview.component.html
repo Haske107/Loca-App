@@ -6,7 +6,7 @@
   <hr style="color:white">
   <mat-card-content>
     <mat-card class="slab" *ngFor="let location of selectedCollectionLocations">
-      <img class="slab-image" src="http://' + Prod + '/files/{{location._id}}">
+      <img class="slab-image" src="https://' + Prod + '/files/{{location._id}}">
       <h5 class="slab-h4">{{location.name}}</h5>
       <div class="select" (click)="toLocationProfile(location)"><mat-icon svgIcon="arrow-right"></mat-icon></div>
     </mat-card>

@@ -20,7 +20,7 @@ export class AuthService   {
       primaryColor: '#00bcd4',
     },
     auth: {
-      redirectUrl: 'http://localhost:4200/loading',
+      redirectUrl: 'https://localhost:4200/loading',
       responseType: 'token id_token',
       params: {
         scope: 'openid profile email'
@@ -79,7 +79,7 @@ export class AuthService   {
     const token = localStorage.getItem('access_token')
       ? '?token=' + localStorage.getItem('access_token')
       : '';
-    return this.http.get('http://' + Prod + '/user/' + token, {headers: headers})
+    return this.http.get('https://' + Prod + '/user/' + token, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }

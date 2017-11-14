@@ -24,7 +24,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
  * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
  *
- * Learn more in http://angular.io/docs/ts/latest/guide/browser-support.html
+ * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
 /***************************************************************************************************
  * BROWSER POLYFILLS
@@ -51,7 +51,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /**
  * Required to support Web Animations `@angular/animation`.
- * Needed for: All but Chrome, Firefox and Opera. http://caniuse.com/#feat=web-animation
+ * Needed for: All but Chrome, Firefox and Opera. https://caniuse.com/#feat=web-animation
  **/
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 /***************************************************************************************************

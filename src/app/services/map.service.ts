@@ -20,7 +20,7 @@ export class MapService {
         return this.http.get('https://maps.googleapis.com/maps/api/geocode/json' +
           '?address=' + location.address.streetAddress +
           ',' + location.address.city +
-          ',' +location.address.state +
+          ',' + location.address.state +
           '&key=AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI' )
           .map((response: Response)=> response.json())
           .catch((error: Response)=> Observable.throw(error.json()));
