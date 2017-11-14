@@ -3,6 +3,8 @@ import {Http, Response, Headers} from "@angular/http";
 import {Injectable} from "@angular/core";
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
+import {Prod, Dev} from '../../URLSwitcher';
+
 
 @Injectable()
 export class MapService {

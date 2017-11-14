@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import * as jsPDF from 'jspdf';
 import {PdfService} from '../../services/pdf.service';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Prod, Dev} from '../../../URLSwitcher';
+
 
 @Component({
     selector: 'home',
@@ -21,7 +23,7 @@ export class Home implements OnInit {
   BeginDate = '';
   price: string;
   rand = Math.floor((Math.random() * 1000000) + 1);
-  url = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/pdf/viewPDF?ignore=' + this.rand);
+  url = this.sanitizer.bypassSecurityTrustResourceUrl('http://' + Prod + '/pdf/viewPDF?ignore=' + this.rand);
 
   constructor(private authService: AuthService,
                 private pdfService: PdfService,
@@ -100,7 +102,7 @@ export class Home implements OnInit {
               .subscribe(
                 data => {
                   console.log(data);
-                  const url1 = this.sanitizer.bypassSecurityTrustResourceUrl('http://localhost:3000/pdf/viewPDF?ignore=' + this.rand);
+                  const url1 = this.sanitizer.bypassSecurityTrustResourceUrl('http://' + Prod + '/pdf/viewPDF?ignore=' + this.rand);
                   this.url = url1;
                 },
                 error =>  {

@@ -8,6 +8,8 @@ import {Observable} from 'rxjs/Observable';
 import {Location} from '../ts models/location.model';
 import {QueryForm} from '../ts models/queryform.model';
 import {Router} from '@angular/router';
+import {Prod, Dev} from '../../URLSwitcher';
+
 
 @Injectable()
 export class LocationService    {
@@ -18,7 +20,7 @@ export class LocationService    {
 
 
   getLocation(location_id: string) {
-    return this.http.get('https://localhost:3000/location/find?_ID=' + location_id)
+    return this.http.get('https://' + Prod + '/location/find?_ID=' + location_id)
         .map((response: Response) =>  {
           const Location = response.json().location;
           console.log(Location);
@@ -27,7 +29,7 @@ export class LocationService    {
         .catch((error: Response) => Observable.throw(error.json()));
   }
   getLocations() {
-    return this.http.get('https://loca-app.herokuapp.com/location')
+    return this.http.get('https://' + Prod + '/location')
       .map((response: Response) => {
         const Locations = response.json().obj;
         const transformedLocations: Location[] = [];
@@ -67,14 +69,14 @@ export class LocationService    {
         const token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('https://loca-app.herokuapp.com/location' + token , body, {headers: headers})
+        return this.http.post('https://' + Prod + '/location' + token , body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
   getLocationsInRange(DistanceObject: any) {
     const body = DistanceObject;
     console.log(body);
-    return this.http.post('http://localhost:3000/location/search/', body )
+    return this.http.post('http://' + Prod + '/location/search/', body )
       .map((response: Response) => {
         const Locations = response.json().obj;
         const transformedLocations: Location[] = [];

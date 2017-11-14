@@ -5,7 +5,7 @@ import {MatDialog, MatIconRegistry, MatSnackBar} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {LocationService} from '../../services/location.service';
 import {Location} from '../../ts models/location.model';
-import {SearchService} from "../../services/search.service";
+import {SearchService} from '../../services/search.service';
 
 /**
  * Created by Jeff on 7/8/2017.
@@ -20,15 +20,15 @@ import {SearchService} from "../../services/search.service";
 export class SearchComponent implements OnInit {
 
   //SEARCH
-  query: string = '';
+  query = '';
 
   //TYPE BUTTON VARIABLES
     @ViewChild('type') TypeButton;
     @ViewChild('typefilter') TypeCard;
-    typeState: boolean = false;
+    typeState = false;
     setTypeState(value) {
       this.typeState = value;
-      if(value) {
+      if (value) {
         this.electricityState = false;
         this.bathroomState = false;
         this.distanceState = false;
@@ -41,10 +41,10 @@ export class SearchComponent implements OnInit {
   //ELECTRICITY BUTTON VARIABLES
     @ViewChild('electricity') ElectricityButton;
     @ViewChild('electricityfilter') ElectricityCard;
-    electricityState: boolean = false;
+    electricityState = false;
     setElectricityState(value) {
       this.electricityState = value;
-      if(value) {
+      if (value) {
         this.typeState = false;
         this.bathroomState = false;
         this.distanceState = false;
@@ -57,10 +57,10 @@ export class SearchComponent implements OnInit {
     //BATHROOM BUTTON VARIABLES
     @ViewChild('bathroom') BathroomButton;
     @ViewChild('bathroomfilter') BathroomCard;
-    bathroomState: boolean = false;
+    bathroomState = false;
     setBathroomState(value) {
       this.bathroomState = value;
-      if(value) {
+      if (value) {
         this.typeState = false;
         this.electricityState = false;
         this.distanceState = false;
@@ -73,10 +73,10 @@ export class SearchComponent implements OnInit {
     //DISTANCE VARIABLES
     @ViewChild('distance') DistanceButton;
     @ViewChild('distancefilter') DistanceCard;
-    distanceState: boolean = false;
+    distanceState = false;
     setDistanceState(value) {
       this.distanceState = value;
-      if(value) {
+      if (value) {
         this.typeState = false;
         this.electricityState = false;
         this.bathroomState = false;
@@ -85,19 +85,19 @@ export class SearchComponent implements OnInit {
     }
     DistanceButtonTop: number;
     DistanceButtonLeft: number;
-    CurrentLocation : any;
-    DistanceObject : {
-      CurrentLocation : {lat: number, lng: number},
+    CurrentLocation: any;
+    DistanceObject: {
+      CurrentLocation: {lat: number, lng: number},
       Distance: number
     };
 
   //RATE VARIABLES
   @ViewChild('rate') RateButton;
   @ViewChild('ratefilter') RateCard;
-  rateState: boolean = false;
+  rateState = false;
   setRateState(value) {
     this.rateState = value;
-    if(value) {
+    if (value) {
       this.typeState = false;
       this.electricityState = false;
       this.bathroomState = false;
@@ -180,19 +180,19 @@ export class SearchComponent implements OnInit {
     this.RateButtonTop = this.RateButton._elementRef.nativeElement.offsetTop;
     this.RateButtonLeft = this.RateButton._elementRef.nativeElement.offsetLeft;
     //CHECK IF COMPONENT IS OPEN AND REFRESH POSITION
-    if(this.ElectricityCard)  {
+    if (this.ElectricityCard)  {
       this.ElectricityCard.refreshPosition();
     }
-    if(this.TypeCard) {
+    if (this.TypeCard) {
       this.TypeCard.refreshPosition();
     }
-    if(this.BathroomCard) {
+    if (this.BathroomCard) {
       this.BathroomCard.refreshPosition();
     }
-    if(this.DistanceCard) {
+    if (this.DistanceCard) {
       this.DistanceCard.refreshPosition();
     }
-    if(this.RateCard) {
+    if (this.RateCard) {
       this.RateCard.refreshPosition();
     }
   }

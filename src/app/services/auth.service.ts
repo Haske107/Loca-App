@@ -4,6 +4,8 @@ import 'rxjs/Rx';
 import {Router} from '@angular/router';
 import Auth0Lock from 'auth0-lock';
 import {Observable} from "rxjs/Observable";
+import {Prod, Dev} from '../../URLSwitcher';
+
 
 @Injectable()
 export class AuthService   {
@@ -77,7 +79,7 @@ export class AuthService   {
     const token = localStorage.getItem('access_token')
       ? '?token=' + localStorage.getItem('access_token')
       : '';
-    return this.http.get('http://localhost:3000/user/' + token, {headers: headers})
+    return this.http.get('http://' + Prod + '/user/' + token, {headers: headers})
       .map((response: Response)=> response.json())
       .catch((error: Response)=> Observable.throw(error.json()));
   }

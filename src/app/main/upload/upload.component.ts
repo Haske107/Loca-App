@@ -41,7 +41,7 @@ export class UploadComponent implements OnInit {
     rulesArr = [];
 
 
-    constructor(private authService: AuthService, private router: Router, private snackBar: MdSnackBar)   {
+    constructor(private authService: AuthService, private router: Router, private snackBar: MatSnackBar)   {
 
 
     }

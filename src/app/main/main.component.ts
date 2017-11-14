@@ -4,7 +4,10 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
 import {ChatComponent} from './chat/chat.component';
-import {SearchService} from "../services/search.service";
+import {SearchService} from '../services/search.service';
+import {Dev} from '../../URLSwitcher';
+
+
 
 @Component({
   selector: 'app-main',
@@ -32,6 +35,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit()  {
+    console.log(Dev);
     if (localStorage.getItem('profile')) {
       this.setProfile();
       this.isSignedIn = true;

@@ -4,6 +4,8 @@ import 'rxjs/Rx';
 import {Chat} from '../../ts models/chat.model';
 import {Message} from '../../ts models/message.model';
 import {Observable} from 'rxjs/Observable';
+import {Prod, Dev} from '../../../URLSwitcher';
+
 
 @Injectable()
 export class ChatService {
@@ -17,7 +19,7 @@ export class ChatService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     const header = new Headers({'content-type' : 'application/json'});
-    return this.http.post('http://localhost:3000/chat/createChat' + token, body, {headers: header})
+    return this.http.post('http://' + Prod + '/chat/createChat' + token, body, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -28,7 +30,7 @@ export class ChatService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     const header = new Headers({'content-type' : 'application/json'});
-    return this.http.post('http://localhost:3000/chat/createMessage/' + chatID + token, body, {headers: header})
+    return this.http.post('http://' + Prod + '/chat/createMessage/' + chatID + token, body, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -38,7 +40,7 @@ export class ChatService {
       ? '?token=' + localStorage.getItem('token')
       : '';
     const header = new Headers({'content-type' : 'application/json'});
-    return this.http.get('http://localhost:3000/chat/getMessages/' + currentChat._id + token, {headers: header})
+    return this.http.get('http://' + Prod + '/chat/getMessages/' + currentChat._id + token, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -48,7 +50,7 @@ export class ChatService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.get('http://localhost:3000/chat/getChats/' + userID + token, {headers: header})
+    return this.http.get('http://' + Prod + '/chat/getChats/' + userID + token, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -59,7 +61,7 @@ export class ChatService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('http://localhost:3000/chat/deleteChat' + userID + token, body, {headers: header})
+    return this.http.patch('http://' + Prod + '/chat/deleteChat' + userID + token, body, {headers: header})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }

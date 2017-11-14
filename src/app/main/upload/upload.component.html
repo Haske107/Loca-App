@@ -1,36 +1,36 @@
-<md-horizontal-stepper>
+<mat-horizontal-stepper>
 
-  <md-step label="Verify Location">
+  <mat-step label="Verify Location">
     <app-verify-location>
     </app-verify-location>
-    <button md-button mdStepperNext>Next</button>
-  </md-step >
-  <md-step label="Fill Out Details">
+    <button mat-button matStepperNext>Next</button>
+  </mat-step >
+  <mat-step label="Fill Out Details">
     <app-fill-out-details>
     </app-fill-out-details>
-  </md-step>
+  </mat-step>
 
-  <md-step label="Rules">
+  <mat-step label="Rules">
     <app-location-rules>
     </app-location-rules>
-  </md-step>
+  </mat-step>
 
-  <md-step label="Upload Photos">
+  <mat-step label="Upload Photos">
     <app-upload-photos>
 
     </app-upload-photos>
-    <button md-button mdStepperPrevious="">Back</button>
-    <button md-button mdStepperNext>Next</button>
+    <button mat-button matStepperPrevious="">Back</button>
+    <button mat-button matStepperNext>Next</button>
 
-  </md-step>
+  </mat-step>
 
-  <md-step label="Review & Submit">
+  <mat-step label="Review & Submit">
     <app-review-and-submit>
 
     </app-review-and-submit>
     <button mat-button matStepperPrevious="">Back</button>
 
-  </md-step>
+  </mat-step>
 
-</md-horizontal-stepper>
+</mat-horizontal-stepper>
 

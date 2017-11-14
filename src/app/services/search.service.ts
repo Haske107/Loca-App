@@ -1,4 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
+import {Prod, Dev} from '../../URLSwitcher';
+
 
 @Injectable()
 export class SearchService {

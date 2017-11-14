@@ -5,7 +5,6 @@ import {MatDialog} from '@angular/material';
 import {CollectionService} from '../../services/collection.service';
 import {Collection} from '../../ts models/collection.model';
 
-
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -34,7 +33,6 @@ export class UserProfileComponent implements OnInit {
         error => {
         console.error(error);
     });
-
 
 
 

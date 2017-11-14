@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {LocationService} from '../../services/location.service';
 import {Location} from '../../ts models/location.model';
 import {Router} from '@angular/router';
+import {Prod, Dev} from '../../../URLSwitcher';
 
 @Component({
   selector: 'app-location-profile',
@@ -11,6 +12,9 @@ import {Router} from '@angular/router';
 export class LocationProfileComponent implements OnInit {
 
   location: Location;
+  Prod;
+  Dev;
+
 
   constructor(public locationService: LocationService, private router: Router) {
         if (localStorage.getItem('currloc')) {
@@ -22,6 +26,8 @@ export class LocationProfileComponent implements OnInit {
                 this.router.navigateByUrl('main/search');
             }
         }
+        this.Prod = Prod;
+        this.Dev = Dev;
   }
 
   ngOnInit() {

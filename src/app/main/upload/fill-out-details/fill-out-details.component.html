@@ -5,41 +5,40 @@
 </h1>
 <hr>
 <form [formGroup]="AddressData" >
-  <md-input-container class="details">
-    <input mdInput formControlName="streetAddress" placeholder="Street Address">
-  </md-input-container>
-  <md-input-container class="details">
-    <input mdInput formControlName="zip"  placeholder="Zip or Postal">
-  </md-input-container>
-  <md-input-container class="details">
-    <input mdInput formControlName="city"  placeholder="City">
-  </md-input-container>
-  <md-input-container class="details">
-    <input mdInput formControlName="state"  placeholder="State">
-  </md-input-container>
-  <md-input-container class="details">
-    <input mdInput formControlName="country"  placeholder="Country">
-  </md-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="streetAddress" placeholder="Street Address">
+  </mat-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="zip"  placeholder="Zip or Postal">
+  </mat-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="city"  placeholder="City">
+  </mat-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="state"  placeholder="State">
+  </mat-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="country"  placeholder="Country">
+  </mat-input-container>
 </form>
-
 <form [formGroup]="LocationData" >
-  <md-input-container class="details">
-    <input mdInput formControlName="name" placeholder="Property Title" value="">
-  </md-input-container>
-  <md-select placeholder="Location Type" formControlName="type" class="details">
-    <md-option *ngFor="let type of Types" [value]="type.value" >
+  <mat-input-container class="details">
+    <input matInput formControlName="name" placeholder="Property Title" value="">
+  </mat-input-container>
+  <mat-select placeholder="Location Type" formControlName="type" class="details">
+    <mat-option *ngFor="let type of Types" [value]="type.value" >
       {{ type.value }}
-    </md-option>
-  </md-select>
-  <md-input-container class="details">
-    <textarea mdInput formControlName="description"  placeholder="Description" value=""></textarea>
-  </md-input-container>
-  <md-input-container class="details">
-    <input mdInput formControlName="deposit" placeholder="Deposit ($USD)"  value="200">
-  </md-input-container>
-  <md-input-container class="details">
-    <input mdInput formControlName="rate" placeholder="Rate per Day ($USD)"  value="0">
-  </md-input-container>
+    </mat-option>
+  </mat-select>
+  <mat-input-container class="details">
+    <textarea matInput formControlName="description"  placeholder="Description" value=""></textarea>
+  </mat-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="deposit" placeholder="Deposit ($USD)"  value="200">
+  </mat-input-container>
+  <mat-input-container class="details">
+    <input matInput formControlName="rate" placeholder="Rate per Day ($USD)"  value="0">
+  </mat-input-container>
 </form>
 
 <form [formGroup]="DetailsData" >
@@ -96,7 +95,6 @@
 
 </form>
 
-<button class="stepBtn" (click)="nextStep()" md-button mdStepperPrevious="">BACK</button>
-<button class="stepBtn" (click)="nextStep()" md-button mdStepperNext>NEXT</button>
-
+<button class="stepBtn" (click)="nextStep()" mat-button matStepperPrevious="">BACK</button>
+<button class="stepBtn" (click)="nextStep()" mat-button matStepperNext>NEXT</button>
 </body>

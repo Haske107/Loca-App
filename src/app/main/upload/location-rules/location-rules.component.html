@@ -1,22 +1,22 @@
-<md-card class="center-card">
-    <md-card-header>
+<mat-card class="center-card">
+    <mat-card-header>
 
-    </md-card-header>
+    </mat-card-header>
     <h3>
         Add some rules
     </h3>
     <hr>
-    <md-card-content>
+    <mat-card-content>
         <div class="fabs">
-            <button  class="lilfab" md-mini-fab (click)="addRule()" ><md-icon  svgIcon="plus"></md-icon></button>
-            <button  class="lilfab" md-mini-fab (click)="removeRule()"><md-icon  svgIcon="minus"></md-icon></button>
+            <button  class="lilfab" md-mini-fab (click)="addRule()" ><mat-icon  svgIcon="plus"></mat-icon></button>
+            <button  class="lilfab" md-mini-fab (click)="removeRule()"><mat-icon  svgIcon="minus"></mat-icon></button>
         </div>
-        <md-list >
-            <md-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
-                <md-input-container class="listtext">
-                    <input mdInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
-                </md-input-container>
-            </md-list-item>
-        </md-list>
-    </md-card-content>
-</md-card>
+        <mat-list >
+            <mat-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
+                <mat-input-container class="listtext">
+                    <input matInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
+                </mat-input-container>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

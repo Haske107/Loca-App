@@ -1,10 +1,10 @@
-import {Location} from "../ts models/location.model";
-import {Http, Response, Headers} from "@angular/http";
-import {Injectable} from "@angular/core";
+import {Location} from '../ts models/location.model';
+import {Http, Response, Headers} from '@angular/http';
+import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
-import {Collection} from "../ts models/collection.model";
-
+import {Observable} from 'rxjs/Observable';
+import {Collection} from '../ts models/collection.model';
+import {Prod, Dev} from '../../URLSwitcher';
 
 @Injectable()
 export class CollectionService {
@@ -12,14 +12,14 @@ export class CollectionService {
 
   constructor(private http: Http) {}
 
-  //READ
+  // READ
   getPublicCollections() {
-    return this.http.get('http://localhost:3000/collection/community/')
+    return this.http.get('http://' + Prod + '/collection/community/')
         .map((response: Response) => {
           const Collections = response.json().obj;
-          let transformedCollections: Collection[] = [];
-          for(let collection of Collections)  {
-             let coll : Collection = {
+          const transformedCollections: Collection[] = [];
+          for (const collection of Collections)  {
+             const coll: Collection = {
               _id: collection._id,
              owner:  collection.owner,
              uploadDate:  collection.uploadDate,
@@ -35,15 +35,15 @@ export class CollectionService {
           }
           return transformedCollections;
         })
-        .catch((error: Response)=> Observable.throw(error.json()));
-  };
+        .catch((error: Response) => Observable.throw(error.json()));
+  }
   getPrivateCollections() {
-    return this.http.get('http://localhost:3000/collection/private/' + localStorage.getItem('userID'))
+    return this.http.get('http://' + Prod + '/collection/private/' + localStorage.getItem('userID'))
       .map((response: Response) => {
         const Collections = response.json().obj;
-        let transformedCollections: Collection[] = [];
-        for(let collection of Collections)  {
-          let coll : Collection = {
+        const transformedCollections: Collection[] = [];
+        for (const collection of Collections)  {
+          const coll: Collection = {
             _id: collection._id,
             owner:  collection.owner,
             uploadDate:  collection.uploadDate,
@@ -59,15 +59,15 @@ export class CollectionService {
         }
         return transformedCollections;
       })
-      .catch((error: Response)=> Observable.throw(error.json()));
-  };
+      .catch((error: Response) => Observable.throw(error.json()));
+  }
   getCreatedCollections() {
-    return this.http.get('http://localhost:3000/collection/created/' + localStorage.getItem('userID'))
+    return this.http.get('http://' + Prod + '/collection/created/' + localStorage.getItem('userID'))
       .map((response: Response) => {
         const Collections = response.json().obj;
-        let transformedCollections: Collection[] = [];
-        for(let collection of Collections)  {
-          let coll : Collection = {
+        const transformedCollections: Collection[] = [];
+        for (const collection of Collections)  {
+          const coll: Collection = {
             _id: collection._id,
             owner:  collection.owner,
             uploadDate:  collection.uploadDate,
@@ -83,17 +83,17 @@ export class CollectionService {
         }
         return transformedCollections;
       })
-      .catch((error: Response)=> Observable.throw(error.json()));
-  };
+      .catch((error: Response) => Observable.throw(error.json()));
+  }
   getCollectionLocations(collectionID: string)  {
     const headers = new Headers({
       'Content-Type': 'application/json'});
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.get('http://localhost:3000/collection/locations/' + collectionID + token , {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> Observable.throw(error.json()));
+    return this.http.get('http://' + Prod + '/collection/locations/' + collectionID + token , {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => Observable.throw(error.json()));
   }
 
 
@@ -104,35 +104,35 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.delete('http://localhost:3000/collection/remove/' + collectionID + token , {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> Observable.throw(error.json()));
+    return this.http.delete('http://' + Prod + '/collection/remove/' + collectionID + token , {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => Observable.throw(error.json()));
   }
-  saveCollection(collection: Collection){
+  saveCollection(collection: Collection)    {
     const body = JSON.stringify(collection);
     const headers = new Headers({
       'Content-Type': 'application/json'});
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('http://localhost:3000/collection/' + localStorage.getItem('userID') + token, body, {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> Observable.throw(error.json()));
+    return this.http.post('http://' + Prod + '/collection/' + localStorage.getItem('userID') + token, body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => Observable.throw(error.json()));
   }
 
 
-  //UPDATES
+  // UPDATES
   updatePublicity(collectionID: string) {
     const headers = new Headers({
       'Content-Type': 'application/json'});
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('http://localhost:3000/collection/updatePublicity/' + collectionID + token, null,  {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> Observable.throw(error.json()));
+    return this.http.patch('http://' + Prod + '/collection/updatePublicity/' + collectionID + token, null,  {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => Observable.throw(error.json()));
   }
-  updateViewers(collectionID: string){}
+  updateViewers(collectionID: string) {}
   addLocationToCollection(collectionID: string, location: Location) {
     const body = JSON.stringify(location);
     const headers = new Headers({
@@ -140,24 +140,24 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.patch('http://localhost:3000/collection/addLocation/' + collectionID + token, body, {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> Observable.throw(error.json()));
+    return this.http.patch('http://' + Prod + '/collection/addLocation/' + collectionID + token, body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => Observable.throw(error.json()));
   }
   removeCollectionLocation(collectionID: string, locationIDs: string[])  {
-    let body = locationIDs;
+    const body = locationIDs;
     const headers = new Headers({
       'Content-Type': 'application/json'});
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('http://localhost:3000/collection/removeLocation/' + collectionID + token , body, {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> error.json());
+    return this.http.patch('http://' + Prod + '/collection/removeLocation/' + collectionID + token , body, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => error.json());
   }
   updateName(collectionID: string)  {}
   updateSubtitle(collectionID: string)  {}
-  updateViews(collectionID: string){}
+  updateViews(collectionID: string) {}
 }
 
 
