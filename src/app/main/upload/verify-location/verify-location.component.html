@@ -12,23 +12,23 @@
       <!-- ADDRESS CARD -->
       <mat-card class="col-md-5 ">
         <mat-input-container class="FWidth">
-          <input matInput placeholder="Street" [(ngModel)]="Street">
+          <input matInput placeholder="Street" [(ngModel)]="Street" (keyup)="emitAddressObject()">
         </mat-input-container>
         <br>
         <div>
           <mat-input-container class="HWidth">
-            <input matInput placeholder="City"  [(ngModel)]="City" >
+            <input matInput placeholder="City"  [(ngModel)]="City"  (keyup)="emitAddressObject()">
           </mat-input-container>
           <mat-input-container class="HWidth">
-            <input matInput placeholder="State"  [(ngModel)]="State">
+            <input matInput placeholder="State"  [(ngModel)]="State" (keyup)="emitAddressObject()">
           </mat-input-container>
         </div>
         <div>
           <mat-input-container class="HWidth">
-            <input matInput placeholder="Country" >
+            <input matInput placeholder="Country" [(ngModel)]="Country" (keyup)="emitAddressObject()">
           </mat-input-container>
           <mat-input-container class="HWidth">
-            <input matInput placeholder="Postal" >
+            <input matInput placeholder="Postal" [(ngModel)]="Postal" (keyup)="emitAddressObject()">
           </mat-input-container>
         </div>
         <button mat-button class="submit-button" color="primary" (click)="onSubmit()">Submit</button>

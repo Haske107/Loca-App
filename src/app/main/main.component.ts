@@ -35,7 +35,6 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit()  {
-    console.log(Dev);
     if (localStorage.getItem('profile')) {
       this.setProfile();
       this.isSignedIn = true;

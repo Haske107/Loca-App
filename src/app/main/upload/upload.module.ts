@@ -10,6 +10,7 @@ import {UploadPhotosComponent} from './upload-photos/upload-photos.component';
 import {VerifyLocationComponent} from './verify-location/verify-location.component';
 import {LocationRulesComponent} from './location-rules/location-rules.component';
 import {AgmCoreModule} from "@agm/core";
+import {UploadService} from "./upload.service";
 
 @NgModule({
   imports: [
@@ -29,6 +30,9 @@ import {AgmCoreModule} from "@agm/core";
       UploadPhotosComponent,
       VerifyLocationComponent,
       LocationRulesComponent
-  ]
+  ],
+    providers: [
+        UploadService
+    ]
 })
 export class UploadModule { }

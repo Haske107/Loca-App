@@ -41,29 +41,29 @@ export class Location       {
 
     constructor (
       user: string,
-      address: {
+      address?: {
         streetAddress: string,
         city: string,
         state: string,
         zip: string,
         country: string
       },
-      name: string,
-      description: string,
-      rules: string[],
-      deposit: number,
-      rate: number,
-      type: string,
-      bathrooms: number,
-      electricity: boolean,
-      parkingSpots: number
+      name?: string,
+      description?: string,
+      rules?: string[],
+      deposit?: number,
+      rate?: number,
+      type?: string,
+      bathrooms?: number,
+      electricity?: boolean,
+      parkingSpots?: number
     )
     {
       this.user =  user;
       this.address =  address;
       this.name = name;
       this.description = description;
-      this.rules= rules;
+      this.rules = rules;
       this.deposit = deposit;
       this.rate = rate;
       this.type = type;
@@ -73,5 +73,4 @@ export class Location       {
       this.deleted = false;
       this.coordinates = null;
     }
-
 }

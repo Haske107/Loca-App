@@ -3,7 +3,7 @@ import {Http, Headers, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {Router} from '@angular/router';
 import Auth0Lock from 'auth0-lock';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 import {Prod, Dev} from '../../URLSwitcher';
 
 
@@ -13,14 +13,14 @@ export class AuthService   {
 
   lock = new Auth0Lock('5d7Sac7i0PN5qK0VdzdDaPSSDOqpCyhP', 'haske107.auth0.com', {
     languageDictionary: {
-      title: "Join the Community"
+      title: 'Join the Community'
     },
     theme: {
       logo: './../../../assets/icons/binoculars-black.svg',
       primaryColor: '#00bcd4',
     },
     auth: {
-      redirectUrl: 'https://localhost:4200/loading',
+      redirectUrl: 'http://localhost:4200/loading',
       responseType: 'token id_token',
       params: {
         scope: 'openid profile email'
@@ -31,11 +31,11 @@ export class AuthService   {
   constructor(private http: Http, private router: Router) {}
 
   public login() {
-    this.lock.show()
+    this.lock.show();
   }
 
   public handleAuthentication(): void {
-    this.lock.on("authenticated", authResult =>  {
+    this.lock.on('authenticated', authResult =>  {
         this.setSession(authResult);
     });
   }
@@ -48,8 +48,8 @@ export class AuthService   {
     this.requestUserID().subscribe(data => {
       console.log(data);
       localStorage.setItem('userID', data.result);
-      localStorage.setItem('profile',JSON.stringify(data.profile));
-    })
+      localStorage.setItem('profile', JSON.stringify(data.profile));
+    });
 
   }
   public logout() {
@@ -80,7 +80,7 @@ export class AuthService   {
       ? '?token=' + localStorage.getItem('access_token')
       : '';
     return this.http.get('https://' + Prod + '/user/' + token, {headers: headers})
-      .map((response: Response)=> response.json())
-      .catch((error: Response)=> Observable.throw(error.json()));
+      .map((response: Response) => response.json())
+      .catch((error: Response) => Observable.throw(error.json()));
   }
 }

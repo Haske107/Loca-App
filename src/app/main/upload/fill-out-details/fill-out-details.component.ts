@@ -2,6 +2,7 @@ import {Component, EventEmitter, Host, OnInit, Output, OnDestroy, OnChanges} fro
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UploadComponent} from '../upload.component';
 import {document} from 'ngx-bootstrap/utils/facade/browser';
+import {UploadService} from "../upload.service";
 
 @Component({
   selector: 'app-fill-out-details',
@@ -40,23 +41,8 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
         {value: 'Public Space'}
     ];
 
-  constructor(@Host() private parent: UploadComponent) {
+  constructor(@Host() private parent: UploadComponent, private uploadService: UploadService) {
 
-      this.addr = parent.propertyAddress;
-      this.city = parent.propertyCity;
-      this.state = parent.propertyState;
-      this.zip = parent.propertyZip;
-      this.country = parent.propertyCountry;
-
-      this.propertyTitle = parent.propertyTitle;
-      this.locationType = parent.locationType;
-      this.locationDescription = parent.locationDescription;
-      this.deposit = parent.deposit;
-      this.ratePerDay = parent.ratePerDay;
-
-      this.numBathrooms = parent.numBathrooms;
-      this.numParking = parent.numParking;
-      this.electricity = parent.electricity;
   }
 
   ngOnInit() {
@@ -83,11 +69,14 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
           parking: new FormControl(null , Validators.required)
       });
 
-      this.AddressData.get('streetAddress').setValue(this.addr);
-      this.AddressData.get('city').setValue(this.city);
-      this.AddressData.get('state').setValue(this.state);
-      this.AddressData.get('zip').setValue(this.zip);
-      this.AddressData.get('country').setValue(this.country);
+      if (this.uploadService.NewLocation.address)    {
+          this.AddressData.get('streetAddress').setValue(this.uploadService.NewLocation.address.streetAddress);
+          this.AddressData.get('city').setValue(this.uploadService.NewLocation.address.city);
+          this.AddressData.get('state').setValue(this.uploadService.NewLocation.address.state);
+          this.AddressData.get('zip').setValue(this.uploadService.NewLocation.address.zip);
+          this.AddressData.get('country').setValue(this.uploadService.NewLocation.address.country);
+      }
+
 
       this.LocationData.get('name').setValue(this.propertyTitle);
       this.LocationData.get('description').setValue(this.locationDescription);
@@ -105,19 +94,21 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
   }
 
     nextStep() {
-        this.parent.propertyAddress = this.AddressData.get('streetAddress').value;
-        this.parent.propertyCity = this.AddressData.get('city').value;
-        this.parent.propertyState = this.AddressData.get('state').value;
-        this.parent.propertyZip = this.AddressData.get('zip').value;
-        this.parent.propertyCountry = this.AddressData.get('country').value;
-        this.parent.propertyTitle = this.LocationData.get('name').value;
-        this.parent.locationDescription = this.LocationData.get('description').value;
-        this.parent.locationType = this.LocationData.get('type').value;
-        this.parent.deposit = this.LocationData.get('deposit').value;
-        this.parent.ratePerDay = this.LocationData.get('rate').value;
-        this.parent.numBathrooms = this.numBathrooms;
-        this.parent.electricity = this.electricity;
-        this.parent.numParking = this.numParking;
+      if (this.uploadService.NewLocation.address)   {
+          this.uploadService.NewLocation.address.streetAddress = this.AddressData.get('streetAddress').value;
+          this.uploadService.NewLocation.address.city = this.AddressData.get('city').value;
+          this.uploadService.NewLocation.address.state = this.AddressData.get('state').value;
+          this.uploadService.NewLocation.address.zip = this.AddressData.get('zip').value;
+          this.uploadService.NewLocation.address.country = this.AddressData.get('country').value;
+          this.uploadService.NewLocation.name = this.LocationData.get('name').value;
+          this.uploadService.NewLocation.description = this.LocationData.get('description').value;
+          this.uploadService.NewLocation.type = this.LocationData.get('type').value;
+          this.uploadService.NewLocation.deposit = this.LocationData.get('deposit').value;
+          this.uploadService.NewLocation.rate = this.LocationData.get('rate').value;
+          this.uploadService.NewLocation.bathrooms = this.numBathrooms;
+          this.uploadService.NewLocation.electricity = this.electricity;
+          this.uploadService.NewLocation.parkingSpots = this.numParking;
+      }
     }
 
     incrementBathroom() {
