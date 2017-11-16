@@ -2,7 +2,7 @@ import {Component, EventEmitter, Host, OnInit, Output, OnDestroy, OnChanges} fro
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UploadComponent} from '../upload.component';
 import {document} from 'ngx-bootstrap/utils/facade/browser';
-import {UploadService} from "../upload.service";
+import {UploadService} from '../upload.service';
 
 @Component({
   selector: 'app-fill-out-details',
@@ -10,6 +10,20 @@ import {UploadService} from "../upload.service";
   styleUrls: ['./fill-out-details.component.scss']
 })
 export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
+    get numBathrooms(): number {
+        return this._numBathrooms;
+    }
+
+    set numBathrooms(value: number) {
+        this._numBathrooms = value;
+    }
+    get numParking(): number {
+        return this._numParking;
+    }
+
+    set numParking(value: number) {
+        this._numParking = value;
+    }
 
   // Jason and Lili
     private addr = '';
@@ -20,8 +34,8 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
     private propertyTitle = '';
     private locationType = '';
     private locationDescription = '';
-    private numBathrooms = 0;
-    private numParking = 0;
+    private _numBathrooms = 0;
+    private _numParking = 0;
     private electricity = false;
     private deposit = 0.0;
     private ratePerDay = 0.0;
@@ -105,41 +119,41 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
           this.uploadService.NewLocation.type = this.LocationData.get('type').value;
           this.uploadService.NewLocation.deposit = this.LocationData.get('deposit').value;
           this.uploadService.NewLocation.rate = this.LocationData.get('rate').value;
-          this.uploadService.NewLocation.bathrooms = this.numBathrooms;
+          this.uploadService.NewLocation.bathrooms = this._numBathrooms;
           this.uploadService.NewLocation.electricity = this.electricity;
-          this.uploadService.NewLocation.parkingSpots = this.numParking;
+          this.uploadService.NewLocation.parkingSpots = this._numParking;
       }
     }
 
     incrementBathroom() {
-      ++this.numBathrooms;
+      ++this._numBathrooms;
     }
 
     decrementBathroom() {
-        if (this.numBathrooms >= 1) {
-            --this.numBathrooms;
+        if (this._numBathrooms >= 1) {
+            --this._numBathrooms;
         }
     }
 
     incrementParking() {
-        ++this.numParking;
+        ++this._numParking;
     }
 
     decrementParking() {
-        if (this.numParking >= 1) {
-            --this.numParking;
+        if (this._numParking >= 1) {
+            --this._numParking;
         }
     }
 
     electricityTrue() {
       this.electricity = true;
-      document.getElementById('trueBtn').style.background = '#32b9d7';
+      document.getElementById('trueBtn').style.background = '#39cc61';
       document.getElementById('falseBtn').style.background = '#828282';
     }
 
     electricityFalse() {
         this.electricity = false;
         document.getElementById('trueBtn').style.background = '#828282';
-        document.getElementById('falseBtn').style.background = '#32b9d7';
+        document.getElementById('falseBtn').style.background = '#cc0f15';
     }
 }
