@@ -2,13 +2,6 @@ body {
   font-family: 'Saira Condensed', sans-serif;
 }
 
-.detailsBottom {
-  float: left;
-  width: 100%;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
 .stepBtn {
   float: left;
   width: 46%;
@@ -23,13 +16,45 @@ body {
   padding-right: 10%;
 }
 
-.details {
-  float: left;
+.title {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: larger;
+}
+
+h1 {
+  margin: 3%;
+  font-family: 'Saira Condensed', sans-serif;
+}
+
+form {
+  margin: 5%;
+}
+
+mat-expansion-panel {
+  margin: 3%;
+  padding: 2%;
+}
+
+
+mat-input-container {
   width: 100%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+table {
+  width: 100%;
+}
+
+.nums {
+  float: right;
+  margin: 2%;
+  padding-right: 2%;
+}
+
+.tdBtn {
+  width: 10%;
+  padding: 2%;
 }
 
 .elecbtn {
@@ -37,43 +62,30 @@ body {
   margin: 2%;
   background: #32b9d7;
   border: transparent;
+  margin: 2%;
 }
 
 .elecbtnNo {
   float: right;
-  margin: 2%;
-  background: #32b9d7;
+  background: #828282;
   border: transparent;
+  margin: 5%;
 }
 
 .elecbtnYes {
   float: right;
-  margin: 2%;
-  background: #828282;
+  background: #39cc61;
   border: transparent;
+  margin: 5%;
 }
 
 svg {
   margin: 0 auto;
-  padding-top: 10px;
+  padding-top: 7px;
+  padding-left: 2px;
 }
 
-.nums {
-  float: right;
+h3 {
+  font-family: 'Saira Condensed', sans-serif;
   margin: 2%;
-}
-
-h2 {
-  float: left;
-  text-align: center;
-  height: 100%;
-  padding-top: 10px;
-}
-
-h1 {
-  margin: 3%;
-}
-
-form {
-  margin: 5%;
 }
