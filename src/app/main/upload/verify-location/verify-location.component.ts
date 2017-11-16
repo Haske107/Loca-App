@@ -13,17 +13,17 @@ import {UploadService} from "../upload.service";
 })
 export class VerifyLocationComponent implements OnInit {
 
-    Street = '';
-    City = '';
-    State = '';
-    Country = '';
-    Postal = '';
+    Street ;
+    City;
+    State ;
+    Country ;
+    Postal ;
     mlat: number;
     mlng: number;
     lat = 33.78595702552393;
     lng = -117.85323192626953;
 
-
+    @Output() nextClick = new EventEmitter();
     @ViewChild('googlemaps') googlemap;
     MapDisplay = 'inline';
     LoadingDisplay = 'none';
@@ -39,7 +39,18 @@ export class VerifyLocationComponent implements OnInit {
 
 
     constructor(private mapService: MapService, @Inject(DOCUMENT) private document: Document, private uploadService: UploadService) {
+        if (this.uploadService.NewLocation.address)  {
+            this.Street = this.uploadService.NewLocation.address.streetAddress;
+            this.City = this.uploadService.NewLocation.address.city;
+            this.State = this.uploadService.NewLocation.address.state;
+            this.Country = this.uploadService.NewLocation.address.country;
+            this.Postal = this.uploadService.NewLocation.address.zip;
 
+        }
+        if (this.uploadService.NewLocation.coordinates) {
+            this.lat = this.uploadService.NewLocation.coordinates.lat;
+            this.lng = this.uploadService.NewLocation.coordinates.lng;
+        }
     }
 
     ngOnInit() {
@@ -113,15 +124,22 @@ export class VerifyLocationComponent implements OnInit {
         this.googlemap.zoom = 17;
         this.googlemap.zoomControl = false;
         this.googlemap.streetViewControl = false;
-        if (this.uploadService.NewLocation.address)  {
-            this.Street = this.uploadService.NewLocation.address.streetAddress;
-            this.City = this.uploadService.NewLocation.address.city;
-            this.State = this.uploadService.NewLocation.address.state;
-            this.Country = this.uploadService.NewLocation.address.country;
-            this.Postal = this.uploadService.NewLocation.address.zip;
-        }
-
-
+        this.uploadService.ChangeEmitter.subscribe(event =>    {
+            if (event.ID !== 1 || event.ID !== 10)  {
+                const location = event.location;
+                if (location.address)  {
+                    this.Street = location.address.streetAddress;
+                    this.City = location.address.city;
+                    this.State = location.address.state;
+                    this.Country = location.address.country;
+                    this.Postal = location.address.zip;
+                }
+                if (location.coordinates)    {
+                    this.lat = location.coordinates.lat;
+                    this.lng = location.coordinates.lng;
+                }
+            }
+        });
     }
 
     emitAddressObject() {
@@ -131,13 +149,15 @@ export class VerifyLocationComponent implements OnInit {
             state: this.State,
             zip: this.Postal,
             country: this.Country};
-        console.log(this.uploadService.NewLocation);
+        this.uploadService.emitChanges(1);
     }
 
     setMarkerCoords(event: any) {
         this.mlat = event.coords.lat;
         this.mlng = event.coords.lng;
         this.uploadService.NewLocation.coordinates = {lat: this.mlat, lng: this.mlng};
+        this.uploadService.emitChanges(1);
+
     }
 
     getCurrentLocation() {
@@ -149,6 +169,8 @@ export class VerifyLocationComponent implements OnInit {
             this.lat = position.coords.latitude;
             this.lng = position.coords.longitude;
             this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
+            this.uploadService.emitChanges(1);
+
             this.googlemap.triggerResize();
             this.height = '50px';
             this.display = 'inline';
@@ -168,6 +190,8 @@ export class VerifyLocationComponent implements OnInit {
                         this.display = 'inline';
                         this.buttonDisplay = 'inline';
                         this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
+                        this.uploadService.emitChanges(1);
+
                     }
                 );
         }
@@ -175,6 +199,8 @@ export class VerifyLocationComponent implements OnInit {
 
     ifYes() {
         this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
+        this.uploadService.emitChanges(1);
+
         this.color = '#7acc85';
         this.textcolor = 'white';
         this.cursor = 'pointer';
@@ -194,6 +220,8 @@ export class VerifyLocationComponent implements OnInit {
         this.doneDisplay = 'none';
         this.drag = false;
         this.uploadService.NewLocation.coordinates = {lat: this.mlat, lng: this.mlng};
+        this.uploadService.emitChanges(1);
+
         this.color = '#7acc85';
         this.textcolor = 'white';
         this.cursor = 'pointer';

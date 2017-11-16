@@ -1,6 +1,6 @@
-<mat-horizontal-stepper>
+<mat-horizontal-stepper #stepper>
   <mat-step label="Verify Location">
-    <app-verify-location>
+    <app-verify-location (nextClick)="stepper.next()">
     </app-verify-location>
   </mat-step >
   <mat-step label="Fill Out Details">

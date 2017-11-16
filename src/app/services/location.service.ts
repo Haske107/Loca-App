@@ -8,6 +8,7 @@ import {Observable} from 'rxjs/Observable';
 import {Location} from '../ts models/location.model';
 import {QueryForm} from '../ts models/queryform.model';
 import {Router} from '@angular/router';
+
 import {Prod, Dev} from '../../URLSwitcher';
 
 
@@ -73,9 +74,9 @@ export class LocationService    {
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
+
   getLocationsInRange(DistanceObject: any) {
     const body = DistanceObject;
-    console.log(body);
     return this.http.post('https://' + Prod + '/location/search/', body )
       .map((response: Response) => {
         const Locations = response.json().obj;

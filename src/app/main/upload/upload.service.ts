@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Injectable, OnChanges, Output} from '@angular/core';
+import {Component, EventEmitter, Injectable, OnChanges, OnDestroy, Output} from '@angular/core';
 import {Location} from '../../ts models/location.model';
 
 @Injectable()
-export class UploadService implements OnChanges  {
+export class UploadService  {
 
   public NewLocation: Location = new Location(
       null,
@@ -10,13 +10,15 @@ export class UploadService implements OnChanges  {
       null,
       null,
       null,
+      0,
+      0,
       null,
-      null,
-      null,
-      null,
-      null,
-      null
+      0,
+      false,
+      0
   );
+
+  public ChangeEmitter = new EventEmitter<any>();
 
 
   constructor() {
@@ -25,13 +27,18 @@ export class UploadService implements OnChanges  {
     } else {
         if (localStorage.getItem('userID'))  {
             this.NewLocation = new Location(localStorage.getItem('userID'));
-        }   else {
+        }   else    {
             // this.authService.login();
         }
     }
   }
 
-    ngOnChanges() {
+  emitChanges(CompID: number) {
+      console.log(this.NewLocation);
+      this.ChangeEmitter.emit({location: this.NewLocation, ID: CompID});
       localStorage.setItem('location', JSON.stringify(this.NewLocation));
-    }
+  }
+
+
+
 }

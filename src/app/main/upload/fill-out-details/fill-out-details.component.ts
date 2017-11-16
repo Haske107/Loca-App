@@ -2,7 +2,8 @@ import {Component, EventEmitter, Host, OnInit, Output, OnDestroy, OnChanges} fro
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UploadComponent} from '../upload.component';
 import {document} from 'ngx-bootstrap/utils/facade/browser';
-import {UploadService} from "../upload.service";
+import {UploadService} from '../upload.service';
+import {Location} from '../../../ts models/location.model';
 
 @Component({
   selector: 'app-fill-out-details',
@@ -20,11 +21,10 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
     private propertyTitle = '';
     private locationType = '';
     private locationDescription = '';
-    private numBathrooms = 0;
-    private numParking = 0;
-    private electricity = false;
-    private deposit = 0.0;
-    private ratePerDay = 0.0;
+    private numBathrooms: number;
+    private numParking: number ;
+    private electricity: boolean ;
+    private deposit: number ;
 
     @Output() idEmitter = new EventEmitter<string>();
 
@@ -78,14 +78,92 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
       }
 
 
-      this.LocationData.get('name').setValue(this.propertyTitle);
-      this.LocationData.get('description').setValue(this.locationDescription);
-      this.LocationData.get('type').setValue(this.locationType);
+      this.LocationData.get('name').setValue(this.uploadService.NewLocation.name);
+      this.LocationData.get('description').setValue(this.uploadService.NewLocation.description);
+      this.LocationData.get('type').setValue(this.uploadService.NewLocation.type);
       // this.LocationData.get('deposit').setValue(this.deposit.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       // this.LocationData.get('rate').setValue(this.ratePerDay.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-      this.LocationData.get('deposit').setValue(this.deposit.toFixed(2));
-      this.LocationData.get('rate').setValue(this.ratePerDay.toFixed(2));
+      this.LocationData.get('deposit').setValue(this.uploadService.NewLocation.deposit);
+      this.LocationData.get('rate').setValue(this.uploadService.NewLocation.rate);
+      this.DetailsData.get('bathrooms').setValue(this.uploadService.NewLocation.bathrooms);
+      this.DetailsData.get('parking').setValue(this.uploadService.NewLocation.parkingSpots);
+      this.DetailsData.get('electricity').setValue(this.uploadService.NewLocation.electricity);
+
+
+      this.uploadService.ChangeEmitter.distinctUntilChanged().subscribe(value => {
+          if (value.ID !== (2 || 10)) {
+              const location = value.location;
+              if (location.address) {
+                  this.AddressData.get('streetAddress').setValue(location.address.streetAddress);
+                  this.AddressData.get('city').setValue(location.address.city);
+                  this.AddressData.get('state').setValue(location.address.state);
+                  this.AddressData.get('zip').setValue(location.address.zip);
+                  this.AddressData.get('country').setValue(location.address.country);
+              }
+              if (location) {
+                  this.LocationData.get('name').setValue(location.name);
+                  this.LocationData.get('description').setValue(location.description);
+                  this.LocationData.get('type').setValue(location.type);
+                  this.LocationData.get('deposit').setValue(location.deposit);
+                  this.LocationData.get('rate').setValue(location.rate);
+                  this.DetailsData.get('bathrooms').setValue(location.bathrooms);
+                  this.DetailsData.get('parking').setValue(location.parkingSpots);
+                  this.DetailsData.get('electricity').setValue(location.electricity);
+              }
+          }
+      });
+    this.emitChanges();
+
   }
+
+  emitChanges() {
+      this.AddressData.get('streetAddress').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.address.streetAddress = value;
+          this.uploadService.emitChanges(2);
+      });
+      this.AddressData.get('city').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.address.city = value;
+          this.uploadService.emitChanges(2);
+      });
+      this.AddressData.get('state').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.address.state = value;
+          this.uploadService.emitChanges(2);
+      });
+      this.AddressData.get('zip').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.address.zip = value;
+          this.uploadService.emitChanges(2);
+      });
+      this.AddressData.get('country').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.address.country = value;
+          this.uploadService.emitChanges(2);
+      });
+      this.LocationData.get('name').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.name = value;
+          this.uploadService.emitChanges(10);
+      });
+      this.LocationData.get('type').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.type = value;
+          this.uploadService.emitChanges(10);
+      });
+      this.LocationData.get('rate').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.rate = value;
+          this.uploadService.emitChanges(10);
+      });
+      this.LocationData.get('deposit').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.deposit = value;
+          this.uploadService.emitChanges(10);
+      });
+      this.LocationData.get('description').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.description = value;
+          this.uploadService.emitChanges(10);
+      });
+      this.DetailsData.get('electricity').valueChanges.subscribe(value => {
+          this.uploadService.NewLocation.electricity = value;
+          this.uploadService.emitChanges(10);
+      });
+  }
+
+
   ngOnDestroy() {
       this.nextStep();
   }
