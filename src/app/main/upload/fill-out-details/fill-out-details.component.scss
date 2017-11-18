@@ -1,10 +1,11 @@
 body {
   font-family: 'Saira Condensed', sans-serif;
 }
-
+.body{
+  width: 500px;
+}
 .stepBtn {
   float: left;
-  width: 46%;
   margin-left: 2%;
   margin-right: 2%;
   text-align: center;
@@ -12,10 +13,20 @@ body {
   margin-top: 5%;
   margin-bottom: 5%;
   color: #FFFFFF;
-  padding-left: 10%;
-  padding-right: 10%;
-}
 
+}
+.backb  {
+  position:absolute;
+  right: 290px;
+  width: 20px;
+  top: 100px;
+}
+.nextb  {
+  position:absolute;
+  right: 180px;
+  width: 20px;
+  top: 100px;
+}
 .title {
   font-family: 'Saira Condensed', sans-serif;
   font-size: larger;
@@ -88,4 +99,22 @@ svg {
 h3 {
   font-family: 'Saira Condensed', sans-serif;
   margin: 2%;
+}
+
+
+.Address-Panel  {
+  width: 200px;
+  position: absolute;
+  left: 0;
+}
+
+.Details-Panel {
+  width: 200px;
+  position: absolute;
+  left: calc(35%)
+}
+.MoreDetails_Panel  {
+  width: 200px;
+  position: absolute;
+  left: 70%;
 }

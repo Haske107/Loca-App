@@ -17,6 +17,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {AngularMaterialsModule} from '../angular-materials.module';
+import { LandingComponent } from './landing/landing.component';
 
 // MODULES
 @NgModule({
@@ -39,6 +40,7 @@ import {AngularMaterialsModule} from '../angular-materials.module';
   ],
   declarations: [
       MainComponent,
+      LandingComponent,
   ]
 })
 export class MainModule { }

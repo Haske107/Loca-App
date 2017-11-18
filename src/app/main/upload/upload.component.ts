@@ -16,12 +16,14 @@ import {UploadService} from "./upload.service";
 export class UploadComponent implements OnInit {
 
 
-    constructor(private authService: AuthService, private uploadService: UploadService)   {
+    constructor(private authService: AuthService, private router: Router)   {
 
     }
 
     ngOnInit()  {
-
+        if (!this.authService.isAuthenticated()) {
+            this.router.navigateByUrl('/main');
+        }
     }
 
 }

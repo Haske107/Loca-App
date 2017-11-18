@@ -5,9 +5,9 @@
 </h1>
 <hr>
 
-<mat-accordion>
+<mat-accordion class="body">
 
-  <mat-expansion-panel [expanded]="true">
+  <mat-expansion-panel [expanded]="true" class="Address-Panel">
     <mat-expansion-panel-header>
       <mat-panel-title class="title">
         Address
@@ -37,7 +37,7 @@
 
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel class="Details-Panel">
     <mat-expansion-panel-header>
       <mat-panel-title class="title">
         Information
@@ -69,7 +69,7 @@
 
   </mat-expansion-panel>
 
-  <mat-expansion-panel>
+  <mat-expansion-panel class="MoreDetails_Panel">
     <mat-expansion-panel-header>
       <mat-panel-title class="title">
         Details
@@ -152,7 +152,7 @@
 
 </mat-accordion>
 
-<button class="stepBtn" (click)="nextStep()" mat-button matStepperPrevious="">BACK</button>
-<button class="stepBtn" (click)="nextStep()" mat-button matStepperNext>NEXT</button>
+<button class="stepBtn backb" (click)="nextStep()" mat-button matStepperPrevious="">BACK</button>
+<button class="stepBtn nextb" (click)="nextStep()" mat-button matStepperNext>NEXT</button>
 
 </body>

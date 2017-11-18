@@ -3,3 +3,11 @@ mat-horizontal-stepper   {
     height: 80vh;
     margin: 10px 10%;
 }
+.footer {
+    height: 140px;
+    width: 100%;
+    background-image: url('./../../../../Design Materials/Blue Gradient.png');
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+}

@@ -34,6 +34,8 @@ h5:hover  {
 mat-toolbar{
   background-image: url('./../../assets/materials/Blue Gradient Side Panel.png ');
   background-size: cover;
+  height: 64px;
+  min-height: 64px;
 }
 .Icon{
   font-size:40px;
@@ -142,7 +144,7 @@ mat-toolbar{
   margin-right: 5px;
 }
 .spacer {
-  height: 45px;
+  height: 64px;
 }
 mat-toolbar  {
   position: fixed;

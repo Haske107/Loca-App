@@ -15,7 +15,7 @@ export class RateFilterComponent implements OnInit {
   ParentLeftOffset: string;
   max: number = 2500;
   min: number = 0;
-  someRange = [this.min,this.max];
+  someRange = [this.min, this.max];
 
   state: {
     low: number,
