@@ -29,8 +29,8 @@ export class MainComponent implements OnInit {
               private SearchService: SearchService,
               private router: Router) {
     iconRegistry.addSvgIcon(
-      'binos',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/binoculars-white.svg'));
+      'logo',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/Logo.png'));
     this.authService.handleAuthentication();
   }
 

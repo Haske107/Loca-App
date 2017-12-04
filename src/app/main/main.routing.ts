@@ -26,6 +26,5 @@ export const MAIN_ROUTES: Routes = [
   {path: 'search', component: SearchComponent, data: {
   } },
   {path: 'permits', component: RegulationsComponent,  children: REG_ROUTES  , data: {
-  }},
-    {path: 'landing', component: LandingComponent}
+  }}
 ];

@@ -1,22 +1,23 @@
-<div class="row" *ngFor="let location of locations
+<div class="row" *ngFor="let location of locations; let i of index
      | filter: searchString: 'name'
      | typeFilter: typeObject
      | electricityFilter: electrictyObject
      | bathroomFilter: bathroomObject
      | rateFilter: rateObject">
-  <div class="col-sm-2 photo-container">
+
+  <div class="col-sm-4 photo-container">
+    <div class="color-bar" [ngStyle]="{'background-color': colorFromType(location.type)}">
+    </div>
     <img src="https://{{Prod}}/files/{{location._id}}" style="width: 100%; height: 100%;">
+    <i class="material-icons add">add_circle_outline</i>
   </div>
+
   <div class="col-sm-8">
     <h5>{{location.name}}</h5>
+    <hr>
     <p>{{location.description}}</p>
-  </div>
-  <div class="col-sm-2">
-    <mat-chip-list>
-      <mat-chip >
-        ${{location.rate }}/Day
-      </mat-chip>
-    </mat-chip-list>
+    <i class="material-icons flash" *ngIf="location.electricity">flash_on</i>
+    <i class="material-icons wc" *ngIf="location.bathrooms">wc</i>
   </div>
 </div>
 

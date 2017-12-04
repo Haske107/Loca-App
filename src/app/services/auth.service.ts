@@ -46,7 +46,6 @@ export class AuthService   {
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
     this.requestUserID().subscribe(data => {
-      console.log(data);
       localStorage.setItem('userID', data.result);
       localStorage.setItem('profile', JSON.stringify(data.profile));
     });
@@ -64,7 +63,6 @@ export class AuthService   {
   }
   public listenforAuthentication() {
     this.listener = setInterval(() => {
-      console.log('listening');
       if (this.isAuthenticated()) {
         if (localStorage.getItem('profile')) {
           this.router.navigateByUrl('/');
@@ -79,7 +77,7 @@ export class AuthService   {
     const token = localStorage.getItem('access_token')
       ? '?token=' + localStorage.getItem('access_token')
       : '';
-    return this.http.get('https://' + Prod + '/user/' + token, {headers: headers})
+    return this.http.get('http://' + Dev + '/user/' + token, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }

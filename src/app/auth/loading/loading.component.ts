@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 
@@ -7,20 +7,23 @@ import {Router} from "@angular/router";
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })
-export class LoadingComponent implements OnInit, OnDestroy {
+export class LoadingComponent implements OnInit, OnDestroy, OnChanges {
 
 
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.authService.handleAuthentication();
-    this.authService.listenforAuthentication();
+      this.authService.handleAuthentication();
+      this.authService.listenforAuthentication();
   }
 
   ngOnDestroy() {
     clearInterval(this.authService.listener);
   }
 
+  ngOnChanges() {
+
+  }
 
 }

@@ -25,6 +25,7 @@ import {NouisliderModule} from "ng2-nouislider/src/nouislider";
 import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from "@agm/core";
 import {CollectionButtonComponent} from "./Grid/card/collection-button/collection-button.component";
+import { FilterDrawerComponent } from './filter-drawer/filter-drawer.component';
 
 
 
@@ -57,6 +58,7 @@ import {CollectionButtonComponent} from "./Grid/card/collection-button/collectio
       ListComponent,
       CardComponent,
       CollectionButtonComponent,
+      FilterDrawerComponent,
 
   ],
     providers: [

@@ -5,24 +5,31 @@ h3 {
   font-variant: normal;
   font-weight: 300;
   line-height: 40px;
+  color: #006d7a;
 }
 
 h5  {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 16px;
+  font-family: Roboto , sans-serif;
+  font-size: 20px;
   font-style: normal;
   font-variant: normal;
-  font-weight: 200;
+  font-weight: 600;
   line-height: 16px;
-  color: white;
-  margin: 10px 10px 15px 15px;
   outline: none;
-  letter-spacing: 1px;
   cursor: pointer;
+  color: #66b9fb;
+margin: 10px;
+
+}
+
+.Header  {
+  position: absolute;
+  top: 6px;
+  left: -135px;
 }
 
 h5:hover  {
-  color: #f8ed0d;
+  color: #66bcfe;
 }
 
 
@@ -80,12 +87,7 @@ mat-toolbar{
   padding-right: 10%;
 }
 
-.Header {
-  position: fixed;
-  left: 25px;
-  top: 6px;
-  width: calc(100% - 40);
-}
+
 
 
 
@@ -117,6 +119,14 @@ mat-toolbar{
 
 
 }
+
+.pipe {
+  cursor: default;
+  color: grey;
+}
+.pipe:hover {
+color:grey
+}
 .signin {
   color: white;
   position: fixed;
@@ -130,7 +140,7 @@ mat-toolbar{
   background-color: transparent;
 }
 .signin:hover {
-  color: #0098b0;
+  color: #8db9fa;
 }
 .signin:active  {
   border: none !important;
@@ -172,4 +182,32 @@ mat-toolbar  {
 
 }
 
+.FloatBar {
+  position: absolute;
+  top: 50px;
+  left: 320px;
+  background-color: #fcfcfc;
+  height: 48px;
+  width: 650px;
+  padding: 0;
+  border-radius: 100px;
+  z-index: 10;
+  color: #74befb;
+  border: 1px solid #f6f6f6;
+  -webkit-box-shadow: 4px 10px 6px -6px #a8a8a8;
+  -moz-box-shadow: 4px 10px 6px -6px #c4c4c4;
+  box-shadow: 4px 10px 6px -6px #d7d7d7;
+}
+
+
+.logo{
+  background-image: url(../../assets/icons/Logo.png);
+  background-size: cover;
+  position: fixed;
+  top: -40px;
+  left: -15px;
+  height: 200px;
+  width: 200px;
+  z-index: 10;
+}
 

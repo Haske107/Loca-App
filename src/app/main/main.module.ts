@@ -39,8 +39,7 @@ import { LandingComponent } from './landing/landing.component';
 
   ],
   declarations: [
-      MainComponent,
-      LandingComponent,
+      MainComponent
   ]
 })
 export class MainModule { }
