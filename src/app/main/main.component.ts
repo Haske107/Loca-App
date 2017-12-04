@@ -29,8 +29,8 @@ export class MainComponent implements OnInit {
               private SearchService: SearchService,
               private router: Router) {
     iconRegistry.addSvgIcon(
-      'binos',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/binoculars-white.svg'));
+      'logo',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/Logo.png'));
     this.authService.handleAuthentication();
   }
 
@@ -52,6 +52,15 @@ export class MainComponent implements OnInit {
     this.isSignedIn = false;
     this.isOpen = false;
     this.router.navigateByUrl('/');
+  }
+
+  routeToPost() {
+      if (this.authService.isAuthenticated()) {
+        console.log(this.authService.isAuthenticated());
+        this.router.navigateByUrl('/main/post');
+      } else  {
+        this.authService.login();
+      }
   }
 
   public change(value: boolean): void {

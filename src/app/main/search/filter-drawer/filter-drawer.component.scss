@@ -1,0 +1,35 @@
+.rate-filter{
+  height: 30px;
+  width: 95px;
+  border-radius: 20px !important ;
+  margin: 25px 5px 10px !important;
+  -webkit-box-shadow: 4px 10px 6px -6px #a8a8a8;
+  -moz-box-shadow: 4px 10px 6px -6px #c4c4c4;
+  box-shadow: 4px 10px 6px -6px #d7d7d7;
+  background-color: white;
+  border: 1px #f3f3f3 solid;
+  color: #b0b0b0;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  padding: 4px;
+}
+.filterRow  {
+  padding-left: 10%;
+}
+.Search-Input {
+  width: 87%;
+  margin-top: 15px;
+  margin-left: 1%;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  border: 1px solid #f3f3f3;
+  -webkit-box-shadow: 4px 10px 6px -6px #cbcbcb;
+  -moz-box-shadow: 4px 10px 6px -6px #bbbbbb;
+  box-shadow: 4px 10px 6px -6px #bbbbbb;
+  background-image: url("../../../../assets/materials/Search-Bar.jpg");
+  background-size:cover;
+}
+.material-icons {
+  position: absolute;
+
+}

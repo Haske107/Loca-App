@@ -113,7 +113,7 @@ button{
 .grid-split {
   padding-right:1px;
   padding-left: 0;
-  height: 900px;
+  height: 100vh;
   overflow-y: scroll;
 }
 
@@ -125,9 +125,27 @@ button{
 }
 
 .list-split {
-  height: calc(100vh - 85px);
+  width: 100%;
+  padding:0;
+
+
+}
+.right-panel{
+  background-color: #f3f3f3;
+  overflow-x: hidden;
   overflow-y: scroll;
   padding: 0;
+  box-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);
+  height: 100vh;
+}
+::-webkit-scrollbar {
+  width: 10px;  /* remove scrollbar space */
+  margin-lefT: 2px;
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #5192da;
 }
 .map  {
   overflow: hidden;
@@ -162,6 +180,7 @@ button{
   z-index: 2;
   height: 40px ;
   padding-left: 20px;
+  width: 100%;
 }
 
 .btn{
@@ -178,7 +197,7 @@ button{
 }
 
 .grid{
-  height: calc(100vh - 85px);
+  height: 100vh;
   overflow-y: scroll;
 }
 
@@ -212,6 +231,12 @@ p {
   border-radius: 4px;
   border: 1px solid silver;
   background-color: #F7F7F7;
+  cursor: pointer;
+}
+
+.view-buttons:hover  {
+  background-color: #dfdfdf;
+
 }
 .view-button  {
   height: 15px;

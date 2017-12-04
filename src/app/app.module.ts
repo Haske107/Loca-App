@@ -22,11 +22,14 @@ import {FileService} from './services/file.service';
 import {AppComponent } from './app.component';
 import {LoadingComponent } from './auth/loading/loading.component';
 import {AngularMaterialsModule} from './angular-materials.module';
+import {LandingComponent} from "./main/landing/landing.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         LoadingComponent,
+        LandingComponent
+
     ],
   entryComponents: [
   ],

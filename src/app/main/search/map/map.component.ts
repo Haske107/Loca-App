@@ -62,13 +62,13 @@ export class MapComponent implements OnInit {
     );
 
     // STYLE THE MAP
-    this.googlemap.styles = [
+      this.googlemap.styles = [
       {
         "featureType": "landscape.natural",
         "elementType": "geometry.fill",
         "stylers": [
           {
-            "color": "#fffffd"
+            "color": "#efefef"
           },
           {
             "visibility": "on"
@@ -80,10 +80,10 @@ export class MapComponent implements OnInit {
         "elementType": "geometry.fill",
         "stylers": [
           {
-            "color": "#7acc85"
+            "color": "#f3f3f3"
           },
           {
-            "visibility": "on"
+            "visibility": "off"
           }
         ]
       },
@@ -91,8 +91,10 @@ export class MapComponent implements OnInit {
         "featureType": "road",
         "elementType": "geometry",
         "stylers": [
+
           {
             "lightness": 100
+
           },
           {
             "visibility": "simplified"
@@ -124,7 +126,7 @@ export class MapComponent implements OnInit {
         "featureType": "water",
         "stylers": [
           {
-            "color": "#00bcd4"
+            "color": "#a1a0a4"
           }
         ]
       }

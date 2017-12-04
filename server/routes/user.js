@@ -49,15 +49,16 @@ userRoutes.get('/getUsersByLocation:Locations', function(req, res){});
 //AUTH
   //REGISTER USER
 userRoutes.get("/", function (req, res, next) {
-  auth0.getProfile(req.query.token, function (err, userInfo) {
+
+    auth0.getProfile(req.query.token, function (err, userInfo) {
     if (err) {
       // Handle error.
+         console.log(err);
     }
-    console.log(userInfo);
-    const profile = JSON.parse(userInfo);
+    const profile = userInfo;
     User.findOne({email : profile.email}, function(err, result) {
+
       if(!result) {
-        console.log(profile.email);
         const user = new User({
           email: profile.email,
           firstName : profile.given_name,
@@ -72,7 +73,8 @@ userRoutes.get("/", function (req, res, next) {
             })
           }
           if(!err) {
-            return res.status(201).json({
+
+              return res.status(201).json({
               title: 'Created new user',
               result: newUser._id,
               profile: profile
@@ -80,8 +82,10 @@ userRoutes.get("/", function (req, res, next) {
           }
         });
       }
-      if(result){
-        return res.status(200).json({
+
+        if(result){
+
+          return res.status(200).json({
           title: 'Found User',
           result: result._id,
           profile: profile

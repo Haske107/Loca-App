@@ -45,6 +45,7 @@ app.use('/user', userRoutes);
 app.use('/collection', collectionRoutes);
 app.use('/location', locationRoutes);
 app.use('/', appRoutes);
+console.log("SERVER INITIATED: RUNNING ON PORT 3000");
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

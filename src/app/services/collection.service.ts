@@ -14,7 +14,7 @@ export class CollectionService {
 
   // READ
   getPublicCollections() {
-    return this.http.get('https://' + Prod + '/collection/community/')
+    return this.http.get('http://' + Dev + '/collection/community/')
         .map((response: Response) => {
           const Collections = response.json().obj;
           const transformedCollections: Collection[] = [];
@@ -38,7 +38,7 @@ export class CollectionService {
         .catch((error: Response) => Observable.throw(error.json()));
   }
   getPrivateCollections() {
-    return this.http.get('https://' + Prod + '/collection/private/' + localStorage.getItem('userID'))
+    return this.http.get('http://' + Dev + '/collection/private/' + localStorage.getItem('userID'))
       .map((response: Response) => {
         const Collections = response.json().obj;
         const transformedCollections: Collection[] = [];
@@ -62,7 +62,7 @@ export class CollectionService {
       .catch((error: Response) => Observable.throw(error.json()));
   }
   getCreatedCollections() {
-    return this.http.get('https://' + Prod + '/collection/created/' + localStorage.getItem('userID'))
+    return this.http.get('http://' + Dev + '/collection/created/' + localStorage.getItem('userID'))
       .map((response: Response) => {
         const Collections = response.json().obj;
         const transformedCollections: Collection[] = [];
@@ -91,7 +91,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.get('https://' + Prod + '/collection/locations/' + collectionID + token , {headers: headers})
+    return this.http.get('http://' + Dev + '/collection/locations/' + collectionID + token , {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -104,7 +104,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.delete('https://' + Prod + '/collection/remove/' + collectionID + token , {headers: headers})
+    return this.http.delete('http://' + Dev + '/collection/remove/' + collectionID + token , {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -115,7 +115,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('https://' + Prod + '/collection/' + localStorage.getItem('userID') + token, body, {headers: headers})
+    return this.http.post('http://' + Dev + '/collection/' + localStorage.getItem('userID') + token, body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -128,7 +128,7 @@ export class CollectionService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('https://' + Prod + '/collection/updatePublicity/' + collectionID + token, null,  {headers: headers})
+    return this.http.patch('http://' + Dev + '/collection/updatePublicity/' + collectionID + token, null,  {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -140,7 +140,7 @@ export class CollectionService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.patch('https://' + Prod + '/collection/addLocation/' + collectionID + token, body, {headers: headers})
+    return this.http.patch('http://' + Dev + '/collection/addLocation/' + collectionID + token, body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -151,7 +151,7 @@ export class CollectionService {
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
-    return this.http.patch('https://' + Prod + '/collection/removeLocation/' + collectionID + token , body, {headers: headers})
+    return this.http.patch('http://' + Dev + '/collection/removeLocation/' + collectionID + token , body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => error.json());
   }
