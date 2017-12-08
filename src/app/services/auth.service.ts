@@ -20,7 +20,7 @@ export class AuthService   {
       primaryColor: '#00bcd4',
     },
     auth: {
-      redirectUrl: 'https://localhost:4200/loading',
+      redirectUrl: 'http://localhost:4200/loading',
       responseType: 'token id_token',
       params: {
         scope: 'openid profile email'

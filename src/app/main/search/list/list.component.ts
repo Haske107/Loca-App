@@ -2,8 +2,6 @@ import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
 import {Location} from './../../../ts models/location.model';
 import {SearchService} from '../../../services/search.service';
 import {Prod, Dev} from '../../../../URLSwitcher';
-import {forEach} from '@angular/router/src/utils/collection';
-import {allNgComponent} from 'codelyzer/walkerFactory/walkerFactory';
 import {DomSanitizer} from "@angular/platform-browser";
 import {MatIconRegistry} from "@angular/material";
 @Component({

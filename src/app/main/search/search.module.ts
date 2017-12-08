@@ -26,6 +26,7 @@ import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from "@agm/core";
 import {CollectionButtonComponent} from "./Grid/card/collection-button/collection-button.component";
 import { FilterDrawerComponent } from './filter-drawer/filter-drawer.component';
+import {Routing} from "../../app.routing";
 
 
 
@@ -35,6 +36,7 @@ import { FilterDrawerComponent } from './filter-drawer/filter-drawer.component';
       AngularMaterialsModule,
       NouisliderModule,
       FormsModule,
+      Routing,
       AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
       }),

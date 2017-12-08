@@ -29,12 +29,12 @@
           #bathroom>
     <p>Bathrooms</p>
   </button>
-
-
+</div>
+<div class="row filterRow search">
     <input
+            placeholder="Search City, State, or Address"
             type="text"
-            class="form-control Search-Input"
-
+            class="Search-Input"
             [(ngModel)]="query"
             (keyup)="updateInput(query)"
     >

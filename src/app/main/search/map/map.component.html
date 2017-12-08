@@ -15,3 +15,16 @@
     [iconUrl]="'./../../../../assets/icons/'+ location.type +'.png'">
   </agm-marker>
 </agm-map>
+
+<!-- MAIN TOOLBAR -->
+<div class="FloatBar">
+  <div class="Header row">
+    <h5 style="margin-left: 175px;" [routerLink]="'/main/search'">SEARCH</h5>
+    <h5 class="pipe">|</h5>
+    <h5 [routerLink]="'/main/collections'">COLLECTIONS</h5>
+    <h5 class="pipe">|</h5>
+    <h5 [routerLink]="'/main/permits'">PERMITS</h5>
+    <h5 class="pipe">|</h5>
+    <h5 (click)="routeToPost()">POST A LOCATION</h5>
+  </div>
+</div>

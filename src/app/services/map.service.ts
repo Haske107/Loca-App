@@ -1,8 +1,8 @@
-import {Location} from "../ts models/location.model";
-import {Http, Response, Headers} from "@angular/http";
-import {Injectable} from "@angular/core";
+import {Location} from '../ts models/location.model';
+import {Http, Response, Headers} from '@angular/http';
+import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 import {Prod, Dev} from '../../URLSwitcher';
 
 
@@ -11,7 +11,7 @@ export class MapService {
 
   constructor(private http: Http) { }
 
-      geoCode(location : Location)  {
+      geoCode(location: Location)  {
         const headers = new Headers({
           'content': 'FormData'});
         const token = localStorage.getItem('token')
@@ -22,9 +22,11 @@ export class MapService {
           ',' + location.address.city +
           ',' + location.address.state +
           '&key=AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI' )
-          .map((response: Response)=> response.json())
-          .catch((error: Response)=> Observable.throw(error.json()));
+          .map((response: Response) => response.json())
+          .catch((error: Response) => Observable.throw(error.json()));
       }
+
+
     geoCodeRaw(streetAddress: string, city: string, state: string)  {
         const headers = new Headers({
             'content': 'FormData'});

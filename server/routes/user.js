@@ -28,8 +28,7 @@ userRoutes.get( "/getUserByID/:ID", function(req, res, next) {
         message: 'Returned User',
         obj: result
     });
-  }
-  );
+  });
 });
 //GET USERS BY ID
 userRoutes.get('/getUsersByID:IDs', function(req, res){});

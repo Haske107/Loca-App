@@ -93,38 +93,8 @@ locationRoutes.use('/', function(req, res, next)  {
 
 //ADD LOCATION
 locationRoutes.post('/', function (req, res) {
-
-    //FIND USER REQUESTING
     var decoded = jwtoken.decode(req.query.token);
     User.findOne({email : decoded.email}, function (err, user) {
-        if (err) {
-            return res.status(500).json({
-                title: 'An error occured',
-                error: err
-            });
-        }
-
-        //STORE REQ VARIABLES INTO LOCAL LOCATION
-        var location = Location({
-            user: req.body.user,
-            uploadDate: today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear() ,
-            address: req.body.address,
-            name: req.body.name,
-            description: req.body.description,
-            rules: req.body.rules,
-            deposit: req.body.deposit,
-            rate: req.body.rate,
-            type: req.body.type,
-            mainPhoto: req.body.mainPhoto,
-            otherPhotos: req.body.otherPhotos,
-            shootPhotos: req.body.shootPhotos,
-            bathrooms: req.body.bathrooms,
-            electricity: req.body.electricity,
-            parkingSpots: req.body.parkingSpots,
-            coordinates: req.body.coordinates
-        });
-
-        //SAVE TO DB
         location.save(function (err, result) {
             if (err) {
                 return res.status(500).json({

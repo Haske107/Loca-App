@@ -127,7 +127,7 @@ button{
 .list-split {
   width: 100%;
   padding:0;
-
+  margin-top: 120px;
 
 }
 .right-panel{
@@ -140,12 +140,21 @@ button{
 }
 ::-webkit-scrollbar {
   width: 10px;  /* remove scrollbar space */
-  margin-lefT: 2px;
+  margin-left: 2px;
   background: transparent;  /* optional: just make scrollbar invisible */
 }
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-  background: #5192da;
+  background: #a1a1a1;
+  border-radius: 5px;
+}
+
+app-filter-drawer {
+  position: fixed;
+  top: 0;
+  background-color: #f3f3f3;
+  width: 100%;
+  z-index: 12;
 }
 .map  {
   overflow: hidden;
@@ -238,8 +247,10 @@ p {
   background-color: #dfdfdf;
 
 }
+
 .view-button  {
   height: 15px;
   width: 15px;
   margin: 4px;
 }
+

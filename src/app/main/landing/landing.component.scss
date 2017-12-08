@@ -1,8 +1,42 @@
 .jumbo  {
   background-size: cover;
-  background-image: url('../../../../Design Materials/landing.jpg');
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/002/936/681/large/charline-arnoux-film-sets-01-arnouxcharline-cg.jpg?1467494383');
   position: absolute;
   top: 0;
+  width: calc(100% + 20px);
+  height: calc(100vh + 20px);
+  overflow: hidden;
+  filter: blur(2px);
+
+}
+.jumbo-wrapper  {
+  width: calc(100% + 10px);
+  height: calc(100vh + 10px);
+}
+.logo{
+  background-image: url(../../../assets/icons/Logo.png);
+  background-size: cover;
+  position: fixed;
+  top: calc(50% - 430px);
+  left: calc(50% - 375px);
+  height: 750px;
+  width: 750px;
+  z-index: 10;
+}
+.input-card {
+  position: fixed;
+  width: 750px;
+  top: 450px;
+  left: calc(50% - 375px);
+  height: 40px;
+  z-index: 11;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white !important;
+}
+.input  {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: calc(100vh);
+  height: 30px;
 }

@@ -1,16 +1,17 @@
 
+
 <div class="row">
-  <div class="col-lg-8 offset-lg-2 page">
-    <h2> City of Orange</h2>
+  <div class="col-lg-8 offset-lg-2">
+    <hr>
     <mat-list>
-      <mat-list-item class="item1" [routerLink]="'rulesregulations'" (click)="toggleSection(1)"><h3>Rules and Regulations</h3></mat-list-item>
-      <router-outlet *ngIf="current === 1" ></router-outlet>
-      <mat-list-item class="item2" [routerLink]="'socialservices'" (click)="toggleSection(2)"><h3>Social Services</h3></mat-list-item>
-      <router-outlet *ngIf="current === 2"></router-outlet>
-      <mat-list-item class="item3" [routerLink]="'permit'" (click)="toggleSection(3)"><h3>Permit</h3></mat-list-item>
-      <router-outlet *ngIf="current === 3"></router-outlet>
-      <mat-list-item class="item4" [routerLink]="'students'" (click)="toggleSection(4)"><h3>Students</h3></mat-list-item>
-      <router-outlet *ngIf="current === 4"></router-outlet>
+      <mat-list-item class="item1" ><h3 class="RnR">Rules and Regulations</h3></mat-list-item>
+      <router-outlet ></router-outlet>
+      <mat-list-item class="item2"  ><h3 class="SS">Social Services</h3></mat-list-item>
+      <router-outlet ></router-outlet>
+      <mat-list-item class="item3" ><h3 class="P">Permit</h3></mat-list-item>
+      <router-outlet ></router-outlet>
+      <mat-list-item class="item4" ><h3 class="S">Students</h3></mat-list-item>
+      <router-outlet ></router-outlet>
     </mat-list>
   </div>
 </div>

@@ -40,6 +40,7 @@ export class FillOutDetailsComponent implements OnInit, OnDestroy, OnChanges {
         {value: 'School'},
         {value: 'Public Space'}
     ];
+    Selected = 'Type';
 
   constructor(@Host() private parent: UploadComponent, private uploadService: UploadService) {
 

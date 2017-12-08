@@ -51,14 +51,21 @@
       <mat-input-container>
         <input matInput formControlName="name" placeholder="Property Title" value="">
       </mat-input-container>
-      <mat-select placeholder="Location Type" formControlName="type" class="details">
-        <mat-option *ngFor="let type of Types" [value]="type.value" >
-          {{ type.value }}
-        </mat-option>
-      </mat-select>
+
+
+      <mat-form-field class="Type">
+        <mat-select [(value)]="Selected">
+          <mat-option *ngFor="let type of Types" [value]="type.value" >
+            {{ type.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
       <mat-input-container>
         <textarea matInput formControlName="description"  placeholder="Description" value="" rows="5"></textarea>
       </mat-input-container>
+
+
       <mat-input-container>
         <input matInput formControlName="deposit" placeholder="Deposit ($USD)"  value="200">
       </mat-input-container>

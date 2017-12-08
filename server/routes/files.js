@@ -79,11 +79,16 @@ filesRoutes.use('/', function(req,res,next){
 //UPLOAD MAIN PHOTO
 filesRoutes.post('/main/:id', function (req, res, next) {
   var path = '';
+    supload.onProgress(function(data) {
+      console.log(data);
+      console.log("Progress");
+    });
   supload(req, res, function (err) {
     if (err) {
       console.log(err);
       return res.status(422).send("an Error occured")
     }
+
     path = req.file.path;
     res.status(201).json({
       message: 'Success!',

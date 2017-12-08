@@ -33,11 +33,11 @@ export class UploadPhotosComponent implements OnInit {
         // ASSIGN KEYWORD PHOTO FOR THE SERVER
             // MAKE A FOR LOOP TO MAKE IT MORE DYNAMIC
         formData.append('photo', FileList[0]);
-      // LETS DOUBLE CHECK THAT THE INJECTED LOCATION HAS AN ID
+      /* LETS DOUBLE CHECK THAT THE INJECTED LOCATION HAS AN ID
         if (!this.location._id)   {
             // FOR NOW, SINCE WE WONT HAVE ONE INJECTED FOR DEV PURPOSES, WE WILL REPLACE IT
 
-        }
+        }*/
       // CALL THE MAGICAL FILE SERVICE TO SEND IT INTO WONDERLAND
         this.fileService.uploadPhoto( this.location_id, formData)
             .subscribe(
