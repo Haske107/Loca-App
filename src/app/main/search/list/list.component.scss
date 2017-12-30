@@ -18,7 +18,9 @@
   padding: 0;
 }
 
-.img  {
+img  {
+  width: 100%;
+  min-height: 100%;
 }
 
 
@@ -36,6 +38,7 @@ mat-chip{
   width: 28px;
   position: absolute;
   left: 0;
+  opacity: .8;
 }
 
 .distance {

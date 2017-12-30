@@ -1,8 +1,6 @@
 
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
-var User = require('./user');
-var Collection = require('./collection');
 
 var LocationSchema = new schema({
     collections: {type: schema.Types.ObjectId, ref: 'Collection'},

@@ -1,11 +1,71 @@
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <h5>You're going to need some photos of your space</h5>
-    <p>You are allowed up to 10 photos<br>Upload them all at once or one at a time</p>
-    <div class="upload-box inner-shadow" type="file" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
-      <p>Drag your images here</p>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <!-- TITLE -->
+      <h3>You're going to need some photos</h3>
+      <h5>You are allowed up to 10 photos</h5>
+
+      <!-- NO PHOTOS --------------------------->
+      <!-- DROP ZONE -->
+      <div  type="file"
+            class="upload-box inner-shadow add-photo-tile"
+            (drop)="onDrop($event)"
+            (dragover)="allowDrop($event)"
+            (click)="FileInput.click()"
+            (mouseover)="onHover()"
+            (mouseleave)="onLeave()"
+            *ngIf="this.files.length == 0"
+        >
+          <mat-icon
+                  [ngStyle]="{color : IconColor}"
+                  class="drag-icon">control_point</mat-icon>
+          <p class="drag-text">Drag your images here</p>
+        </div>
+      <!-- MORE THAN ONE PHOTO------------------->
+      <div *ngIf="this.files.length > 0">
+        <mat-grid-list cols="3" rowHeight="1:1" gutterSize="2px" [dragula]='"bag-one"' [dragulaModel]='files'>
+
+          <mat-grid-tile [dragula]='"bag-one"'
+                  *ngFor="let file of files; let i = index"
+                  [colspan]="!i ? 3 : 1"
+          >
+            <mat-icon
+                    class="remove-image"
+                    #Remove
+            >
+              clear
+            </mat-icon>
+            <img src="{{url[i]}}" >
+          </mat-grid-tile>
+          <mat-grid-tile class="add-photo-tile">
+            <div  type="file"
+                  class="upload-box inner-shadow small-drag-box"
+                  (drop)="onDrop($event)"
+                  (dragover)="allow($event)"
+                  (mouseover)="onHover()"
+                  (mouseleave)="onLeave()"
+                  (click)="FileInput.click()"
+            >
+              <mat-icon  [ngStyle]="{color : IconColor}" class="drag-icon small-icon">control_point</mat-icon>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
     </div>
-    <input class="image-input" type="file" #FileInput >
-  <button mat-raised-button (click)="uploadFile()" >Upload</button>
+    <input style="display: none" type="file" #FileInput multiple (change)="selectFile($event)" >
   </div>
-</div>
+
+  <!-- NEXT BUTTON -->
+  <div class="row nextrow">
+    <div class="col-md-8 offset-md-2 nextrow" style="padding:0">
+      <mat-card class="Next-Button" (click)="uploadFile()" [ngStyle]="{'background-color': color, 'cursor' : cursor}">
+        <div class="inline">
+          <h3 class="Next-Text" [ngStyle]="{color: textcolor}">Next</h3>
+          <mat-icon class="Next-Icon" [ngStyle]="{color: textcolor}">arrow_forward</mat-icon>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+

@@ -1,22 +1,35 @@
-<mat-card class="center-card">
-    <mat-card-header>
+<div class="title">
+    <div class="col-md-10 offset-md-1">
+        <h3 class="Title">Add some rules</h3>
+    </div>
+</div>
 
-    </mat-card-header>
-    <h3>
-        Add some rules
-    </h3>
-    <hr>
-    <mat-card-content>
-        <div class="fabs">
-            <button  class="lilfab" md-mini-fab (click)="addRule()" ><mat-icon  svgIcon="plus"></mat-icon></button>
-            <button  class="lilfab" md-mini-fab (click)="removeRule()"><mat-icon  svgIcon="minus"></mat-icon></button>
-        </div>
-        <mat-list >
+<hr>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <mat-list class="list">
             <mat-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
                 <mat-input-container class="listtext">
                     <input matInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
                 </mat-input-container>
+                <h3 class="minus" (click)="removeRule(i)">-</h3>
             </mat-list-item>
         </mat-list>
-    </mat-card-content>
-</mat-card>
+        <mat-icon class="add" (click)="addRule()">add</mat-icon>
+    </div>
+</div>
+
+
+<!-- NEXT BUTTON -->
+<div class="row nextrow">
+    <div class="col-md-8 offset-md-2 nextrow" style="padding:0">
+        <mat-card class="Next-Button" (click)="submit()" [ngStyle]="{'background-color': color, 'cursor' : cursor}">
+            <div class="inline">
+                <h3 class="Next-Text" [ngStyle]="{color: textcolor}">Next</h3>
+                <mat-icon class="Next-Icon" [ngStyle]="{color: textcolor}">arrow_forward</mat-icon>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+

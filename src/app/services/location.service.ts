@@ -6,7 +6,6 @@ import {Injectable} from '@angular/core';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Observable';
 import {Location} from '../ts models/location.model';
-import {QueryForm} from '../ts models/queryform.model';
 import {Router} from '@angular/router';
 import {Prod, Dev} from '../../URLSwitcher';
 

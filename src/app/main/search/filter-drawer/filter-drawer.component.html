@@ -1,4 +1,4 @@
-<div class="row filterRow" (window:resize)="onResize($event)" >
+<div class="row filterRow" (window:resize)="onResize()" >
   <button
           class="rate-filter"
           (click)="setRateState(!rateState)"
@@ -30,6 +30,8 @@
     <p>Bathrooms</p>
   </button>
 </div>
+
+
 <div class="row filterRow search">
     <input
             placeholder="Search City, State, or Address"
@@ -38,8 +40,7 @@
             [(ngModel)]="query"
             (keyup)="updateInput(query)"
     >
-
-  </div>
+</div>
 
 
 

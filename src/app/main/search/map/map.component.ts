@@ -1,9 +1,10 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MapService} from "../../../services/map.service";
-import {Location} from "../../../ts models/location.model";
-import {Router} from "@angular/router";
-import {LocationService} from "../../../services/location.service";
-import {SearchService} from "../../../services/search.service";
+import {MapService} from '../../../services/map.service';
+import {Location} from '../../../ts models/location.model';
+import {Router} from '@angular/router';
+import {LocationService} from '../../../services/location.service';
+import {SearchService} from '../../../services/search.service';
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-map',
@@ -13,22 +14,25 @@ import {SearchService} from "../../../services/search.service";
 })
 export class MapComponent implements OnInit {
 
-  //VARIABLES HOLDING FILTER PARAMETERS
-  searchString: string = '';
+  // VARIABLES HOLDING FILTER PARAMETERS
+  searchString = '';
   typeObject: {};
   electrictyObject: {};
   bathroomObject: {};
   rateObject: {};
 
-  //HTML REFERENCES
+  // HTML REFERENCES
   @ViewChild('googlemap') googlemap ;
 
-  //LOCATION INJECTION
+  // LOCATION INJECTION
   @Input() locations: Location[];
   CurrentLocation: any;
 
 
-  constructor(private router: Router, private locationService: LocationService, private searchService: SearchService) { }
+  constructor(private router: Router,
+              private locationService: LocationService,
+              private searchService: SearchService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.CurrentLocation = this.searchService.TempDistance.CurrentLocation;
@@ -64,69 +68,69 @@ export class MapComponent implements OnInit {
     // STYLE THE MAP
       this.googlemap.styles = [
       {
-        "featureType": "landscape.natural",
-        "elementType": "geometry.fill",
-        "stylers": [
+        'featureType': 'landscape.natural',
+        'elementType': 'geometry.fill',
+        'stylers': [
           {
-            "color": "#efefef"
+            'color': '#efefef'
           },
           {
-            "visibility": "on"
+            'visibility': 'on'
           }
         ]
       },
       {
-        "featureType": "poi",
-        "elementType": "geometry.fill",
-        "stylers": [
+        'featureType': 'poi',
+        'elementType': 'geometry.fill',
+        'stylers': [
           {
-            "color": "#f3f3f3"
+            'color': '#f3f3f3'
           },
           {
-            "visibility": "off"
+            'visibility': 'off'
           }
         ]
       },
       {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
+        'featureType': 'road',
+        'elementType': 'geometry',
+        'stylers': [
 
           {
-            "lightness": 100
+            'lightness': 100
 
           },
           {
-            "visibility": "simplified"
+            'visibility': 'simplified'
           }
         ]
       },
       {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
+        'featureType': 'road',
+        'elementType': 'labels',
+        'stylers': [
           {
-            "visibility": "off"
+            'visibility': 'off'
           }
         ]
       },
       {
-        "featureType": "transit.line",
-        "elementType": "geometry",
-        "stylers": [
+        'featureType': 'transit.line',
+        'elementType': 'geometry',
+        'stylers': [
           {
-            "lightness": 700
+            'lightness': 700
           },
           {
-            "visibility": "off"
+            'visibility': 'off'
           }
         ]
       },
       {
-        "featureType": "water",
-        "stylers": [
+        'featureType': 'water',
+        'stylers': [
           {
-            "color": "#a1a0a4"
+            'color': '#a1a0a4'
           }
         ]
       }
@@ -135,5 +139,12 @@ export class MapComponent implements OnInit {
   }
   toLocationProfile(location: Location) {
     this.locationService.toProfilePage(location);
+  }
+  routeToPost() {
+      if (this.authService.isAuthenticated()) {
+=          this.router.navigateByUrl('/main/post');
+      } else  {
+          this.authService.login();
+      }
   }
 }

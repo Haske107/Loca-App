@@ -108,9 +108,9 @@ export class SearchComponent implements OnInit {
   RateButtonLeft: number;
 
 
-    //VIEW STATE MONITOR
+    // VIEW STATE MONITOR
     state = 'split';
-    //INJECTED LOCATIONS
+    // INJECTED LOCATIONS
     locations: Location[];
 
     @Input() opened;
@@ -135,21 +135,21 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit()  {
-      //GET USER LOCATION
+      // GET USER LOCATION
      navigator.geolocation.getCurrentPosition(position => {
-        //SET GLOBAL CURRENT LOCATION
+        // SET GLOBAL CURRENT LOCATION
         this.searchService.TempDistance.CurrentLocation =
-          {lat: position.coords.latitude, lng: position.coords.longitude};
+          { lat: position.coords.latitude, lng: position.coords.longitude};
       });
-      //GET LOCATIONS IN RANGE
+      // GET LOCATIONS IN RANGE
       this.LocationService.getLocationsInRange(this.searchService.TempDistance)
         .subscribe(
           (locations: Location[]) => {
             this.locations = locations;
           });
-      //RETRIEVE TYPE BUTTON COORDINATES
-      this.onResize(null);
-      //LISTEN FOR DISTANCE UPDATE
+      // RETRIEVE TYPE BUTTON COORDINATES
+      this.onResize();
+      // LISTEN FOR DISTANCE UPDATE
       this.searchService.onDistance.subscribe(
         res =>  {
           this.LocationService.getLocationsInRange(res)
@@ -167,19 +167,19 @@ export class SearchComponent implements OnInit {
     updateInput(value)  {
     this.searchService.input = value;
   }
-    onResize(event) {
-    //GATHER NEW COORDINATES
-    this.TypeButtonTop = this.TypeButton._elementRef.nativeElement.offsetTop;
-    this.TypeButtonLeft = this.TypeButton._elementRef.nativeElement.offsetLeft;
-    this.ElectricityButtonTop = this.ElectricityButton._elementRef.nativeElement.offsetTop;
-    this.ElectricityButtonLeft = this.ElectricityButton._elementRef.nativeElement.offsetLeft;
-    this.BathroomButtonTop = this.BathroomButton._elementRef.nativeElement.offsetTop;
-    this.BathroomButtonLeft = this.BathroomButton._elementRef.nativeElement.offsetLeft;
-    this.DistanceButtonTop = this.DistanceButton._elementRef.nativeElement.offsetTop;
-    this.DistanceButtonLeft = this.DistanceButton._elementRef.nativeElement.offsetLeft;
-    this.RateButtonTop = this.RateButton._elementRef.nativeElement.offsetTop;
-    this.RateButtonLeft = this.RateButton._elementRef.nativeElement.offsetLeft;
-    //CHECK IF COMPONENT IS OPEN AND REFRESH POSITION
+    onResize() {
+    // GATHER NEW COORDINATES
+    this.TypeButtonTop = this.TypeButton ? this.TypeButton._elementRef.nativeElement.offsetTop : null;
+    this.TypeButtonLeft = this.TypeButton ? this.TypeButton._elementRef.nativeElement.offsetLeft : null;
+    this.ElectricityButtonTop = this.ElectricityButton ? this.ElectricityButton._elementRef.nativeElement.offsetTop : null;
+    this.ElectricityButtonLeft = this.ElectricityButton ? this.ElectricityButton._elementRef.nativeElement.offsetLeft : null;
+    this.BathroomButtonTop = this.BathroomButton ? this.BathroomButton._elementRef.nativeElement.offsetTop : null;
+    this.BathroomButtonLeft = this.BathroomButton ? this.BathroomButton._elementRef.nativeElement.offsetLeft : null;
+    this.DistanceButtonTop = this.DistanceButton ? this.DistanceButton._elementRef.nativeElement.offsetTop : null;
+    this.DistanceButtonLeft = this.DistanceButton ? this.DistanceButton._elementRef.nativeElement.offsetLeft : null;
+    this.RateButtonTop = this.RateButton ? this.RateButton._elementRef.nativeElement.offsetTop : null;
+    this.RateButtonLeft = this.RateButton ?  this.RateButton._elementRef.nativeElement.offsetLeft : null;
+    // CHECK IF COMPONENT IS OPEN AND REFRESH POSITION
     if (this.ElectricityCard)  {
       this.ElectricityCard.refreshPosition();
     }

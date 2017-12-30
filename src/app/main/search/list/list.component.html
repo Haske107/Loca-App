@@ -8,7 +8,7 @@
   <div class="col-sm-4 photo-container">
     <div class="color-bar" [ngStyle]="{'background-color': colorFromType(location.type)}">
     </div>
-    <img src="http://{{Dev}}/files/{{location._id}}" style="width: 100%; height: 100%;">
+    <img src="http://{{Dev}}/files/{{location._id}}">
     <i class="material-icons add">add_circle_outline</i>
   </div>
 
@@ -16,7 +16,7 @@
     <h5>{{location.name}}</h5>
     <hr>
     <p>{{location.description}}</p>
-    <i class="material-icons flash" *ngIf="location.electricity">flash_on</i>
+    <i class="material-icons flash" *ngIf="location.electricity">power</i>
     <i class="material-icons wc" *ngIf="location.bathrooms">wc</i>
   </div>
 </div>

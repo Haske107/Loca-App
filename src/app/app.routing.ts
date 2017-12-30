@@ -6,7 +6,7 @@ import {LandingComponent} from "./main/landing/landing.component";
 
 const   APP_ROUTES: Routes = [
     // Home Page Routes
-    {path: '', redirectTo: '/landing', pathMatch: 'full'},
+    {path: '', redirectTo: '/main/search', pathMatch: 'full'},
     {path: 'loading', component: LoadingComponent},
     {path: 'landing', component: LandingComponent},
     {path: 'main', component: MainComponent, children: MAIN_ROUTES}

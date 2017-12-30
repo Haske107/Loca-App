@@ -1,165 +1,62 @@
-<body>
+<div class="title">
+  <div class="col-md-10 offset-md-1">
+    <h3 class="Title">Please enter some details about your property</h3>
+  </div>
+</div>
 
-<h1>
-  Location Details
-</h1>
-<hr>
-
-<mat-accordion class="body">
-
-  <mat-expansion-panel [expanded]="true" class="Address-Panel">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="title">
-        Address
-      </mat-panel-title>
-      <mat-panel-description class="title">
-
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <form [formGroup]="AddressData" >
-      <mat-input-container>
-        <input matInput formControlName="streetAddress" placeholder="Street Address">
-      </mat-input-container>
-      <mat-input-container>
-        <input matInput formControlName="zip"  placeholder="Zip or Postal">
-      </mat-input-container>
-      <mat-input-container>
-        <input matInput formControlName="city"  placeholder="City">
-      </mat-input-container>
-      <mat-input-container>
-        <input matInput formControlName="state"  placeholder="State">
-      </mat-input-container>
-      <mat-input-container>
-        <input matInput formControlName="country"  placeholder="Country">
-      </mat-input-container>
-    </form>
-
-  </mat-expansion-panel>
-
-  <mat-expansion-panel class="Details-Panel">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="title">
-        Information
-      </mat-panel-title>
-      <mat-panel-description class="title">
-
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <form [formGroup]="LocationData" >
-      <mat-input-container>
-        <input matInput formControlName="name" placeholder="Property Title" value="">
-      </mat-input-container>
-
-
-      <mat-form-field class="Type">
-        <mat-select [(value)]="Selected">
-          <mat-option *ngFor="let type of Types" [value]="type.value" >
-            {{ type.value }}
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <form class="DetailsForm" [formGroup]="DetailsForm" (ngSubmit)="submit($event)" (keyup)="onChange()">
+      <mat-form-field>
+          <input matInput placeholder="Name" type="text" value="" formControlName="Name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Property Type" formControlName="Type">
+          <mat-option *ngFor="let Type of Types" [value]="Type">
+            {{Type}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
-      <mat-input-container>
-        <textarea matInput formControlName="description"  placeholder="Description" value="" rows="5"></textarea>
-      </mat-input-container>
-
-
-      <mat-input-container>
-        <input matInput formControlName="deposit" placeholder="Deposit ($USD)"  value="200">
-      </mat-input-container>
-      <mat-input-container>
-        <input matInput formControlName="rate" placeholder="Rate per Day ($USD)"  value="0">
-      </mat-input-container>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" type="text" value="" formControlName="Description">
+        </textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Bathrooms" type="number" value="" formControlName="Bathrooms">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Available Electricity" formControlName="Electricity">
+          <mat-option [value]="1">
+            Yes
+          </mat-option>
+          <mat-option [value]="0">
+            No
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Parking" type="number" value="" formControlName="Parking">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Rate" type="number" value="" formControlName="Rate">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Deposit" type="number" value="" formControlName="Deposit">
+      </mat-form-field>
+      <button type="submit" style="display:none">hidden submit</button>
     </form>
+  </div>
+</div>
 
-  </mat-expansion-panel>
 
-  <mat-expansion-panel class="MoreDetails_Panel">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="title">
-        Details
-      </mat-panel-title>
-      <mat-panel-description class="title">
-
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <form [formGroup]="DetailsData" >
-
-      <table>
-
-        <tr>
-          <td><h3> Bathrooms </h3></td>
-          <td><h3 class="nums">{{ numBathrooms }}</h3></td>
-          <td class="tdBtn">
-            <button class="elecbtn" (click)="incrementBathroom()" >
-              <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="https://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-              </svg>
-            </button>
-          </td>
-          <td class="tdBtn">
-            <button class="elecbtn" (click)="decrementBathroom()">
-              <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="https://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td><h3> Parking </h3></td>
-          <td><h3 class="nums">{{ numParking }}</h3></td>
-          <td class="tdBtn">
-            <button class="elecbtn" (click)="incrementParking()" >
-              <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="https://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-              </svg>
-            </button>
-          </td>
-          <td class="tdBtn">
-            <button class="elecbtn" (click)="decrementParking()">
-              <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="https://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td><h3> Electricity </h3></td>
-          <td><h3></h3></td>
-          <td class="tdBtn">
-            <button class="elecbtnYes" id="trueBtn" (click)="electricityTrue()" >
-              <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="https://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"/>
-                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-              </svg>
-            </button>
-          </td>
-          <td class="tdBtn">
-            <button class="elecbtnNo" id="falseBtn" (click)="electricityFalse()">
-              <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="https://www.w3.org/2000/svg">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                <path d="M0 0h24v24H0z" fill="none"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-
-      </table>
-
-    </form>
-
-  </mat-expansion-panel>
-
-</mat-accordion>
-
-<button class="stepBtn backb" (click)="nextStep()" mat-button matStepperPrevious="">BACK</button>
-<button class="stepBtn nextb" (click)="nextStep()" mat-button matStepperNext>NEXT</button>
-
-</body>
+<!-- NEXT BUTTON -->
+<div class="row nextrow">
+  <div class="col-md-8 offset-md-2 nextrow" style="padding:0">
+    <mat-card class="Next-Button" (click)="submit(null)" [ngStyle]="{'background-color': color, 'cursor' : cursor}">
+      <div class="inline">
+        <h3 class="Next-Text" [ngStyle]="{color: textcolor}">Next</h3>
+        <mat-icon class="Next-Icon" [ngStyle]="{color: textcolor}">arrow_forward</mat-icon>
+      </div>
+    </mat-card>
+  </div>
+</div>

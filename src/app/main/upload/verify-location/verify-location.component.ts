@@ -2,8 +2,8 @@ import {Component, EventEmitter, Host, Inject, OnInit, Output, ViewChild} from '
 import {MapService} from '../../../services/map.service';
 import {inlineInterpolate} from '@angular/core/src/view';
 import {DOCUMENT} from '@angular/common';
-import {UploadComponent} from "../upload.component";
-import {UploadService} from "../upload.service";
+import {UploadComponent} from '../upload.component';
+import {UploadService} from '../upload.service';
 
 @Component({
     selector: 'app-verify-location',
@@ -36,6 +36,7 @@ export class VerifyLocationComponent implements OnInit {
     doneDisplay = 'none';
     title = 'Is this your property?';
     drag = false;
+    Done = false;
 
 
     constructor(private mapService: MapService, @Inject(DOCUMENT) private document: Document, private uploadService: UploadService) {
@@ -170,7 +171,6 @@ export class VerifyLocationComponent implements OnInit {
             this.lng = position.coords.longitude;
             this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
             this.uploadService.emitChanges(1);
-
             this.googlemap.triggerResize();
             this.height = '50px';
             this.display = 'inline';
@@ -200,12 +200,11 @@ export class VerifyLocationComponent implements OnInit {
     ifYes() {
         this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
         this.uploadService.emitChanges(1);
-
         this.color = '#7acc85';
         this.textcolor = 'white';
         this.cursor = 'pointer';
         this.display = 'none';
-
+        this.Done = true;
     }
 
     ifNo() {
@@ -221,11 +220,17 @@ export class VerifyLocationComponent implements OnInit {
         this.drag = false;
         this.uploadService.NewLocation.coordinates = {lat: this.mlat, lng: this.mlng};
         this.uploadService.emitChanges(1);
-
+        this.Done = true;
         this.color = '#7acc85';
         this.textcolor = 'white';
         this.cursor = 'pointer';
+    }
 
+    ifDone()    {
+        if (this.Done) {
+            this.nextClick.emit();
+            this.uploadService.NewLocation.user = localStorage.getItem('userID');
+        }
     }
 }
 

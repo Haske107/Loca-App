@@ -1,23 +1,25 @@
-<!-- PAGE CONTENTS -->
+<!-- GRID -->
 <div class="grid" *ngIf="state === 'grid'">
     <grid  [locations]="locations"></grid>
-  </div>
+</div>
 
-  <div class="map" *ngIf="state === 'map'" >
-    <app-map [locations]="locations" ></app-map>
-  </div>
+<!-- MAP ONLY -->
+<div class="map" *ngIf="state === 'map'" >
+  <app-map [locations]="locations" ></app-map>
+</div>
 
-  <div class="row" *ngIf="state === 'split'">
-    <div class="col-md-8 map-split">
-      <app-map  [locations]="locations" ></app-map>
-    </div>
-    <div class="col-md-4 right-panel">
-        <app-filter-drawer></app-filter-drawer>
-      <div class="list-wrapper list-split">
-        <app-list [locations]="locations"></app-list>
-      </div>
+<!-- SPLIT VIEW -->
+<div class="row" *ngIf="state === 'split'">
+  <div class="col-md-8 map-split">
+    <app-map  [locations]="locations" ></app-map>
+  </div>
+  <div class="col-md-4 right-panel">
+      <app-filter-drawer></app-filter-drawer>
+    <div class="list-wrapper list-split">
+      <app-list [locations]="locations ? locations : []"></app-list>
     </div>
   </div>
+</div>
 
 <!-- FILTER COMPONENTS -->
 <app-type-filter #typefilter

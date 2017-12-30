@@ -54,14 +54,7 @@ export class MainComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 
-  routeToPost() {
-      if (this.authService.isAuthenticated()) {
-        console.log(this.authService.isAuthenticated());
-        this.router.navigateByUrl('/main/post');
-      } else  {
-        this.authService.login();
-      }
-  }
+
 
   public change(value: boolean): void {
     this.isOpen = value;

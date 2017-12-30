@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {UploadComponent} from './upload.component';
 import {AngularMaterialsModule} from '../../angular-materials.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -12,6 +12,9 @@ import {LocationRulesComponent} from './location-rules/location-rules.component'
 import {AgmCoreModule} from '@agm/core';
 import {UploadService} from './upload.service';
 import {MatExpansionModule} from '@angular/material';
+import {FileDropModule} from "ngx-file-drop";
+import {DragulaModule} from "ng2-dragula";
+
 
 @NgModule({
   imports: [
@@ -21,6 +24,8 @@ import {MatExpansionModule} from '@angular/material';
       ReactiveFormsModule,
       Routing,
       MatExpansionModule,
+      FileDropModule,
+      DragulaModule,
       AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
       })
@@ -31,7 +36,7 @@ import {MatExpansionModule} from '@angular/material';
       ReviewAndSubmitComponent,
       UploadPhotosComponent,
       VerifyLocationComponent,
-      LocationRulesComponent
+      LocationRulesComponent,
   ],
     providers: [
         UploadService

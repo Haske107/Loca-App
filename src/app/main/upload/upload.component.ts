@@ -26,6 +26,7 @@ export class UploadComponent implements OnInit {
         if (!this.authService.isAuthenticated()) {
             this.router.navigateByUrl('/main');
         }
+
     }
 
 }

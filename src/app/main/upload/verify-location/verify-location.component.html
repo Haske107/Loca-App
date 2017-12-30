@@ -1,14 +1,15 @@
 <div class="container">
-  <div class="row title">
-    <div class="col-md-8 ">
-      <h3>Let's see if we can find your property.</h3>
-        <h5>
-            Are you currently on the property? <strong style="color: deepskyblue; cursor: pointer" (click)="getCurrentLocation()">Click Here</strong> to give us your exact location.
-        </h5>
-    </div>
-  </div>
-  <div class="row content-row">
 
+      <div class="row title">
+        <div class="col-md-8 ">
+          <h3>Let's see if we can find your property.</h3>
+            <h5>
+                Are you currently on the property? <strong style="color: deepskyblue; cursor: pointer" (click)="getCurrentLocation()">Click Here</strong> to give us your exact location.
+            </h5>
+        </div>
+      </div>
+
+    <div class="row ">
       <!-- ADDRESS CARD -->
       <mat-card class="col-md-5 ">
         <mat-input-container class="FWidth">
@@ -56,16 +57,16 @@
               <button mat-button color="primary" class="option-button-done" [ngStyle]="{'display': doneDisplay }" (click)="done()">Done</button>
           </div>
       </mat-card>
-  </div>
+    </div>
+    <!-- NEXT BUTTON -->
     <div class="row">
         <div class="col-md-11" style="padding:0">
-            <mat-card class="Next-Button" (click)="nextClick.emit()" [ngStyle]="{'background-color': color, 'cursor' : cursor}">
+            <mat-card class="Next-Button" (click)="ifDone()" [ngStyle]="{'background-color': color, 'cursor' : cursor}">
                 <div class="inline">
                     <h3 class="Next-Text" [ngStyle]="{color: textcolor}">Next</h3>
                     <mat-icon class="Next-Icon" [ngStyle]="{color: textcolor}">arrow_forward</mat-icon>
                 </div>
             </mat-card>
         </div>
-
     </div>
 </div>

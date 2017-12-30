@@ -1,25 +1,83 @@
+h3 {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 300;
+    line-height: 40px;
+    text-align: left;
+}
+h5  {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 200;
+    text-align: left;
+}
+p {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 200;
+    text-align: left;
+}
 .threefourth-width  {
     width: 70%;
 }
 
-.fabs {
-    float: right;
-    margin: 10px;
-}
-
-.lilfab {
-    margin: 7px;
-}
 
 .full-width{
     width: 100%;
 }
 
+
+
+
 .listitem{
     margin-top: 9px;
 
 }
-
 .listtext {
     width: 100%;
+}
+.minus  {
+    cursor: pointer;
+    padding-left: 8px;
+    color: red;
+}
+.add    {
+    cursor: pointer;
+    padding-left: 16px;
+}
+.Next-Button  {
+    width: 100%;
+    background-color: #7acc85;
+    opacity: 1;
+    transition: .5s ease;
+    height: 48px;
+
+}
+.Next-Text  {
+    text-align: center;
+    color: white;
+    transition: .5s ease;
+    margin: 0;
+}
+.Next-Icon  {
+    color: white;
+    transition: .5s ease;
+    top: 20px;
+}
+
+.inline {
+    display: inline-flex;
+    position: absolute;
+    left: calc(50% - 47px);
+    top: 4px;
+}
+.nextrow  {
+    height: 48px;
+}
+mat-card    {
+    padding: 0;
 }

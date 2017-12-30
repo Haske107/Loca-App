@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UploadService} from "../upload.service";
+import {LocationService} from "../../../services/location.service";
 
 @Component({
     selector: 'app-location-rules',
@@ -9,13 +11,17 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class LocationRulesComponent implements OnInit {
 
     RulesData: FormGroup;
-    RulesArray: string[] = ['Shoes off inside', 'No photos or videos'];
+    RulesArray: string[] = ['Shoes off inside'];
+    @Output() nextClick = new EventEmitter();
 
-    constructor() { }
-    // TODO: get location info from the first step (verify location) and fill fields
-    // TODO: press next button = pass location to upload photo - submit UNTIL review-and-submit
+    // NG STYLE VARIABLES
+    height = '0px';
+    color = '#7acc85';
+    textcolor = 'white';
+    cursor = 'pointer';
+
+    constructor(private uploadService: UploadService, private locationService: LocationService) { }
     ngOnInit() {
-
         this.RulesData = new FormGroup({
             rules: new FormControl(this.RulesArray),
         });
@@ -24,15 +30,28 @@ export class LocationRulesComponent implements OnInit {
         this.RulesArray.push('');
         console.log(this.RulesArray);
     }
-
-    removeRule()  {
-        if (this.RulesArray.length > 1) {
-            this.RulesArray.pop();
+    removeRule(i )  {
+        for (i ; i < this.RulesArray.length - 1; i++)    {
+            this.RulesArray[i] = this.RulesArray[i + 1];
         }
+        this.RulesArray.pop();
     }
-
     customTrackBy(index: number, obj: any): any {
         return index;
     }
-
+    submit()    {
+        this.uploadService.NewLocation.rules = this.RulesArray;
+        this.locationService.saveLocation(this.uploadService.NewLocation)
+            .subscribe(
+                data => {
+                    console.log(data.obj._id);
+                    this.uploadService.NewLocation._id = data.obj._id;
+                    console.log(this.uploadService.NewLocation);
+                },
+                error =>    {
+                    console.error(error);
+                }
+            );
+        this.nextClick.emit();
+    }
 }

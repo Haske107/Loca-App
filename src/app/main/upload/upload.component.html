@@ -1,30 +1,30 @@
-<mat-horizontal-stepper #stepper>
-  <mat-step label="Verify Location">
-    <app-verify-location (nextClick)="stepper.next()">
-    </app-verify-location>
-  </mat-step >
-  <mat-step label="Fill Out Details">
-    <app-fill-out-details>
-    </app-fill-out-details>
-  </mat-step>
-  <mat-step label="Rules">
-    <app-location-rules>
-    </app-location-rules>
-  </mat-step>
-  <mat-step label="Upload Photos">
-    <app-upload-photos>
-    </app-upload-photos>
-    <button mat-button matStepperPrevious="">Back</button>
-    <button mat-button matStepperNext>Next</button>
-  </mat-step>
-  <mat-step label="Review & Submit">
-    <app-review-and-submit>
-    </app-review-and-submit>
-    <button mat-button matStepperPrevious="">Back</button>
-  </mat-step>
-</mat-horizontal-stepper>
-
-<div class="footer">
+<div class="background">
 
 </div>
+<div class="wrapper">
+  <mat-horizontal-stepper #stepper>
+    <mat-step label="Verify Location">
+      <app-verify-location (nextClick)="stepper.next()">
+      </app-verify-location>
+    </mat-step >
+    <mat-step label="Fill Out Details">
+      <app-fill-out-details (nextClick)="stepper.next()">
+      </app-fill-out-details>
+    </mat-step>
+    <mat-step label="Rules">
+      <app-location-rules (nextClick)="stepper.next()">
+      </app-location-rules>
+    </mat-step>
+    <mat-step label="Upload Photos">
+      <app-upload-photos>
+      </app-upload-photos>
+    </mat-step>
+    <mat-step label="Review & Submit">
+      <app-review-and-submit>
+      </app-review-and-submit>
+      <button mat-button matStepperPrevious="">Back</button>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
 

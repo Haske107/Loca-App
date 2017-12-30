@@ -4,10 +4,8 @@
 var express = require('express');
 var locationRoutes = express.Router();
 const jwtoken = require('jsonwebtoken');
-const jwt = require('express-jwt');
 var User =  require('../models/user');
 var Location = require('../models/location');
-var today = new Date();
 
 //GET ALL LOCATIONS
 locationRoutes.get('/', function(req, res, next)    {
@@ -95,6 +93,7 @@ locationRoutes.use('/', function(req, res, next)  {
 locationRoutes.post('/', function (req, res) {
     var decoded = jwtoken.decode(req.query.token);
     User.findOne({email : decoded.email}, function (err, user) {
+        var location = new Location(req.body);
         location.save(function (err, result) {
             if (err) {
                 return res.status(500).json({

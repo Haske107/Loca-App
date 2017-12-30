@@ -1,13 +1,48 @@
 mat-horizontal-stepper   {
     width: 80%;
     height: 80vh;
-    margin: 10px 10%;
+    margin: 10vh 10%;
+    border-radius: 20px;
+    padding: 0;
 }
-.footer {
-    height: 140px;
-    width: 100%;
-    background-image: url('./../../../../Design Materials/Blue Gradient.png');
+mat-step    {
+    padding: 0;
+
+}
+app-fill-out-details    {
+    width: 80%;
+    left: 10%;
+    height: calc(80vh - 72px);
+    position: absolute;
+    overflow-y: auto;
+}
+app-verify-location {
+    overflow-y: auto;
+}
+app-upload-photos   {
+    width: 80%;
+    height: calc(80vh - 72px);
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 10%;
+}
+
+.background    {
+    background-image: url('./../../../../src/assets/images/Upload Background.jpg');
     background-size: cover;
     position: absolute;
     bottom: 0;
+    width: 100%;
+    height: 100vh;
+    filter: blur(4px);
+    z-index: 1;
+}
+
+.wrapper    {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
 }

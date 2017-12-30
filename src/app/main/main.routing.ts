@@ -16,7 +16,7 @@ import {LandingComponent} from './landing/landing.component';
 export const MAIN_ROUTES: Routes = [
 
   // Home Page Routes
-  {path: '', redirectTo: '/main/landing', pathMatch: 'full'},
+  {path: '', redirectTo: '/main/search', pathMatch: 'full'},
   {path: 'myprofile', component: UserProfileComponent},
   {path: 'mycollections', component: PrivateCollectionsComponent},
   {path: 'post', component: UploadComponent},

@@ -1,6 +1,8 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {FileService} from '../../../services/file.service';
 import {Location} from '../../../ts models/location.model';
+import {UploadService} from '../upload.service';
+import {Url} from 'url';
 
 @Component({
   selector: 'app-upload-photos',
@@ -10,64 +12,88 @@ import {Location} from '../../../ts models/location.model';
 
 export class UploadPhotosComponent implements OnInit {
 
+    // NG STYLE VARIABLES
+    textcolor = 'lightgrey';
+    color = 'grey';
+    cursor = 'not-allowed';
+    height = '0px';
+    IconColor = '#7cc3d4';
+    XOpacity = 0;
+
     // GAIN LIVE ACCESS TO THE HTML FILE INPUT ELEMENT
-    @ViewChild('FileInput') _FileInput: ElementRef;
+    @ViewChild('FileInput') _FileInput;
+    @ViewChild('Remove') RemoveButton;
 
-    // AN INSTANCE OF THE LOCATION BEING UPLOADED IS INJECTED INTO THIS COMPONENT
-        // HAS TO HAVE BEEN INITILIAZED BY THE DATABASE IN ORDER TO RECEIVE UNIQUE ID
-    @Input()location: Location;
-    location_id = 'testing-DELETE ME ASAP';
+    // LOCAL PREVIEW LINK
+    public url: Url[] = [];
+    public files: any[] = [];
 
-  constructor(private fileService: FileService) { }
+    constructor(private fileService: FileService, private uploadService: UploadService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+
+    }
+
+    onDrop(event: any) {
+        event.stopPropagation();
+        event.preventDefault();
+        for (const file of event.dataTransfer.files) {
+            this.files.push(file);
+            const reader = new FileReader();
+            reader.onload = (_event: any) => {
+                this.url.push(_event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    allowDrop(event) {
+        event.preventDefault();
+        //  CHECK FOR VALID FILE
+            // IF VALID MAKE GREEN AND CHANGE CURSOR
+            // ELSE MAKE RED AND CHANGE CURSOR
+    }
+
+    selectFile(event)  {
+        console.log(event);
+        event.preventDefault();
+        event.stopPropagation();
+        for (const file of event.target.files)  {
+            this.files.push(file);
+            const reader = new FileReader();
+            reader.onload = (_event: any) => {
+                this.url.push(_event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    onHover()   {
+        this.IconColor = '#3594ab';
+    }
+
+
+    onLeave()   {
+        this.IconColor = '#7cc3d4';
+    }
+
 
     uploadFile() {
-      // CREATE NEW EMPTY FORM-DATA INSTANCE
-        const formData = new FormData();
-      // STORE FILES CURRENTLY STORED IN OUR HTML INPUT ELEMENT
-            // IT WOULD BE GOOD TO CHECK IF ANYTHING IS INSIDE FIRST
-        const FileList = this._FileInput.nativeElement.files;
-      // APPEND EACH FILE TO THE FORM-DATA
-        // ASSIGN KEYWORD PHOTO FOR THE SERVER
-            // MAKE A FOR LOOP TO MAKE IT MORE DYNAMIC
-        formData.append('photo', FileList[0]);
-      /* LETS DOUBLE CHECK THAT THE INJECTED LOCATION HAS AN ID
-        if (!this.location._id)   {
-            // FOR NOW, SINCE WE WONT HAVE ONE INJECTED FOR DEV PURPOSES, WE WILL REPLACE IT
-
-        }*/
-      // CALL THE MAGICAL FILE SERVICE TO SEND IT INTO WONDERLAND
-        this.fileService.uploadPhoto( this.location_id, formData)
-            .subscribe(
-                data =>  {
-                    // 201 SOMETHING GOOD HAPPENED
-                console.log(data);
-            },
-                error =>    {
-                    // 400-500 YOU PROBABLY AREN'T SIGNED IN, ONLY ACTIVE USERS CAN POST
-                    console.error(error);
-                }
-            );
-  }
-
-
-
-
-  //DROP FUNCTIONS
-    onDragOver(event: any)  {
-        event.preventDefault();
-        event.dataTransfer.setData("file", "FileInput");
-        console.log(event);
-
+        if (this.files.length > 0) {
+            const formData = new FormData();
+            const FileList = this.files;
+            FileList.forEach(file =>  {
+                formData.append('photo', file);
+            });
+            this.fileService.uploadPhoto(this.uploadService.NewLocation._id, formData)
+                .subscribe(
+                    data => {
+                        console.log(data);
+                    },
+                    error => {
+                        console.error(error);
+                    }
+                );
+        }
     }
-    onDrop(event: any)  {
-        event.preventDefault();
-        event.target.appendChild(document.getElementById("FileInput"));
-        console.log(event);
-    }
-
-
-
 }
