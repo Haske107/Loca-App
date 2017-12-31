@@ -18,6 +18,8 @@ export class UploadService  {
       0
   );
 
+  public Photos = [];
+
   public ChangeEmitter = new EventEmitter<any>();
 
 

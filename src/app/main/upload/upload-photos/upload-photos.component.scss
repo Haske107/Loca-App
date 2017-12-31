@@ -97,53 +97,85 @@ img {
   color: #7cc3d4;
   transition: .3s ease;
 }
-.drag-text  {
-  position: absolute;
-  left: calc(50% - 118px);
-  top: calc(50% + 45px);
-  font-size: 24px;
-  color: #7cc3d4;
-
-}
-.remove-image {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  color: white;
-  height: 14px;
-  cursor: pointer;
+.add-photo-tile:hover .drag-icon {
+  color: #3594ab;
   transition: .3s ease;
-  z-index: 10;
-
 }
-.remove-image:hover {
-  transition: .3s ease;
-  color: #f0c7ab;
-  z-index: 10;
-
-}
-img {
-  cursor: grab;
-  opacity: 1;
-  transition: .3s ease;
-
-}
-img:hover {
-  transition: .3s ease;
-  opacity: .8;
-}
-.small-icon {
-  top: calc(50% - 50px);
-  left: calc(50% - 50px);
-
-  font-size: 100px;
 
 
 
-}
-.small-text {
-  top: calc(50% + 45px);
-}
-.small-drag-box {
-  height: 100%;
-}
+  .drag-text  {
+    position: absolute;
+    left: calc(50% - 118px);
+    top: calc(50% + 45px);
+    font-size: 24px;
+    color: #7cc3d4;
+
+  }
+  .remove-image {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    color: white;
+    height: 14px;
+    cursor: pointer;
+    transition: .3s ease;
+    z-index: 10;
+
+  }
+  .remove-image:hover {
+    transition: .3s ease;
+    color: #f0c7ab;
+    z-index: 10;
+
+  }
+  img {
+    cursor: grab;
+    opacity: 1;
+    transition: .3s ease;
+
+  }
+  img:hover {
+    transition: .3s ease;
+    opacity: .8;
+  }
+  .small-icon {
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+
+    font-size: 100px;
+
+
+
+  }
+  .small-text {
+    top: calc(50% + 45px);
+  }
+  .small-drag-box {
+    height: 100%;
+  }
+
+
+  .trash  {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 14%;
+    cursor: default;
+    transition: .3s ease;
+  }
+
+  .trash-icon {
+    font-size: 90px;
+    position: fixed;
+    top: calc(50% - 30px);
+    right: 15%;
+    color: grey;
+    transition: .3s ease;
+    opacity: .2;
+    z-indeX: 5;
+    cursor: default;
+  }
+
+

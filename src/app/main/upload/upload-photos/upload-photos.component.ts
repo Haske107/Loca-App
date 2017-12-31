@@ -1,8 +1,6 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FileService} from '../../../services/file.service';
-import {Location} from '../../../ts models/location.model';
 import {UploadService} from '../upload.service';
-import {Url} from 'url';
 
 @Component({
   selector: 'app-upload-photos',
@@ -17,83 +15,79 @@ export class UploadPhotosComponent implements OnInit {
     color = 'grey';
     cursor = 'not-allowed';
     height = '0px';
-    IconColor = '#7cc3d4';
-    XOpacity = 0;
 
     // GAIN LIVE ACCESS TO THE HTML FILE INPUT ELEMENT
     @ViewChild('FileInput') _FileInput;
     @ViewChild('Remove') RemoveButton;
 
-    // LOCAL PREVIEW LINK
-    public url: Url[] = [];
-    public files: any[] = [];
+    // VERIFICAION VARIABLES
+    isAllowed = true;
 
-    constructor(private fileService: FileService, private uploadService: UploadService) { }
+    // LOCAL PREVIEW LINK
+    listRecycled = [];
+    LocalPhotos = [];
+
+    constructor(private fileService: FileService,
+                public uploadService: UploadService,
+    ) {}
 
     ngOnInit() {
 
     }
 
+    // REFRESH LOCAL PHOTO ARRAY INSTANCE FOR THE DOM
+    updateLocalPhotos() {
+        this.LocalPhotos = this.uploadService.Photos;
+    }
+
+    // ALLOW AND VERIFY DROP
+    allow(event) {
+        console.log(event);
+        event.preventDefault();
+
+    }
+    // ADD PHOTOS TO ARRAY VIA DROP
     onDrop(event: any) {
         event.stopPropagation();
         event.preventDefault();
-        for (const file of event.dataTransfer.files) {
-            this.files.push(file);
+        const FileList = event.dataTransfer.files;
+        let counter = this.uploadService.Photos.length;
+        for (const file of FileList) {
+            counter++;
+            if (counter > 10)    {
+                return;
+            }
             const reader = new FileReader();
             reader.onload = (_event: any) => {
-                this.url.push(_event.target.result);
+                this.uploadService.Photos.push({
+                    file: file,
+                    url: _event.target.result
+                });
+                this.updateLocalPhotos();
             };
             reader.readAsDataURL(file);
         }
     }
-
-    allowDrop(event) {
-        event.preventDefault();
-        //  CHECK FOR VALID FILE
-            // IF VALID MAKE GREEN AND CHANGE CURSOR
-            // ELSE MAKE RED AND CHANGE CURSOR
-    }
-
+    // ADD PHOTOS TO ARRAY VIA SELECT
     selectFile(event)  {
-        console.log(event);
         event.preventDefault();
         event.stopPropagation();
-        for (const file of event.target.files)  {
-            this.files.push(file);
+        const FileList = event.target.files;
+        let counter = this.uploadService.Photos.length;
+        for (const file of FileList)  {
+            counter++;
+            if (counter > 10)    {
+                return;
+            }
             const reader = new FileReader();
             reader.onload = (_event: any) => {
-                this.url.push(_event.target.result);
+                this.uploadService.Photos.push({
+                    file: file,
+                    url: _event.target.result
+                });
+                this.updateLocalPhotos();
             };
             reader.readAsDataURL(file);
-        }
-    }
-
-    onHover()   {
-        this.IconColor = '#3594ab';
-    }
-
-
-    onLeave()   {
-        this.IconColor = '#7cc3d4';
-    }
-
-
-    uploadFile() {
-        if (this.files.length > 0) {
-            const formData = new FormData();
-            const FileList = this.files;
-            FileList.forEach(file =>  {
-                formData.append('photo', file);
-            });
-            this.fileService.uploadPhoto(this.uploadService.NewLocation._id, formData)
-                .subscribe(
-                    data => {
-                        console.log(data);
-                    },
-                    error => {
-                        console.error(error);
-                    }
-                );
         }
     }
 }

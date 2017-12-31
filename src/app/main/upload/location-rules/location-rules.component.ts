@@ -41,17 +41,6 @@ export class LocationRulesComponent implements OnInit {
     }
     submit()    {
         this.uploadService.NewLocation.rules = this.RulesArray;
-        this.locationService.saveLocation(this.uploadService.NewLocation)
-            .subscribe(
-                data => {
-                    console.log(data.obj._id);
-                    this.uploadService.NewLocation._id = data.obj._id;
-                    console.log(this.uploadService.NewLocation);
-                },
-                error =>    {
-                    console.error(error);
-                }
-            );
         this.nextClick.emit();
     }
 }

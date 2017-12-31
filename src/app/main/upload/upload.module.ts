@@ -13,7 +13,7 @@ import {AgmCoreModule} from '@agm/core';
 import {UploadService} from './upload.service';
 import {MatExpansionModule} from '@angular/material';
 import {FileDropModule} from "ngx-file-drop";
-import {DragulaModule} from "ng2-dragula";
+import {DndModule} from "ng2-dnd";
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import {DragulaModule} from "ng2-dragula";
       Routing,
       MatExpansionModule,
       FileDropModule,
-      DragulaModule,
+      DndModule.forRoot(),
       AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
       })

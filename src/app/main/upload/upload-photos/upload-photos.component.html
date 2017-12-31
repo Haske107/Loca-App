@@ -8,50 +8,63 @@
       <!-- DROP ZONE -->
       <div  type="file"
             class="upload-box inner-shadow add-photo-tile"
-            (drop)="onDrop($event)"
-            (dragover)="allowDrop($event)"
+            (drop)="isAllowed ? onDrop($event) :  false "
+            (dragover)="allow($event)"
             (click)="FileInput.click()"
-            (mouseover)="onHover()"
-            (mouseleave)="onLeave()"
-            *ngIf="this.files.length == 0"
+            dnd-sortable-container
+            [dropZones]="['delete-dropZone']"
+            [sortableData]="uploadService.Photos"
+            *ngIf="LocalPhotos.length == 0"
         >
           <mat-icon
-                  [ngStyle]="{color : IconColor}"
                   class="drag-icon">control_point</mat-icon>
           <p class="drag-text">Drag your images here</p>
         </div>
-      <!-- MORE THAN ONE PHOTO------------------->
-      <div *ngIf="this.files.length > 0">
-        <mat-grid-list cols="3" rowHeight="1:1" gutterSize="2px" [dragula]='"bag-one"' [dragulaModel]='files'>
 
-          <mat-grid-tile [dragula]='"bag-one"'
-                  *ngFor="let file of files; let i = index"
+      <!-- MORE THAN ONE PHOTO------------------->
+      <div *ngIf="LocalPhotos.length > 0">
+        <!-- DRAG AND DROP IMPLEMENTATION AND MATERIAL STYLE -->
+        <mat-grid-list cols="3"
+                       rowHeight="1:1"
+                       gutterSize="2px"
+                       dnd-sortable-container
+                       [dropZones]="['delete-dropZone']"
+                       [sortableData]="uploadService.Photos"
+        >
+          <!-- IMAGE TILES -->
+          <mat-grid-tile
+                  *ngFor="let file of LocalPhotos; let i = index"
+                  dnd-sortable
+                  [sortableIndex]="i"
                   [colspan]="!i ? 3 : 1"
           >
-            <mat-icon
-                    class="remove-image"
-                    #Remove
-            >
-              clear
-            </mat-icon>
-            <img src="{{url[i]}}" >
+            <img src="{{uploadService.Photos[i].url}}">
           </mat-grid-tile>
-          <mat-grid-tile class="add-photo-tile">
+
+          <!-- ADD MORE PHOTOS TILES -->
+          <mat-grid-tile class="add-photo-tile" *ngIf="LocalPhotos.length < 10">
             <div  type="file"
                   class="upload-box inner-shadow small-drag-box"
-                  (drop)="onDrop($event)"
+                  (drop)="isAllowed ? onDrop($event) :  false "
                   (dragover)="allow($event)"
-                  (mouseover)="onHover()"
-                  (mouseleave)="onLeave()"
                   (click)="FileInput.click()"
             >
-              <mat-icon  [ngStyle]="{color : IconColor}" class="drag-icon small-icon">control_point</mat-icon>
+              <mat-icon class="drag-icon small-icon">control_point</mat-icon>
             </div>
           </mat-grid-tile>
         </mat-grid-list>
       </div>
     </div>
     <input style="display: none" type="file" #FileInput multiple (change)="selectFile($event)" >
+  </div>
+
+  <!-- TRASH BIN -->
+  <div class="trash"
+      *ngIf="LocalPhotos.length > 0"
+      dnd-sortable-container
+      [dropZones]="['delete-dropZone']"
+      [sortableData]="listRecycled">
+    <mat-icon class="trash-icon" >delete_forever</mat-icon>
   </div>
 
   <!-- NEXT BUTTON -->
