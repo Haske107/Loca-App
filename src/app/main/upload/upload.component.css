@@ -36,7 +36,6 @@ app-upload-photos   {
     bottom: 0;
     width: 100%;
     height: 100vh;
-    filter: blur(4px);
     z-index: 1;
 }
 form{
