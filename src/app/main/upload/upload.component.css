@@ -1,7 +1,9 @@
 mat-horizontal-stepper   {
     width: 80%;
     height: 80vh;
-    margin: 10vh 10%;
+    position: absolute;
+    top: calc(50% - 40vh);
+    left: calc(50% - 40%);
     border-radius: 20px;
     padding: 0;
 }
