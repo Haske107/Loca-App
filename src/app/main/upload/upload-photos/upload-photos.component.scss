@@ -53,8 +53,9 @@ img {
   box-shadow:         inset 0 0 30px #7cc3d4;
 }
 .Next-Button  {
+  margin-left: 2%;
   margin-top: 0;
-  width: 100%;
+  width: 96%;
   background-color: #7acc85;
   opacity: 1;
   transition: .5s ease;
@@ -69,6 +70,10 @@ img {
 .Next-Icon  {
   color: white;
   transition: .5s ease;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% + 38px);
+
 }
 
 .inline {

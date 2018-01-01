@@ -2,29 +2,31 @@
 
 </div>
 <div class="wrapper">
-  <mat-horizontal-stepper #stepper>
-    <mat-step label="Verify Location">
+  <mat-horizontal-stepper [linear]="true"  #stepper >
+    <mat-step label="Verify Location" >
       <app-verify-location (nextClick)="stepper.next()">
       </app-verify-location>
     </mat-step >
-    <mat-step label="Fill Out Details">
-      <app-fill-out-details (nextClick)="stepper.next()">
+    <mat-step label="Fill Out Details" >
+      <app-fill-out-details #FOD (nextClick)="stepper.next()" >
       </app-fill-out-details>
     </mat-step>
-    <mat-step label="Rules">
-      <app-location-rules (nextClick)="stepper.next()">
+    <mat-step label="Rules" >
+      <app-location-rules (nextClick)="stepper.next()"  >
       </app-location-rules>
     </mat-step>
-    <mat-step label="Upload Photos">
-      <app-upload-photos>
+    <mat-step label="Upload Photos"  >
+      <app-upload-photos (nextClick)="stepper.next()" >
       </app-upload-photos>
     </mat-step>
-    <mat-step label="Review & Submit">
+    <mat-step label="Review & Submit" >
       <app-review-and-submit>
       </app-review-and-submit>
       <button mat-button matStepperPrevious="">Back</button>
     </mat-step>
   </mat-horizontal-stepper>
 </div>
+
+<mat-icon class="back-arrow" [routerLink]="'/'">arrow_back</mat-icon>
 
 

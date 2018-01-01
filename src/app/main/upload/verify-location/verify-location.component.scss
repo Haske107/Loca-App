@@ -123,10 +123,11 @@ agm-map {
 
 }
 .Next-Icon  {
-  margin: 8px 0 0 5px;
-  display: flex;
   color: white;
   transition: .5s ease;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% + 38px);
 }
 .inline {
   display: inline-flex;

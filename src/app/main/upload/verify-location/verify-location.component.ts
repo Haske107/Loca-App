@@ -154,9 +154,10 @@ export class VerifyLocationComponent implements OnInit {
     }
 
     setMarkerCoords(event: any) {
-        this.mlat = event.coords.lat;
-        this.mlng = event.coords.lng;
-        this.uploadService.NewLocation.coordinates = {lat: this.mlat, lng: this.mlng};
+        this.lat = event.coords.lat;
+        this.lng = event.coords.lng;
+        this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
+
         this.uploadService.emitChanges(1);
 
     }
@@ -205,6 +206,7 @@ export class VerifyLocationComponent implements OnInit {
         this.cursor = 'pointer';
         this.display = 'none';
         this.Done = true;
+        this.getAddress();
     }
 
     ifNo() {
@@ -218,7 +220,8 @@ export class VerifyLocationComponent implements OnInit {
         this.display = 'none';
         this.doneDisplay = 'none';
         this.drag = false;
-        this.uploadService.NewLocation.coordinates = {lat: this.mlat, lng: this.mlng};
+        this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
+        this.getAddress();
         this.uploadService.emitChanges(1);
         this.Done = true;
         this.color = '#7acc85';
@@ -231,6 +234,23 @@ export class VerifyLocationComponent implements OnInit {
             this.nextClick.emit();
             this.uploadService.NewLocation.user = localStorage.getItem('userID');
         }
+    }
+
+    getAddress()    {
+        this.mapService.reverseGeoCode(this.lat, this.lng).subscribe(
+            data => {
+                console.log(data);
+                this.Street = data.results[0].address_components[0].short_name
+                    + ' ' + data.results[0].address_components[1].short_name;
+                this.City = data.results[0].address_components[2].short_name;
+                this.State = data.results[0].address_components[4].short_name;
+                this.Country = data.results[0].address_components[5].short_name;
+                this.Postal = data.results[0].address_components[6].short_name;
+            },
+            error =>    {
+                console.error(error);
+            }
+        );
     }
 }
 

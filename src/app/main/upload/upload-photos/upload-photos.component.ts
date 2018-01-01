@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FileService} from '../../../services/file.service';
 import {UploadService} from '../upload.service';
 
@@ -20,6 +20,9 @@ export class UploadPhotosComponent implements OnInit {
     @ViewChild('FileInput') _FileInput;
     @ViewChild('Remove') RemoveButton;
 
+    // NEXT CLICK EMITTER
+    @Output() nextClick = new EventEmitter();
+
     // VERIFICAION VARIABLES
     isAllowed = true;
 
@@ -35,9 +38,22 @@ export class UploadPhotosComponent implements OnInit {
 
     }
 
+    submit()    {
+        this.nextClick.emit();
+    }
+
+    onChange()  {
+        if (this.uploadService.Photos.length > 0) {
+            this.color = '#7acc85';
+            this.textcolor = 'white';
+            this.cursor = 'pointer';
+        }
+    }
+
     // REFRESH LOCAL PHOTO ARRAY INSTANCE FOR THE DOM
     updateLocalPhotos() {
         this.LocalPhotos = this.uploadService.Photos;
+        this.onChange();
     }
 
     // ALLOW AND VERIFY DROP

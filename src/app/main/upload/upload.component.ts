@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {AuthService} from "../../services/auth.service";
 import {UploadService} from "./upload.service";
 import {FileService} from "../../services/file.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
     selector: 'app-upload',
@@ -16,13 +17,17 @@ import {FileService} from "../../services/file.service";
 
 export class UploadComponent implements OnInit {
 
+    @ViewChild('FODInput') FODInput;
     @ViewChild('stepper') stepper;
-
+    @ViewChild('FOD') FillOutDetails;
+    firstFormGroup: FormGroup;
+    secondFormGroup: FormGroup;
 
     constructor(private authService: AuthService,
                 private router: Router,
                 private fileService: FileService,
-                private uploadService: UploadService
+                private uploadService: UploadService,
+                private _formBuilder: FormBuilder
                 )   {
 
     }
@@ -31,7 +36,19 @@ export class UploadComponent implements OnInit {
         if (!this.authService.isAuthenticated()) {
             this.router.navigateByUrl('/main');
         }
+        this.firstFormGroup = this._formBuilder.group({
+            firstCtrl: ['', Validators.required]
+        });
+        this.secondFormGroup = this._formBuilder.group({
+            secondCtrl: ['', Validators.required]
+        });
 
+    }
+
+
+    FODNext()   {
+        this.FODInput.invalid = false;
+        this.stepper.next();
     }
 
     uploadFiles() {

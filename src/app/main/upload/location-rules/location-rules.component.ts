@@ -11,7 +11,7 @@ import {LocationService} from "../../../services/location.service";
 export class LocationRulesComponent implements OnInit {
 
     RulesData: FormGroup;
-    RulesArray: string[] = ['Shoes off inside'];
+    RulesArray = ['','','','','',''];
     @Output() nextClick = new EventEmitter();
 
     // NG STYLE VARIABLES
@@ -25,10 +25,10 @@ export class LocationRulesComponent implements OnInit {
         this.RulesData = new FormGroup({
             rules: new FormControl(this.RulesArray),
         });
+
     }
     addRule() {
         this.RulesArray.push('');
-        console.log(this.RulesArray);
     }
     removeRule(i )  {
         for (i ; i < this.RulesArray.length - 1; i++)    {
@@ -40,7 +40,22 @@ export class LocationRulesComponent implements OnInit {
         return index;
     }
     submit()    {
+        this.rulesArrayCleaner(null);
+        this.rulesArrayCleaner("");
+        this.rulesArrayCleaner(undefined);
+        console.log(this.RulesArray);
         this.uploadService.NewLocation.rules = this.RulesArray;
         this.nextClick.emit();
+    }
+
+
+    rulesArrayCleaner(deleteValue) {
+        for (let i = 0; i < this.RulesArray.length; i++) {
+            if (this.RulesArray[i] === deleteValue || this.RulesArray[i].length < 8) {
+                this.RulesArray.splice(i, 1);
+                i--;
+            }
+
+        }
     }
 }

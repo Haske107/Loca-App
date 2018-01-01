@@ -50,12 +50,13 @@ p {
     padding-left: 16px;
 }
 .Next-Button  {
-    width: 100%;
+    margin-left: 2%;
+    margin-top: 0;
+    width: 96%;
     background-color: #7acc85;
     opacity: 1;
     transition: .5s ease;
     height: 48px;
-
 }
 .Next-Text  {
     text-align: center;
@@ -66,7 +67,10 @@ p {
 .Next-Icon  {
     color: white;
     transition: .5s ease;
-    top: 20px;
+    top: calc(50% - 11px);
+    left: calc(50% + 38px);
+    position: absolute;
+
 }
 
 .inline {

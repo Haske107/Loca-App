@@ -28,16 +28,18 @@ export class MapService {
 
 
     geoCodeRaw(streetAddress: string, city: string, state: string)  {
-        const headers = new Headers({
-            'content': 'FormData'});
-        const token = localStorage.getItem('token')
-            ? '?token=' + localStorage.getItem('token')
-            : '';
         return this.http.get('https://maps.googleapis.com/maps/api/geocode/json' +
             '?address=' + streetAddress +
             ',' + city +
             ',' + state +
             '&key=AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI' )
+            .map((response: Response) => response.json())
+            .catch((error: Response ) => Observable.throw(error.json()));
+    }
+
+    reverseGeoCode(lat: number, lng: number)  {
+        return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
+            lat + ',' + lng )
             .map((response: Response) => response.json())
             .catch((error: Response ) => Observable.throw(error.json()));
     }
