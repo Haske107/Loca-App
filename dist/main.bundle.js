@@ -105,7 +105,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  overflow-y: hidden;\n}\n", ""]);
+exports.push([module.i, "router-outlet {\n  width: 100%;\n  height: 100vh;\n  position: fixed;\n  overflow: hidden;\n  top: 0;\n  left: 0;\n}", ""]);
 
 // exports
 
@@ -4373,7 +4373,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/upload/upload.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"wrapper\">\n  <mat-horizontal-stepper [linear]=\"true\"  #stepper >\n    <mat-step label=\"Verify Location\" >\n      <app-verify-location (nextClick)=\"stepper.next()\">\n      </app-verify-location>\n    </mat-step >\n    <mat-step label=\"Fill Out Details\" >\n      <app-fill-out-details #FOD (nextClick)=\"stepper.next()\" >\n      </app-fill-out-details>\n    </mat-step>\n    <mat-step label=\"Rules\" >\n      <app-location-rules (nextClick)=\"stepper.next()\"  >\n      </app-location-rules>\n    </mat-step>\n    <mat-step label=\"Upload Photos\"  >\n      <app-upload-photos (nextClick)=\"stepper.next()\" >\n      </app-upload-photos>\n    </mat-step>\n    <mat-step label=\"Review & Submit\" >\n      <app-review-and-submit>\n      </app-review-and-submit>\n      <button mat-button matStepperPrevious=\"\">Back</button>\n    </mat-step>\n  </mat-horizontal-stepper>\n</div>\n\n<mat-icon class=\"back-arrow\" [routerLink]=\"'/'\">arrow_back</mat-icon>\n\n<div class=\"background\">\n\n</div>\n"
+module.exports = "\n<div class=\"wrapper\">\n  <mat-horizontal-stepper [linear]=\"true\"  #stepper >\n    <mat-step label=\"Verify Location\" >\n      <app-verify-location (nextClick)=\"stepper.next()\">\n      </app-verify-location>\n    </mat-step >\n    <mat-step label=\"Fill Out Details\" >\n      <app-fill-out-details #FOD (nextClick)=\"stepper.next()\" >\n      </app-fill-out-details>\n    </mat-step>\n    <mat-step label=\"Rules\" >\n      <app-location-rules (nextClick)=\"stepper.next()\"  >\n      </app-location-rules>\n    </mat-step>\n    <mat-step label=\"Upload Photos\"  >\n      <app-upload-photos (nextClick)=\"stepper.next()\" >\n      </app-upload-photos>\n    </mat-step>\n    <mat-step label=\"Review & Submit\" >\n      <app-review-and-submit>\n      </app-review-and-submit>\n      <button mat-button matStepperPrevious=\"\">Back</button>\n    </mat-step>\n  </mat-horizontal-stepper>\n</div>\n\n<mat-icon class=\"back-arrow\" [routerLink]=\"'/'\">arrow_back</mat-icon>\n\n"
 
 /***/ }),
 
