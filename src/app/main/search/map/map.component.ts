@@ -141,10 +141,10 @@ export class MapComponent implements OnInit {
     this.locationService.toProfilePage(location);
   }
   routeToPost() {
-      if (this.authService.isAuthenticated()) {
-          this.router.navigateByUrl('/main/post');
-      } else  {
-          this.authService.login();
-      }
+      // if (this.authService.isAuthenticated()) {
+      //     this.router.navigateByUrl('/main/post');
+      // } else  {
+      //     this.authService.login();
+      // }
   }
 }
