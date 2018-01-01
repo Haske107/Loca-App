@@ -142,7 +142,7 @@ export class MapComponent implements OnInit {
   }
   routeToPost() {
       // if (this.authService.isAuthenticated()) {
-      //     this.router.navigateByUrl('/main/post');
+           this.router.navigateByUrl('/main/post');
       // } else  {
       //     this.authService.login();
       // }

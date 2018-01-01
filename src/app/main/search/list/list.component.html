@@ -1,4 +1,5 @@
-<div class="row" *ngFor="let location of locations; let i of index
+<div class="list-wrapper">
+  <div class="row" *ngFor="let location of locations; let i of index
      | filter: searchString: 'name'
      | typeFilter: typeObject
      | electricityFilter: electrictyObject
@@ -18,6 +19,7 @@
     <p>{{location.description}}</p>
     <i class="material-icons flash" *ngIf="location.electricity">power</i>
     <i class="material-icons wc" *ngIf="location.bathrooms">wc</i>
+  </div>
   </div>
 </div>
 

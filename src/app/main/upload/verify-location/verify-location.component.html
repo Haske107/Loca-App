@@ -32,7 +32,7 @@
             <input matInput placeholder="Postal" [(ngModel)]="Postal" (keyup)="emitAddressObject()">
           </mat-input-container>
         </div>
-        <button mat-button class="submit-button" color="primary" (click)="onSubmit()">Submit</button>
+        <button mat-button class="submit-button" color="primary" (click)="onSubmit()" [disabled]="Disabled">Submit</button>
       </mat-card>
 
       <!-- MAP CARD -->

@@ -37,6 +37,7 @@ export class VerifyLocationComponent implements OnInit {
     title = 'Is this your property?';
     drag = false;
     Done = false;
+    Disabled = false;
 
 
     constructor(private mapService: MapService, @Inject(DOCUMENT) private document: Document, private uploadService: UploadService) {
@@ -207,6 +208,8 @@ export class VerifyLocationComponent implements OnInit {
         this.display = 'none';
         this.Done = true;
         this.getAddress();
+        this.Disabled = true;
+
     }
 
     ifNo() {

@@ -96,10 +96,6 @@ button{
 .search {
   margin: 20px;
 }
-
-
-
-
 .mat-card {
   padding: 0;
 }
@@ -124,11 +120,6 @@ button{
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.18), 0 5px 5px 0 rgba(0,0,0,.18);
 }
 
-.list-split {
-  width: 100%;
-  padding:0;
-
-}
 .right-panel{
   background-color: #f3f3f3;
   overflow-x: hidden;
@@ -154,8 +145,6 @@ button{
 app-filter-drawer {
   position: fixed;
   top: 0;
-  background-color: #f3f3f3;
-  box-shadow: 0 30px 20px #f3f3f3;
   width: 100%;
   z-index: 12;
 }
@@ -185,7 +174,7 @@ app-filter-drawer {
 }
 
 
-.filter-bar{
+.filter-bar {
   background-color: transparent;
   position: absolute;
   top: 90px;
