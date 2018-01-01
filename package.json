@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server/www",
-    "postinstall": "ng build --prod --aot",
+    "postinstall": "ng build --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
