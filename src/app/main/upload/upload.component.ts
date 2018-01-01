@@ -33,9 +33,9 @@ export class UploadComponent implements OnInit {
     }
 
     ngOnInit()  {
-        if (!this.authService.isAuthenticated()) {
-            this.router.navigateByUrl('/main');
-        }
+        // if (!this.authService.isAuthenticated()) {
+        //     this.router.navigateByUrl('/main');
+        // }
         this.firstFormGroup = this._formBuilder.group({
             firstCtrl: ['', Validators.required]
         });
