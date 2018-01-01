@@ -75,8 +75,8 @@
       <file leaf-file-name="main.component.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/main/main.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+            <state relative-caret-position="105">
+              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -369,7 +369,7 @@
       <workItem from="1513667105246" duration="582000" />
       <workItem from="1513708286980" duration="86957000" />
       <workItem from="1514683531191" duration="586000" />
-      <workItem from="1514684132206" duration="16486000" />
+      <workItem from="1514684132206" duration="16535000" />
     </task>
     <task id="LOCAL-00001" summary="Added Url switcher implemented">
       <created>1510625514024</created>
@@ -396,7 +396,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144500000" />
+    <option name="totallyTimeSpent" value="144549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -840,8 +840,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/main/main.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
         </state>
       </provider>
