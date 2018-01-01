@@ -5,7 +5,7 @@ router.get('/', function (req, res, next) {
     res.render('index');
 });
 
-app.get('/*', function(req, res) {
+router.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
