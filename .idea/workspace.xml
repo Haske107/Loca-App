@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6607bdf-7f58-48b4-add7-7f57977f1859" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/fill-out-details/fill-out-details.component.scss" afterPath="$PROJECT_DIR$/src/app/main/upload/fill-out-details/fill-out-details.component.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/location-rules/location-rules.component.scss" afterPath="$PROJECT_DIR$/src/app/main/upload/location-rules/location-rules.component.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/location-rules/location-rules.component.ts" afterPath="$PROJECT_DIR$/src/app/main/upload/location-rules/location-rules.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/upload-photos/upload-photos.component.html" afterPath="$PROJECT_DIR$/src/app/main/upload/upload-photos/upload-photos.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/upload-photos/upload-photos.component.scss" afterPath="$PROJECT_DIR$/src/app/main/upload/upload-photos/upload-photos.component.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/upload-photos/upload-photos.component.ts" afterPath="$PROJECT_DIR$/src/app/main/upload/upload-photos/upload-photos.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/upload.component.css" afterPath="$PROJECT_DIR$/src/app/main/upload/upload.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/upload.component.html" afterPath="$PROJECT_DIR$/src/app/main/upload/upload.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/upload.component.ts" afterPath="$PROJECT_DIR$/src/app/main/upload/upload.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/verify-location/verify-location.component.scss" afterPath="$PROJECT_DIR$/src/app/main/upload/verify-location/verify-location.component.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/upload/verify-location/verify-location.component.ts" afterPath="$PROJECT_DIR$/src/app/main/upload/verify-location/verify-location.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/map.service.ts" afterPath="$PROJECT_DIR$/src/app/services/map.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -398,7 +387,7 @@
       <workItem from="1513667105246" duration="582000" />
       <workItem from="1513708286980" duration="86957000" />
       <workItem from="1514683531191" duration="586000" />
-      <workItem from="1514684132206" duration="11198000" />
+      <workItem from="1514684132206" duration="11284000" />
     </task>
     <task id="LOCAL-00001" summary="Added Url switcher implemented">
       <created>1510625514024</created>
@@ -425,7 +414,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139212000" />
+    <option name="totallyTimeSpent" value="139298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
