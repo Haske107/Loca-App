@@ -9,12 +9,11 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./server/www",
-    "postinstall": "ng build --aot -prod",
+    "postinstall": "npm run build --aot -prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && angular-cli-ghpages --branch master"
   },
   "private": true,
   "dependencies": {
