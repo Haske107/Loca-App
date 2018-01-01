@@ -3492,12 +3492,11 @@ var MapComponent = /** @class */ (function () {
         this.locationService.toProfilePage(location);
     };
     MapComponent.prototype.routeToPost = function () {
-        if (this.authService.isAuthenticated()) {
-            this.router.navigateByUrl('/main/post');
-        }
-        else {
-            this.authService.login();
-        }
+        // if (this.authService.isAuthenticated()) {
+        //     this.router.navigateByUrl('/main/post');
+        // } else  {
+        //     this.authService.login();
+        // }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('googlemap'),
@@ -4416,9 +4415,9 @@ var UploadComponent = /** @class */ (function () {
         this._formBuilder = _formBuilder;
     }
     UploadComponent.prototype.ngOnInit = function () {
-        if (!this.authService.isAuthenticated()) {
-            this.router.navigateByUrl('/main');
-        }
+        // if (!this.authService.isAuthenticated()) {
+        //     this.router.navigateByUrl('/main');
+        // }
         this.firstFormGroup = this._formBuilder.group({
             firstCtrl: ['', __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]
         });
