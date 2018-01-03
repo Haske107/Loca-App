@@ -5,12 +5,12 @@ import {AngularMaterialsModule} from "../../angular-materials.module";
 
 @NgModule({
   imports: [
-    CommonModule,
+      CommonModule,
       AngularMaterialsModule,
 
   ],
   declarations: [
       LocationProfileComponent
-  ]
+      ]
 })
 export class LocationProfileModule { }

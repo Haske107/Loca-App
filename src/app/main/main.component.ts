@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {ChatComponent} from './chat/chat.component';
 import {SearchService} from '../services/search.service';
 import {Dev} from '../../URLSwitcher';
+import {PageStateService} from "../services/page.state.service";
 
 
 
@@ -21,12 +22,14 @@ export class MainComponent implements OnInit {
   isSignedIn  = false;
   isOpen = false;
 
+
   constructor(private iconRegistry: MatIconRegistry,
               private sanitizer: DomSanitizer,
               private dialog: MatDialog,
               private searchService: SearchService,
               private authService: AuthService,
               private SearchService: SearchService,
+              public pageStateService: PageStateService,
               private router: Router) {
     iconRegistry.addSvgIcon(
       'logo',

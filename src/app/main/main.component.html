@@ -1,26 +1,14 @@
+<!-- MAIN BAR -->
+<app-main-toolbar [ngStyle]="'Upload' === pageStateService.isOpen() ? {display: 'none'} :
+                             'Location' === pageStateService.isOpen() ? {top: '64px', left: 'calc(50% - 240px)'} :
+                             'Permit' === pageStateService.isOpen() ? {top: '64pxpx', left: '2150px'} :
+                             'Search' === pageStateService.isOpen() ? {top: '64px', left: '160px'} :
+                             null
+">
+
+</app-main-toolbar>
 
 <!-- PAGE CONTENT -->
   <router-outlet ></router-outlet>
 
 
-<!-- LOGO  & TITLE -->
-
-
-<!-- <span class="col-md-4">
-        <button mat-raised-button type="button" color="accent" class="btn signin" *ngIf="!isSignedIn" (click)="openDialog()">
-          <h5>  Log in / Sign up</h5>
-        </button>
-    <!-- IF SIGNED IN --> <!--
-<div class="dropdown-container"  *ngIf="isSignedIn"  dropdown [isOpen]="isOpen" (isOpenChange)="change($event)">
-  <img src="{{Profile.picture}}" class="avatar" dropdownToggle>
-  <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-    <li role="menuitem"><a class="dropdown-item"  [routerLink]="'myprofile'">My Profile</a></li>
-    <li role="menuitem"><a class="dropdown-item" (click)="openChat()">Messages</a></li>
-    <li role="menuitem"><a class="dropdown-item" [routerLink]="'mycollections'">Collections</a></li>
-    <li role="menuitem"><a class="dropdown-item"[routerLink]="'post'">Post Location</a></li>
-    <li class="divider dropdown-divider"></li>
-    <li role="menuitem"><a class="dropdown-item" (click)="logOut()">Log Out</a>
-    </li>
-  </ul>
-</div>
-</span> -->

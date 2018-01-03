@@ -28,11 +28,7 @@ export class MapComponent implements OnInit {
   @Input() locations: Location[];
   CurrentLocation: any;
 
-
-  constructor(private router: Router,
-              private locationService: LocationService,
-              private searchService: SearchService,
-              private authService: AuthService) { }
+  constructor(private searchService: SearchService, private locationService: LocationService) { }
 
   ngOnInit() {
     this.CurrentLocation = this.searchService.TempDistance.CurrentLocation;
@@ -137,14 +133,7 @@ export class MapComponent implements OnInit {
     ];
     this.googlemap.zoom = 13;
   }
-  toLocationProfile(location: Location) {
-    this.locationService.toProfilePage(location);
-  }
-  routeToPost() {
-      // if (this.authService.isAuthenticated()) {
-           this.router.navigateByUrl('/main/post');
-      // } else  {
-      //     this.authService.login();
-      // }
-  }
+    toLocationProfile(location: Location) {
+        this.locationService.toProfilePage(location);
+    }
 }

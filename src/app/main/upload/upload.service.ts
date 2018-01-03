@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Injectable, OnChanges, OnDestroy, Output} from '@angular/core';
 import {Location} from '../../ts models/location.model';
+import {PageStateService} from "../../services/page.state.service";
 
 @Injectable()
 export class UploadService  {
@@ -21,7 +22,6 @@ export class UploadService  {
   public Photos = [];
 
   public ChangeEmitter = new EventEmitter<any>();
-
 
   constructor() {
       if (localStorage.getItem('location'))   {

@@ -1,3 +1,16 @@
-<div class="Background-Image"
-     [style.background-image]="ImgUrl">
+
+<div class="Background-Image" [style.background-image]="ImgUrl">
+    <!-- PHOTO ARRAY -->
+    <mat-grid-list [cols]="5" [rowHeight]="1" class="Photo-Gallery">
+        <mat-grid-tile *ngFor="let photo of Photos" class="Photo-Gallery-Tile">
+
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- MAIN PANEL -->
+    <mat-card class="Main-Panel">
+
+    </mat-card>
 </div>
+
+

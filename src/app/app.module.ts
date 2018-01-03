@@ -23,6 +23,7 @@ import {AppComponent } from './app.component';
 import {LoadingComponent } from './auth/loading/loading.component';
 import {AngularMaterialsModule} from './angular-materials.module';
 import {LandingComponent} from "./main/landing/landing.component";
+import {PageStateService} from "./services/page.state.service";
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import {LandingComponent} from "./main/landing/landing.component";
         AuthService,
         LocationService,
         FileService,
+        PageStateService
     ],
     bootstrap: [AppComponent]
 })

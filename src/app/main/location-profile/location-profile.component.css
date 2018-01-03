@@ -7,6 +7,19 @@
 
 
 /* COMPONENTS */
+.Photo-Gallery	{
+	width: 75%;
+	height: 20vh;
+	position: absolute;
+	top: 20vh;
+	left: calc(50% - 37.5%);
+	border-radius: 20px;
+	padding: 0;
+}
+.Photo-Gallery-Tile	{
+	background-color: #00838f;
+	height: 100px;
+}
 .Background-Image	{
 	position: absolute;
 	height: 100vh;
@@ -14,4 +27,17 @@
 	left: 0;
 	top: 0;
 	background-size: cover;
+}
+.Main-Panel	{
+	width: 75%;
+	height: 45vh;
+	position: absolute;
+	top: calc(50% - 5vh);
+	left: calc(50% - 37.5%);
+	border-radius: 20px;
+	padding: 0;
+	background-color: white;
+}
+app-main-toolbar	{
+	left: calc(50% - 80px);
 }

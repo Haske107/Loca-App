@@ -1,13 +1,14 @@
 /**
  * Created by Jeff Haskell on 7/10/2017.
  */
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Location} from '../../ts models/location.model';
 import {Router} from '@angular/router';
 import {AuthService} from "../../services/auth.service";
 import {UploadService} from "./upload.service";
 import {FileService} from "../../services/file.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PageStateService} from "../../services/page.state.service";
 
 @Component({
     selector: 'app-upload',
@@ -15,7 +16,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
     styleUrls: ['upload.component.css'],
 })
 
-export class UploadComponent implements OnInit {
+export class UploadComponent implements OnInit, OnDestroy   {
 
     @ViewChild('FODInput') FODInput;
     @ViewChild('stepper') stepper;
@@ -27,8 +28,12 @@ export class UploadComponent implements OnInit {
                 private router: Router,
                 private fileService: FileService,
                 private uploadService: UploadService,
-                private _formBuilder: FormBuilder
+                private _formBuilder: FormBuilder,
+                private pageStateService: PageStateService
                 )   {
+        this.pageStateService.Upload = true;
+        console.log(this.pageStateService.Upload);
+
 
     }
 
@@ -43,6 +48,11 @@ export class UploadComponent implements OnInit {
             secondCtrl: ['', Validators.required]
         });
 
+    }
+
+    ngOnDestroy()   {
+        this.pageStateService.Upload = false;
+        console.log(this.pageStateService.Upload);
     }
 
 

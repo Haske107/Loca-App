@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {MatDialog, MatIconRegistry, MatSnackBar} from '@angular/material';
@@ -6,6 +6,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {LocationService} from '../../services/location.service';
 import {Location} from '../../ts models/location.model';
 import {SearchService} from '../../services/search.service';
+import {PageStateService} from "../../services/page.state.service";
 
 /**
  * Created by Jeff on 7/8/2017.
@@ -17,7 +18,7 @@ import {SearchService} from '../../services/search.service';
     providers: [MatIconRegistry]
 })
 
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
 
   //SEARCH
   query = '';
@@ -122,7 +123,8 @@ export class SearchComponent implements OnInit {
                 private iconRegistry: MatIconRegistry,
                 private sanitizer: DomSanitizer,
                 private LocationService: LocationService,
-                private searchService: SearchService)   {
+                private searchService: SearchService,
+                private pageStateService: PageStateService)   {
       iconRegistry.addSvgIcon('marker-blue', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/marker-blue.svg'));
       iconRegistry.addSvgIcon('marker', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/marker.svg'));
       iconRegistry.addSvgIcon('grid', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/grid.svg'));
@@ -131,6 +133,8 @@ export class SearchComponent implements OnInit {
       iconRegistry.addSvgIcon('split', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/split-browser.svg'));
       iconRegistry.addSvgIcon('split-blue', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/split-browser-blue.svg'));
       iconRegistry.addSvgIcon('filter', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/filter.svg'));
+      this.pageStateService.Search = true;
+        console.log(this.pageStateService.Search);
 
     }
 
@@ -197,4 +201,9 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  ngOnDestroy() {
+      this.pageStateService.Search = false;
+      console.log(this.pageStateService.Search);
+
+  }
 }
