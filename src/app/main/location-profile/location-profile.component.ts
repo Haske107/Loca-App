@@ -57,7 +57,7 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
         }
 
       // POPULATE AND SANITIZE IMAGE LINKS
-      this.ImgUrl = 'http://' + Dev + '/files/' + this.location._id;
+      this.ImgUrl = 'http://' + Prod + '/files/' + this.location._id;
       this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle(`url(${this.ImgUrl})`);
       for (let i = 0; i < this.Photos.length; i++)    {
           this.SafePhotos.push(this.sanitzer.bypassSecurityTrustStyle(`url(${this.Photos[i]})`));

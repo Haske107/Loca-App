@@ -77,7 +77,7 @@ export class AuthService   {
     const token = localStorage.getItem('access_token')
       ? '?token=' + localStorage.getItem('access_token')
       : '';
-    return this.http.get('http://' + Dev + '/user/' + token, {headers: headers})
+    return this.http.get('http://' + Prod + '/user/' + token, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }

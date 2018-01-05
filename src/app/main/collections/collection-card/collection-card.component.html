@@ -2,17 +2,17 @@
 
     <mat-grid-list *ngIf="locations.length >= 9" cols="3" rowHeight="1:1">
       <mat-grid-tile *ngFor="let location of locations">
-        <img src="http://' + Dev + '/files/{{location._id}}" style="width: 100%; height: 100%">
+        <img src="http://' + Prod + '/files/{{location._id}}" style="width: 100%; height: 100%">
       </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list *ngIf="locations.length >= 6 && locations.length < 9" cols="2" Height="1:1">
       <mat-grid-tile *ngFor="let location of locations">
-        <img src="http://' + Dev + '/files/{{location._id}}" style="width: 100%; height: 100%">
+        <img src="http://' + Prod + '/files/{{location._id}}" style="width: 100%; height: 100%">
       </mat-grid-tile>
     </mat-grid-list>
     <mat-grid-list *ngIf="collection.locations.length < 6" cols="1" height="1:1">
       <mat-grid-tile *ngFor="let location of locations; let i = index">
-        <img *ngIf="i === 0"  src="http://' + Dev + '/files/{{location._id}}" style="width: 100%; height: 100%">
+        <img *ngIf="i === 0"  src="http://' + Prod + '/files/{{location._id}}" style="width: 100%; height: 100%">
       </mat-grid-tile>
     </mat-grid-list>
 
