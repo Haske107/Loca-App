@@ -10,7 +10,6 @@
     "ng": "ng",
     "start": "node ./server/www",
     "build": "ng build",
-    "postinstall": "npm run build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -592,7 +592,7 @@ var ChatService = /** @class */ (function () {
             ? '?token=' + localStorage.getItem('token')
             : '';
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'content-type': 'application/json' });
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createChat' + token, body, { headers: header })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createChat' + token, body, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -602,7 +602,7 @@ var ChatService = /** @class */ (function () {
             ? '?token=' + localStorage.getItem('token')
             : '';
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'content-type': 'application/json' });
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createMessage/' + chatID + token, body, { headers: header })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/createMessage/' + chatID + token, body, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -611,7 +611,7 @@ var ChatService = /** @class */ (function () {
             ? '?token=' + localStorage.getItem('token')
             : '';
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'content-type': 'application/json' });
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getMessages/' + currentChat._id + token, { headers: header })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getMessages/' + currentChat._id + token, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -620,7 +620,7 @@ var ChatService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getChats/' + userID + token, { headers: header })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/getChats/' + userID + token, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -630,7 +630,7 @@ var ChatService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/deleteChat' + userID + token, body, { headers: header })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/chat/deleteChat' + userID + token, body, { headers: header })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -648,7 +648,7 @@ var ChatService = /** @class */ (function () {
 /***/ "../../../../../src/app/main/collections/collection-card/collection-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n    <mat-grid-list *ngIf=\"locations.length >= 9\" cols=\"3\" rowHeight=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"http://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"locations.length >= 6 && locations.length < 9\" cols=\"2\" Height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"http://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"collection.locations.length < 6\" cols=\"1\" height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations; let i = index\">\n        <img *ngIf=\"i === 0\"  src=\"http://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n\n\n    <div class=\"nub\">\n      <mat-icon class=\"nubicon\" svgIcon=\"Glass\" color=\"primary\"  (click)=\"emitSelection(collection)\" ></mat-icon>\n    </div>\n    <mat-grid-tile-footer *ngIf=\"Profile\">\n      <img src=\"{{Profile.picture}} \" style=\"width: 40px; height: 40px; border-radius: 20px; \">\n      <div class=\"footer-info\">\n        <h6>{{collection.name}}</h6>\n        <p>{{Profile.name}}</p>\n      </div>\n  <mat-icon class=\"stack\" color=\"primary\" svgIcon=\"stack\"> </mat-icon>\n  <p class=\"stack-number\">{{collection.locations.length}}</p>\n  <!---\n  <mat-icon svgIcon=\"Trash Can\" color=\"primary\"  (click)=\"deleteClicked.emit(collection._id)\" class=\"trash\"></mat-icon>\n  -->\n     </mat-grid-tile-footer>\n\n\n\n"
+module.exports = "\n\n    <mat-grid-list *ngIf=\"locations.length >= 9\" cols=\"3\" rowHeight=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"https://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"locations.length >= 6 && locations.length < 9\" cols=\"2\" Height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations\">\n        <img src=\"https://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n    <mat-grid-list *ngIf=\"collection.locations.length < 6\" cols=\"1\" height=\"1:1\">\n      <mat-grid-tile *ngFor=\"let location of locations; let i = index\">\n        <img *ngIf=\"i === 0\"  src=\"https://' + Prod + '/files/{{location._id}}\" style=\"width: 100%; height: 100%\">\n      </mat-grid-tile>\n    </mat-grid-list>\n\n\n    <div class=\"nub\">\n      <mat-icon class=\"nubicon\" svgIcon=\"Glass\" color=\"primary\"  (click)=\"emitSelection(collection)\" ></mat-icon>\n    </div>\n    <mat-grid-tile-footer *ngIf=\"Profile\">\n      <img src=\"{{Profile.picture}} \" style=\"width: 40px; height: 40px; border-radius: 20px; \">\n      <div class=\"footer-info\">\n        <h6>{{collection.name}}</h6>\n        <p>{{Profile.name}}</p>\n      </div>\n  <mat-icon class=\"stack\" color=\"primary\" svgIcon=\"stack\"> </mat-icon>\n  <p class=\"stack-number\">{{collection.locations.length}}</p>\n  <!---\n  <mat-icon svgIcon=\"Trash Can\" color=\"primary\"  (click)=\"deleteClicked.emit(collection._id)\" class=\"trash\"></mat-icon>\n  -->\n     </mat-grid-tile-footer>\n\n\n\n"
 
 /***/ }),
 
@@ -868,7 +868,7 @@ var DeleteObject = /** @class */ (function () {
 /***/ "../../../../../src/app/main/collections/collection-preview/collection-preview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card class=\"maincard\">\n  <h4 *ngIf=\"!Focus\">\n    PREVIEW CONTENTS\n  </h4>\n  <h4 *ngIf=\"Focus\"> {{collection.name}}</h4>\n  <hr style=\"color:white\">\n  <mat-card-content>\n    <mat-card class=\"slab\" *ngFor=\"let location of selectedCollectionLocations\">\n      <img class=\"slab-image\" src=\"http://' + Prod + '/files/{{location._id}}\">\n      <h5 class=\"slab-h4\">{{location.name}}</h5>\n      <div class=\"select\" (click)=\"toLocationProfile(location)\"><mat-icon svgIcon=\"arrow-right\"></mat-icon></div>\n    </mat-card>\n  </mat-card-content>\n</mat-card>\n\n"
+module.exports = "<mat-card class=\"maincard\">\n  <h4 *ngIf=\"!Focus\">\n    PREVIEW CONTENTS\n  </h4>\n  <h4 *ngIf=\"Focus\"> {{collection.name}}</h4>\n  <hr style=\"color:white\">\n  <mat-card-content>\n    <mat-card class=\"slab\" *ngFor=\"let location of selectedCollectionLocations\">\n      <img class=\"slab-image\" src=\"https://' + Prod + '/files/{{location._id}}\">\n      <h5 class=\"slab-h4\">{{location.name}}</h5>\n      <div class=\"select\" (click)=\"toLocationProfile(location)\"><mat-icon svgIcon=\"arrow-right\"></mat-icon></div>\n    </mat-card>\n  </mat-card-content>\n</mat-card>\n\n"
 
 /***/ }),
 
@@ -1607,11 +1607,11 @@ var LocationProfileComponent = /** @class */ (function () {
         this.pageStateService = pageStateService;
         this.user = new __WEBPACK_IMPORTED_MODULE_2__ts_models_user_model__["a" /* User */]();
         // PHOTO ARRAY
-        this.Photos = ['http://localhost:3000/files/5998b7ed30637b2f701909ad'];
-        // 'http://localhost:3000/files/5a471e924c835030c759cb1d',
-        // 'http://localhost:3000/files/59a7143dc4e9de22fc058ad8',
-        // 'http://localhost:3000/files/598cf64be9e60d0c48c2bbeb',
-        // 'http://localhost:3000/files/598d5b520cd355f7c59aa6be'
+        this.Photos = ['https://localhost:3000/files/5998b7ed30637b2f701909ad'];
+        // 'https://localhost:3000/files/5a471e924c835030c759cb1d',
+        // 'https://localhost:3000/files/59a7143dc4e9de22fc058ad8',
+        // 'https://localhost:3000/files/598cf64be9e60d0c48c2bbeb',
+        // 'https://localhost:3000/files/598d5b520cd355f7c59aa6be'
         this.SafePhotos = [];
         if (localStorage.getItem('currloc')) {
             // POPULATE LOCATION WITH CURRENT LOCATION
@@ -1630,7 +1630,7 @@ var LocationProfileComponent = /** @class */ (function () {
             }
         }
         // POPULATE AND SANITIZE IMAGE LINKS
-        this.ImgUrl = 'http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/' + this.location._id;
+        this.ImgUrl = 'https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/' + this.location._id;
         this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle("url(" + this.ImgUrl + ")");
         for (var i = 0; i < this.Photos.length; i++) {
             this.SafePhotos.push(this.sanitzer.bypassSecurityTrustStyle("url(" + this.Photos[i] + ")"));
@@ -2452,7 +2452,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/search/Grid/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <img class=\"avatar\" src=\"http://{{Prod}}/files/{{location._id}}\" (click)=\"toLocationProfile(location)\" >\n\n\n\n  <!--\n  <div (mouseover)=\"isHovering = true\" (mouseleave)=\"isHovering = false\">\n      <h3 [ngStyle]=\"{'opacity': 1 || !isHovering }\">{{location.name}}</h3>\n  </div>\n\n-->\n\n\n"
+module.exports = "  <img class=\"avatar\" src=\"https://{{Prod}}/files/{{location._id}}\" (click)=\"toLocationProfile(location)\" >\n\n\n\n  <!--\n  <div (mouseover)=\"isHovering = true\" (mouseleave)=\"isHovering = false\">\n      <h3 [ngStyle]=\"{'opacity': 1 || !isHovering }\">{{location.name}}</h3>\n  </div>\n\n-->\n\n\n"
 
 /***/ }),
 
@@ -3486,7 +3486,7 @@ var TypeFilterPipe = /** @class */ (function () {
 /***/ "../../../../../src/app/main/search/list/list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"list-wrapper\">\n  <div class=\"row\" *ngFor=\"let location of locations; let i of index\n     | filter: searchString: 'name'\n     | typeFilter: typeObject\n     | electricityFilter: electrictyObject\n     | bathroomFilter: bathroomObject\n     | rateFilter: rateObject\">\n\n  <div class=\"col-sm-4 photo-container\">\n    <div class=\"color-bar\" [ngStyle]=\"{'background-color': colorFromType(location.type)}\">\n    </div>\n    <img src=\"http://{{Prod}}/files/{{location._id}}\">\n    <i class=\"material-icons add\">add_circle_outline</i>\n  </div>\n\n  <div class=\"col-sm-8\">\n    <h5>{{location.name}}</h5>\n    <hr>\n    <p>{{location.description}}</p>\n    <i class=\"material-icons flash\" *ngIf=\"location.electricity\">power</i>\n    <i class=\"material-icons wc\" *ngIf=\"location.bathrooms\">wc</i>\n  </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"list-wrapper\">\n  <div class=\"row\" *ngFor=\"let location of locations; let i of index\n     | filter: searchString: 'name'\n     | typeFilter: typeObject\n     | electricityFilter: electrictyObject\n     | bathroomFilter: bathroomObject\n     | rateFilter: rateObject\">\n\n  <div class=\"col-sm-4 photo-container\">\n    <div class=\"color-bar\" [ngStyle]=\"{'background-color': colorFromType(location.type)}\">\n    </div>\n    <img src=\"https://{{Prod}}/files/{{location._id}}\">\n    <i class=\"material-icons add\">add_circle_outline</i>\n  </div>\n\n  <div class=\"col-sm-8\">\n    <h5>{{location.name}}</h5>\n    <hr>\n    <p>{{location.description}}</p>\n    <i class=\"material-icons flash\" *ngIf=\"location.electricity\">power</i>\n    <i class=\"material-icons wc\" *ngIf=\"location.bathrooms\">wc</i>\n  </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -5365,7 +5365,7 @@ var AuthService = /** @class */ (function () {
                 primaryColor: '#00bcd4',
             },
             auth: {
-                redirectUrl: 'http://localhost:4200/loading',
+                redirectUrl: 'https://localhost:4200/loading',
                 responseType: 'token id_token',
                 params: {
                     scope: 'openid profile email'
@@ -5420,7 +5420,7 @@ var AuthService = /** @class */ (function () {
         var token = localStorage.getItem('access_token')
             ? '?token=' + localStorage.getItem('access_token')
             : '';
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_6__URLSwitcher__["b" /* Prod */] + '/user/' + token, { headers: headers })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_6__URLSwitcher__["b" /* Prod */] + '/user/' + token, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_5_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5465,7 +5465,7 @@ var CollectionService = /** @class */ (function () {
     }
     // READ
     CollectionService.prototype.getPublicCollections = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/community/')
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/community/')
             .map(function (response) {
             var Collections = response.json().obj;
             var transformedCollections = [];
@@ -5490,7 +5490,7 @@ var CollectionService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
     CollectionService.prototype.getPrivateCollections = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/private/' + localStorage.getItem('userID'))
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/private/' + localStorage.getItem('userID'))
             .map(function (response) {
             var Collections = response.json().obj;
             var transformedCollections = [];
@@ -5515,7 +5515,7 @@ var CollectionService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
     CollectionService.prototype.getCreatedCollections = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/created/' + localStorage.getItem('userID'))
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/created/' + localStorage.getItem('userID'))
             .map(function (response) {
             var Collections = response.json().obj;
             var transformedCollections = [];
@@ -5546,7 +5546,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/locations/' + collectionID + token, { headers: headers })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/locations/' + collectionID + token, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5558,7 +5558,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.delete('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/remove/' + collectionID + token, { headers: headers })
+        return this.http.delete('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/remove/' + collectionID + token, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5570,7 +5570,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/' + localStorage.getItem('userID') + token, body, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/' + localStorage.getItem('userID') + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5582,7 +5582,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/updatePublicity/' + collectionID + token, null, { headers: headers })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/updatePublicity/' + collectionID + token, null, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5595,7 +5595,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/addLocation/' + collectionID + token, body, { headers: headers })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/addLocation/' + collectionID + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5607,7 +5607,7 @@ var CollectionService = /** @class */ (function () {
         var token = localStorage.getItem('token')
             ? '?token=' + localStorage.getItem('token')
             : '';
-        return this.http.patch('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/removeLocation/' + collectionID + token, body, { headers: headers })
+        return this.http.patch('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/collection/removeLocation/' + collectionID + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return error.json(); });
     };
@@ -5660,7 +5660,7 @@ var FileService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/main/:' + locationID + token, formdata, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/main/:' + locationID + token, formdata, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5671,7 +5671,7 @@ var FileService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/other/:' + locationID + token, formdata, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/other/:' + locationID + token, formdata, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
@@ -5721,7 +5721,7 @@ var LocationService = /** @class */ (function () {
         this.router = router;
     }
     LocationService.prototype.getLocation = function (location_id) {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location/find?_ID=' + location_id)
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location/find?_ID=' + location_id)
             .map(function (response) {
             var Location = response.json().location;
             console.log(Location);
@@ -5730,7 +5730,7 @@ var LocationService = /** @class */ (function () {
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
     LocationService.prototype.getLocations = function () {
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location')
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location')
             .map(function (response) {
             var Locations = response.json().obj;
             var transformedLocations = [];
@@ -5772,13 +5772,13 @@ var LocationService = /** @class */ (function () {
         var token = localStorage.getItem('id_token')
             ? '?token=' + localStorage.getItem('id_token')
             : '';
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location' + token, body, { headers: headers })
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location' + token, body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["a" /* Observable */].throw(error.json()); });
     };
     LocationService.prototype.getLocationsInRange = function (DistanceObject) {
         var body = DistanceObject;
-        return this.http.post('http://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location/search/', body)
+        return this.http.post('https://' + __WEBPACK_IMPORTED_MODULE_5__URLSwitcher__["b" /* Prod */] + '/location/search/', body)
             .map(function (response) {
             var Locations = response.json().obj;
             var transformedLocations = [];
@@ -6092,7 +6092,7 @@ var UserService = /** @class */ (function () {
     }
     UserService.prototype.getUser = function (userID) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
-        return this.http.get('http://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/user/getUserByID/' + userID, { headers: headers })
+        return this.http.get('https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/user/getUserByID/' + userID, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json()); });
     };
