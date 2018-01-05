@@ -24,12 +24,12 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
 
 
   // PHOTO ARRAY
-    Photos = ['http://localhost:3000/files/5998b7ed30637b2f701909ad'];
+    Photos = ['https://localhost:3000/files/5998b7ed30637b2f701909ad'];
 
-    // 'http://localhost:3000/files/5a471e924c835030c759cb1d',
-    // 'http://localhost:3000/files/59a7143dc4e9de22fc058ad8',
-    // 'http://localhost:3000/files/598cf64be9e60d0c48c2bbeb',
-    // 'http://localhost:3000/files/598d5b520cd355f7c59aa6be'
+    // 'https://localhost:3000/files/5a471e924c835030c759cb1d',
+    // 'https://localhost:3000/files/59a7143dc4e9de22fc058ad8',
+    // 'https://localhost:3000/files/598cf64be9e60d0c48c2bbeb',
+    // 'https://localhost:3000/files/598d5b520cd355f7c59aa6be'
 
     SafePhotos = [];
 
@@ -57,7 +57,7 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
         }
 
       // POPULATE AND SANITIZE IMAGE LINKS
-      this.ImgUrl = 'http://' + Prod + '/files/' + this.location._id;
+      this.ImgUrl = 'https://' + Prod + '/files/' + this.location._id;
       this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle(`url(${this.ImgUrl})`);
       for (let i = 0; i < this.Photos.length; i++)    {
           this.SafePhotos.push(this.sanitzer.bypassSecurityTrustStyle(`url(${this.Photos[i]})`));
