@@ -10,6 +10,8 @@ var UserSchema = new schema({
     email: {type: String, required: true, unique: true},
     firstName:{type: String},
     lastName:{type: String},
+    smallthumb: {type: String},
+    largetumb: {type: String},
     ownedlocations: [{type: schema.Types.ObjectId, ref: 'Location'}],
     lastViewedLocations: [{type: schema.Types.ObjectId, ref: 'Location'}],
     createdCollections: [{type: schema.Types.ObjectId, ref: 'Collection'}],

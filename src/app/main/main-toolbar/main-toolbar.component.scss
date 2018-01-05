@@ -1,20 +1,18 @@
 .FloatBar {
   background-color: #fcfcfc;
   height: 45px;
-  width: 480px;
-  padding: 0;
-  border-radius: 100px;
+  width: 490px;
+  border-radius: 100px !important;
   z-index: 10;
   color: #74befb;
   border: 1px solid #f6f6f6;
-  -webkit-box-shadow: 4px 10px 6px -6px #a8a8a8;
-  -moz-box-shadow: 4px 10px 6px -6px #c4c4c4;
-  box-shadow: 4px 10px 6px -6px #d7d7d7;
+  padding: 0 !important;
 }
 
 .logo{
   background-image: url('../../../assets/icons/Logo.png');
   background-size: cover;
+  background-repeat: repeat-y;
   position: absolute;
   top: -28px;
   left: 145px;

@@ -1,43 +1,214 @@
 /* FONTS */
-
-
-
-
-
-
-
-/* COMPONENTS */
-.Photo-Gallery	{
-	width: 75%;
-	height: 20vh;
-	position: absolute;
-	top: 20vh;
-	left: calc(50% - 37.5%);
-	border-radius: 20px;
-	padding: 0;
-}
-.Photo-Gallery-Tile	{
-	background-color: #00838f;
-	height: 100px;
-}
-.Background-Image	{
-	position: absolute;
-	height: 100vh;
-	width: 100%;
-	left: 0;
+.City-Section-Title	{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 35px;
+	color: grey;
+	position: relative;
 	top: 0;
-	background-size: cover;
+	left: 0;
+	height: 35px;
+	margin-bottom: 0;
+
 }
-.Main-Panel	{
-	width: 75%;
-	height: 45vh;
+.Contact-Section-Title	{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 35px;
+	color: grey;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.City-Section-Subtitle {
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: grey;
 	position: absolute;
-	top: calc(50% - 5vh);
-	left: calc(50% - 37.5%);
-	border-radius: 20px;
-	padding: 0;
-	background-color: white;
+	top: calc(60vh - 20px);
+	height: 20px;
+	left: 39px;
 }
+.Contact-Section-Subtitle	{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: grey;
+	position: absolute;
+	top: 40px;
+	left: 0;
+}
+.Panel-Title	{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 35px;
+	color: grey;
+}
+.Sub-Header  {
+	font-family: Roboto, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 900;
+	line-height: 18px;
+	color: grey;
+}
+.Paragraph{
+	font-family: Roboto, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 200;
+	line-height: 22px;
+	color: grey;
+}
+.Contact-Section-Title	{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 35px;
+	color: grey;
+}
+
+/* ADD ONS */
 app-main-toolbar	{
 	left: calc(50% - 80px);
 }
+::-webkit-scrollbar {
+	width: 10px;  /* remove scrollbar space */
+	margin-left: 2px;
+	z-index: 1;
+	background: transparent;  /* optional: just make scrollbar invisible */
+	display: none;
+
+}
+::-webkit-scrollbar-thumb {
+	background: #a1a1a1;
+	border-radius: 5px;
+	z-index: 10;
+	display: none;
+}
+
+/* COMPONENTS */
+.Main-Panel	{
+	width: 85%;
+	height: 54vh;
+	position: absolute;
+	top: calc(40vh);
+	left: calc(50% - 42.5%);
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: white;
+	opacity: .8;
+	padding: 24px;
+}
+	.row	{
+		width: 100%;
+		height: 100vh;
+		margin: 0;
+	}
+		.Right-Panel	{
+			z-index: 10;
+			box-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);
+		}
+			.Contact-Section	{
+				height: 50vh;
+				padding: 24px;
+			}
+				.Contact-Section-Title	{
+
+				}
+			.City-Section	{
+				height: 50vh;
+				padding: 24px;
+			}
+				.City-Map	{
+					position: relative;
+					width: 100%;
+					height: 82%;
+					margin-top: 8%;
+				}
+		.Left-Panel	{
+			background-color: #fafafa;
+			padding: 0;
+			height: auto;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+			.Background	{
+				background-size: cover;
+				z-index: 1;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				filter: blur(30px);
+				transform: scale(1.1);
+				opacity: .8;
+
+			}
+			.Body-Panel	{
+				border-radius: 20px;
+				height: 400px;
+				width: 90%;
+				left: 5%;
+				top: 75vh;
+				position: absolute;
+				overflow: hidden;
+				padding: 24px;
+				margin-bottom: 40px;
+				z-index: 2;
+			}
+			.Header-Panel	{
+				border-radius: 20px;
+				height: 400px;
+				width: 90%;
+				left: 5%;
+				top: 20vh;
+				position: absolute;
+				overflow: hidden;
+				padding: 0;
+				z-index: 2;
+			}
+				.Header-Panel-Body	{
+					z-index: 2;
+					width: 85%;
+					height: 300px;
+					border-bottom-left-radius: 20px;
+					border-bottom-right-radius: 20px;
+					overflow: hidden;
+					padding: 24px;
+				}
+				.Header-Panel-Header	{
+					z-index: 2;
+					width: 100%;
+					height: 200px;
+					border-top-left-radius: 20px;
+					border-top-right-radius: 20px;
+					overflow: hidden;
+				}
+					.Photo-Card	{
+						background-size: cover;
+						background-position-y: -100px;
+						height: 200px;
+
+					}

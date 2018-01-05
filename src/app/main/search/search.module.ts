@@ -27,6 +27,7 @@ import {AgmCoreModule} from "@agm/core";
 import {CollectionButtonComponent} from "./Grid/card/collection-button/collection-button.component";
 import { FilterDrawerComponent } from './filter-drawer/filter-drawer.component';
 import {Routing} from "../../app.routing";
+import {MainToolbarComponent} from "../main-toolbar/main-toolbar.component";
 
 
 
@@ -39,7 +40,7 @@ import {Routing} from "../../app.routing";
       Routing,
       AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
-      }),
+      })
 
   ],
   declarations: [

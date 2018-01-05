@@ -38,7 +38,7 @@ import {MainToolbarComponent} from "./main-toolbar/main-toolbar.component";
   ],
   declarations: [
       MainComponent,
-      MainToolbarComponent
+      MainToolbarComponent,
   ]
 })
 export class MainModule { }

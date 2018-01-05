@@ -1,16 +1,47 @@
+<div class="row">
+    <!-- LEFT SUBPANEL -->
+    <div class="col-md-8 Left-Panel"  >
+        <!-- HEADER PANEL -->
+        <mat-card class="Header-Panel">
+            <!-- HEADER -->
+            <div class="Header-Panel-Header">
+                <!-- BANNER PHOTO -->
+                <div class="Photo-Card" [style.background-image]="ImgUrl">
+                </div>
+            </div>
+            <!-- BODY -->
+            <div class="Header-Panel-Body">
+                <!-- LOCATION NAME -->
+                <h3 class="Panel-Title">{{location.name}}</h3>
+                <hr>
+                <p class="Paragraph">
+                    {{location.description}}
+                </p>
+            </div>
+        </mat-card>
 
-<div class="Background-Image" [style.background-image]="ImgUrl">
-    <!-- PHOTO ARRAY -->
-    <mat-grid-list [cols]="5" [rowHeight]="1" class="Photo-Gallery">
-        <mat-grid-tile *ngFor="let photo of Photos" class="Photo-Gallery-Tile">
-
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <!-- MAIN PANEL -->
-    <mat-card class="Main-Panel">
-
-    </mat-card>
+        <!-- DETAILS PANEL -->
+        <mat-card class="Body-Panel">
+            <h3 class="Panel-Title">
+                Details and Rules
+            </h3>
+            <hr>
+        </mat-card>
+        <div class="Background" [style.background-image]="ImgUrl"></div>
+    </div>
+    <!-- RIGHT SUBPANEL -->
+    <div class="col-md-4 Right-Panel">
+        <div class="row Contact-Section">
+            <h3 class="Contact-Section-Title">{{user.firstName}} {{user.lastName}}</h3>
+            <hr>
+        </div>
+        <div class="row City-Section">
+            <h3 class="City-Section-Title">{{location.address.city}}</h3>
+            <br>
+            <h4 class="City-Section-Subtitle">{{location.address.state}}</h4>
+            <hr>
+            <app-city-map class="City-Map" [location]="location" ></app-city-map>
+        </div>
+    </div>
 </div>
-
 
