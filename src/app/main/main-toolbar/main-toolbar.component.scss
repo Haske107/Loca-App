@@ -1,7 +1,7 @@
 .FloatBar {
   background-color: #fcfcfc;
   height: 45px;
-  width: 490px;
+  width: 775px;
   border-radius: 100px !important;
   z-index: 10;
   color: #74befb;
@@ -15,7 +15,7 @@
   background-repeat: repeat-y;
   position: absolute;
   top: -28px;
-  left: 145px;
+  left: 178px;
   height: 100px;
   width: 100px;
   z-index: 10;
@@ -23,6 +23,7 @@
 .pipe {
   font-size: 20px;
   margin-top: 2px;
+  color: grey;
 }
 
 .labels  {
@@ -35,7 +36,7 @@
   outline: none;
   cursor: pointer;
   color: #66b9fb;
-  margin: 6px 8px 2px;
+  margin: 6px 40px 2px;
 }
 
 .Header  {

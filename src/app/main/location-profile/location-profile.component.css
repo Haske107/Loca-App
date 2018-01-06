@@ -8,7 +8,7 @@
 	line-height: 22px;
 	color: grey;
 }
-.Contact-Section-Title	{
+.Location-Title	{
 	font-family: "Helvetica Neue", sans-serif;
 	font-size: 35px;
 	font-style: normal;
@@ -16,6 +16,7 @@
 	font-weight: 400;
 	line-height: 35px;
 	color: grey;
+	z-index: 10;
 }
 
 /* ADD ONS */
@@ -68,22 +69,23 @@ app-main-toolbar	{
 			overflow-x: hidden;
 		}
 			.Banner-Row	{
-				position: absolute;
-				height: 25vh;
-				top: 20vh;
+				height: 30vh;
+				margin-top: 15vh;
 				width: 100%;
-				padding: 24px;
+				padding: 15px 24px;
 			}
 				.Banner-Container	{
 					height: 100%;
+					width: 100%;
+
 				}
 					.Banner-Card	{
 						height: 100%;
 						padding: 0;
 					}
-						.Banner-Image	{
+						.Banner-Image {
 							background-size: cover;
-							background-position: 0 -200px;
+							background-position: 0 -150px;
 							z-index: 1;
 							position: absolute;
 							height: 100%;
@@ -91,4 +93,25 @@ app-main-toolbar	{
 							top: 0;
 							left: 0;
 						}
+		.Second-Row	{
+			height: 50vh;
+			width: 100%;
+			padding:  15px 24px;
+		}
+			.Booking-Container	{
+				height: 100%;
+				width: 100%;
 
+			}
+				.Booking-Card	{
+					height: 100%;
+					padding: 0;
+				}
+			.Details-Container	{
+				height: 100%;
+				width: 100%;
+			}
+				.Details-Card	{
+					height: 100%;
+					padding: 0;
+				}
