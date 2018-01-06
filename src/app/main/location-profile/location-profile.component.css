@@ -1,74 +1,4 @@
 /* FONTS */
-.City-Section-Title	{
-	font-family: "Helvetica Neue", sans-serif;
-	font-size: 35px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 35px;
-	color: grey;
-	position: relative;
-	top: 0;
-	left: 0;
-	height: 35px;
-	margin-bottom: 0;
-
-}
-.Contact-Section-Title	{
-	font-family: "Helvetica Neue", sans-serif;
-	font-size: 35px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 35px;
-	color: grey;
-	position: relative;
-	top: 0;
-	left: 0;
-}
-.City-Section-Subtitle {
-	font-family: "Helvetica Neue", sans-serif;
-	font-size: 20px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 20px;
-	color: grey;
-	position: absolute;
-	top: calc(60vh - 20px);
-	height: 20px;
-	left: 39px;
-}
-.Contact-Section-Subtitle	{
-	font-family: "Helvetica Neue", sans-serif;
-	font-size: 20px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 20px;
-	color: grey;
-	position: absolute;
-	top: 40px;
-	left: 0;
-}
-.Panel-Title	{
-	font-family: "Helvetica Neue", sans-serif;
-	font-size: 35px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 400;
-	line-height: 35px;
-	color: grey;
-}
-.Sub-Header  {
-	font-family: Roboto, sans-serif;
-	font-size: 18px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 900;
-	line-height: 18px;
-	color: grey;
-}
 .Paragraph{
 	font-family: Roboto, sans-serif;
 	font-size: 12px;
@@ -129,23 +59,7 @@ app-main-toolbar	{
 			z-index: 10;
 			box-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);
 		}
-			.Contact-Section	{
-				height: 50vh;
-				padding: 24px;
-			}
-				.Contact-Section-Title	{
 
-				}
-			.City-Section	{
-				height: 50vh;
-				padding: 24px;
-			}
-				.City-Map	{
-					position: relative;
-					width: 100%;
-					height: 82%;
-					margin-top: 8%;
-				}
 		.Left-Panel	{
 			background-color: #fafafa;
 			padding: 0;
@@ -153,62 +67,28 @@ app-main-toolbar	{
 			overflow-y: scroll;
 			overflow-x: hidden;
 		}
-			.Background	{
-				background-size: cover;
-				z-index: 1;
-				width: 100%;
-				height: 100%;
+			.Banner-Row	{
 				position: absolute;
-				top: 0;
-				left: 0;
-				filter: blur(30px);
-				transform: scale(1.1);
-				opacity: .8;
-
-			}
-			.Body-Panel	{
-				border-radius: 20px;
-				height: 400px;
-				width: 90%;
-				left: 5%;
-				top: 75vh;
-				position: absolute;
-				overflow: hidden;
-				padding: 24px;
-				margin-bottom: 40px;
-				z-index: 2;
-			}
-			.Header-Panel	{
-				border-radius: 20px;
-				height: 400px;
-				width: 90%;
-				left: 5%;
+				height: 25vh;
 				top: 20vh;
-				position: absolute;
-				overflow: hidden;
-				padding: 0;
-				z-index: 2;
+				width: 100%;
+				padding: 24px;
 			}
-				.Header-Panel-Body	{
-					z-index: 2;
-					width: 85%;
-					height: 300px;
-					border-bottom-left-radius: 20px;
-					border-bottom-right-radius: 20px;
-					overflow: hidden;
-					padding: 24px;
+				.Banner-Container	{
+					height: 100%;
 				}
-				.Header-Panel-Header	{
-					z-index: 2;
-					width: 100%;
-					height: 200px;
-					border-top-left-radius: 20px;
-					border-top-right-radius: 20px;
-					overflow: hidden;
-				}
-					.Photo-Card	{
-						background-size: cover;
-						background-position-y: -100px;
-						height: 200px;
-
+					.Banner-Card	{
+						height: 100%;
+						padding: 0;
 					}
+						.Banner-Image	{
+							background-size: cover;
+							background-position: 0 -200px;
+							z-index: 1;
+							position: absolute;
+							height: 100%;
+							width: 100%;
+							top: 0;
+							left: 0;
+						}
+
