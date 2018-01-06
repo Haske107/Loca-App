@@ -8,15 +8,23 @@
 	line-height: 22px;
 	color: grey;
 }
-.Location-Title	{
+.Main-Title	{
 	font-family: "Helvetica Neue", sans-serif;
-	font-size: 35px;
+	font-size: 40px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	line-height: 35px;
-	color: grey;
-	z-index: 10;
+	line-height: 40px;
+	color: white;
+}
+.Right-Panel-Title	{
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 40px;
+	color: white;
 }
 
 /* ADD ONS */
@@ -57,9 +65,69 @@ app-main-toolbar	{
 		margin: 0;
 	}
 		.Right-Panel	{
+			padding: 0;
 			z-index: 10;
 			box-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);
 		}
+			.Header-Bar	{
+				padding: 0;
+			}
+				.City-Banner	{
+					width: 100%;
+					height: 15vh;
+					background-size: cover;
+					background-position: 0 -110px;
+					filter: Sepia(70%) Contrast(40%) Brightness(80%) Saturate(180%);
+				}
+				.City-Title	{
+					position: absolute;
+					top: 55px;
+					z-index: 2;
+					left: 24px;
+				}
+				.State-Title	{
+					position: absolute;
+					top: 95px;
+					z-index: 2;
+					left: 24px;
+					font-size: 20px;
+					line-height: 20px;
+				}
+			.City-Map	{
+				width: 100%;
+				height: 25vh;
+				background-image: url('../../../assets/images/City Of Orange.png');
+				background-size: cover;
+			}
+			.City-Summary	{
+				width: 100%;
+				height: 60vh;
+				padding: 24px;
+			}
+				.City-General-Rules	{
+					color: #606460;
+					z-index: 3;
+					font-family: Roboto, sans-serif;
+					font-size: 18px;
+					font-style: normal;
+					font-variant: normal;
+					font-weight: 400;
+					line-height: 18px;
+				}
+				.City-General-List	{
+					color: #767a76;
+				}
+
+
+/* p{
+	font-family: Roboto, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 200;
+	line-height: 22px;
+	color: #bcc2bc;
+} */
 
 		.Left-Panel	{
 			background-color: #fafafa;
@@ -70,7 +138,7 @@ app-main-toolbar	{
 		}
 			.Banner-Row	{
 				height: 30vh;
-				margin-top: 15vh;
+				margin-top: 12vh;
 				width: 100%;
 				padding: 15px 24px;
 			}
@@ -92,6 +160,12 @@ app-main-toolbar	{
 							width: 100%;
 							top: 0;
 							left: 0;
+						}
+						.Location-Title	{
+							z-index: 2;
+							left: 12px;
+							bottom: 12px;
+							position: absolute;
 						}
 		.Second-Row	{
 			height: 50vh;

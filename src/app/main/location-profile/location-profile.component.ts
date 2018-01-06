@@ -20,20 +20,14 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
   user: User = new User();
   Prod;
   Dev;
-  ImgUrl;
 
 
   // PHOTO ARRAY
     Photos = ['https://localhost:3000/files/5998b7ed30637b2f701909ad'];
+    ImgUrl;
+    CityPhoto;
 
-    // 'https://localhost:3000/files/5a471e924c835030c759cb1d',
-    // 'https://localhost:3000/files/59a7143dc4e9de22fc058ad8',
-    // 'https://localhost:3000/files/598cf64be9e60d0c48c2bbeb',
-    // 'https://localhost:3000/files/598d5b520cd355f7c59aa6be'
-
-    SafePhotos = [];
-
-  constructor(public locationService: LocationService,
+    constructor(public locationService: LocationService,
               private router: Router,
               private sanitzer: DomSanitizer,
               private userService: UserService,
@@ -59,9 +53,8 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
       // POPULATE AND SANITIZE IMAGE LINKS
       this.ImgUrl = 'https://' + Prod + '/files/' + this.location._id;
       this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle(`url(${this.ImgUrl})`);
-      for (let i = 0; i < this.Photos.length; i++)    {
-          this.SafePhotos.push(this.sanitzer.bypassSecurityTrustStyle(`url(${this.Photos[i]})`));
-      }
+      this.CityPhoto = 'https://a5j0u479x2t4e35gducjhz15-wpengine.netdna-ssl.com/wp-content/uploads/2017/08/afe88c2c9cade7b0fd7a9fe6ec3bba1b-750x555.jpg';
+      this.CityPhoto = this.sanitzer.bypassSecurityTrustStyle(`url(${this.CityPhoto})`);
       this.Prod = Prod;
       this.Dev = Dev;
   }

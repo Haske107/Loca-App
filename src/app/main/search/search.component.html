@@ -19,30 +19,5 @@
   </div>
 </div>
 
-<!-- FILTER COMPONENTS -->
-<app-type-filter #typefilter
-                 *ngIf="typeState"
-                 [ParentTop]="TypeButtonTop"
-                 [ParentLeft]="TypeButtonLeft"
-></app-type-filter>
-<app-electricity-filter #electricityfilter
-                        *ngIf="electricityState"
-                        [ParentTop]="ElectricityButtonTop"
-                        [ParentLeft]="ElectricityButtonLeft">
-</app-electricity-filter>
-<app-bathroom-filter #bathroomfilter
-                     *ngIf="bathroomState"
-                     [ParentTop]="BathroomButtonTop"
-                     [ParentLeft]="BathroomButtonLeft">
-</app-bathroom-filter>
-<app-distance-filter #distancefilter
-                     *ngIf="distanceState"
-                     [ParentTop]="DistanceButtonTop"
-                     [ParentLeft]="DistanceButtonLeft">
-</app-distance-filter>
-<app-rate-filter #ratefilter
-                 *ngIf="rateState"
-                 [ParentTop]="RateButtonTop"
-                 [ParentLeft]="RateButtonLeft">
-</app-rate-filter>
+
 

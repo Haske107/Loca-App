@@ -8,7 +8,7 @@
                     <div class="Banner-Image" [style.background-image]="ImgUrl">
 
                     </div>
-                    <h3 class="Location-Title">
+                    <h3 class="Location-Title Main-Title">
                        {{location.name}}
                     </h3>
                 </mat-card>
@@ -38,7 +38,26 @@
     </div>
     <!-- RIGHT SUBPANEL -->
     <div class="col-md-4 Right-Panel">
+        <mat-card class="Header-Bar">
+            <h3 class="City-Title Right-Panel-Title">{{location.address.city}}</h3>
+            <h5 class="State-Title Right-Panel-Title">{{location.address.state}}</h5>
+            <div class="City-Banner" [style.background-image]="CityPhoto"></div>
+        </mat-card>
+        <div class="City-Map"></div>
+        <div class="City-Summary">
+            <h3 class="Right-Panel-Title City-General-Rules">General Filming Guidelines</h3>
+            <ul class="City-General-List">
+                <li>No permits will be issued for filming for the period between Wednesday, December 20, and the first official day of business for City Hall of the new calendar year.</li>
+                <li>No filming will be approved for December 22 through January 3.</li>
+                <li>Applications submitted after 10 a.m. December 14 will be considered as “received” on the first official day of business for City Hall of the new calendar year.</li>
+                <li>We require 10-working days to process film permits.</li>
+            </ul>
+            <h3 class="Right-Panel-Title City-General-Rules">Filming Contacts</h3>
+            <ul class="City-General-List">
+                <li>Commercial Filming: <strong>Paul Sitkoff</strong></li>
+                <li>Student Filming: <strong>Student Coordinator</strong></li>
+            </ul>
 
+        </div>
     </div>
 </div>
-

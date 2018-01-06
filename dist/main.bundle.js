@@ -1403,145 +1403,6 @@ var LandingComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/main/location-profile/city-map/city-map.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<agm-map #googlemap [latitude]=\"location.coordinates.lat\" [longitude]=\"location.coordinates.lng\" [styles]=\"\">\n  <agm-marker\n          [latitude]=\"location.coordinates.lat\"\n          [longitude]=\"location.coordinates.lng\"\n          [iconUrl]=\"'./../../../../assets/icons/'+ location.type +'.png'\">\n  </agm-marker>\n</agm-map>\n\n\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/main/location-profile/city-map/city-map.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "agm-map {\n  height: 100%;\n  width: 100%; }\n\nagm-marker {\n  max-width: 10px; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/main/location-profile/city-map/city-map.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CityMapComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var CityMapComponent = /** @class */ (function () {
-    function CityMapComponent() {
-    }
-    CityMapComponent.prototype.ngOnInit = function () {
-        // STYLE THE MAP
-        this.googlemap.styles = [
-            {
-                'featureType': 'landscape.natural',
-                'elementType': 'geometry.fill',
-                'stylers': [
-                    {
-                        'color': '#efefef'
-                    },
-                    {
-                        'visibility': 'on'
-                    }
-                ]
-            },
-            {
-                'featureType': 'poi',
-                'elementType': 'geometry.fill',
-                'stylers': [
-                    {
-                        'color': '#f3f3f3'
-                    },
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'road',
-                'elementType': 'geometry',
-                'stylers': [
-                    {
-                        'lightness': 100
-                    },
-                    {
-                        'visibility': 'simplified'
-                    }
-                ]
-            },
-            {
-                'featureType': 'road',
-                'elementType': 'labels',
-                'stylers': [
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'transit.line',
-                'elementType': 'geometry',
-                'stylers': [
-                    {
-                        'lightness': 700
-                    },
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'water',
-                'stylers': [
-                    {
-                        'color': '#a1a0a4'
-                    }
-                ]
-            }
-        ];
-        this.googlemap.zoom = 17;
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('googlemap'),
-        __metadata("design:type", Object)
-    ], CityMapComponent.prototype, "googlemap", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-        __metadata("design:type", Location)
-    ], CityMapComponent.prototype, "location", void 0);
-    CityMapComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-city-map',
-            template: __webpack_require__("../../../../../src/app/main/location-profile/city-map/city-map.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/main/location-profile/city-map/city-map.component.scss")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
-        }),
-        __metadata("design:paramtypes", [])
-    ], CityMapComponent);
-    return CityMapComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/main/location-profile/location-profile.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1550,7 +1411,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* FONTS */\n.City-Section-Title\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 35px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 35px;\n\tcolor: grey;\n\tposition: relative;\n\ttop: 0;\n\tleft: 0;\n\theight: 35px;\n\tmargin-bottom: 0;\n\n}\n.Contact-Section-Title\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 35px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 35px;\n\tcolor: grey;\n\tposition: relative;\n\ttop: 0;\n\tleft: 0;\n}\n.City-Section-Subtitle {\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 20px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 20px;\n\tcolor: grey;\n\tposition: absolute;\n\ttop: calc(60vh - 20px);\n\theight: 20px;\n\tleft: 39px;\n}\n.Contact-Section-Subtitle\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 20px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 20px;\n\tcolor: grey;\n\tposition: absolute;\n\ttop: 40px;\n\tleft: 0;\n}\n.Panel-Title\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 35px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 35px;\n\tcolor: grey;\n}\n.Sub-Header  {\n\tfont-family: Roboto, sans-serif;\n\tfont-size: 18px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 900;\n\tline-height: 18px;\n\tcolor: grey;\n}\n.Paragraph{\n\tfont-family: Roboto, sans-serif;\n\tfont-size: 12px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 200;\n\tline-height: 22px;\n\tcolor: grey;\n}\n.Contact-Section-Title\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 35px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 35px;\n\tcolor: grey;\n}\n\n/* ADD ONS */\napp-main-toolbar\t{\n\tleft: calc(50% - 80px);\n}\n::-webkit-scrollbar {\n\twidth: 10px;  /* remove scrollbar space */\n\tmargin-left: 2px;\n\tz-index: 1;\n\tbackground: transparent;  /* optional: just make scrollbar invisible */\n\tdisplay: none;\n\n}\n::-webkit-scrollbar-thumb {\n\tbackground: #a1a1a1;\n\tborder-radius: 5px;\n\tz-index: 10;\n\tdisplay: none;\n}\n\n/* COMPONENTS */\n.Main-Panel\t{\n\twidth: 85%;\n\theight: 54vh;\n\tposition: absolute;\n\ttop: calc(40vh);\n\tleft: calc(50% - 42.5%);\n\tborder-bottom-left-radius: 20px;\n\tborder-bottom-right-radius: 20px;\n\tbackground-color: white;\n\topacity: .8;\n\tpadding: 24px;\n}\n\t.row\t{\n\t\twidth: 100%;\n\t\theight: 100vh;\n\t\tmargin: 0;\n\t}\n\t\t.Right-Panel\t{\n\t\t\tz-index: 10;\n\t\t\tbox-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);\n\t\t}\n\t\t\t.Contact-Section\t{\n\t\t\t\theight: 50vh;\n\t\t\t\tpadding: 24px;\n\t\t\t}\n\t\t\t\t.Contact-Section-Title\t{\n\n\t\t\t\t}\n\t\t\t.City-Section\t{\n\t\t\t\theight: 50vh;\n\t\t\t\tpadding: 24px;\n\t\t\t}\n\t\t\t\t.City-Map\t{\n\t\t\t\t\tposition: relative;\n\t\t\t\t\twidth: 100%;\n\t\t\t\t\theight: 82%;\n\t\t\t\t\tmargin-top: 8%;\n\t\t\t\t}\n\t\t.Left-Panel\t{\n\t\t\tbackground-color: #fafafa;\n\t\t\tpadding: 0;\n\t\t\theight: auto;\n\t\t\toverflow-y: scroll;\n\t\t\toverflow-x: hidden;\n\t\t}\n\t\t\t.Background\t{\n\t\t\t\tbackground-size: cover;\n\t\t\t\tz-index: 1;\n\t\t\t\twidth: 100%;\n\t\t\t\theight: 100%;\n\t\t\t\tposition: absolute;\n\t\t\t\ttop: 0;\n\t\t\t\tleft: 0;\n\t\t\t\t-webkit-filter: blur(30px);\n\t\t\t\t        filter: blur(30px);\n\t\t\t\t-webkit-transform: scale(1.1);\n\t\t\t\t        transform: scale(1.1);\n\t\t\t\topacity: .8;\n\n\t\t\t}\n\t\t\t.Body-Panel\t{\n\t\t\t\tborder-radius: 20px;\n\t\t\t\theight: 400px;\n\t\t\t\twidth: 90%;\n\t\t\t\tleft: 5%;\n\t\t\t\ttop: 75vh;\n\t\t\t\tposition: absolute;\n\t\t\t\toverflow: hidden;\n\t\t\t\tpadding: 24px;\n\t\t\t\tmargin-bottom: 40px;\n\t\t\t\tz-index: 2;\n\t\t\t}\n\t\t\t.Header-Panel\t{\n\t\t\t\tborder-radius: 20px;\n\t\t\t\theight: 400px;\n\t\t\t\twidth: 90%;\n\t\t\t\tleft: 5%;\n\t\t\t\ttop: 20vh;\n\t\t\t\tposition: absolute;\n\t\t\t\toverflow: hidden;\n\t\t\t\tpadding: 0;\n\t\t\t\tz-index: 2;\n\t\t\t}\n\t\t\t\t.Header-Panel-Body\t{\n\t\t\t\t\tz-index: 2;\n\t\t\t\t\twidth: 85%;\n\t\t\t\t\theight: 300px;\n\t\t\t\t\tborder-bottom-left-radius: 20px;\n\t\t\t\t\tborder-bottom-right-radius: 20px;\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t\tpadding: 24px;\n\t\t\t\t}\n\t\t\t\t.Header-Panel-Header\t{\n\t\t\t\t\tz-index: 2;\n\t\t\t\t\twidth: 100%;\n\t\t\t\t\theight: 200px;\n\t\t\t\t\tborder-top-left-radius: 20px;\n\t\t\t\t\tborder-top-right-radius: 20px;\n\t\t\t\t\toverflow: hidden;\n\t\t\t\t}\n\t\t\t\t\t.Photo-Card\t{\n\t\t\t\t\t\tbackground-size: cover;\n\t\t\t\t\t\tbackground-position-y: -100px;\n\t\t\t\t\t\theight: 200px;\n\n\t\t\t\t\t}\n", ""]);
+exports.push([module.i, "/* FONTS */\n.Paragraph{\n\tfont-family: Roboto, sans-serif;\n\tfont-size: 12px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 200;\n\tline-height: 22px;\n\tcolor: grey;\n}\n.Main-Title\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 40px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 40px;\n\tcolor: white;\n}\n.Right-Panel-Title\t{\n\tfont-family: \"Helvetica Neue\", sans-serif;\n\tfont-size: 40px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 400;\n\tline-height: 40px;\n\tcolor: white;\n}\n\n/* ADD ONS */\napp-main-toolbar\t{\n\tleft: calc(50% - 80px);\n}\n::-webkit-scrollbar {\n\twidth: 10px;  /* remove scrollbar space */\n\tmargin-left: 2px;\n\tz-index: 1;\n\tbackground: transparent;  /* optional: just make scrollbar invisible */\n\tdisplay: none;\n\n}\n::-webkit-scrollbar-thumb {\n\tbackground: #a1a1a1;\n\tborder-radius: 5px;\n\tz-index: 10;\n\tdisplay: none;\n}\n\n/* COMPONENTS */\n.Main-Panel\t{\n\twidth: 85%;\n\theight: 54vh;\n\tposition: absolute;\n\ttop: calc(40vh);\n\tleft: calc(50% - 42.5%);\n\tborder-bottom-left-radius: 20px;\n\tborder-bottom-right-radius: 20px;\n\tbackground-color: white;\n\topacity: .8;\n\tpadding: 24px;\n}\n\t.row\t{\n\t\twidth: 100%;\n\t\theight: 100vh;\n\t\tmargin: 0;\n\t}\n\t\t.Right-Panel\t{\n\t\t\tpadding: 0;\n\t\t\tz-index: 10;\n\t\t\tbox-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);\n\t\t}\n\t\t\t.Header-Bar\t{\n\t\t\t\tpadding: 0;\n\t\t\t}\n\t\t\t\t.City-Banner\t{\n\t\t\t\t\twidth: 100%;\n\t\t\t\t\theight: 15vh;\n\t\t\t\t\tbackground-size: cover;\n\t\t\t\t\tbackground-position: 0 -110px;\n\t\t\t\t\t-webkit-filter: Sepia(70%) Contrast(40%) Brightness(80%) Saturate(180%);\n\t\t\t\t\t        filter: Sepia(70%) Contrast(40%) Brightness(80%) Saturate(180%);\n\t\t\t\t}\n\t\t\t\t.City-Title\t{\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 55px;\n\t\t\t\t\tz-index: 2;\n\t\t\t\t\tleft: 24px;\n\t\t\t\t}\n\t\t\t\t.State-Title\t{\n\t\t\t\t\tposition: absolute;\n\t\t\t\t\ttop: 95px;\n\t\t\t\t\tz-index: 2;\n\t\t\t\t\tleft: 24px;\n\t\t\t\t\tfont-size: 20px;\n\t\t\t\t\tline-height: 20px;\n\t\t\t\t}\n\t\t\t.City-Map\t{\n\t\t\t\twidth: 100%;\n\t\t\t\theight: 25vh;\n\t\t\t\tbackground-image: url('" + __webpack_require__("../../../../../src/assets/images/City Of Orange.png") + "');\n\t\t\t\tbackground-size: cover;\n\t\t\t}\n\t\t\t.City-Summary\t{\n\t\t\t\twidth: 100%;\n\t\t\t\theight: 60vh;\n\t\t\t\tpadding: 24px;\n\t\t\t}\n\t\t\t\t.City-General-Rules\t{\n\t\t\t\t\tcolor: #606460;\n\t\t\t\t\tz-index: 3;\n\t\t\t\t\tfont-family: Roboto, sans-serif;\n\t\t\t\t\tfont-size: 18px;\n\t\t\t\t\tfont-style: normal;\n\t\t\t\t\tfont-variant: normal;\n\t\t\t\t\tfont-weight: 400;\n\t\t\t\t\tline-height: 18px;\n\t\t\t\t}\n\t\t\t\t.City-General-List\t{\n\t\t\t\t\tcolor: #767a76;\n\t\t\t\t}\n\n\n/* p{\n\tfont-family: Roboto, sans-serif;\n\tfont-size: 12px;\n\tfont-style: normal;\n\tfont-variant: normal;\n\tfont-weight: 200;\n\tline-height: 22px;\n\tcolor: #bcc2bc;\n} */\n\n\t\t.Left-Panel\t{\n\t\t\tbackground-color: #fafafa;\n\t\t\tpadding: 0;\n\t\t\theight: auto;\n\t\t\toverflow-y: scroll;\n\t\t\toverflow-x: hidden;\n\t\t}\n\t\t\t.Banner-Row\t{\n\t\t\t\theight: 30vh;\n\t\t\t\tmargin-top: 12vh;\n\t\t\t\twidth: 100%;\n\t\t\t\tpadding: 15px 24px;\n\t\t\t}\n\t\t\t\t.Banner-Container\t{\n\t\t\t\t\theight: 100%;\n\t\t\t\t\twidth: 100%;\n\n\t\t\t\t}\n\t\t\t\t\t.Banner-Card\t{\n\t\t\t\t\t\theight: 100%;\n\t\t\t\t\t\tpadding: 0;\n\t\t\t\t\t}\n\t\t\t\t\t\t.Banner-Image {\n\t\t\t\t\t\t\tbackground-size: cover;\n\t\t\t\t\t\t\tbackground-position: 0 -150px;\n\t\t\t\t\t\t\tz-index: 1;\n\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t\theight: 100%;\n\t\t\t\t\t\t\twidth: 100%;\n\t\t\t\t\t\t\ttop: 0;\n\t\t\t\t\t\t\tleft: 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t.Location-Title\t{\n\t\t\t\t\t\t\tz-index: 2;\n\t\t\t\t\t\t\tleft: 12px;\n\t\t\t\t\t\t\tbottom: 12px;\n\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t}\n\t\t.Second-Row\t{\n\t\t\theight: 50vh;\n\t\t\twidth: 100%;\n\t\t\tpadding:  15px 24px;\n\t\t}\n\t\t\t.Booking-Container\t{\n\t\t\t\theight: 100%;\n\t\t\t\twidth: 100%;\n\n\t\t\t}\n\t\t\t\t.Booking-Card\t{\n\t\t\t\t\theight: 100%;\n\t\t\t\t\tpadding: 0;\n\t\t\t\t}\n\t\t\t.Details-Container\t{\n\t\t\t\theight: 100%;\n\t\t\t\twidth: 100%;\n\t\t\t}\n\t\t\t\t.Details-Card\t{\n\t\t\t\t\theight: 100%;\n\t\t\t\t\tpadding: 0;\n\t\t\t\t}\n", ""]);
 
 // exports
 
@@ -1563,7 +1424,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/location-profile/location-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n    <!-- LEFT SUBPANEL -->\n    <div class=\"col-md-8 Left-Panel\"  >\n        <!-- HEADER PANEL -->\n        <mat-card class=\"Header-Panel\">\n            <!-- HEADER -->\n            <div class=\"Header-Panel-Header\">\n                <!-- BANNER PHOTO -->\n                <div class=\"Photo-Card\" [style.background-image]=\"ImgUrl\">\n                </div>\n            </div>\n            <!-- BODY -->\n            <div class=\"Header-Panel-Body\">\n                <!-- LOCATION NAME -->\n                <h3 class=\"Panel-Title\">{{location.name}}</h3>\n                <hr>\n                <p class=\"Paragraph\">\n                    {{location.description}}\n                </p>\n            </div>\n        </mat-card>\n\n        <!-- DETAILS PANEL -->\n        <mat-card class=\"Body-Panel\">\n            <h3 class=\"Panel-Title\">\n                Details and Rules\n            </h3>\n            <hr>\n        </mat-card>\n        <div class=\"Background\" [style.background-image]=\"ImgUrl\"></div>\n    </div>\n    <!-- RIGHT SUBPANEL -->\n    <div class=\"col-md-4 Right-Panel\">\n        <div class=\"row Contact-Section\">\n            <h3 class=\"Contact-Section-Title\">{{user.firstName}} {{user.lastName}}</h3>\n            <hr>\n        </div>\n        <div class=\"row City-Section\">\n            <h3 class=\"City-Section-Title\">{{location.address.city}}</h3>\n            <br>\n            <h4 class=\"City-Section-Subtitle\">{{location.address.state}}</h4>\n            <hr>\n            <app-city-map class=\"City-Map\" [location]=\"location\" ></app-city-map>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "<div class=\"row\">\n    <!-- LEFT SUBPANEL -->\n    <div class=\"col-md-8 Left-Panel\">\n        <!-- BANNER PHOTO & TITLE -->\n        <div class=\"row Banner-Row\">\n            <div class=\"col-md-12 Banner-Container\">\n                <mat-card class=\"Banner-Card\">\n                    <div class=\"Banner-Image\" [style.background-image]=\"ImgUrl\">\n\n                    </div>\n                    <h3 class=\"Location-Title Main-Title\">\n                       {{location.name}}\n                    </h3>\n                </mat-card>\n            </div>\n        </div>\n        <!-- BOOKINGS AND RATES -->\n        <div class=\"row Second-Row\">\n            <div class=\"col-md-6 Booking-Container\">\n                <mat-card class=\"Booking-Card\">\n\n                </mat-card>\n            </div>\n            <div class=\"col-md-6 Details-Container\">\n                <mat-card class=\"Details-Card\">\n\n                </mat-card>\n            </div>\n        </div>\n        <!-- DESCRIPTION -->\n        <div class=\"row Third-Row\">\n\n        </div>\n        <!-- PHOTO GALLERY -->\n        <div class=\"row\">\n\n        </div>\n    </div>\n    <!-- RIGHT SUBPANEL -->\n    <div class=\"col-md-4 Right-Panel\">\n        <mat-card class=\"Header-Bar\">\n            <h3 class=\"City-Title Right-Panel-Title\">{{location.address.city}}</h3>\n            <h5 class=\"State-Title Right-Panel-Title\">{{location.address.state}}</h5>\n            <div class=\"City-Banner\" [style.background-image]=\"CityPhoto\"></div>\n        </mat-card>\n        <div class=\"City-Map\"></div>\n        <div class=\"City-Summary\">\n            <h3 class=\"Right-Panel-Title City-General-Rules\">General Filming Guidelines</h3>\n            <ul class=\"City-General-List\">\n                <li>No permits will be issued for filming for the period between Wednesday, December 20, and the first official day of business for City Hall of the new calendar year.</li>\n                <li>No filming will be approved for December 22 through January 3.</li>\n                <li>Applications submitted after 10 a.m. December 14 will be considered as “received” on the first official day of business for City Hall of the new calendar year.</li>\n                <li>We require 10-working days to process film permits.</li>\n            </ul>\n            <h3 class=\"Right-Panel-Title City-General-Rules\">Filming Contacts</h3>\n            <ul class=\"City-General-List\">\n                <li>Commercial Filming: <strong>Paul Sitkoff</strong></li>\n                <li>Student Filming: <strong>Student Coordinator</strong></li>\n            </ul>\n\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -1608,11 +1469,6 @@ var LocationProfileComponent = /** @class */ (function () {
         this.user = new __WEBPACK_IMPORTED_MODULE_2__ts_models_user_model__["a" /* User */]();
         // PHOTO ARRAY
         this.Photos = ['https://localhost:3000/files/5998b7ed30637b2f701909ad'];
-        // 'https://localhost:3000/files/5a471e924c835030c759cb1d',
-        // 'https://localhost:3000/files/59a7143dc4e9de22fc058ad8',
-        // 'https://localhost:3000/files/598cf64be9e60d0c48c2bbeb',
-        // 'https://localhost:3000/files/598d5b520cd355f7c59aa6be'
-        this.SafePhotos = [];
         if (localStorage.getItem('currloc')) {
             // POPULATE LOCATION WITH CURRENT LOCATION
             this.location = JSON.parse(localStorage.getItem('currloc'));
@@ -1632,9 +1488,8 @@ var LocationProfileComponent = /** @class */ (function () {
         // POPULATE AND SANITIZE IMAGE LINKS
         this.ImgUrl = 'https://' + __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */] + '/files/' + this.location._id;
         this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle("url(" + this.ImgUrl + ")");
-        for (var i = 0; i < this.Photos.length; i++) {
-            this.SafePhotos.push(this.sanitzer.bypassSecurityTrustStyle("url(" + this.Photos[i] + ")"));
-        }
+        this.CityPhoto = 'https://a5j0u479x2t4e35gducjhz15-wpengine.netdna-ssl.com/wp-content/uploads/2017/08/afe88c2c9cade7b0fd7a9fe6ec3bba1b-750x555.jpg';
+        this.CityPhoto = this.sanitzer.bypassSecurityTrustStyle("url(" + this.CityPhoto + ")");
         this.Prod = __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["b" /* Prod */];
         this.Dev = __WEBPACK_IMPORTED_MODULE_4__URLSwitcher__["a" /* Dev */];
     }
@@ -1675,15 +1530,13 @@ var LocationProfileComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__location_profile_component__ = __webpack_require__("../../../../../src/app/main/location-profile/location-profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_materials_module__ = __webpack_require__("../../../../../src/app/angular-materials.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__city_map_city_map_component__ = __webpack_require__("../../../../../src/app/main/location-profile/city-map/city-map.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -1697,13 +1550,12 @@ var LocationProfileModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_materials_module__["a" /* AngularMaterialsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__agm_core__["a" /* AgmCoreModule */].forRoot({
+                __WEBPACK_IMPORTED_MODULE_4__agm_core__["a" /* AgmCoreModule */].forRoot({
                     apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
                 })
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__location_profile_component__["a" /* LocationProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__city_map_city_map_component__["a" /* CityMapComponent */]
             ]
         })
     ], LocationProfileModule);
@@ -1717,7 +1569,7 @@ var LocationProfileModule = /** @class */ (function () {
 /***/ "../../../../../src/app/main/main-toolbar/main-toolbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- MAIN TOOLBAR -->\n<mat-card class=\"FloatBar\">\n  <div class=\"Header row\">\n    <div class=\"logo\"></div>\n    <h5 class=\"pipe\" style=\"margin-left: 235px;\">|</h5>\n    <h5 class=\"labels\"  [routerLink]=\"'/main/search'\">SEARCH</h5>\n    <h5 class=\"pipe\">|</h5>\n    <h5 class=\"labels\" >PERMITS</h5>\n    <h5 class=\"pipe\">|</h5>\n    <h5 class=\"labels\" (click)=\"routeToPost()\">POST A LOCATION</h5>\n  </div>\n</mat-card>\n\n<!-- [routerLink]=\"'/main/permits'\" -->"
+module.exports = "<!-- MAIN TOOLBAR -->\n<mat-card class=\"FloatBar\">\n  <div class=\"Header row\">\n    <div class=\"logo\"></div>\n    <h5 class=\"pipe\" style=\"margin-left: 300px;\">|</h5>\n    <h5 class=\"labels\"  [routerLink]=\"'/main/search'\">SEARCH</h5>\n    <h5 class=\"pipe\">|</h5>\n    <h5 class=\"labels\" >PERMITS</h5>\n    <h5 class=\"pipe\">|</h5>\n    <h5 class=\"labels\" (click)=\"routeToPost()\">POST A LOCATION</h5>\n  </div>\n</mat-card>\n\n<!-- [routerLink]=\"'/main/permits'\" -->"
 
 /***/ }),
 
@@ -1729,7 +1581,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".FloatBar {\n  background-color: #fcfcfc;\n  height: 45px;\n  width: 490px;\n  border-radius: 100px !important;\n  z-index: 10;\n  color: #74befb;\n  border: 1px solid #f6f6f6;\n  padding: 0 !important; }\n\n.logo {\n  background-image: url(" + __webpack_require__("../../../../../src/assets/icons/Logo.png") + ");\n  background-size: cover;\n  background-repeat: repeat-y;\n  position: absolute;\n  top: -28px;\n  left: 145px;\n  height: 100px;\n  width: 100px;\n  z-index: 10; }\n\n.pipe {\n  font-size: 20px;\n  margin-top: 2px; }\n\n.labels {\n  font-family: Roboto , sans-serif;\n  font-size: 20px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 600;\n  line-height: 20px;\n  outline: none;\n  cursor: pointer;\n  color: #66b9fb;\n  margin: 6px 8px 2px; }\n\n.Header {\n  position: absolute;\n  top: 6px;\n  left: -135px; }\n\nlabels:hover {\n  color: #66bcfe; }\n", ""]);
+exports.push([module.i, ".FloatBar {\n  background-color: #fcfcfc;\n  height: 45px;\n  width: 775px;\n  border-radius: 100px !important;\n  z-index: 10;\n  color: #74befb;\n  border: 1px solid #f6f6f6;\n  padding: 0 !important; }\n\n.logo {\n  background-image: url(" + __webpack_require__("../../../../../src/assets/icons/Logo.png") + ");\n  background-size: cover;\n  background-repeat: repeat-y;\n  position: absolute;\n  top: -28px;\n  left: 178px;\n  height: 100px;\n  width: 100px;\n  z-index: 10; }\n\n.pipe {\n  font-size: 20px;\n  margin-top: 2px;\n  color: grey; }\n\n.labels {\n  font-family: Roboto , sans-serif;\n  font-size: 20px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 600;\n  line-height: 20px;\n  outline: none;\n  cursor: pointer;\n  color: #66b9fb;\n  margin: 6px 40px 2px; }\n\n.Header {\n  position: absolute;\n  top: 6px;\n  left: -135px; }\n\nlabels:hover {\n  color: #66bcfe; }\n", ""]);
 
 // exports
 
@@ -1802,7 +1654,7 @@ var MainToolbarComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/main/main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- MAIN BAR -->\n<app-main-toolbar [ngStyle]=\"'Upload' === pageStateService.isOpen() ? {display: 'none'} :\n                             'Location' === pageStateService.isOpen() ? {top: '64px', left: '160px'} :\n                             'Permit' === pageStateService.isOpen() ? {top: '64px', left: '2150px'} :\n                             'Search' === pageStateService.isOpen() ? {top: '64px', left: '160px'} :\n                             null\n\">\n\n</app-main-toolbar>\n\n<!-- PAGE CONTENT -->\n  <router-outlet ></router-outlet>\n\n\n"
+module.exports = "<!-- MAIN BAR -->\n<app-main-toolbar [ngStyle]=\"'Upload' === pageStateService.isOpen() ? {display: 'none'} :\n                             'Location' === pageStateService.isOpen() ? {top: '32px', left: '39px'} :\n                             'Permit' === pageStateService.isOpen() ? {top: '64px', left: '2150px'} :\n                             'Search' === pageStateService.isOpen() ? {top: '64px', left: '39px'} :\n                             null\"\n>\n\n</app-main-toolbar>\n\n<!-- PAGE CONTENT -->\n  <router-outlet ></router-outlet>\n"
 
 /***/ }),
 
@@ -1814,7 +1666,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-main-toolbar {\n  position: absolute;\n  z-index: 20; }\n\nrouter-outlet {\n  width: 100%;\n  height: 100vh;\n  position: fixed;\n  overflow: hidden;\n  top: 0;\n  left: 0; }\n", ""]);
+exports.push([module.i, "app-main-toolbar {\n  position: absolute;\n  z-index: 20;\n  transition: .3s ease; }\n\nrouter-outlet {\n  width: 100%;\n  height: 100vh;\n  position: fixed;\n  overflow: hidden;\n  top: 0;\n  left: 0; }\n", ""]);
 
 // exports
 
@@ -3498,7 +3350,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".row {\n  width: 100%;\n  height: 100px;\n  overflow-y: hidden;\n  overflow-x: hidden;\n  margin: 10px;\n  box-shadow: 4px 10px 6px -6px #d7d7d7;\n  background-color: white;\n  padding-right: 10px;\n  border: 1px solid #eeeeee; }\n\n.col-sm-4 {\n  padding: 0; }\n\n.col-sm-2 {\n  padding: 0; }\n\nimg {\n  width: 100%;\n  min-height: 100%; }\n\nmat-chip-list {\n  margin-top: 5px; }\n\nmat-chip {\n  height: 18px;\n  margin-top: 4px;\n  color: #26c6da; }\n\n.color-bar {\n  height: 100%;\n  width: 28px;\n  position: absolute;\n  left: 0;\n  opacity: .8; }\n\n.distance {\n  position: absolute;\n  top: 5px;\n  left: 5px;\n  z-index: 10;\n  color: #078ca8; }\n\nh5 {\n  margin-top: 6px;\n  font-family: Roboto, sans-serif;\n  font-size: 18px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 900;\n  line-height: 18px; }\n\np {\n  font-family: Roboto, sans-serif;\n  font-size: 12px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 200;\n  line-height: 22px;\n  color: #bcc2bc; }\n\nhr {\n  margin: 0; }\n\n.flash {\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  color: #bfbfbf;\n  font-size: 22px; }\n\n.wc {\n  position: absolute;\n  right: 28px;\n  bottom: 2px;\n  color: #bfbfbf;\n  font-size: 22px; }\n\n.add {\n  position: absolute;\n  top: 5px;\n  left: 2px;\n  color: #ffffff;\n  font-size: 24px;\n  cursor: pointer; }\n\n.list-wrapper {\n  height: calc(100vh - 110px); }\n", ""]);
+exports.push([module.i, ".row {\n  width: 100%;\n  height: 18vh;\n  overflow-y: hidden;\n  overflow-x: hidden;\n  margin: 10px;\n  box-shadow: 4px 10px 6px -6px #d7d7d7;\n  background-color: white;\n  padding-right: 10px;\n  border: 1px solid #eeeeee; }\n\n.col-sm-4 {\n  padding: 0; }\n\n.col-sm-2 {\n  padding: 0; }\n\nimg {\n  width: 100%;\n  min-height: 100%; }\n\nmat-chip-list {\n  margin-top: 5px; }\n\nmat-chip {\n  height: 18px;\n  margin-top: 4px;\n  color: #26c6da; }\n\n.color-bar {\n  height: 100%;\n  width: 28px;\n  position: absolute;\n  left: 0;\n  opacity: .8; }\n\n.distance {\n  position: absolute;\n  top: 5px;\n  left: 5px;\n  z-index: 10;\n  color: #078ca8; }\n\nh5 {\n  margin-top: 6px;\n  font-family: Roboto, sans-serif;\n  font-size: 18px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 900;\n  line-height: 18px; }\n\np {\n  font-family: Roboto, sans-serif;\n  font-size: 12px;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: 200;\n  line-height: 22px;\n  color: #bcc2bc; }\n\nhr {\n  margin: 0; }\n\n.flash {\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  color: #bfbfbf;\n  font-size: 22px; }\n\n.wc {\n  position: absolute;\n  right: 28px;\n  bottom: 2px;\n  color: #bfbfbf;\n  font-size: 22px; }\n\n.add {\n  position: absolute;\n  top: 5px;\n  left: 2px;\n  color: #ffffff;\n  font-size: 24px;\n  cursor: pointer; }\n\n.list-wrapper {\n  height: calc(100vh - 110px); }\n", ""]);
 
 // exports
 
@@ -3815,7 +3667,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main/search/search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- GRID -->\n<div class=\"grid\" *ngIf=\"state === 'grid'\">\n    <grid  [locations]=\"locations\"></grid>\n</div>\n\n<!-- MAP ONLY -->\n<div class=\"map\" *ngIf=\"state === 'map'\" >\n  <app-map [locations]=\"locations\" ></app-map>\n</div>\n\n<!-- SPLIT VIEW -->\n<div class=\"row\" *ngIf=\"state === 'split'\">\n  <div class=\"col-md-8 map-split\">\n    <app-map  [locations]=\"locations\" ></app-map>\n  </div>\n  <div class=\"col-md-4 right-panel\">\n      <app-filter-drawer></app-filter-drawer>\n      <app-list [locations]=\"locations ? locations : []\"></app-list>\n  </div>\n</div>\n\n<!-- FILTER COMPONENTS -->\n<app-type-filter #typefilter\n                 *ngIf=\"typeState\"\n                 [ParentTop]=\"TypeButtonTop\"\n                 [ParentLeft]=\"TypeButtonLeft\"\n></app-type-filter>\n<app-electricity-filter #electricityfilter\n                        *ngIf=\"electricityState\"\n                        [ParentTop]=\"ElectricityButtonTop\"\n                        [ParentLeft]=\"ElectricityButtonLeft\">\n</app-electricity-filter>\n<app-bathroom-filter #bathroomfilter\n                     *ngIf=\"bathroomState\"\n                     [ParentTop]=\"BathroomButtonTop\"\n                     [ParentLeft]=\"BathroomButtonLeft\">\n</app-bathroom-filter>\n<app-distance-filter #distancefilter\n                     *ngIf=\"distanceState\"\n                     [ParentTop]=\"DistanceButtonTop\"\n                     [ParentLeft]=\"DistanceButtonLeft\">\n</app-distance-filter>\n<app-rate-filter #ratefilter\n                 *ngIf=\"rateState\"\n                 [ParentTop]=\"RateButtonTop\"\n                 [ParentLeft]=\"RateButtonLeft\">\n</app-rate-filter>\n\n"
+module.exports = "<!-- GRID -->\n<div class=\"grid\" *ngIf=\"state === 'grid'\">\n    <grid  [locations]=\"locations\"></grid>\n</div>\n\n<!-- MAP ONLY -->\n<div class=\"map\" *ngIf=\"state === 'map'\" >\n  <app-map [locations]=\"locations\" ></app-map>\n</div>\n\n<!-- SPLIT VIEW -->\n<div class=\"row\" *ngIf=\"state === 'split'\">\n  <div class=\"col-md-8 map-split\">\n    <app-map  [locations]=\"locations\" ></app-map>\n  </div>\n  <div class=\"col-md-4 right-panel\">\n      <app-filter-drawer></app-filter-drawer>\n      <app-list [locations]=\"locations ? locations : []\"></app-list>\n  </div>\n</div>\n\n\n\n"
 
 /***/ }),
 
@@ -6246,6 +6098,13 @@ var User = /** @class */ (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "Logo.f0c2b9ad45723c849a7a.png";
+
+/***/ }),
+
+/***/ "../../../../../src/assets/images/City Of Orange.png":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "City Of Orange.3fa2dedd66a56cbe8362.png";
 
 /***/ }),
 
