@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6607bdf-7f58-48b4-add7-7f57977f1859" name="Default" comment="Location Profile Page and Main Tool Bar Fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/images/City Of Orange.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/main/location-profile/city-map/city-map.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/main/location-profile/city-map/city-map.component.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/main/location-profile/city-map/city-map.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/app/main/location-profile/city-map/city-map.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/images/Ally-Face.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/images/Ally-Galaxy.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.component.css" afterPath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.component.html" afterPath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.component.ts" afterPath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.module.ts" afterPath="$PROJECT_DIR$/src/app/main/location-profile/location-profile.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/main.component.html" afterPath="$PROJECT_DIR$/src/app/main/main.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/main/search/search.component.html" afterPath="$PROJECT_DIR$/src/app/main/search/search.component.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -1161,7 +1148,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194591000" />
+    <option name="totallyTimeSpent" value="194745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
