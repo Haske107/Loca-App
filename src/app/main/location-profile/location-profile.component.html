@@ -14,16 +14,18 @@
                 </mat-card>
             </div>
         </div>
-        <!-- BOOKINGS AND RATES -->
+        <!-- DETAILS -->
         <div class="row Second-Row">
-            <div class="col-md-6 Booking-Container">
-                <mat-card class="Booking-Card">
-
-                </mat-card>
-            </div>
-            <div class="col-md-6 Details-Container">
+            <div class="col-md-12 Details-Container">
                 <mat-card class="Details-Card">
-
+                    {{location.description}}
+                    <hr>
+                    <strong>Rate: </strong> {{location.rate}} <br>
+                    <strong>Deposit: </strong> {{location.deposit}} <br>
+                    <strong>Type: </strong> {{location.type}}<br>
+                    <strong>Parking: </strong> {{location.parkingSpots}} <br>
+                    <strong>Bathrooms: </strong> {{location.bathrooms}} <br>
+                    <strong>Electricity: </strong> {{location.electricity ? "Yes" : "No"}}
                 </mat-card>
             </div>
         </div>

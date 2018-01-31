@@ -1,9 +1,4 @@
-button:focus {
-  outline:0;
-}
-
-
-
+/* FONTS */
 h3  {
   font-family: 'Saira Condensed', sans-serif;
   font-size: 30px;
@@ -14,6 +9,27 @@ h3  {
   color: white;
   margin: 10px;
 }
+
+/* COMPONENTS */
+app-list {
+  height: calc(100vh - 110px);
+  margin-top: 110px;
+}
+app-filter-drawer {
+  position: fixed;
+  width: 100%;
+  height: 110px;
+  z-index: 10;
+}
+
+
+button:focus {
+  outline:0;
+}
+
+
+
+
 
 
 button{
@@ -128,26 +144,9 @@ button{
   box-shadow: 0 20px 20px 0 rgba(0,0,0,.18), 0 30px 30px 0 rgba(0,0,0,.18);
   height: 100vh;
 }
-::-webkit-scrollbar {
-  width: 10px;  /* remove scrollbar space */
-  margin-left: 2px;
-  z-index: 10;
 
-  background: transparent;  /* optional: just make scrollbar invisible */
-}
-/* optional: show position indicator in red */
-::-webkit-scrollbar-thumb {
-  background: #a1a1a1;
-  border-radius: 5px;
-  z-index: 10;
-}
 
-app-filter-drawer {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 12;
-}
+
 .map  {
   overflow: hidden;
   bottom: 0;
@@ -244,4 +243,20 @@ p {
   width: 15px;
   margin: 4px;
 }
+::-webkit-scrollbar {
+  width: 10px;  /* remove scrollbar space */
+  margin-left: 2px;
+  height: calc(100vh - 110px);
+  margin-top: 110px;
+  display: none;
+  background: transparent;
+  z-index: 1;/* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #a1a1a1;
+  border-radius: 0;
+  z-index: 1;
+  display: none;
 
+}

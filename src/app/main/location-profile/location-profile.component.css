@@ -31,6 +31,7 @@
 app-main-toolbar	{
 	left: calc(50% - 80px);
 }
+
 ::-webkit-scrollbar {
 	width: 10px;  /* remove scrollbar space */
 	margin-left: 2px;
@@ -187,5 +188,5 @@ app-main-toolbar	{
 			}
 				.Details-Card	{
 					height: 100%;
-					padding: 0;
+					padding: 24;
 				}

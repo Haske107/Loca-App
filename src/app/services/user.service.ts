@@ -8,9 +8,10 @@ import {Prod, Dev} from '../../URLSwitcher';
 @Injectable()
 export class UserService {
   constructor( private http: Http ) {}
+
   getUser( userID: string ) {
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.get( 'https://' + Prod + '/user/getUserByID/' + userID, {headers: headers} )
+    return this.http.get( 'https://' + Prod +  '/user/getUserByID/' + userID, {headers: headers} )
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
