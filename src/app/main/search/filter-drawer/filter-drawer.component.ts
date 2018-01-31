@@ -1,16 +1,23 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {SearchService} from "../../../services/search.service";
 
 @Component({
   selector: 'app-filter-drawer',
   templateUrl: './filter-drawer.component.html',
   styleUrls: ['./filter-drawer.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class FilterDrawerComponent implements OnInit {
 
-  constructor() { }
+  Query = "";
+
+
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
+  }
+
+  updateInput()  {
+    this.searchService.input = this.Query;
   }
 
 }

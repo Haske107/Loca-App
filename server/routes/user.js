@@ -58,10 +58,12 @@ userRoutes.get("/", function (req, res, next) {
     User.findOne({email : profile.email}, function(err, result) {
 
       if(!result) {
+          console.log("hello");
         const user = new User({
           email: profile.email,
           firstName : profile.given_name,
           lastName: profile.family_name,
+            picture: profile.picture,
           signUpDate: profile.updated_at
         });
         user.save(function(err, newUser) {

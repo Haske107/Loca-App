@@ -1,47 +1,65 @@
 <div class="row">
     <!-- LEFT SUBPANEL -->
-    <div class="col-md-8 Left-Panel"  >
-        <!-- HEADER PANEL -->
-        <mat-card class="Header-Panel">
-            <!-- HEADER -->
-            <div class="Header-Panel-Header">
-                <!-- BANNER PHOTO -->
-                <div class="Photo-Card" [style.background-image]="ImgUrl">
-                </div>
-            </div>
-            <!-- BODY -->
-            <div class="Header-Panel-Body">
-                <!-- LOCATION NAME -->
-                <h3 class="Panel-Title">{{location.name}}</h3>
-                <hr>
-                <p class="Paragraph">
-                    {{location.description}}
-                </p>
-            </div>
-        </mat-card>
+    <div class="col-md-8 Left-Panel">
+        <!-- BANNER PHOTO & TITLE -->
+        <div class="row Banner-Row">
+            <div class="col-md-12 Banner-Container">
+                <mat-card class="Banner-Card">
+                    <div class="Banner-Image" [style.background-image]="ImgUrl">
 
-        <!-- DETAILS PANEL -->
-        <mat-card class="Body-Panel">
-            <h3 class="Panel-Title">
-                Details and Rules
-            </h3>
-            <hr>
-        </mat-card>
-        <div class="Background" [style.background-image]="ImgUrl"></div>
+                    </div>
+                    <h3 class="Location-Title Main-Title">
+                       {{location.name}}
+                    </h3>
+                </mat-card>
+            </div>
+        </div>
+        <!-- DETAILS -->
+        <div class="row Second-Row">
+            <div class="col-md-12 Details-Container">
+                <mat-card class="Details-Card">
+                    {{location.description}}
+                    <hr>
+                    <strong>Rate: </strong> {{location.rate}} <br>
+                    <strong>Deposit: </strong> {{location.deposit}} <br>
+                    <strong>Type: </strong> {{location.type}}<br>
+                    <strong>Parking: </strong> {{location.parkingSpots}} <br>
+                    <strong>Bathrooms: </strong> {{location.bathrooms}} <br>
+                    <strong>Electricity: </strong> {{location.electricity ? "Yes" : "No"}}
+                </mat-card>
+            </div>
+        </div>
+        <!-- DESCRIPTION -->
+        <div class="row Third-Row">
+
+        </div>
+        <!-- PHOTO GALLERY -->
+        <div class="row">
+
+        </div>
     </div>
     <!-- RIGHT SUBPANEL -->
     <div class="col-md-4 Right-Panel">
-        <div class="row Contact-Section">
-            <h3 class="Contact-Section-Title">{{user.firstName}} {{user.lastName}}</h3>
-            <hr>
-        </div>
-        <div class="row City-Section">
-            <h3 class="City-Section-Title">{{location.address.city}}</h3>
-            <br>
-            <h4 class="City-Section-Subtitle">{{location.address.state}}</h4>
-            <hr>
-            <app-city-map class="City-Map" [location]="location" ></app-city-map>
+        <mat-card class="Header-Bar">
+            <h3 class="City-Title Right-Panel-Title">{{location.address.city}}</h3>
+            <h5 class="State-Title Right-Panel-Title">{{location.address.state}}</h5>
+            <div class="City-Banner" [style.background-image]="CityPhoto"></div>
+        </mat-card>
+        <div class="City-Map"></div>
+        <div class="City-Summary">
+            <h3 class="Right-Panel-Title City-General-Rules">General Filming Guidelines</h3>
+            <ul class="City-General-List">
+                <li>No permits will be issued for filming for the period between Wednesday, December 20, and the first official day of business for City Hall of the new calendar year.</li>
+                <li>No filming will be approved for December 22 through January 3.</li>
+                <li>Applications submitted after 10 a.m. December 14 will be considered as “received” on the first official day of business for City Hall of the new calendar year.</li>
+                <li>We require 10-working days to process film permits.</li>
+            </ul>
+            <h3 class="Right-Panel-Title City-General-Rules">Filming Contacts</h3>
+            <ul class="City-General-List">
+                <li>Commercial Filming: <strong>Paul Sitkoff</strong></li>
+                <li>Student Filming: <strong>Student Coordinator</strong></li>
+            </ul>
+
         </div>
     </div>
 </div>
-
