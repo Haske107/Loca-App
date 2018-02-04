@@ -53,10 +53,7 @@ export class SearchService {
     Yes: false,
     No: false
   };
-  TempBathroom =  {
-    Yes: false,
-    No: false
-  };
+  TempBathroom =  0;
   TempDistance = {
     CurrentLocation: {lat: 33.7928203, lng: -117.8514},
     Distance: 100

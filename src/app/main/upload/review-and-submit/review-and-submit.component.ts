@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UploadService} from "../upload.service";
+import {Location} from "../../../ts models/location.model";
 
 @Component({
   selector: 'app-review-and-submit',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewAndSubmitComponent implements OnInit {
 
-  constructor() { }
+  location: Location;
+
+  constructor(private uploadService: UploadService) {
+      this.location = this.uploadService.NewLocation;
+  }
 
   ngOnInit() {
+    this.uploadService.ChangeEmitter.subscribe(value => {
+        this.location = this.uploadService.NewLocation;
+    });
   }
 
 }

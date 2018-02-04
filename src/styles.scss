@@ -23,5 +23,8 @@ font-family: 'Shrikhand', cursive;
   padding: 0 !important;
 }
 
+.mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
 
 mat-card:focus, button:focus {outline: 0}, input:focus {outline:0}, div:focus {outline: 0};

@@ -3,12 +3,5 @@
   <h3 *ngIf="state.low !== 0 && state.high !== 2500">From ${{state.low}} to ${{state.high}}</h3>
   <h3 *ngIf="state.low === 0 && state.high !== 2500">Less than ${{state.high}}</h3>
   <h3 *ngIf="state.low !== 0 && state.high === 2500">More than ${{state.low}}</h3>
-  <nouislider
-    [connect]="true"
-    [min]="min"
-    [max]="max"
-    [(ngModel)]="someRange"
-    [step]="25"
-    (ngModelChange)="toggleRate($event)"
-    #slider></nouislider>
+
 </mat-card>

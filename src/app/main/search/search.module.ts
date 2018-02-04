@@ -16,18 +16,17 @@ import {SearchGrid} from './Grid/grid.component';
 import {MapComponent} from './map/map.component';
 import {SearchComponent} from './search.component';
 import {ListComponent} from './list/list.component';
+import {CollectionButtonComponent} from "./Grid/card/collection-button/collection-button.component";
+import { FilterDrawerComponent } from './filter-drawer/filter-drawer.component';
 
 // SERVICES
 import {SearchService} from '../../services/search.service';
 import {CardComponent} from "./Grid/card/card.component";
 import {AngularMaterialsModule} from "../../angular-materials.module";
-import {NouisliderModule} from "ng2-nouislider/src/nouislider";
 import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from "@agm/core";
-import {CollectionButtonComponent} from "./Grid/card/collection-button/collection-button.component";
-import { FilterDrawerComponent } from './filter-drawer/filter-drawer.component';
 import {Routing} from "../../app.routing";
-import {MainToolbarComponent} from "../main-toolbar/main-toolbar.component";
+import {MatSliderModule} from '@angular/material';
 
 
 
@@ -35,7 +34,7 @@ import {MainToolbarComponent} from "../main-toolbar/main-toolbar.component";
   imports: [
     CommonModule,
       AngularMaterialsModule,
-      NouisliderModule,
+      MatSliderModule,
       FormsModule,
       Routing,
       AgmCoreModule.forRoot({

@@ -1,29 +1,53 @@
-<mat-card class="Filters">
-    <mat-card class="Rate-Filter">
-        Rate
+
+
+<!-- OVERLAP SHIELD FOR FILTER COMPONENTS -->
+
+
+<!-- BUTTONS -->
+<mat-card class="Filters" [ngStyle]="{height: DrawerHeight}">
+    <!-- FILTER COMPONENTS -->
+    <app-bathroom-filter [ngStyle]="ShowBathroom ? {display: 'block'} : {display: 'none'}"></app-bathroom-filter>
+    <div class="shield"></div>
+    <mat-card class="Rate-Filter" (click)="clicked('Rate')">
+       <h3 class="Filter-Text">Rate</h3>
     </mat-card>
-    <mat-card class="Electricity-Filter">
-        Electricity
+    <mat-card class="Electricity-Filter" (click)="clicked('Electricity')">
+        <h3 class="Filter-Text">Electricity</h3>
     </mat-card>
-    <mat-card class="Grid-View">
-        Grid View
+    <mat-card class="Grid-View" (click)="clicked('Grid')">
+        <h3 class="Filter-Text">Grid View</h3>
     </mat-card>
-    <mat-card class="Bathroom-Filter">
-        Bathroom
+    <mat-card class="Bathroom-Filter" (click)="clicked('Bathroom')">
+        <h3 class="Filter-Text">Bathrooms</h3>
     </mat-card>
-    <mat-card class="Type-Filter">
-        Type
+    <mat-card class="Type-Filter" (click)="clicked('Type')">
+        <h3 class="Filter-Text">Type</h3>
     </mat-card>
-    <mat-card class="Distance-Filter">
-        Distance
+    <mat-card class="Distance-Filter" (click)="clicked('Distance')">
+        <h3 class="Filter-Text">Distance</h3>
     </mat-card>
-    <mat-card class="City-Filter">
-        City
+    <mat-card class="City-Filter" (click)="clicked('City')">
+        <h3 class="Filter-Text">City</h3>
     </mat-card>
+    <mat-card class="Free-Filter" (click)="clicked('Free')">
+        <h3 class="Filter-Text">Free</h3>
+    </mat-card>
+    <mat-card class="Parking-Filter" (click)="clicked('Parking')">
+        <h3 class="Filter-Text">Parking</h3>
+    </mat-card>
+    <mat-card class="Miles-Filter" >
+        <h3 class="Filter-Text">Within 30 Miles</h3>
+    </mat-card>
+    <mat-card class="Crew-Filter" >
+        <h3 class="Filter-Text">Crew</h3>
+    </mat-card>
+    <img [ngStyle]="DrawerHeight !== '100px' ? {opacity: 1 } : {opacity: 0}" src="./../../../../assets/icons/up-arrow.svg" class="Close-Icon" (click)="emitClosed()">
 </mat-card>
+
+<!-- SEARCH INPUT -->
 <mat-card class="Search">
     <input
-            placeholder="Search City, State, or Address"
+            placeholder=""
             type="text"
             class="Search-Input"
             [(ngModel)]="Query"

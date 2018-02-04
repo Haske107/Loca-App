@@ -20,6 +20,9 @@ import {PageStateService} from "../../services/page.state.service";
 
 export class SearchComponent implements OnInit, OnDestroy {
 
+  // FILTER DIMENSION VARIABLES
+  DrawerHeight = '100px';
+
   //SEARCH
   query = '';
 
@@ -200,6 +203,14 @@ export class SearchComponent implements OnInit, OnDestroy {
       this.RateCard.refreshPosition();
     }
   }
+
+
+
+  filterClicked(event: any) {
+    this.DrawerHeight = '174px';
+  }
+
+
 
   ngOnDestroy() {
       this.pageStateService.Search = false;
