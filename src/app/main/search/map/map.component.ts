@@ -35,6 +35,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.CurrentLocation = this.searchService.TempDistance.CurrentLocation;
     this.searchService.onQuery.subscribe(
+
       res =>  {
         this.searchString = res;
       }
