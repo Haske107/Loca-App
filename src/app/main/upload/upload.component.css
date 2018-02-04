@@ -11,6 +11,15 @@ mat-step    {
     padding: 0;
 
 }
+
+
+app-review-and-submit   {
+    height: 100%;
+}
+
+
+
+
 app-fill-out-details    {
     width: 80%;
     left: 10%;

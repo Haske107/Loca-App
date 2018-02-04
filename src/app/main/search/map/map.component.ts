@@ -14,6 +14,8 @@ import {AuthService} from "../../../services/auth.service";
 })
 export class MapComponent implements OnInit {
 
+
+
   // VARIABLES HOLDING FILTER PARAMETERS
   searchString = '';
   typeObject: {};
@@ -88,6 +90,29 @@ export class MapComponent implements OnInit {
         ]
       },
       {
+          'featureType': 'poi',
+          'elementType': 'business',
+          'stylers': [
+              {
+                  'color': '#f3f3f3'
+              },
+              {
+                  'visibility': 'off'
+              }
+          ]
+      },
+          {
+              'featureType': 'transit',
+              'stylers': [
+                  {
+                      'color': '#f3f3f3'
+                  },
+                  {
+                      'visibility': 'off'
+                  }
+              ]
+          },
+      {
         'featureType': 'road',
         'elementType': 'geometry',
         'stylers': [
@@ -132,6 +157,7 @@ export class MapComponent implements OnInit {
       }
     ];
     this.googlemap.zoom = 13;
+    this.googlemap.disableDefaultUI = true;
   }
     toLocationProfile(location: Location) {
         this.locationService.toProfilePage(location);

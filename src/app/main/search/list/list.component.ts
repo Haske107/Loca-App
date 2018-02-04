@@ -4,6 +4,7 @@ import {SearchService} from '../../../services/search.service';
 import {Prod, Dev} from '../../../../URLSwitcher';
 import {DomSanitizer} from "@angular/platform-browser";
 import {MatIconRegistry} from "@angular/material";
+import {LocationService} from "../../../services/location.service";
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -22,7 +23,10 @@ export class ListComponent implements OnInit, AfterContentInit {
 
 
 
-  constructor(private searchService: SearchService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(private searchService: SearchService,
+              iconRegistry: MatIconRegistry,
+              sanitizer: DomSanitizer,
+              private locationService: LocationService) {
     this.Prod = Prod;
     this.Dev = Dev;
       iconRegistry.addSvgIcon('flash', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/Power.svg'));
@@ -54,6 +58,7 @@ export class ListComponent implements OnInit, AfterContentInit {
     this.searchService.onQuery.subscribe(
       res =>  {
         this.searchString = res;
+        console.log(res);
       }
     );
     this.searchService.onType.subscribe(
@@ -116,6 +121,10 @@ export class ListComponent implements OnInit, AfterContentInit {
 
      deg2rad(deg) {
         return deg * (Math.PI / 180);
+    }
+
+    toLocationProfile(location: Location) {
+        this.locationService.toProfilePage(location);
     }
 
 

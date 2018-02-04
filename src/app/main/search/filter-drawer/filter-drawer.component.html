@@ -1,89 +1,32 @@
-<div class="wrapper">
-<div class="row filterRow" (window:resize)="onResize()" >
-  <button
-          class="rate-filter"
-          (click)="setRateState(!rateState)"
-          #rate>
-    <p>Day Rate</p>
-  </button>
-  <button
-          class="rate-filter"
-          (click)="setDistanceState(!distanceState)"
-          #distance>
-    <p>Distance</p>
-  </button>
-  <button
-          class="rate-filter"
-          (click)="setTypeState(!typeState)"
-          #type>
-    <p>Type</p>
-  </button>
-  <button
-          class="rate-filter"
-          (click)="setElectricityState(!electricityState)"
-          #electricity>
-    <p>Electricity</p>
-  </button>
-  <button
-          class="rate-filter"
-          (click)="setBathroomState(!bathroomState)"
-          #bathroom>
-    <p>Bathrooms</p>
-  </button>
-</div>
-
-</div>
-
-<div class="row filterRow search">
+<mat-card class="Filters">
+    <mat-card class="Rate-Filter">
+        Rate
+    </mat-card>
+    <mat-card class="Electricity-Filter">
+        Electricity
+    </mat-card>
+    <mat-card class="Grid-View">
+        Grid View
+    </mat-card>
+    <mat-card class="Bathroom-Filter">
+        Bathroom
+    </mat-card>
+    <mat-card class="Type-Filter">
+        Type
+    </mat-card>
+    <mat-card class="Distance-Filter">
+        Distance
+    </mat-card>
+    <mat-card class="City-Filter">
+        City
+    </mat-card>
+</mat-card>
+<mat-card class="Search">
     <input
-            placeholder="   Search City, State, or Address"
+            placeholder=""
             type="text"
             class="Search-Input"
-            [(ngModel)]="query"
-            (keyup)="updateInput(query)"
+            [(ngModel)]="Query"
+            (keyup)="updateInput(Query)"
     >
-</div>
-
-
-  <!--  MODE SELECTOR
-  <div class="view-buttons" (click)="toggleView('grid')">
-    <mat-icon
-            *ngIf="state !== 'grid'"
-            class="view-button"
-            svgIcon="grid">
-    </mat-icon>
-    <mat-icon
-            *ngIf="state === 'grid'"
-            class="view-button"
-            svgIcon="grid-blue"
-    >
-
-    </mat-icon>
-    Grid View
-  </div>
-  <div class="view-buttons" (click)="toggleView('map')">
-    <mat-icon
-            *ngIf="state !== 'map'"
-            class="view-button"
-            svgIcon="marker">
-    </mat-icon>
-    <mat-icon
-            *ngIf="state === 'map'"
-            class="view-button"
-            svgIcon="marker-blue"
-    >
-    </mat-icon >
-    Map View    </div>
-
-  <div class="view-buttons"  (click)="toggleView('split')">
-    <mat-icon
-            *ngIf="state !== 'split'"
-            class="view-button"
-            svgIcon="split">
-    </mat-icon>
-    <mat-icon
-            *ngIf="state === 'split'"
-            class="view-button"
-            svgIcon="split-blue">
-    </mat-icon>
-    Split View  </div> -->
+</mat-card>

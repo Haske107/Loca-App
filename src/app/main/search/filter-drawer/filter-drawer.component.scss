@@ -1,52 +1,164 @@
-.rate-filter{
-  height: 30px;
-  width: 70px;
-  border-radius: 20px !important ;
-  margin: 5px 5px 2px !important;
-  -webkit-box-shadow: 4px 10px 6px -6px #a8a8a8;
-  -moz-box-shadow: 4px 10px 6px -6px #c4c4c4;
-  box-shadow: 4px 10px 6px -6px #d7d7d7;
-  background-color: white;
-  border: 1px #f3f3f3 solid;
-  color: #a1a1a1;
-  font-family: Roboto, sans-serif;
-  font-size: 12px;
-  padding: 5px ;
-}
-.filterRow  {
-  padding-left: 20px;
-  height: 60px;
-}
-.wrapper{
-  background-color: #F0F0F0;
-  height: 100px;
-  padding: 20px;
-}
-.Search-Input {
-  font-family: Roboto, sans-serif;
-  font-size: 20px;
-  color: #b0b0b0;
-  position: absolute;
-  top: 65px;
-  width: 80%;
-  border-radius: 20px;
-  border: 1px solid #f3f3f3;
-  -webkit-box-shadow: 4px 10px 6px -6px #cbcbcb;
-  -moz-box-shadow: 4px 10px 6px -6px #bbbbbb;
-  box-shadow: 4px 10px 6px -6px #bbbbbb;
-  height: 45px;
-}
-.material-icons {
-  position: absolute;
-
-}
-.text-input {
-  width: 60% !important;
-  margin: 0 2% 0;
+/* COMPONENTS */
+.Filters  {
   position: absolute;
   top: 0;
   padding: 0;
+  width: 100%;
+  height: 64px;
+  background-color: #f1f6fb;
+  color: #74befb;
 }
-.search {
-  padding-left: 0;
+  .Rate-Filter  {
+    color: #6eb5ef;
+
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    height: 24px;
+    width: 46px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Rate-Filter:hover  {
+    top: 3px;
+    transition: .1s ease;
+    font-size: 17px;
+  }
+  .Type-Filter  {
+    color: #6eb5ef;
+    position: absolute;
+    left: 60px;
+    top: 5px;
+    height: 24px;
+    width: 46px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Type-Filter:hover  {
+    top: 3px;
+    transition: .1s ease;
+  }
+  .Electricity-Filter  {
+    color: #6eb5ef;
+    position: absolute;
+    left: 110px;
+    top: 5px;
+    height: 24px;
+    width: 80px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Electricity-Filter:hover  {
+    transition: .1s ease;
+    font-size: 17px;
+    top: 3px;
+
+  }
+  .Bathroom-Filter  {
+    color: #6eb5ef;
+    position: absolute;
+    left: 12px;
+    top: 34px;
+    height: 24px;
+    width: 82px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Bathroom-Filter:hover  {
+    top: 32px;
+    transition: .1s ease;
+    font-size: 17px;
+  }
+  .Distance-Filter  {
+    color: #6eb5ef;
+
+    position: absolute;
+    left: 100px;
+    top: 34px;
+    height: 24px;
+    width: 74px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Distance-Filter:hover  {
+    top: 32px;
+    transition: .1s ease;
+    font-size: 17px;
+  }
+  .City-Filter  {
+    color: #6eb5ef;
+    position: absolute;
+    left: 180px;
+    top: 34px;
+    height: 24px;
+    width: 44px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .City-Filter:hover  {
+    top: 32px;
+    transition: .1s ease;
+    font-size: 17px;
+  }
+  .Grid-View  {
+    color: #6eb5ef;
+    position: absolute;
+    left: 195px;
+    top: 5px;
+    height: 24px;
+    width: 88px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Grid-View:hover  {
+    top: 3px;
+    transition: .1s ease;
+    font-size: 17px;
+  }
+.Search {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: 45px;
+  padding: 0;
 }
+  .Search-Input {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    color: #b0b0b0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 45px;
+    border: none;
+    padding-left: 10px;
+  }
+
+
+
+
+
+
+

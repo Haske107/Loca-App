@@ -9,9 +9,7 @@
     <div class="col-md-8 offset-md-2">
         <mat-list class="list">
             <mat-list-item class="listitem" *ngFor="let rule of RulesArray; trackBy:customTrackBy; let i = index">
-                <mat-input-container class="listtext">
-                    <input matInput placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
-                </mat-input-container>
+                    <input  class="form-control" placeholder="Rule #{{i + 1}}" value="" [(ngModel)]="RulesArray[i]">
                 <h3 class="minus" (click)="removeRule(i)">-</h3>
             </mat-list-item>
         </mat-list>

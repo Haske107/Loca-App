@@ -1,12 +1,352 @@
-.row{
-  height: 100%;
+.Title {
+  text-align: left;
+}
+.DetailsForm  {
+  margin-top: 5%;
   width: 100%;
+}
+  .Name-Type-Row  {
+    height: 182px;
+    width: 100%;
+    margin: 0;
+  }
+    .Left-Panel {
 
-  padding: 0;
+    }
+      .Name-InputField  {
+        margin-bottom: 18px;
+      }
+      .Description-InputField {
+
+      }
+    .Right-Panel  {
+
+    }
+      .Type-Input {
+        height: calc(100% - 32px);
+      }
+  .Details-Row-1  {
+    width: 100%;
+    height: 182px;
+    margin-top: 24px;
+    padding-left: 24px;
+  }
+    .Bathrooms-Border {
+      padding: 24px;
+    }
+      .Bathrooms-Tile {
+        border: 1px solid #c5c5c5;
+        width: 100%;
+        height: 100%;
+      }
+        .Bathrooms-Icon {
+          height: 60px;
+          width: 60px;
+          position: absolute;
+          top: 36px;
+          left: 36px;
+        }
+        .Bathrooms-Title  {
+          position: absolute;
+          bottom: 36px;
+          left: 36px;
+          color: #c5c5c5;
+        }
+        .Bathrooms-Add  {
+          border: 1px solid #c5c5c5;
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          right: 108px;
+          top: 48px;
+        }
+        .Bathrooms-Minus  {
+          border: 1px solid #c5c5c5;
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          right: 48px;
+          top: 48px;
+        }
+        .Bathrooms-Value  {
+          position: absolute;
+          width: 24px;
+          height: 36px;
+          right: 72px;
+          font-size: 36px;
+          bottom: 36px;
+          color: #c5c5c5;
+        }
+    .Power-Border {
+      padding: 24px;
+    }
+      .Power-Tile {
+        border: 1px solid #c5c5c5;
+        width: 100%;
+        height: 100%;
+      }
+          .Power-Icon {
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            top: 36px;
+            left: 36px;
+            fill: #c5c5c5;
+          }
+          .Power-Title  {
+            position: absolute;
+            bottom: 36px;
+            left: 36px;
+            color: #c5c5c5;
+          }
+          .Power-Add  {
+            border: 1px solid #c5c5c5;
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            right: 108px;
+            top: 48px;
+          }
+          .Power-Minus  {
+            border: 1px solid #c5c5c5;
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            right: 48px;
+            top: 48px;
+          }
+          .Power-Value  {
+            position: absolute;
+            width: 108px;
+            height: 12px;
+            right: 48px;
+            font-size: 12px;
+            line-height: 12px;
+            bottom: 42px;
+            color: #c5c5c5;
+          }
+    .Cars-Border  {
+      padding: 24px;
+    }
+      .Cars-Tile  {
+        border: 1px solid #c5c5c5;
+        width: 100%;
+        height: 100%;
+      }
+            .Car-Icon {
+              height: 60px;
+              width: 60px;
+              position: absolute;
+              top: 36px;
+              left: 36px;
+              fill: #c5c5c5;
+            }
+            .Car-Title {
+              position: absolute;
+              bottom: 36px;
+              left: 36px;
+              color: #c5c5c5;
+            }
+            .Car-Add  {
+              border: 1px solid #c5c5c5;
+              position: absolute;
+              width: 48px;
+              height: 48px;
+              right: 108px;
+              top: 48px;
+            }
+            .Car-Minus  {
+              border: 1px solid #c5c5c5;
+              position: absolute;
+              width: 48px;
+              height: 48px;
+              right: 48px;
+              top: 48px;
+            }
+            .Car-Value {
+              position: absolute;
+              width: 24px;
+              height: 36px;
+              right: 72px;
+              font-size: 36px;
+              bottom: 36px;
+              color: #c5c5c5;
+            }
+  .Details-Row-2  {
+  width: 100%;
+  height: 182px;
+  margin-top: 24px;
+  padding-left: 24px;
 }
-.col-md-6 {
-  padding: 0;
+    .Truck-Border {
+      padding: 24px;
+    }
+        .Truck-Tile {
+          border: 1px solid #c5c5c5;
+          width: 100%;
+          height: 100%;
+        }
+              .Truck-Icon {
+                height: 60px;
+                width: 60px;
+                position: absolute;
+                top: 36px;
+                left: 36px;
+                fill: #c5c5c5;
+              }
+              .Truck-Title {
+                position: absolute;
+                bottom: 36px;
+                left: 36px;
+                color: #c5c5c5;
+              }
+              .Truck-Add  {
+                border: 1px solid #c5c5c5;
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                right: 108px;
+                top: 48px;
+              }
+              .Truck-Minus  {
+                border: 1px solid #c5c5c5;
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                right: 48px;
+                top: 48px;
+              }
+              .Truck-Value {
+                position: absolute;
+                width: 24px;
+                height: 36px;
+                right: 72px;
+                font-size: 36px;
+                bottom: 36px;
+                color: #c5c5c5;
+              }
+    .Rate-Border {
+      padding: 24px;
+    }
+        .Rate-Tile {
+          border: 1px solid #c5c5c5;
+          width: 100%;
+          height: 100%;
+        }
+              .Rate-Icon {
+                height: 60px;
+                width: 60px;
+                position: absolute;
+                top: 36px;
+                left: 36px;
+                fill: #c5c5c5;
+              }
+              .Rate-Title {
+                position: absolute;
+                bottom: 36px;
+                left: 36px;
+                color: #c5c5c5;
+              }
+              .Rate-Add  {
+                border: 1px solid #c5c5c5;
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                right: 108px;
+                top: 48px;
+              }
+              .Rate-Minus  {
+                border: 1px solid #c5c5c5;
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                right: 48px;
+                top: 48px;
+              }
+              .Rate-Value {
+                position: absolute;
+                width: 24px;
+                height: 36px;
+                right: 72px;
+                font-size: 36px;
+                bottom: 36px;
+                color: #c5c5c5;
+              }
+    .Deposit-Border  {
+      padding: 24px;
+    }
+        .Deposit-Tile  {
+          border: 1px solid #c5c5c5;
+          width: 100%;
+          height: 100%;
+        }
+                .Deposit-Icon {
+                  height: 60px;
+                  width: 60px;
+                  position: absolute;
+                  top: 36px;
+                  left: 36px;
+                  fill: #c5c5c5;
+                }
+                .Deposit-Title {
+                  position: absolute;
+                  bottom: 36px;
+                  left: 36px;
+                  color: #c5c5c5;
+                }
+                .Deposit-Add  {
+                  border: 1px solid #c5c5c5;
+                  position: absolute;
+                  width: 48px;
+                  height: 48px;
+                  right: 108px;
+                  top: 48px;
+                }
+                .Deposit-Minus  {
+                  border: 1px solid #c5c5c5;
+                  position: absolute;
+                  width: 48px;
+                  height: 48px;
+                  right: 48px;
+                  top: 48px;
+                }
+                .Deposit-Value {
+                  position: absolute;
+                  width: 24px;
+                  height: 36px;
+                  right: 72px;
+                  font-size: 36px;
+                  bottom: 36px;
+                  color: #c5c5c5;
+                }
+
+.Question-Row {
+  margin-top: 12px;
 }
+  .Question-1 {
+    color: #7f7f7f;
+    font-size: 18px;
+  }
+  .Question-2 {
+    color: #7f7f7f;
+    font-size: 18px;
+  }
+
+
+/* GLOBAL STYLES */
+.form-control {
+  border-radius: 0 !important;
+}
+.Add-Icon {
+  height: 48px;
+  width: 48px;
+  padding: 12px;
+}
+
+
+
+
+
 
 h3 {
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -17,7 +357,7 @@ h3 {
   line-height: 40px;
   text-align: left;
 }
-h5  {
+h5, h4 {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-style: normal;
   font-variant: normal;
@@ -41,9 +381,7 @@ mat-form-field  {
   width: 32%;
 
 }
-.Title {
-  text-align: center;
-}
+
 
 .Next-Button  {
   margin-left: 2%;
@@ -77,5 +415,10 @@ mat-form-field  {
   top: calc(50% - 20px);
 }
 .nextrow  {
+  margin-top: 24px;
   height: 48px;
 }
+
+
+
+
