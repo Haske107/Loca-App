@@ -14,8 +14,18 @@
     <app-map  [locations]="locations" ></app-map>
   </div>
   <div class="col-md-4 right-panel">
-      <app-filter-drawer></app-filter-drawer>
-      <app-list [locations]="locations ? locations : []"></app-list>
+      <app-filter-drawer
+              (filterClick)="filterClicked($event)"
+              (closeAll)="DrawerHeight = '100px'"
+              [ngStyle]="{height: DrawerHeight}"
+              [DrawerHeight]="DrawerHeight"
+      >
+
+      </app-filter-drawer>
+      <app-list
+              [locations]="locations ? locations : []"
+              [ngStyle]="{top: (DrawerHeight.substr(0,3).valueOf() - 100) + 'px'}"
+      ></app-list>
   </div>
 </div>
 

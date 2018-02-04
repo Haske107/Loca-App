@@ -1,25 +1,40 @@
-<mat-card class="Filters">
-    <mat-card class="Rate-Filter">
+<mat-card class="Filters" [ngStyle]="{height: DrawerHeight}">
+    <mat-card class="Rate-Filter" (click)="clicked('Rate')">
         Rate
     </mat-card>
-    <mat-card class="Electricity-Filter">
+    <mat-card class="Electricity-Filter" (click)="clicked('Electricity')">
         Electricity
     </mat-card>
-    <mat-card class="Grid-View">
+    <mat-card class="Grid-View" (click)="clicked('Grid')">
         Grid View
     </mat-card>
-    <mat-card class="Bathroom-Filter">
+    <mat-card class="Bathroom-Filter" (click)="clicked('Bathroom')">
         Bathroom
     </mat-card>
-    <mat-card class="Type-Filter">
+    <mat-card class="Type-Filter" (click)="clicked('Type')">
         Type
     </mat-card>
-    <mat-card class="Distance-Filter">
+    <mat-card class="Distance-Filter" (click)="clicked('Distance')">
         Distance
     </mat-card>
-    <mat-card class="City-Filter">
+    <mat-card class="City-Filter" (click)="clicked('City')">
         City
     </mat-card>
+    <mat-card class="Free-Filter" (click)="clicked('Free')">
+        Free
+    </mat-card>
+    <mat-card class="Parking-Filter" (click)="clicked('Parking')">
+        Parking
+    </mat-card>
+    <mat-card class="Miles-Filter" >
+         within 30 Miles
+    </mat-card>
+    <mat-card class="Crew-Filter" >
+        Crew
+    </mat-card>
+
+
+    <img [ngStyle]="DrawerHeight !== '100px' ? {opacity: 1 } : {opacity: 0}" src="./../../../../assets/icons/up-arrow.svg" class="Close-Icon" (click)="closeAll.emit()">
 </mat-card>
 <mat-card class="Search">
     <input

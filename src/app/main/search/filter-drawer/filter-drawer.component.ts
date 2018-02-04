@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SearchService} from "../../../services/search.service";
 
 @Component({
@@ -8,9 +8,11 @@ import {SearchService} from "../../../services/search.service";
 })
 export class FilterDrawerComponent implements OnInit {
 
-  Query = "";
+  Query = '';
 
-
+  @Input() DrawerHeight;
+  @Output() filterClick: EventEmitter<string> = new EventEmitter();
+  @Output() closeAll: EventEmitter<> = new EventEmitter();
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
@@ -20,4 +22,11 @@ export class FilterDrawerComponent implements OnInit {
     this.searchService.input = this.Query;
   }
 
+
+  clicked(value: string)  {
+    this.filterClick.emit(value);
+  }
+
+  emitClosed() {
+  }
 }

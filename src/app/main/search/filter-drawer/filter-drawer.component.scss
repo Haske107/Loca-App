@@ -7,12 +7,29 @@
   height: 64px;
   background-color: #f1f6fb;
   color: #74befb;
+  transition: .4s ease-in-out;
+
 }
+  .Close-Icon {
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    z-index: 20;
+    opacity: 0;
+    left: 2px;
+    bottom: 2px;
+    transition: .2s ease-in-out;
+    -webkit-transition-delay: .1s;
+    -moz-transition-delay: .1s;
+    -ms-transition-delay: .1s;
+    -o-transition-delay: .1s;
+    transition-delay: .1s;
+  }
   .Rate-Filter  {
     color: #6eb5ef;
 
     position: absolute;
-    left: 10px;
+    left: 8px;
     top: 5px;
     height: 24px;
     width: 46px;
@@ -47,7 +64,7 @@
   .Electricity-Filter  {
     color: #6eb5ef;
     position: absolute;
-    left: 110px;
+    left: 112px;
     top: 5px;
     height: 24px;
     width: 80px;
@@ -59,14 +76,13 @@
   }
   .Electricity-Filter:hover  {
     transition: .1s ease;
-    font-size: 17px;
     top: 3px;
 
   }
   .Bathroom-Filter  {
     color: #6eb5ef;
     position: absolute;
-    left: 12px;
+    left: 8px;
     top: 34px;
     height: 24px;
     width: 82px;
@@ -79,13 +95,12 @@
   .Bathroom-Filter:hover  {
     top: 32px;
     transition: .1s ease;
-    font-size: 17px;
   }
   .Distance-Filter  {
     color: #6eb5ef;
 
     position: absolute;
-    left: 100px;
+    left: 99px;
     top: 34px;
     height: 24px;
     width: 74px;
@@ -98,12 +113,11 @@
   .Distance-Filter:hover  {
     top: 32px;
     transition: .1s ease;
-    font-size: 17px;
   }
   .City-Filter  {
     color: #6eb5ef;
     position: absolute;
-    left: 180px;
+    left: 183px;
     top: 34px;
     height: 24px;
     width: 44px;
@@ -116,12 +130,11 @@
   .City-Filter:hover  {
     top: 32px;
     transition: .1s ease;
-    font-size: 17px;
   }
   .Grid-View  {
     color: #6eb5ef;
     position: absolute;
-    left: 195px;
+    left: 198px;
     top: 5px;
     height: 24px;
     width: 88px;
@@ -134,8 +147,79 @@
   .Grid-View:hover  {
     top: 3px;
     transition: .1s ease;
-    font-size: 17px;
   }
+  .Free-Filter  {
+    color: #6eb5ef;
+
+    position: absolute;
+    left: 237px;
+    top: 34px;
+    height: 24px;
+    width: 46px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Free-Filter:hover  {
+    top: 32px;
+    transition: .1s ease;
+  }
+  .Parking-Filter  {
+    color: #6eb5ef;
+
+    position: absolute;
+    left: 293px;
+    top: 34px;
+    height: 24px;
+    width: 70px;
+    padding: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: .1s ease;
+    font-size: 16px;
+  }
+  .Parking-Filter:hover  {
+    top: 32px;
+    transition: .1s ease;
+  }
+.Crew-Filter  {
+  color: #6eb5ef;
+  position: absolute;
+  left: 372px;
+  top: 34px;
+  height: 24px;
+  width: 48px;
+  padding: 2px;
+  padding-left: 5px;
+  cursor: pointer;
+  transition: .1s ease;
+  font-size: 16px;
+}
+.Crew-Filter:hover  {
+  top: 32px;
+  transition: .1s ease;
+}
+.Miles-Filter  {
+  color: #6eb5ef;
+  position: absolute;
+  left: 292px;
+  top: 5px;
+  height: 24px;
+  width: 130px;
+  padding: 2px;
+  padding-left: 9px;
+  cursor: pointer;
+  transition: .1s ease;
+  font-size: 16px;
+}
+.Miles-Filter:hover  {
+  top: 3px;
+  transition: .1s ease;
+}
+
+
 .Search {
   position: absolute;
   top: 64px;
