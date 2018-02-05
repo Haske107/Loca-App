@@ -13,12 +13,12 @@
       <!-- ADDRESS CARD -->
       <mat-card class="col-md-5 ">
         <mat-input-container class="FWidth">
-          <input matInput placeholder="Street" [(ngModel)]="Street" (keyup)="emitAddressObject()">
+          <input matInput placeholder="Street"  [(ngModel)]="Street" (keyup)="emitAddressObject()">
         </mat-input-container>
         <br>
         <div>
           <mat-input-container class="HWidth">
-            <input matInput placeholder="City"  [(ngModel)]="City"  (keyup)="emitAddressObject()">
+              <input matInput  placeholder="City"  [(ngModel)]="City"  (keyup)="emitAddressObject()">
           </mat-input-container>
           <mat-input-container class="HWidth">
             <input matInput placeholder="State"  [(ngModel)]="State" (keyup)="emitAddressObject()">

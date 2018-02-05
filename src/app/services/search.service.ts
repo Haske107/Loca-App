@@ -22,6 +22,7 @@ export class SearchService {
     this.TempType = value;
     this.onType.emit(this.TempType);
   }
+
   set ElectricityFilter(value: any) {
     this.TempElectricity = value;
     this.onElectricity.emit(this.TempElectricity);
@@ -31,8 +32,8 @@ export class SearchService {
     this.onBathroom.emit(value);
   }
   set DistanceFilter(value: any) {
-    this.TempDistance = value;
-    this.onDistance.emit(value);
+    this.TempDistance.Distance = value;
+    this.onDistance.emit(this.TempDistance);
   }
   set RateFilter(value: any)  {
     this.TempRate = value;
@@ -56,10 +57,9 @@ export class SearchService {
   TempBathroom =  0;
   TempDistance = {
     CurrentLocation: {lat: 33.7928203, lng: -117.8514},
-    Distance: 100
+    Distance: 30
   };
   TempRate = {
-    low: 0,
-    high: 0
+    low: 0
   };
 }

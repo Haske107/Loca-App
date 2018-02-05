@@ -1,4 +1,3 @@
-
 <!-- FORM CONTAINER -->
   <form class="DetailsForm" [formGroup]="DetailsForm" (ngSubmit)="submit($event)" (keyup)="onChange()">
   <!-- NAME AND TYPE ROW -->
@@ -7,17 +6,22 @@
       <div class="col-md-8 Left-Panel">
         <!-- NAME -->
         <label for="Name">Name</label>
-        <input type="text" class="form-control Name-InputField" id="Name" placeholder="Something Catchy">
+        <input type="text" class="form-control Name-InputField" id="Name" placeholder="Something Catchy" formControlName="Name">
         <label for="Description">Description</label>
-        <textarea type="text" class="form-control Description-InputField" id="Description" placeholder="What does this property have to offer?">
-
+        <textarea
+                type="text"
+                class="form-control Description-InputField"
+                id="Description"
+                placeholder="What does this property have to offer?"
+                formControlName="Description"
+        >
         </textarea>
       </div>
       <!-- RIGHT PANEL -->
       <div class="col-md-4 Right-Panel">
         <!-- TYPE -->
         <label for="Type">Property Type</label>
-        <select multiple class="form-control Type-Input" id="Type" >
+        <select multiple class="form-control Type-Input" id="Type" formControlName="Type">
           <option *ngFor="let Type of Types" [value]="Type">{{Type}}</option>
         </select>
       </div>

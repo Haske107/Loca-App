@@ -51,7 +51,7 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
         }
 
       // POPULATE AND SANITIZE IMAGE LINKS
-      this.ImgUrl = 'https://' + Prod +  '/files/' + this.location._id;
+      this.ImgUrl = 'https://' + Dev +  '/files/' + this.location._id;
       this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle(`url(${this.ImgUrl})`);
       this.CityPhoto = 'https://a5j0u479x2t4e35gducjhz15-wpengine.netdna-ssl.com/wp-content/uploads/2017/08/afe88c2c9cade7b0fd7a9fe6ec3bba1b-750x555.jpg';
       this.CityPhoto = this.sanitzer.bypassSecurityTrustStyle(`url(${this.CityPhoto})`);

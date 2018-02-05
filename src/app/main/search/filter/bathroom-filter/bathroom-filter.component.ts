@@ -6,19 +6,20 @@ import {SearchService} from "../../../../services/search.service";
   templateUrl: './bathroom-filter.component.html',
   styleUrls: ['./bathroom-filter.component.css']
 })
-export class BathroomFilterComponent implements OnInit, OnChanges {
+export class BathroomFilterComponent implements OnInit{
 
-  value;
+  set value(value: any) {
+    console.log(value);
+    this.change(value);
+  }
 
   constructor(private searchService: SearchService) {
   }
 
   ngOnInit() {
-
   }
 
-  ngOnChanges() {
-    console.log(this.value);
-      this.searchService.BathroomFilter = this.value;
+  change(value: number) {
+    this.searchService.BathroomFilter = value;
   }
 }

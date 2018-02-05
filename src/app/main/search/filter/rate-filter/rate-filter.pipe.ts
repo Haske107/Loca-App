@@ -8,13 +8,13 @@ export class RateFilterPipe implements PipeTransform {
 
   transform(value: any, rateObject: any): any {
 
-    //CHECK IF VALUE OR STATEOBJECT EXIST
+    // CHECK IF VALUE OR STATEOBJECT EXIST
     if(!value || !rateObject)  {
       return value;
     }
-    let resultArray = [];
+    const resultArray = [];
     value.forEach(location => {
-      if(location.rate >= rateObject.low && location.rate <= rateObject.high)   {
+      if(location.rate >= rateObject.low)   {
         resultArray.push(location);
       }
     });

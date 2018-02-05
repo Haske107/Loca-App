@@ -16,7 +16,9 @@ export class FilterDrawerComponent implements OnInit {
 
   // DISPLAY FILTER VARIABLES
   ShowBathroom = false;
-
+  ShowRate = false;
+  ShowDistance = false;
+  ShowType = false;
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
@@ -28,16 +30,35 @@ export class FilterDrawerComponent implements OnInit {
 
 
   clicked(value: string)  {
-    if (value === 'Bathroom') {
-      this.ShowBathroom = true;
-    }
-    this.filterClick.emit(value);
+    this.emitClosed();
+    setTimeout(() =>  {
+        if (value === 'Bathroom') {
+            this.ShowBathroom = true;
+        }
+        if (value === 'Rate') {
+            this.ShowRate = true;
+        }
+        if (value === 'Distance') {
+            this.ShowDistance = true;
+        }
+        if (value === 'Type')   {
+            this.ShowType = true;
+        }
+        this.filterClick.emit(value);
+    }, 500);
+  }
+
+  closeDrawer()  {
+    this.emitClosed();
   }
 
   emitClosed() {
     this.closeAll.emit();
     setTimeout(() =>  {
         this.ShowBathroom = false;
-    }, 410)
+        this.ShowRate = false;
+        this.ShowDistance = false;
+        this.ShowType = false;
+    }, 410);
   }
 }

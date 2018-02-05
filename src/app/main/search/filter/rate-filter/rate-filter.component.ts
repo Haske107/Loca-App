@@ -9,18 +9,16 @@ import {SearchService} from "../../../../services/search.service";
 export class RateFilterComponent implements OnInit {
 
   state: {
-    low: number,
-    high: number
+    low: number
   };
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
     this.state = this.searchService.TempRate;
-
   }
 
-  toggleRate(event: any)  {
+  changeRate()  {
     this.searchService.RateFilter = this.state;
   }
 

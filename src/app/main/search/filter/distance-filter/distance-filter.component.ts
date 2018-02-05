@@ -8,32 +8,17 @@ import {SearchService} from "../../../../services/search.service";
 })
 export class DistanceFilterComponent implements OnInit {
 
-  @Input() ParentTop: number;
-  @Input() ParentLeft: number;
-  ParentTopOffset: string;
-  ParentLeftOffset: string;
-
-  state: {
-    CurrentLocation : {lat: number, lng: number},
-    Distance: number
-  };
+  value = 0;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.state = this.searchService.TempDistance;
-    this.ParentTopOffset = this.ParentTop + 40 + 'px';
-    this.ParentLeftOffset = this.ParentLeft - 100 + 'px';
+    this.value = this.searchService.TempDistance.Distance;
   }
 
-  refreshPosition(event)  {
-    this.ParentTopOffset = this.ParentTop + 40 + 'px';
-    this.ParentLeftOffset = this.ParentLeft - 100 + 'px';
-  }
-
-  toggleDistance(value : number) {
-    this.state.Distance = value;
-    this.searchService.DistanceFilter = this.state;
+  changeDistance() {
+    this.searchService.TempDistance.Distance = this.value;
+    this.searchService.onDistance.emit(this.searchService.TempDistance);
   }
 
 }

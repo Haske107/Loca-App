@@ -27,6 +27,30 @@ app-bathroom-filter {
   width: 28%;
   left: 0;
 }
+app-rate-filter {
+  bottom: 18px;
+  position: absolute;
+  z-index: -1;
+  height: 50px;
+  width: 28%;
+  left: 0;
+}
+app-distance-filter {
+  bottom: 18px;
+  position: absolute;
+  z-index: -1;
+  height: 50px;
+  width: 28%;
+  left: 0;
+}
+app-type-filter {
+  bottom: 18px;
+  position: absolute;
+  z-index: -1;
+  height: 50px;
+  width: 28%;
+  left: 0;
+}
 
 .Filters  {
   position: absolute;
@@ -54,6 +78,7 @@ app-bathroom-filter {
     -ms-transition-delay: .1s;
     -o-transition-delay: .1s;
     transition-delay: .1s;
+    cursor: pointer;
   }
 
 

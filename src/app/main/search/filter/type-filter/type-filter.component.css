@@ -1,5 +1,5 @@
 mat-card{
-  width: 400px;
+  width: 100%;
   background-color: white;
   position: absolute;
   border-radius: 8px;
@@ -7,13 +7,9 @@ mat-card{
   cursor: pointer;
 }
 
-mat-grid-list  {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
 
 mat-grid-tile  {
+  cursor: pointer;
   background-color: #26c6da;
 }
 mat-grid-tile:hover  {
@@ -27,5 +23,33 @@ h3  {
   font-weight: 300;
   line-height: 14px;
   color: white;
+  margin: 0;
+}
+
+
+
+
+
+.Type-List  {
+  position: absolute;
+  width: 100%;
+  left: 10%;
+  bottom: 4px;
+
+}
+.Title{
+  position: absolute;
+  bottom: 160px;
+  left: 40px;
+  height: 44px;
+  width: 100%;
+  z-index: 3;
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 48px;
+  color: #aaaaaa;
   margin: 0;
 }

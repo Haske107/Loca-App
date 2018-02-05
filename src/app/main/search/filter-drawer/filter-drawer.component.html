@@ -1,13 +1,15 @@
 
 
-<!-- OVERLAP SHIELD FOR FILTER COMPONENTS -->
-
-
-<!-- BUTTONS -->
 <mat-card class="Filters" [ngStyle]="{height: DrawerHeight}">
     <!-- FILTER COMPONENTS -->
     <app-bathroom-filter [ngStyle]="ShowBathroom ? {display: 'block'} : {display: 'none'}"></app-bathroom-filter>
+    <app-rate-filter [ngStyle]="ShowRate ? {display: 'block'} : {display: 'none'}"></app-rate-filter>
+    <app-distance-filter [ngStyle]="ShowDistance ? {display: 'block'} : {display: 'none'}"></app-distance-filter>
+    <app-type-filter [ngStyle]="ShowType ? {display: 'block'} : {display: 'none'}"></app-type-filter>
+   <!-- ICON OVERLAP SHIELD -->
     <div class="shield"></div>
+
+    <!-- BUTTONS -->
     <mat-card class="Rate-Filter" (click)="clicked('Rate')">
        <h3 class="Filter-Text">Rate</h3>
     </mat-card>

@@ -63,6 +63,8 @@ locationRoutes.post('/search', function(req,res) {
           if(getDistanceFromLatLonInMi(location.coordinates.lat,location.coordinates.lng,
               req.body.CurrentLocation.lat, req.body.CurrentLocation.lng) < req.body.Distance) {
             resultArray.push(location);
+            console.log(getDistanceFromLatLonInMi(location.coordinates.lat,location.coordinates.lng,
+                req.body.CurrentLocation.lat, req.body.CurrentLocation.lng))
           }
       });
       //RETURN RESULT ARRAY
@@ -160,7 +162,7 @@ function getDistanceFromLatLonInMi(lat1,lon1,lat2,lon2) {
   ;
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   var DistanceInKilometers = R * c; // Distance in km
-  var DistanceInMiles = DistanceInKilometers * 1.609;
+  var DistanceInMiles = DistanceInKilometers / 1.609; // Distance in Mi
   return DistanceInMiles;
 }
 

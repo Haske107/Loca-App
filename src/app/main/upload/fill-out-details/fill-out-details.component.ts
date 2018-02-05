@@ -14,11 +14,18 @@ export class FillOutDetailsComponent implements OnInit {
 
     Types = [
         'House',
-        'Business',
+        'Office',
         'Apartment',
         'Park',
+        'Chapman',
         'Bar',
-        'School'
+        'School',
+        'Street',
+        'Hotel',
+        'Cafe',
+        'Theatre',
+        'Studio',
+        'University'
     ];
 
     // NG STYLE VARIABLES
@@ -26,6 +33,8 @@ export class FillOutDetailsComponent implements OnInit {
     color = 'grey';
     cursor = 'not-allowed';
     height = '0px';
+
+    @ViewChild('')
 
     constructor(private fb: FormBuilder, private uploadService: UploadService) {}
 

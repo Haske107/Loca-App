@@ -17,7 +17,7 @@ export class FileService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('https://' + Prod +  '/files/main/:' + locationID + token, formdata, {headers: headers} )
+    return this.http.post('https://' + Dev +  '/files/main/:' + locationID + token, formdata, {headers: headers} )
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
@@ -27,7 +27,7 @@ export class FileService {
     const token = localStorage.getItem('id_token')
       ? '?token=' + localStorage.getItem('id_token')
       : '';
-    return this.http.post('https://' + Prod +  '/files/other/:' + locationID + token, formdata, {headers: headers} )
+    return this.http.post('https://' + Dev +  '/files/other/:' + locationID + token, formdata, {headers: headers} )
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }

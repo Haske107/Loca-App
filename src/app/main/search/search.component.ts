@@ -159,9 +159,10 @@ export class SearchComponent implements OnInit, OnDestroy {
       // LISTEN FOR DISTANCE UPDATE
       this.searchService.onDistance.subscribe(
         res =>  {
-          this.LocationService.getLocationsInRange(res)
+          this.LocationService.getLocationsInRange(this.searchService.TempDistance)
             .subscribe(
               (locations: Location[]) => {
+                console.log(locations);
                 this.locations = locations;
               }
             );
@@ -207,7 +208,11 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
   filterClicked(event: any) {
-    this.DrawerHeight = '174px';
+      if ( event === 'Type')  {
+          this.DrawerHeight = '330px';
+      } else  {
+          this.DrawerHeight = '174px';
+      }
   }
 
 
