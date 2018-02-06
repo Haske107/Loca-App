@@ -36,7 +36,8 @@ export class Location       {
     shootPhotos: string[];
     bathrooms: number;
     electricity: boolean;
-    parkingSpots: number;
+    carParking: number;
+    truckParking: number;
     deleted: boolean;
 
     constructor (
@@ -56,9 +57,9 @@ export class Location       {
       type?: string,
       bathrooms?: number,
       electricity?: boolean,
-      parkingSpots?: number
-    )
-    {
+      carParking?: number,
+      truckParking?: number
+    ) {
       this.user =  user;
       this.address =  address;
       this.name = name;
@@ -69,7 +70,8 @@ export class Location       {
       this.type = type;
       this.bathrooms = bathrooms;
       this.electricity = electricity;
-      this.parkingSpots = parkingSpots;
+      this.carParking = carParking;
+      this.truckParking = truckParking;
       this.deleted = false;
       this.coordinates = null;
     }

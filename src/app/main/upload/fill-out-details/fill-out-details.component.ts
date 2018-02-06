@@ -34,7 +34,13 @@ export class FillOutDetailsComponent implements OnInit {
     cursor = 'not-allowed';
     height = '0px';
 
-    @ViewChild('')
+    // DETAIL VALUES
+    BathroomValue = 0;
+    ElectricityValue = false;
+    CarValue = 0;
+    TruckValue = 0;
+    RateValue = 0;
+    DepositValue = 0;
 
     constructor(private fb: FormBuilder, private uploadService: UploadService) {}
 
@@ -45,7 +51,8 @@ export class FillOutDetailsComponent implements OnInit {
             Description: [, Validators.required],
             Bathrooms: [, Validators.required],
             Electricity: [, Validators.required],
-            Parking: [, Validators.required],
+            CarParking: [, Validators.required],
+            TruckParking: [, Validators.required],
             Deposit: [, Validators.required],
             Rate: [, Validators.required],
         });
@@ -57,7 +64,84 @@ export class FillOutDetailsComponent implements OnInit {
             this.textcolor = 'white';
             this.cursor = 'pointer';
         }
+        console.log(this.DetailsForm);
     }
+
+    // TYPE SELECT
+    selectType(type: string)    {
+        this.DetailsForm.value.Type = type;
+    }
+    // BATHROOM FUNCTIONS
+    increaseBathroom()  {
+        if (this.BathroomValue < 10) {
+            this.BathroomValue++;
+        }
+        this.DetailsForm.value.Bathrooms = this.BathroomValue;
+    }
+    decreaseBathroom()  {
+        if (this.BathroomValue > 0)  {
+            this.BathroomValue--;
+        }
+        this.DetailsForm.value.Bathrooms = this.BathroomValue;
+    }
+
+    // ELECTRCITY FUNCTION
+    toggleElectricity() {
+        this.ElectricityValue = !this.ElectricityValue;
+        this.DetailsForm.value.Electricity = this.ElectricityValue;
+    }
+
+    // CAR FUNCTIONS
+    increaseCar()    {
+        this.CarValue++;
+        this.DetailsForm.value.carParking = this.CarValue;
+
+    }
+    decreaseCar()   {
+        if (this.CarValue > 0)  {
+            this.CarValue--;
+        }
+        this.DetailsForm.value.carParking = this.CarValue;
+
+    }
+    // TRUCK FUNCTIONS
+    increaseTruck() {
+        this.TruckValue++;
+        this.DetailsForm.value.truckParking = this.TruckValue;
+
+    }
+    decreaseTruck() {
+        if (this.TruckValue > 0)    {
+            this.TruckValue--;
+        }
+        this.DetailsForm.value.truckParking = this.TruckValue;
+    }
+
+    // RATE FUNCTIONS
+    increaseRate()  {
+        this.RateValue += 25;
+        this.DetailsForm.value.Rate = this.RateValue;
+
+    }
+    decreaseRate()  {
+        if ( this.RateValue  >= 25)   {
+            this.RateValue -= 25;
+        }
+        this.DetailsForm.value.Rate = this.RateValue;
+    }
+    // DEPOSIT FUNCTIONS
+    increaseDeposit()   {
+        this.DepositValue += 25;
+        this.DetailsForm.value.Deposit = this.DepositValue;
+    }
+    decreaseDeposit()   {
+        if (this.DepositValue >= 25)    {
+            this.DepositValue -= 25;
+        }
+        this.DetailsForm.value.Deposit = this.DepositValue;
+
+    }
+
 
     submit(event) {
         if (this.DetailsForm.valid) {
@@ -66,7 +150,8 @@ export class FillOutDetailsComponent implements OnInit {
             this.uploadService.NewLocation.description = this.DetailsForm.value.Description;
             this.uploadService.NewLocation.bathrooms = this.DetailsForm.value.Bathrooms;
             this.uploadService.NewLocation.electricity = this.DetailsForm.value.Electricity;
-            this.uploadService.NewLocation.parkingSpots = this.DetailsForm.value.Parking;
+            this.uploadService.NewLocation.carParking = this.DetailsForm.value.CarParking;
+            this.uploadService.NewLocation.truckParking = this.DetailsForm.value.TruckParking;
             this.uploadService.NewLocation.deposit = this.DetailsForm.value.Deposit;
             this.uploadService.NewLocation.rate = this.DetailsForm.value.Rate;
             this.DetailsForm.reset();

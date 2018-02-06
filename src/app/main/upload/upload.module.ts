@@ -11,7 +11,7 @@ import {VerifyLocationComponent} from './verify-location/verify-location.compone
 import {LocationRulesComponent} from './location-rules/location-rules.component';
 import {AgmCoreModule} from '@agm/core';
 import {UploadService} from './upload.service';
-import {MatExpansionModule} from '@angular/material';
+import {MatExpansionModule, MatRadioModule, } from '@angular/material';
 import {FileDropModule} from "ngx-file-drop";
 import {DndModule} from "ng2-dnd";
 
@@ -24,6 +24,7 @@ import {DndModule} from "ng2-dnd";
       ReactiveFormsModule,
       Routing,
       MatExpansionModule,
+      MatRadioModule,
       FileDropModule,
       DndModule.forRoot(),
       AgmCoreModule.forRoot({

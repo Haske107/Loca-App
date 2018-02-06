@@ -6,7 +6,14 @@
       <div class="col-md-8 Left-Panel">
         <!-- NAME -->
         <label for="Name">Name</label>
-        <input type="text" class="form-control Name-InputField" id="Name" placeholder="Something Catchy" formControlName="Name">
+        <input
+                type="text"
+                class="form-control Name-InputField"
+                id="Name"
+                placeholder="Something Catchy"
+                formControlName="Name"
+                [(ngModel)]="DetailsForm.value.Name"
+        >
         <label for="Description">Description</label>
         <textarea
                 type="text"
@@ -14,6 +21,8 @@
                 id="Description"
                 placeholder="What does this property have to offer?"
                 formControlName="Description"
+                [(ngModel)]="DetailsForm.value.Description"
+
         >
         </textarea>
       </div>
@@ -22,113 +31,113 @@
         <!-- TYPE -->
         <label for="Type">Property Type</label>
         <select multiple class="form-control Type-Input" id="Type" formControlName="Type">
-          <option *ngFor="let Type of Types" [value]="Type">{{Type}}</option>
+          <option *ngFor="let Type of Types" [value]="Type" (click)="selectType(Type)">{{Type}}</option>
         </select>
       </div>
     </div>
   <!-- DETAILS ROW 1 -->
-    <div class="row Details-Row-1">
-      <div class="col-md-4 Bathrooms-Border">
-        <div class="Bathrooms-Tile">
+    <div class="Details-Row-1">
+        <mat-card class="Bathrooms-Tile">
           <img class="Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
           <h4 class="Bathrooms-Title">Bathrooms </h4>
-          <div class="Bathrooms-Add">
+          <button mat-raised-button class="Bathrooms-Add" (click)="increaseBathroom()">
             <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
-          </div>
-          <div class="Bathrooms-Minus">
+          </button>
+          <button mat-raised-button class="Bathrooms-Minus" (click)="decreaseBathroom()">
             <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
-          </div>
+          </button>
           <h4 class="Bathrooms-Value">
-            2
+            {{BathroomValue}}
           </h4>
-        </div>
-      </div>
-      <div class="col-md-4 Power-Border">
-        <div class="Power-Tile">
+        </mat-card>
+        <mat-card class="Power-Tile">
           <img class="Power-Icon" src="./../../../../assets/icons/Power.svg">
           <h4 class="Power-Title">Power </h4>
-          <div class="Power-Add">
-            <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
-          </div>
-          <div class="Power-Minus">
-            <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
-          </div>
+          <button mat-raised-button class="Power-Toggle" (click)="toggleElectricity()">
+            <img class="Add-Icon" src="./../../../../assets/icons/circle.svg">
+          </button>
           <h4 class="Power-Value">
-            2k Watt @ 20 Amps
+            <img *ngIf="!ElectricityValue" class="Power-Value-Icon" src="./../../../../assets/icons/wrong.svg">
+            <img *ngIf="ElectricityValue" class="Power-Value-Icon" src="./../../../../assets/icons/tick-sign.svg">
+
+
           </h4>
-        </div>
-      </div>
-      <div class="col-md-4 Cars-Border">
-        <div class="Cars-Tile">
+        </mat-card>
+        <mat-card class="Cars-Tile">
           <img class="Car-Icon" src="./../../../../assets/icons/Car.svg">
           <h4 class="Car-Title">Parking </h4>
-          <div class="Car-Add">
+          <button mat-raised-button="" class="Car-Add" (click)="increaseCar()">
             <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
-          </div>
-          <div class="Car-Minus">
+          </button>
+          <button mat-raised-button="" class="Car-Minus" (click)="decreaseCar()">
             <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
-          </div>
+          </button>
           <h4 class="Car-Value">
-            2
+            {{CarValue}}
           </h4>
-        </div>
-      </div>
-    </div>
-    <!-- DETAILS ROW 2 -->
-    <div class="row Details-Row-2">
-      <div class="col-md-4 Truck-Border">
-        <div class="Truck-Tile">
+        </mat-card>
+        <mat-card class="Truck-Tile">
           <img class="Truck-Icon" src="./../../../../assets/icons/Truck.svg">
           <h4 class="Truck-Title">Trucks </h4>
-          <div class="Truck-Add">
+          <button mat-raised-button class="Truck-Add" (click)="increaseTruck()">
             <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
-          </div>
-          <div class="Truck-Minus">
+          </button>
+          <button mat-raised-button class="Truck-Minus" (click)="decreaseTruck()">
             <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
-          </div>
+          </button>
           <h4 class="Truck-Value">
-            0
+            {{TruckValue}}
           </h4>
-        </div>
-      </div>
-      <div class="col-md-4 Rate-Border">
-        <div class="Rate-Tile">
+        </mat-card>
+        <mat-card class="Rate-Tile">
           <img class="Rate-Icon" src="./../../../../assets/icons/Rate.svg">
-          <h4 class="Rate-Title">Rate/d </h4>
-          <div class="Rate-Add">
+          <h4 class="Rate-Title">Rate / Day</h4>
+          <button mat-raised-button class="Rate-Add" (click)="increaseRate()">
             <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
-          </div>
-          <div class="Rate-Minus">
+          </button>
+          <button mat-raised-button class="Rate-Minus" (click)="decreaseRate()">
             <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
-          </div>
+          </button>
           <h4 class="Rate-Value">
-            0
+            {{RateValue | currency}}
           </h4>
-        </div>
-      </div>
-      <div class="col-md-4 Deposit-Border">
-        <div class="Deposit-Tile">
+      </mat-card>
+        <mat-card class="Deposit-Tile">
           <img class="Deposit-Icon" src="./../../../../assets/icons/Deposit.svg">
           <h4 class="Deposit-Title">Deposit </h4>
-          <div class="Deposit-Add">
+          <button mat-raised-button class="Deposit-Add" (click)="increaseDeposit()">
             <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
-          </div>
-          <div class="Deposit-Minus">
+          </button>
+          <button mat-raised-button class="Deposit-Minus" (click)="decreaseDeposit()">
             <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
-          </div>
+          </button>
           <h4 class="Deposit-Value">
-            0
+            {{DepositValue | currency}}
           </h4>
-        </div>
-      </div>
+      </mat-card>
     </div>
-
 
   <div class="row Question-Row">
     <div class="col-md-8 offset-md-2">
-      <h4 class="Question-1">Are you the property owner?</h4>
+      <h4 class="Question-1">Are you the property owner?
+        <mat-radio-group class="Owner-Button-Group">
+        <mat-radio-button value="1">
+Yes
+        </mat-radio-button>
+          <mat-radio-button value ="0">
+No
+          </mat-radio-button>
+      </mat-radio-group></h4>
+
       <br>
-      <h4 class="Question-2">Is the propoerty private or public?</h4>
+      <h4 class="Question-2">Is the property private or public?<mat-radio-group class="Owner-Button-Group">
+        <mat-radio-button value="1">
+          Public
+        </mat-radio-button>
+        <mat-radio-button value="0">
+          Private
+        </mat-radio-button>
+      </mat-radio-group></h4>
 
     </div>
 

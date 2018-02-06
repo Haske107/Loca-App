@@ -29,7 +29,8 @@ var LocationSchema = new schema({
     shootPhotos: {type: String},
     bathrooms: {type: Number},
     electricity: {type: Number},
-    parkingSpots: {type: Number},
+    carParking: {type: Number},
+    truckParking: {type: Number},
     deleted: {type: Boolean}
 });
 

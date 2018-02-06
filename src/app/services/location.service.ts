@@ -52,7 +52,8 @@ export class LocationService    {
             shootPhotos: loca.shootPhotos,
             bathrooms: loca.bathrooms,
             electricity: loca.electricity,
-            parkingSpots: loca.parkingSpots,
+            carParking: loca.carParking,
+            truckParking: loca.truckParking,
             deleted: loca.deleted
           };
           transformedLocations.push(location);
@@ -99,7 +100,8 @@ export class LocationService    {
             shootPhotos: loca.shootPhotos,
             bathrooms: loca.bathrooms,
             electricity: loca.electricity,
-            parkingSpots: loca.parkingSpots,
+            carParking: loca.carParking,
+            truckParking: loca.TruckParking,
             deleted: loca.deleted
           };
           transformedLocations.push(location);
