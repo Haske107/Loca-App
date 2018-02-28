@@ -242,7 +242,6 @@ export class VerifyLocationComponent implements OnInit {
     getAddress()    {
         this.mapService.reverseGeoCode(this.lat, this.lng).subscribe(
             data => {
-                console.log(data);
                 this.Street = data.results[0].address_components[0].short_name
                     + ' ' + data.results[0].address_components[1].short_name;
                 this.City = data.results[0].address_components[2].short_name;

@@ -11,7 +11,7 @@ export class UserService {
 
   getUser( userID: string ) {
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.get( 'https://' + Dev +  '/user/getUserByID/' + userID, {headers: headers} )
+    return this.http.get( 'http://' + Dev +  '/user/getUserByID/' + userID, {headers: headers} )
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }

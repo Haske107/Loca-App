@@ -32,9 +32,6 @@ export class UploadComponent implements OnInit, OnDestroy   {
                 private pageStateService: PageStateService
                 )   {
         this.pageStateService.Upload = true;
-        console.log(this.pageStateService.Upload);
-
-
     }
 
     ngOnInit()  {
@@ -52,7 +49,6 @@ export class UploadComponent implements OnInit, OnDestroy   {
 
     ngOnDestroy()   {
         this.pageStateService.Upload = false;
-        console.log(this.pageStateService.Upload);
     }
 
 

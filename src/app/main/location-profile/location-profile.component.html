@@ -9,23 +9,34 @@
 
                     </div>
                     <h3 class="Location-Title Main-Title">
-                       {{location.name}}
+                      {{location.name}}
                     </h3>
                 </mat-card>
             </div>
         </div>
         <!-- DETAILS -->
         <div class="row Second-Row">
-            <div class="col-md-12 Details-Container">
+            <div class="col-md-4 Details-Container">
                 <mat-card class="Details-Card">
-                    {{location.description}}
-                    <hr>
-                    <strong>Rate: </strong> {{location.rate}} <br>
-                    <strong>Deposit: </strong> {{location.deposit}} <br>
-                    <strong>Type: </strong> {{location.type}}<br>
-                    <strong>Parking: </strong> {{location.parkingSpots}} <br>
-                    <strong>Bathrooms: </strong> {{location.bathrooms}} <br>
-                    <strong>Electricity: </strong> {{location.electricity ? "Yes" : "No"}}
+                    <!--{{location.description}}-->
+                    <!--<hr>-->
+                    <!--<strong>Rate: </strong> {{location.rate}} <br>-->
+                    <!--<strong>Deposit: </strong> {{location.deposit}} <br>-->
+                    <!--<strong>Type: </strong> {{location.type}}<br>-->
+                    <!--<strong>Parking: </strong> {{location.parkingSpots}} <br>-->
+                    <!--<strong>Bathrooms: </strong> {{location.bathrooms}} <br>-->
+                    <!--<strong>Electricity: </strong> {{location.electricity ? "Yes" : "No"}}-->
+                    BOOKING COMPONENT
+                </mat-card>
+            </div>
+            <div class="col-md-4 Details-Container">
+                <mat-card class="Details-Card">
+                    DETAILS
+                </mat-card>
+            </div>
+            <div class="col-md-4 Details-Container">
+                <mat-card class="Details-Card">
+                    CONTACT
                 </mat-card>
             </div>
         </div>
@@ -41,23 +52,50 @@
     <!-- RIGHT SUBPANEL -->
     <div class="col-md-4 Right-Panel">
         <mat-card class="Header-Bar">
-            <h3 class="City-Title Right-Panel-Title">{{location.address.city}}</h3>
+            <h3 class="City-Title Right-Panel-Title">{{city.name}}</h3>
             <h5 class="State-Title Right-Panel-Title">{{location.address.state}}</h5>
             <div class="City-Banner" [style.background-image]="CityPhoto"></div>
         </mat-card>
-        <div class="City-Map"></div>
+            <agm-map #googlemap class="City-Map" [latitude]="location.coordinates.lat" [longitude]="location.coordinates.lng">
+                <agm-polygon [paths]="coordinates" [fillColor]="'red'">
+
+                </agm-polygon>
+                <agm-marker
+                [latitude]="location.coordinates.lat"
+                [longitude]="location.coordinates.lng"
+                [iconUrl]="{
+                url: './../../../../assets/icons/'+ location.type +'.svg',
+                scaledSize: {
+                height: 13,
+                width: 13
+                },
+                optimized: true
+                }">
+                </agm-marker>
+            </agm-map>
         <div class="City-Summary">
             <h3 class="Right-Panel-Title City-General-Rules">General Filming Guidelines</h3>
             <ul class="City-General-List">
-                <li>No permits will be issued for filming for the period between Wednesday, December 20, and the first official day of business for City Hall of the new calendar year.</li>
-                <li>No filming will be approved for December 22 through January 3.</li>
-                <li>Applications submitted after 10 a.m. December 14 will be considered as “received” on the first official day of business for City Hall of the new calendar year.</li>
-                <li>We require 10-working days to process film permits.</li>
+                <li>Population: {{city.population}}</li>
+                <li>County: {{city.county}}</li>
+                <li>Processing Period: {{city.permitoffice.processingperiod}} Days</li>
             </ul>
-            <h3 class="Right-Panel-Title City-General-Rules">Filming Contacts</h3>
+            <h3 class="Right-Panel-Title City-General-Rules">Permit Office</h3>
             <ul class="City-General-List">
-                <li>Commercial Filming: <strong>Paul Sitkoff</strong></li>
-                <li>Student Filming: <strong>Student Coordinator</strong></li>
+                <li>Phone: <strong>{{city.permitoffice.phone}}</strong></li>
+                <li>Address:<br> <strong>{{city.permitoffice.address}}</strong></li>
+                <li>Hours:
+                    <ul>
+                        <li>S | {{city.permitoffice.hours.sunday.open}} - {{city.permitoffice.hours.sunday.close}}</li>
+                        <li>M | {{city.permitoffice.hours.monday.open}} - {{city.permitoffice.hours.monday.close}}</li>
+                        <li>T | {{city.permitoffice.hours.tuesday.open}} - {{city.permitoffice.hours.tuesday.close}}</li>
+                        <li>W | {{city.permitoffice.hours.wednesday.open}} - {{city.permitoffice.hours.wednesday.close}}</li>
+                        <li>TH | {{city.permitoffice.hours.thursday.open}} - {{city.permitoffice.hours.thursday.close}}</li>
+                        <li>F | {{city.permitoffice.hours.friday.open}} - {{city.permitoffice.hours.friday.close}}</li>
+                        <li>SA | {{city.permitoffice.hours.saturday.open}} - {{city.permitoffice.hours.saturday.close}}</li>
+
+                    </ul>
+                <li>Film Contact: <strong>{{city.permitoffice.filmcontact.fname}} {{city.permitoffice.filmcontact.lname}}</strong></li>
             </ul>
 
         </div>

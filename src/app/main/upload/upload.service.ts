@@ -36,7 +36,6 @@ export class UploadService  {
   }
 
   emitChanges(CompID: number) {
-      console.log(this.NewLocation);
       this.ChangeEmitter.emit({location: this.NewLocation, ID: CompID});
       localStorage.setItem('location', JSON.stringify(this.NewLocation));
   }

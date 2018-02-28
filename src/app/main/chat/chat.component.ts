@@ -42,19 +42,19 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   createChat()  {
-    const newChat = new Chat([{User: '598a1805c3767b252c0c9778', Username: 'Jeff Haskell', Deleted: false}
-                           , {User: '598cc5a994630c50bc72b5f2', Username: 'Justin Estrada', Deleted: false}]);
-
-    console.log(newChat);
-    this.chatService.createChat(newChat)
-      .subscribe(
-        data => {
-          this.getChats();
-        },
-        error =>  {
-          console.error(error);
-        }
-      );
+    // const newChat = new Chat([{User: '598a1805c3767b252c0c9778', Username: 'Jeff Haskell', Deleted: false}
+    //                        , {User: '598cc5a994630c50bc72b5f2', Username: 'Justin Estrada', Deleted: false}]);
+    //
+    // console.log(newChat);
+    // this.chatService.createChat(newChat)
+    //   .subscribe(
+    //     data => {
+    //       this.getChats();
+    //     },
+    //     error =>  {
+    //       console.error(error);
+    //     }
+    //   );
   }
 
   deleteChat(chat: Chat)  {

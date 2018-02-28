@@ -35,12 +35,12 @@ export class FillOutDetailsComponent implements OnInit {
     height = '0px';
 
     // DETAIL VALUES
-    BathroomValue = 0;
+    BathroomValue = -1;
     ElectricityValue = false;
-    CarValue = 0;
-    TruckValue = 0;
-    RateValue = 0;
-    DepositValue = 0;
+    CarValue = -1;
+    TruckValue = -1;
+    RateValue = -1;
+    DepositValue = -1;
 
     constructor(private fb: FormBuilder, private uploadService: UploadService) {}
 
@@ -48,13 +48,13 @@ export class FillOutDetailsComponent implements OnInit {
         this.DetailsForm = this.fb.group({
             Name: [, Validators.required],
             Type: [, Validators.required],
-            Description: [, Validators.required],
-            Bathrooms: [, Validators.required],
-            Electricity: [, Validators.required],
-            CarParking: [, Validators.required],
-            TruckParking: [, Validators.required],
-            Deposit: [, Validators.required],
-            Rate: [, Validators.required],
+            Description: [],
+            Bathrooms: [],
+            Electricity: [],
+            CarParking: [],
+            TruckParking: [],
+            Deposit: [],
+            Rate: [],
         });
     }
 
@@ -64,12 +64,12 @@ export class FillOutDetailsComponent implements OnInit {
             this.textcolor = 'white';
             this.cursor = 'pointer';
         }
-        console.log(this.DetailsForm);
     }
 
     // TYPE SELECT
     selectType(type: string)    {
         this.DetailsForm.value.Type = type;
+        console.log(type);
     }
     // BATHROOM FUNCTIONS
     increaseBathroom()  {
@@ -119,7 +119,11 @@ export class FillOutDetailsComponent implements OnInit {
 
     // RATE FUNCTIONS
     increaseRate()  {
-        this.RateValue += 25;
+        if (this.RateValue < 0)   {
+            this.RateValue = 25;
+        }   else {
+            this.RateValue += 25;
+        }
         this.DetailsForm.value.Rate = this.RateValue;
 
     }
@@ -131,7 +135,11 @@ export class FillOutDetailsComponent implements OnInit {
     }
     // DEPOSIT FUNCTIONS
     increaseDeposit()   {
-        this.DepositValue += 25;
+        if (this.DepositValue < 0)  {
+            this.DepositValue = 25;
+        }   else {
+            this.DepositValue += 25;
+        }
         this.DetailsForm.value.Deposit = this.DepositValue;
     }
     decreaseDeposit()   {
@@ -139,9 +147,7 @@ export class FillOutDetailsComponent implements OnInit {
             this.DepositValue -= 25;
         }
         this.DetailsForm.value.Deposit = this.DepositValue;
-
     }
-
 
     submit(event) {
         if (this.DetailsForm.valid) {
@@ -160,5 +166,9 @@ export class FillOutDetailsComponent implements OnInit {
         }   else {
             console.log("Not Ready");
         }
+    }
+
+    changeToReadyState(elementID: string)    {
+
     }
 }

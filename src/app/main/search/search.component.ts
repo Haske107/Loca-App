@@ -137,16 +137,15 @@ export class SearchComponent implements OnInit, OnDestroy {
       iconRegistry.addSvgIcon('split-blue', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/split-browser-blue.svg'));
       iconRegistry.addSvgIcon('filter', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/filter.svg'));
       this.pageStateService.Search = true;
-        console.log(this.pageStateService.Search);
-
     }
 
     ngOnInit()  {
       // GET USER LOCATION
      navigator.geolocation.getCurrentPosition(position => {
         // SET GLOBAL CURRENT LOCATION
-        this.searchService.TempDistance.CurrentLocation =
-          { lat: position.coords.latitude, lng: position.coords.longitude};
+        this.searchService.TempDistance.CurrentLocation = {
+          lat: position.coords.latitude, lng: position.coords.longitude
+        };
       });
       // GET LOCATIONS IN RANGE
       this.LocationService.getLocationsInRange(this.searchService.TempDistance)
@@ -219,7 +218,5 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
       this.pageStateService.Search = false;
-      console.log(this.pageStateService.Search);
-
   }
 }

@@ -22,7 +22,6 @@
                 placeholder="What does this property have to offer?"
                 formControlName="Description"
                 [(ngModel)]="DetailsForm.value.Description"
-
         >
         </textarea>
       </div>
@@ -38,16 +37,16 @@
   <!-- DETAILS ROW 1 -->
     <div class="Details-Row-1">
         <mat-card class="Bathrooms-Tile">
-          <img class="Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
-          <h4 class="Bathrooms-Title">Bathrooms </h4>
+          <img class="svg Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
+          <h4 class="Bathrooms-Title">Bathrooms</h4>
           <button mat-raised-button class="Bathrooms-Add" (click)="increaseBathroom()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
           </button>
           <button mat-raised-button class="Bathrooms-Minus" (click)="decreaseBathroom()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
           </button>
           <h4 class="Bathrooms-Value">
-            {{BathroomValue}}
+            {{BathroomValue < 0 ? "" : BathroomValue}}
           </h4>
         </mat-card>
         <mat-card class="Power-Tile">
@@ -67,52 +66,52 @@
           <img class="Car-Icon" src="./../../../../assets/icons/Car.svg">
           <h4 class="Car-Title">Parking </h4>
           <button mat-raised-button="" class="Car-Add" (click)="increaseCar()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
           </button>
           <button mat-raised-button="" class="Car-Minus" (click)="decreaseCar()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
           </button>
           <h4 class="Car-Value">
-            {{CarValue}}
+            {{CarValue < 0 ? "" : CarValue}}
           </h4>
         </mat-card>
         <mat-card class="Truck-Tile">
           <img class="Truck-Icon" src="./../../../../assets/icons/Truck.svg">
           <h4 class="Truck-Title">Trucks </h4>
           <button mat-raised-button class="Truck-Add" (click)="increaseTruck()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
           </button>
           <button mat-raised-button class="Truck-Minus" (click)="decreaseTruck()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
           </button>
           <h4 class="Truck-Value">
-            {{TruckValue}}
+            {{TruckValue < 0 ? "" : TruckValue}}
           </h4>
         </mat-card>
         <mat-card class="Rate-Tile">
           <img class="Rate-Icon" src="./../../../../assets/icons/Rate.svg">
           <h4 class="Rate-Title">Rate / Day</h4>
           <button mat-raised-button class="Rate-Add" (click)="increaseRate()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
           </button>
           <button mat-raised-button class="Rate-Minus" (click)="decreaseRate()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
           </button>
           <h4 class="Rate-Value">
-            {{RateValue | currency}}
+            {{RateValue < 0 ? "" : RateValue | currency}}
           </h4>
       </mat-card>
         <mat-card class="Deposit-Tile">
           <img class="Deposit-Icon" src="./../../../../assets/icons/Deposit.svg">
           <h4 class="Deposit-Title">Deposit </h4>
           <button mat-raised-button class="Deposit-Add" (click)="increaseDeposit()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Plus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
           </button>
           <button mat-raised-button class="Deposit-Minus" (click)="decreaseDeposit()">
-            <img class="Add-Icon" src="./../../../../assets/icons/Minus.svg">
+            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
           </button>
           <h4 class="Deposit-Value">
-            {{DepositValue | currency}}
+            {{DepositValue < 0 ? "" : DepositValue | currency}}
           </h4>
       </mat-card>
     </div>

@@ -14,6 +14,7 @@ var appRoutes = require('./routes/app');
 var fileRoutes = require('./routes/files');
 var pdfRoutes = require('./routes/pdf');
 var chatRoutes = require('./routes/chat');
+var cityRoutes = require('./routes/city.route');
 
 var app = express();
 mongoose.connect('mongodb://Haske107:Applegate451!@projectx-shard-00-00-y8jpz.mongodb.net:27017,projectx-shard-00-01-y8jpz' +
@@ -32,11 +33,6 @@ mongoose.connect('mongodb://Haske107:Applegate451!@projectx-shard-00-00-y8jpz.mo
 //
 //
 // app.use(forceSSL());
-
-
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -61,6 +57,7 @@ app.use('/chat', chatRoutes);
 app.use('/pdf', pdfRoutes);
 app.use('/files', fileRoutes);
 app.use('/user', userRoutes);
+app.use('/city', cityRoutes);
 app.use('/collection', collectionRoutes);
 app.use('/location', locationRoutes);
 app.use('/', appRoutes);

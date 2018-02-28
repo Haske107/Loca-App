@@ -52,7 +52,7 @@
           width: 100%;
           text-align: center;
           left: 0;
-          color: #c5c5c5;
+          color: #74befb;
         }
         .Bathrooms-Add  {
           position: absolute;
@@ -432,6 +432,10 @@ mat-form-field  {
   height: 48px;
 }
 
+
+svg:hover path {
+  fill: red;
+}
 
 
 

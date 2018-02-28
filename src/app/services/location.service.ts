@@ -75,7 +75,6 @@ export class LocationService    {
     }
   getLocationsInRange(DistanceObject: any) {
     const body = DistanceObject;
-    console.log(body);
     return this.http.post('http://' + Dev +  '/location/search', body )
       .map((response: Response) => {
         const Locations = response.json().obj;
