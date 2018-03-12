@@ -4,11 +4,13 @@ import {Location} from '../../ts models/location.model';
 import {User} from '../../ts models/user.model';
 import {Router} from '@angular/router';
 import {Prod, Dev} from '../../../URLSwitcher';
-import {DomSanitizer} from "@angular/platform-browser";
-import {PageStateService} from "../../services/page.state.service";
-import {UserService} from "../../services/user.service";
-import {City} from "../../ts models/city.model";
-import {CityService} from "../../services/city.service";
+import {DomSanitizer} from '@angular/platform-browser';
+import {PageStateService} from '../../services/page.state.service';
+import {UserService} from '../../services/user.service';
+import {City} from '../../ts models/city.model';
+import {CityService} from '../../services/city.service';
+import mapboxgl from 'mapbox-gl';
+
 
 @Component({
   selector: 'app-location-profile',
@@ -19,12 +21,13 @@ import {CityService} from "../../services/city.service";
 export class LocationProfileComponent implements OnInit, OnDestroy {
 
     location: Location;
-    city: City;
+    city: City = new City();
     user: User = new User();
     coordinates: any;
     @ViewChild('googlemap') googlemap;
     Prod;
     Dev;
+    map;
 
 
     // PHOTO ARRAY
@@ -45,8 +48,39 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
             // POPULATE USER WITH LOCATION'S USER
             this.userService.getUser(this.location.user).subscribe(
                 data => {
-                    console.log(data);
                     this.user = data.obj;
+                    //  POPULATE CITY WITH RELEVANT CITY
+                    this.cityService.getCity(this.location.address.city)
+                        .subscribe(
+                            _data => {
+                                this.city = _data.obj;
+
+
+
+                                mapboxgl.accessToken = 'pk.eyJ1IjoiaGFza2UxMDciLCJhIjoiY2plODUyaWx2MDE4bzJxcGhoNHdsY201MSJ9.ZUYUuHcwZZ2KsDkeeP_uAA';
+                                const map = new mapboxgl.Map({
+                                    container: 'mapid',
+                                    style: 'mapbox://styles/mapbox/light-v9',
+                                    minZoom: 10,
+                                    center: {lat: this.city.center.lat, lng: this.city.center.lng}
+                                });
+                                map.on('load', () => {
+                                    map.addLayer({
+                                        'id': 'City',
+                                        'type': 'fill',
+                                        'source': {
+                                            'type': 'geojson',
+                                            'data': JSON.parse(this.city.boundarycoordinates)
+                                        },
+                                        'layout': {},
+                                        'paint': {
+                                            'fill-color': '#088',
+                                            'fill-opacity': 0.8
+                                        }
+                                    });
+                                });
+                            }
+                        );
                 }
             );
         } else {
@@ -55,6 +89,7 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
                 this.router.navigateByUrl('main/search');
             }
         }
+
         // POPULATE AND SANITIZE IMAGE LINKS
         this.ImgUrl = 'https://' + Prod + '/files/' + this.location._id;
         this.ImgUrl = this.sanitzer.bypassSecurityTrustStyle(`url(${this.ImgUrl})`);
@@ -69,110 +104,11 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+
+
         this.pageStateService.Location = true;
-        this.cityService.getCity(this.location.address.city)
-            .subscribe(
-                data => {
-                    console.log(data);
-                    this.city = data.obj;
-                    this.coordinates = JSON.parse(data.obj.boundarycoordinates);
-                }
-            );
-        this.googlemap.styles = [
-            {
-                'featureType': 'landscape.natural',
-                'elementType': 'geometry.fill',
-                'stylers': [
-                    {
-                        'color': '#efefef'
-                    },
-                    {
-                        'visibility': 'on'
-                    }
-                ]
-            },
-            {
-                'featureType': 'poi',
-                'elementType': 'geometry.fill',
-                'stylers': [
-                    {
-                        'color': '#f3f3f3'
-                    },
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'poi',
-                'elementType': 'business',
-                'stylers': [
-                    {
-                        'color': '#f3f3f3'
-                    },
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'transit',
-                'stylers': [
-                    {
-                        'color': '#f3f3f3'
-                    },
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'road',
-                'elementType': 'geometry',
-                'stylers': [
-
-                    {
-                        'lightness': 100
-
-                    },
-                    {
-                        'visibility': 'simplified'
-                    }
-                ]
-            },
-            {
-                'featureType': 'road',
-                'elementType': 'labels',
-                'stylers': [
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'transit.line',
-                'elementType': 'geometry',
-                'stylers': [
-                    {
-                        'lightness': 700
-                    },
-                    {
-                        'visibility': 'off'
-                    }
-                ]
-            },
-            {
-                'featureType': 'water',
-                'stylers': [
-                    {
-                        'color': '#a1a0a4'
-                    }
-                ]
-            }
-        ];
-        this.googlemap.zoom = 11;
-        this.googlemap.disableDefaultUI = true;
 
     }
+
 }
 

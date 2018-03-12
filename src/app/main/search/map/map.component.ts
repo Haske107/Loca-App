@@ -4,7 +4,6 @@ import {Location} from '../../../ts models/location.model';
 import {Router} from '@angular/router';
 import {LocationService} from '../../../services/location.service';
 import {SearchService} from '../../../services/search.service';
-import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-map',
@@ -33,6 +32,8 @@ export class MapComponent implements OnInit {
   constructor(private searchService: SearchService, private locationService: LocationService) { }
 
   ngOnInit() {
+
+
     this.CurrentLocation = this.searchService.TempDistance.CurrentLocation;
     this.searchService.onQuery.subscribe(
 

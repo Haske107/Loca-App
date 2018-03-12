@@ -4,41 +4,40 @@
         <!-- BANNER PHOTO & TITLE -->
         <div class="row Banner-Row">
             <div class="col-md-12 Banner-Container">
-                <mat-card class="Banner-Card">
+                <div class="Banner-Card">
                     <div class="Banner-Image" [style.background-image]="ImgUrl">
 
                     </div>
-                    <h3 class="Location-Title Main-Title">
-                      {{location.name}}
-                    </h3>
-                </mat-card>
+                </div>
             </div>
         </div>
         <!-- DETAILS -->
         <div class="row Second-Row">
-            <div class="col-md-4 Details-Container">
-                <mat-card class="Details-Card">
-                    <!--{{location.description}}-->
-                    <!--<hr>-->
-                    <!--<strong>Rate: </strong> {{location.rate}} <br>-->
-                    <!--<strong>Deposit: </strong> {{location.deposit}} <br>-->
-                    <!--<strong>Type: </strong> {{location.type}}<br>-->
-                    <!--<strong>Parking: </strong> {{location.parkingSpots}} <br>-->
-                    <!--<strong>Bathrooms: </strong> {{location.bathrooms}} <br>-->
-                    <!--<strong>Electricity: </strong> {{location.electricity ? "Yes" : "No"}}-->
-                    BOOKING COMPONENT
-                </mat-card>
+
+            <div class="col-md-12 Details-Container">
+                <div class="General-Title">
+                    <h2>{{location.name}}</h2>
+                    <hr>
+                </div>
+                <div class="General-Body">
+                        {{location.description}}
+                </div>
             </div>
-            <div class="col-md-4 Details-Container">
-                <mat-card class="Details-Card">
-                    DETAILS
-                </mat-card>
+            <div class="col-md-12 Details-Container-2">
+                <div class="Details-Card">
+                    <div class="Details-Title">
+                        <h4>Details</h4>
+                    </div>
+                    <div class="Details-Body">
+                        <mat-grid-list class="Details-Grid" [rowHeight]="1" [gutterSize]="1" [cols]="4">
+                            <mat-grid-tile class="Details-Tile">
+Test
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 Details-Container">
-                <mat-card class="Details-Card">
-                    CONTACT
-                </mat-card>
-            </div>
+
         </div>
         <!-- DESCRIPTION -->
         <div class="row Third-Row">
@@ -56,23 +55,11 @@
             <h5 class="State-Title Right-Panel-Title">{{location.address.state}}</h5>
             <div class="City-Banner" [style.background-image]="CityPhoto"></div>
         </mat-card>
-            <agm-map #googlemap class="City-Map" [latitude]="location.coordinates.lat" [longitude]="location.coordinates.lng">
-                <agm-polygon [paths]="coordinates" [fillColor]="'red'">
+        <div id="mapid" class="City-Map">
 
-                </agm-polygon>
-                <agm-marker
-                [latitude]="location.coordinates.lat"
-                [longitude]="location.coordinates.lng"
-                [iconUrl]="{
-                url: './../../../../assets/icons/'+ location.type +'.svg',
-                scaledSize: {
-                height: 13,
-                width: 13
-                },
-                optimized: true
-                }">
-                </agm-marker>
-            </agm-map>
+
+        </div>
+
         <div class="City-Summary">
             <h3 class="Right-Panel-Title City-General-Rules">General Filming Guidelines</h3>
             <ul class="City-General-List">
@@ -93,11 +80,9 @@
                         <li>TH | {{city.permitoffice.hours.thursday.open}} - {{city.permitoffice.hours.thursday.close}}</li>
                         <li>F | {{city.permitoffice.hours.friday.open}} - {{city.permitoffice.hours.friday.close}}</li>
                         <li>SA | {{city.permitoffice.hours.saturday.open}} - {{city.permitoffice.hours.saturday.close}}</li>
-
                     </ul>
                 <li>Film Contact: <strong>{{city.permitoffice.filmcontact.fname}} {{city.permitoffice.filmcontact.lname}}</strong></li>
             </ul>
-
         </div>
     </div>
 </div>

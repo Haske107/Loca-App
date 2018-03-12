@@ -41,6 +41,7 @@ export class FillOutDetailsComponent implements OnInit {
     TruckValue = -1;
     RateValue = -1;
     DepositValue = -1;
+    TypeValue = '';
 
     constructor(private fb: FormBuilder, private uploadService: UploadService) {}
 

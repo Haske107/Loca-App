@@ -1,8 +1,8 @@
 <!-- MAIN BAR -->
-<app-main-toolbar [ngStyle]="'Upload' === pageStateService.isOpen() ? {display: 'none', transition: '.3s ease'} :
-                             'Location' === pageStateService.isOpen() ? {top: '32px', left: '39px', transition: '.3s ease'} :
-                             'Permit' === pageStateService.isOpen() ? {top: '64px', left: '2150px', transition: '.3s ease'} :
-                             'Search' === pageStateService.isOpen() ? {top: '64px', left: '39px', transition: '.3s ease'} :
+<app-main-toolbar [ngStyle]="'Upload' === pageStateService.open ? {top: '0',  left: '0', display: 'none', transition: '.3s ease'} :
+                             'Location' === pageStateService.open ? {top: '32px', left: '39px', transition: '.3s ease'} :
+                             'Permit' === pageStateService.open ? {top: '64px', left: 'calc(50% - 375px)', transition: '.3s ease'} :
+                             'Search' === pageStateService.open ? {top: '64px', left: '39px', transition: '.3s ease'} :
                              null"
 >
 

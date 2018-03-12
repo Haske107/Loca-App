@@ -22,6 +22,10 @@ var CitySchema = new schema({
     parking: {type: String},
     completed: {type: Boolean},
     boundarycoordinates: {type: String},
+    center: {
+        lat: {type: Number},
+        lng: {type: Number}
+    },
     permitoffice: {
         address: {type: String}, //
         phone: {type: String}, //
