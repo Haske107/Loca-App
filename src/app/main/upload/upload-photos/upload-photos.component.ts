@@ -62,6 +62,7 @@ export class UploadPhotosComponent implements OnInit {
         event.preventDefault();
 
     }
+
     // ADD PHOTOS TO ARRAY VIA DROP
     onDrop(event: any) {
         event.stopPropagation();

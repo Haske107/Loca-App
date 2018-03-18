@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {UserProfileComponent} from './user-profile.component';
-import {PrivateCollectionsComponent} from '../collections/private-collections/private-collections.component';
 import {AngularMaterialsModule} from "../../angular-materials.module";
 
 @NgModule({
@@ -12,7 +11,6 @@ import {AngularMaterialsModule} from "../../angular-materials.module";
   ],
   declarations: [
       UserProfileComponent,
-      PrivateCollectionsComponent
   ]
 })
 export class UserProfileModule { }

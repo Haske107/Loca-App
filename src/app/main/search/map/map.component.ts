@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
   searchString = '';
   typeObject: {};
   electrictyObject: {};
-  BathroomLimit: number;
+  bathroomObject: number;
   rateObject: {};
 
   // HTML REFERENCES
@@ -55,7 +55,7 @@ export class MapComponent implements OnInit {
     );
     this.searchService.onBathroom.subscribe(
       res =>  {
-        this.BathroomLimit = res;
+        this.bathroomObject = res;
 
       }
     );

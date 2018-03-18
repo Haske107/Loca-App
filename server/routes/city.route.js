@@ -20,4 +20,15 @@ cityRoutes.get('/getCity/:Name', function(req, res, next)    {
     });
 });
 
+
+cityRoutes.get('/getAll', function(req, res)  {
+    City.find()
+        .exec(function(err, Cities)  {
+            res.status(200).json({
+                message: 'returning cities',
+                obj: Cities
+            });
+        });
+});
+
 module.exports = cityRoutes;

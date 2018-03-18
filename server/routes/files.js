@@ -63,7 +63,6 @@ filesRoutes.get('/:id', function(req,res) {
 });
 
 //VERIFY USER BEFORE PROCEEDING
-
 filesRoutes.use('/', function(req,res,next){
   jwtoken.verify(req.query.token, 'xbqRTQ3hdPmhfSX3g8QhreT9ZmYLUZsjVU8ybMEI_xvSaN9xzv9ldDZ0i3eRwuVr', function(err, decoded)  {
     if(err) {
@@ -76,22 +75,6 @@ filesRoutes.use('/', function(req,res,next){
   })
 });
 
-//UPLOAD MAIN PHOTO
-filesRoutes.post('/main/:id', function (req, res, next) {
-  var path = '';
-  supload(req, res, function (err) {
-    if (err) {
-      console.log(err);
-      return res.status(422).send("an Error occured")
-    }
-
-    path = req.file.path;
-    res.status(201).json({
-      message: 'Success!',
-      obj: req.file
-    });
-  });
-});
 //UPLOAD OTHER PHOTOS
 filesRoutes.post('/other/:id', function (req, res, next) {
   mupload(req, res, function (err) {

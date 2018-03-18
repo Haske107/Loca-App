@@ -1,0 +1,29 @@
+/* CLASSES */
+
+/* COMPONENTS */
+.Container  {
+  text-align: center;
+  overflow-x: hidden;
+}
+  .City-List{
+    overflow-x: hidden;
+
+    padding-top: 140px;
+  }
+    .City-Card  {
+      margin: 10px;
+      transition: .3s ease;
+
+    }
+    .City-Card:hover  {
+      margin-bottom: 5px;
+      transition: .3s ease;
+    }
+
+mat-spinner {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 50px);
+  top: calc(30vh - 50px);
+}

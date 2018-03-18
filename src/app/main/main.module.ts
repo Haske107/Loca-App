@@ -6,7 +6,6 @@ import {MainComponent} from './main.component';
 import {UserProfileModule} from './user-profile/user-profile.module';
 import {SearchModule} from './search/search.module';
 import {UploadModule} from './upload/upload.module';
-import {CollectionsModule} from './collections/collections.module';
 import {ChatModule} from './chat/chat.module';
 import {LocationProfileModule} from './location-profile/location-profile.module';
 import {Routing} from '../app.routing';
@@ -17,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AngularMaterialsModule} from '../angular-materials.module';
 import {MainToolbarComponent} from "./main-toolbar/main-toolbar.component";
 import { PermitComponent } from './permit/permit.component';
+import { InfoComponent } from './permit/info/info.component';
 
 // MODULES
 @NgModule({
@@ -25,7 +25,6 @@ import { PermitComponent } from './permit/permit.component';
       UserProfileModule,
       SearchModule,
       UploadModule,
-      CollectionsModule,
       ChatModule,
       LocationProfileModule,
       BrowserModule,
@@ -39,6 +38,7 @@ import { PermitComponent } from './permit/permit.component';
       MainComponent,
       MainToolbarComponent,
       PermitComponent,
+      InfoComponent,
   ]
 })
 export class MainModule { }

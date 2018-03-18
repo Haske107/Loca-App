@@ -13,7 +13,7 @@ export class ElectricityFilterComponent implements OnInit {
   ParentTopOffset: string;
   ParentLeftOffset: string;
 
-  state: {};
+  state: {Yes: boolean, No: boolean};
 
   constructor(private searchService: SearchService) { }
 

@@ -41,7 +41,6 @@ app-upload-photos   {
 }
 
 .background    {
-    background-image: url('./../../../../src/assets/images/Upload Background.jpg');
     background-size: cover;
     position: absolute;
     bottom: 0;
@@ -64,7 +63,7 @@ form{
 }
 .wrapper    {
     position: absolute;
-    background-image: url('./../../../../src/assets/images/Upload Background.jpg');
+    background-image: url('../../../assets/images/UploadBackground.jpg');
     background-size: cover;
     bottom: 0;
     top: 0;

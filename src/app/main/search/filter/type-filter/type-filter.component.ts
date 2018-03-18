@@ -14,7 +14,16 @@ export class TypeFilterComponent implements OnInit {
   ParentTopOffset: string;
   ParentLeftOffset: string;
 
-  states = {};
+  states: {
+      Apartment: boolean,
+      Home: boolean,
+      School: boolean,
+      Restaurant: boolean,
+      Bar: boolean,
+      Park: boolean,
+      Street: boolean,
+      Business: boolean,
+  };
 
   constructor(private searchService: SearchService) { }
 
