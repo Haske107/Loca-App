@@ -2,7 +2,6 @@
   text-align: left;
 }
 .DetailsForm  {
-  margin-top: 5%;
   width: 100%;
 }
   .Name-Type-Row  {
@@ -15,315 +14,63 @@
     }
       .Name-InputField  {
         margin-bottom: 18px;
-      }
-      .Description-InputField {
+        border-radius: 0 !important;
 
       }
+      .Description-InputField {
+        margin-bottom: 18px;
+        border-radius: 0 !important;
+      }
+      .add    {
+        cursor: pointer;
+        min-width: 24px ;
+        width: 24px;
+        padding: 0;
+        height: 24px;
+        position: absolute;
+        right: 14px;
+      }
+      .Add-Icon {
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+      }
+      .rule-row {
+        height: 48px;
+      }
+        .Rule-Input {
+          margin-bottom: 18px;
+          border-radius: 0 !important;
+        }
+          .Minus-Icon {
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+          }
+          .minus  {
+            cursor: pointer;
+            padding: 0;
+            color: red;
+            width: 12px !important;
+            max-width: 12px !important;
+            min-width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            right: 6px;
+            top: -48px;
+          }
+
     .Right-Panel  {
 
     }
       .Type-Input {
         height: calc(100% - 32px);
+        border-radius: 0 !important;
       }
-  .Details-Row-1  {
-    width: 100%;
-    height: auto;
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-      .Bathrooms-Tile {
-        width: 150px;
-        min-width: 150px;
-        height: 180px;
-        padding: 0;
-        margin: 24px;
-      }
-        .Bathrooms-Icon {
-          height: 30px;
-          width: 30px;
-          position: absolute;
-          top: 4px;
-          left: 60px;
-        }
-        .Bathrooms-Title  {
-          position: absolute;
-          bottom: 4px;
-          width: 100%;
-          text-align: center;
-          left: 0;
-          color: #74befb;
-        }
-        .Bathrooms-Add  {
-          position: absolute;
-          min-width: 36px ;
-          width: 36px;
-          padding: 0;
-          height: 36px;
-          left: 36px;
-          bottom: 48px;
-        }
-        .Bathrooms-Add:hover  {
-
-        }
-        .Bathrooms-Add:active {
-
-        }
-        .Bathrooms-Minus  {
-          position: absolute;
-          min-width: 36px ;
-          width: 36px;
-          padding: 0;
-          height: 36px;
-          right: 36px;
-          bottom: 48px;
-        }
-        .Bathrooms-Value  {
-          position: absolute;
-          width: 100%;
-          height: 36px;
-          right: 0;
-          font-size: 48px;
-          top: 36px;
-          text-align: center;
-          color: #c5c5c5;
-        }
-      .Power-Tile {
-        width: 150px;
-        height: 180px;
-        padding: 0;
-        margin: 24px;
-      }
-          .Power-Icon {
-            height: 30px;
-            width: 30px;
-            position: absolute;
-            top: 4px;
-            left: 60px;
-          }
-          .Power-Title  {
-            position: absolute;
-            bottom: 4px;
-            width: 100%;
-            text-align: center;
-            left: 0;
-            color: #c5c5c5;
-          }
-          .Power-Toggle {
-            position: absolute;
-            min-width: 36px ;
-            width: 36px;
-            padding: 0;
-            height: 36px;
-            left: 57px;
-            bottom: 48px;
-          }
-          .Power-Value-Icon  {
-            position: absolute;
-            width: 36px;
-            height: 36px;
-            right: 57px;
-            font-size: 48px;
-            top: 48px;
-            color: #c5c5c5;
-          }
-      .Cars-Tile  {
-        width: 150px;
-        height: 180px;
-        padding: 0;
-        margin: 24px;
-      }
-            .Car-Icon {
-              height: 30px;
-              width: 30px;
-              position: absolute;
-              top: 4px;
-              left: 60px;
-            }
-            .Car-Title {
-              position: absolute;
-              bottom: 4px;
-              width: 100%;
-              text-align: center;
-              left: 0;
-              color: #c5c5c5;
-            }
-            .Car-Add  {
-              position: absolute;
-              min-width: 36px ;
-              width: 36px;
-              padding: 0;
-              height: 36px;
-              left: 36px;
-              bottom: 48px;
-            }
-            .Car-Minus  {
-              position: absolute;
-              min-width: 36px ;
-              width: 36px;
-              padding: 0;
-              height: 36px;
-              right: 36px;
-              bottom: 48px;
-            }
-            .Car-Value {
-              position: absolute;
-              width: 100%;
-              height: 36px;
-              right: 0;
-              font-size: 48px;
-              top: 36px;
-              text-align: center;
-              color: #c5c5c5;
-            }
-
-        .Truck-Tile {
-          width: 150px;
-          height: 180px;
-          padding: 0;
-          margin: 24px;
-        }
-              .Truck-Icon {
-                height: 30px;
-                width: 30px;
-                position: absolute;
-                top: 4px;
-                left: 60px;
-              }
-              .Truck-Title {
-                position: absolute;
-                bottom: 4px;
-                width: 100%;
-                text-align: center;
-                left: 0;
-                color: #c5c5c5;
-              }
-              .Truck-Add  {
-                position: absolute;
-                min-width: 36px ;
-                width: 36px;
-                padding: 0;
-                height: 36px;
-                left: 36px;
-                bottom: 48px;
-              }
-              .Truck-Minus  {
-                position: absolute;
-                min-width: 36px ;
-                width: 36px;
-                padding: 0;
-                height: 36px;
-                right: 36px;
-                bottom: 48px;
-              }
-              .Truck-Value {
-                position: absolute;
-                width: 100%;
-                height: 36px;
-                right: 0;
-                font-size: 48px;
-                top: 36px;
-                text-align: center;
-                color: #c5c5c5;
-              }
-        .Rate-Tile {
-          width: 150px;
-          height: 180px;
-          padding: 0;
-          margin: 24px;
-        }
-              .Rate-Icon {
-                height: 30px;
-                width: 30px;
-                position: absolute;
-                top: 4px;
-                left: 60px;
-              }
-              .Rate-Title {
-                position: absolute;
-                bottom: 4px;
-                width: 100%;
-                text-align: center;
-                left: 0;
-                color: #c5c5c5;
-              }
-              .Rate-Add  {
-                position: absolute;
-                min-width: 36px ;
-                width: 36px;
-                padding: 0;
-                height: 36px;
-                left: 36px;
-                bottom: 48px;
-              }
-              .Rate-Minus  {
-                position: absolute;
-                min-width: 36px ;
-                width: 36px;
-                padding: 0;
-                height: 36px;
-                right: 36px;
-                bottom: 48px;
-              }
-              .Rate-Value {
-                position: absolute;
-                width: 100%;
-                height: 36px;
-                right: 0;
-                font-size: 30px;
-                top: 48px;
-                text-align: center;
-                color: #c5c5c5;
-              }
-        .Deposit-Tile  {
-          width: 150px;
-          height: 180px;
-          padding: 0;
-          margin: 24px;
-        }
-                .Deposit-Icon {
-                  height: 30px;
-                  width: 30px;
-                  position: absolute;
-                  top: 4px;
-                  left: 60px;
-                }
-                .Deposit-Title {
-                  position: absolute;
-                  bottom: 4px;
-                  width: 100%;
-                  text-align: center;
-                  left: 0;
-                  color: #c5c5c5;
-                }
-                .Deposit-Add  {
-                  position: absolute;
-                  min-width: 36px ;
-                  width: 36px;
-                  padding: 0;
-                  height: 36px;
-                  left: 36px;
-                  bottom: 48px;
-                }
-                .Deposit-Minus  {
-                  position: absolute;
-                  min-width: 36px ;
-                  width: 36px;
-                  padding: 0;
-                  height: 36px;
-                  right: 36px;
-                  bottom: 48px;
-                }
-                .Deposit-Value {
-                  position: absolute;
-                  width: 100%;
-                  height: 36px;
-                  right: 0;
-                  font-size: 30px;
-                  top: 48px;
-                  text-align: center;
-                  color: #c5c5c5;
-                }
 
 .Question-Row {
   margin-top: 12px;
@@ -346,15 +93,23 @@ mat-radio-button  {
 
 
 /* GLOBAL STYLES */
-.form-control {
-  border-radius: 0 !important;
+
+.list{
+  padding: 0;
 }
-.Add-Icon {
-  height: 36px;
-  width: 36px;
-  padding: 12px;
+.list-item  {
+  padding: 0;
+}
+.input-group-text {
+  outline: solid grey 1px;
+  height: 100%;
+  margin: 0;
+  width: 10%;
 }
 
+.listtext {
+  width: 100%;
+}
 
 
 
@@ -404,8 +159,6 @@ mat-form-field  {
   opacity: 1;
   transition: .5s ease;
   height: 48px;
-
-
 }
 .Next-Text  {
   text-align: center;
@@ -418,7 +171,6 @@ mat-form-field  {
   top: calc(50% - 15px);
   left: calc(50% + 38px);
   position: absolute;
-
 }
 
 .inline {
@@ -431,7 +183,6 @@ mat-form-field  {
   margin-top: 24px;
   height: 48px;
 }
-
 
 svg:hover path {
   fill: red;

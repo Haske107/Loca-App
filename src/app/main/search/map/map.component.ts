@@ -13,8 +13,6 @@ import {SearchService} from '../../../services/search.service';
 })
 export class MapComponent implements OnInit {
 
-
-
   // VARIABLES HOLDING FILTER PARAMETERS
   searchString = '';
   typeObject: {};
@@ -32,8 +30,6 @@ export class MapComponent implements OnInit {
   constructor(private searchService: SearchService, private locationService: LocationService) { }
 
   ngOnInit() {
-
-
     this.CurrentLocation = this.searchService.TempDistance.CurrentLocation;
     this.searchService.onQuery.subscribe(
 

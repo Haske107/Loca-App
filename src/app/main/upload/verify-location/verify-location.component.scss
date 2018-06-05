@@ -41,6 +41,7 @@ p {
 
 .container  {
   padding-bottom: 5px;
+  overflow-y: auto;
 }
 .row {
   margin-top: 10px;
@@ -63,6 +64,7 @@ agm-map {
 }
 .mapCard  {
   padding: 0;
+  height: 300px;
 }
 .upper-drawer {
   position: absolute;
@@ -137,12 +139,9 @@ agm-map {
 }
 
 .loading  {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  height: 300px;
   width: 100%;
-  height: 100%;
+  z-index: 0
 }
 mat-spinner{
   position: absolute;

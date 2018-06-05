@@ -5,16 +5,15 @@
      | typeFilter: typeObject
      | electricityFilter: electrictyObject
      | bathroomFilter: bathroomObject
-     | rateFilter: rateObject
-"
+     | rateFilter: rateObject"
     (markerClick)="toLocationProfile(location)"
     [latitude]="location.coordinates.lat"
     [longitude]="location.coordinates.lng"
     [iconUrl]="{
       url: './../../../../assets/icons/'+ location.type +'.svg',
       scaledSize: {
-      height: 40,
-      width: 40
+      height: 20,
+      width: 20
       },
       optimized: true
     }">

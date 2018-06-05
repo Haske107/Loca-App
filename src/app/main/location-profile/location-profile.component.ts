@@ -54,9 +54,6 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
                         .subscribe(
                             _data => {
                                 this.city = _data.obj;
-
-
-
                                 mapboxgl.accessToken = 'pk.eyJ1IjoiaGFza2UxMDciLCJhIjoiY2plODUyaWx2MDE4bzJxcGhoNHdsY201MSJ9.ZUYUuHcwZZ2KsDkeeP_uAA';
                                 const map = new mapboxgl.Map({
                                     container: 'mapid',

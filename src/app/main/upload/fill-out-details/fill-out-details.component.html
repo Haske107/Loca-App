@@ -24,7 +24,28 @@
                 [(ngModel)]="DetailsForm.value.Description"
         >
         </textarea>
+
+
+        <label >Add Some Rules</label>
+        <!-- ADD BUTTON -->
+        <button mat-raised-button class="add" (click)="Rules.push('')" >
+          <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
+        </button>
+        <!--  RULES INPUT -->
+        <div class="rule-row" *ngFor="let Rule of Rules; let i = index">
+          <input
+                  type="text"
+                  class="form-control Rule-Input"
+                  placeholder="Rule #{{i + 1}}"
+                  [(ngModel)]="Rules[i]"
+                  [ngModelOptions]="{standalone: true}"
+          >
+          <button mat-raised-button class="minus" (click)="Rules.splice(i, 1)" [ngStyle]="{position: 'relative'}">
+            <img class="Minus-Icon" src="./../../../../assets/icons/minus.svg">
+          </button>
+        </div>
       </div>
+
       <!-- RIGHT PANEL -->
       <div class="col-md-4 Right-Panel">
         <!-- TYPE -->
@@ -34,122 +55,13 @@
         </select>
       </div>
     </div>
-  <!-- DETAILS ROW 1 -->
-    <div class="Details-Row-1">
-        <mat-card class="Bathrooms-Tile">
-          <img class="svg Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
-          <h4 class="Bathrooms-Title">Bathrooms</h4>
-          <button mat-raised-button class="Bathrooms-Add" (click)="increaseBathroom()">
-            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-          </button>
-          <button mat-raised-button class="Bathrooms-Minus" (click)="decreaseBathroom()">
-            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-          </button>
-          <h4 class="Bathrooms-Value">
-            {{BathroomValue < 0 ? "" : BathroomValue}}
-          </h4>
-        </mat-card>
-        <mat-card class="Power-Tile">
-          <img class="Power-Icon" src="./../../../../assets/icons/Power.svg">
-          <h4 class="Power-Title">Power </h4>
-          <button mat-raised-button class="Power-Toggle" (click)="toggleElectricity()">
-            <img class="Add-Icon" src="./../../../../assets/icons/circle.svg">
-          </button>
-          <h4 class="Power-Value">
-            <img *ngIf="!ElectricityValue" class="Power-Value-Icon" src="./../../../../assets/icons/wrong.svg">
-            <img *ngIf="ElectricityValue" class="Power-Value-Icon" src="./../../../../assets/icons/tick-sign.svg">
-
-
-          </h4>
-        </mat-card>
-        <mat-card class="Cars-Tile">
-          <img class="Car-Icon" src="./../../../../assets/icons/Car.svg">
-          <h4 class="Car-Title">Parking </h4>
-          <button mat-raised-button="" class="Car-Add" (click)="increaseCar()">
-            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-          </button>
-          <button mat-raised-button="" class="Car-Minus" (click)="decreaseCar()">
-            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-          </button>
-          <h4 class="Car-Value">
-            {{CarValue < 0 ? "" : CarValue}}
-          </h4>
-        </mat-card>
-        <mat-card class="Truck-Tile">
-          <img class="Truck-Icon" src="./../../../../assets/icons/Truck.svg">
-          <h4 class="Truck-Title">Trucks </h4>
-          <button mat-raised-button class="Truck-Add" (click)="increaseTruck()">
-            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-          </button>
-          <button mat-raised-button class="Truck-Minus" (click)="decreaseTruck()">
-            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-          </button>
-          <h4 class="Truck-Value">
-            {{TruckValue < 0 ? "" : TruckValue}}
-          </h4>
-        </mat-card>
-        <mat-card class="Rate-Tile">
-          <img class="Rate-Icon" src="./../../../../assets/icons/Rate.svg">
-          <h4 class="Rate-Title">Rate / Day</h4>
-          <button mat-raised-button class="Rate-Add" (click)="increaseRate()">
-            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-          </button>
-          <button mat-raised-button class="Rate-Minus" (click)="decreaseRate()">
-            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-          </button>
-          <h4 class="Rate-Value">
-            {{RateValue < 0 ? "" : RateValue | currency}}
-          </h4>
-      </mat-card>
-        <mat-card class="Deposit-Tile">
-          <img class="Deposit-Icon" src="./../../../../assets/icons/Deposit.svg">
-          <h4 class="Deposit-Title">Deposit </h4>
-          <button mat-raised-button class="Deposit-Add" (click)="increaseDeposit()">
-            <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-          </button>
-          <button mat-raised-button class="Deposit-Minus" (click)="decreaseDeposit()">
-            <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-          </button>
-          <h4 class="Deposit-Value">
-            {{DepositValue < 0 ? "" : DepositValue | currency}}
-          </h4>
-      </mat-card>
-    </div>
-
-  <div class="row Question-Row">
-    <div class="col-md-8 offset-md-2">
-      <h4 class="Question-1">Are you the property owner?
-        <mat-radio-group class="Owner-Button-Group">
-        <mat-radio-button value="1">
-Yes
-        </mat-radio-button>
-          <mat-radio-button value ="0">
-No
-          </mat-radio-button>
-      </mat-radio-group></h4>
-
-      <br>
-      <h4 class="Question-2">Is the property private or public?<mat-radio-group class="Owner-Button-Group">
-        <mat-radio-button value="1">
-          Public
-        </mat-radio-button>
-        <mat-radio-button value="0">
-          Private
-        </mat-radio-button>
-      </mat-radio-group></h4>
-
-    </div>
-
-  </div>
-
     <button type="submit" style="display:none">hidden submit</button>
   </form>
 
 
 
 <!-- NEXT BUTTON -->
-<div class="row nextrow">
-  <div class="col-md-8 offset-md-2 nextrow" style="padding:0">
+  <div class="col-md-12 nextrow" style="padding:0">
     <mat-card class="Next-Button" (click)="submit(null)" [ngStyle]="{'background-color': color, 'cursor' : cursor}">
       <div class="inline">
         <h3 class="Next-Text" [ngStyle]="{color: textcolor}">Next</h3>
@@ -157,4 +69,3 @@ No
       </div>
     </mat-card>
   </div>
-</div>

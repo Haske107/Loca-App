@@ -14,6 +14,7 @@ import {UploadService} from './upload.service';
 import {MatExpansionModule, MatRadioModule, } from '@angular/material';
 import {FileDropModule} from "ngx-file-drop";
 import {DndModule} from "ng2-dnd";
+import { AmenitiesComponent } from './amenities/amenities.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {DndModule} from "ng2-dnd";
       UploadPhotosComponent,
       VerifyLocationComponent,
       LocationRulesComponent,
+      AmenitiesComponent,
   ],
     providers: [
         UploadService

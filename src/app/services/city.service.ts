@@ -16,7 +16,7 @@ export class CityService {
         const body = JSON.stringify(city);
         const headers = new Headers({
             'Content-Type': 'application/json'});
-        return this.http.post('http://' + Prod +'/city/save' , body, {headers: headers})
+        return this.http.post('http://' + Prod + '/city/save' , body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
@@ -25,7 +25,7 @@ export class CityService {
         const body = name;
         const headers = new Headers({
             'Content-Type': 'application/json'});
-        return this.http.get('http://' + Prod +'/city/getCity/' + body, {headers: headers})
+        return this.http.get('http://' + Prod + '/city/getCity/' + body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
@@ -33,7 +33,7 @@ export class CityService {
     getCities() {
         const headers = new Headers({
             'Content-Type': 'application/json'});
-        return this.http.get('http://' + Prod +'/city/getAll' )
+        return this.http.get('http://' + Prod + '/city/getAll' )
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }

@@ -10,7 +10,8 @@ import {AgmCoreModule} from "@agm/core";
       AngularMaterialsModule,
       AgmCoreModule.forRoot({
           apiKey: 'AIzaSyBi7vTAnGqlbgX3x3N6-YV9S2BPR4PtreI'
-      })
+      }),
+
   ],
   declarations: [
       LocationProfileComponent,

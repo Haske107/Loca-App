@@ -1,8 +1,6 @@
-import {Component, EventEmitter, Host, Inject, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
 import {MapService} from '../../../services/map.service';
-import {inlineInterpolate} from '@angular/core/src/view';
 import {DOCUMENT} from '@angular/common';
-import {UploadComponent} from '../upload.component';
 import {UploadService} from '../upload.service';
 
 @Component({
@@ -18,8 +16,6 @@ export class VerifyLocationComponent implements OnInit {
     State ;
     Country ;
     Postal ;
-    mlat: number;
-    mlng: number;
     lat = 33.78595702552393;
     lng = -117.85323192626953;
 
@@ -47,7 +43,6 @@ export class VerifyLocationComponent implements OnInit {
             this.State = this.uploadService.NewLocation.address.state;
             this.Country = this.uploadService.NewLocation.address.country;
             this.Postal = this.uploadService.NewLocation.address.zip;
-
         }
         if (this.uploadService.NewLocation.coordinates) {
             this.lat = this.uploadService.NewLocation.coordinates.lat;
@@ -158,9 +153,7 @@ export class VerifyLocationComponent implements OnInit {
         this.lat = event.coords.lat;
         this.lng = event.coords.lng;
         this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
-
         this.uploadService.emitChanges(1);
-
     }
 
     getCurrentLocation() {

@@ -7,14 +7,14 @@ export class FilterPipe implements PipeTransform {
 
   transform( value: any, input: string, propName: string): any {
 
-    if(value) {
-      if( input === '' || value.length < 1 )  {
+    if (value) {
+      if ( input === '' || value.length < 1 )  {
         return value;
       }
       const resultArray = [];
-      for(const item of value)  {
+      for (const item of value)  {
         if ( item.name.toUpperCase().includes(input.toUpperCase()))  {
-          resultArray.push(item)
+          resultArray.push(item);
         }
       }
       return resultArray;

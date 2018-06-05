@@ -1,11 +1,12 @@
 mat-horizontal-stepper   {
     width: 80%;
-    height: 80vh;
+    height: 85vh;
     position: absolute;
     top: calc(50% - 40vh);
     left: calc(50% - 40%);
     border-radius: 20px;
     padding: 0;
+    overflow-y: auto;
 }
 mat-step    {
     padding: 0;
