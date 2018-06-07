@@ -6,6 +6,75 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+
+.Tile  {
+  width: 150px;
+  height: 180px;
+  padding: 0;
+  margin: 24px;
+}
+.smaller  {
+  font-size: 20px;
+}
+.Icon {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 4px;
+  left: 60px;
+  transition: .3s ease;
+}
+.Big  {
+  width: 100%;
+  height: 68px;
+  top: 20px;
+  right: 0;
+  left: 0;
+  transition: .3s ease;
+}
+.Title {
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  color: #74befb;
+}
+.Add  {
+  position: absolute;
+  min-width: 36px ;
+  width: 36px;
+  padding: 0;
+  height: 36px;
+  left: 36px;
+  bottom: 48px;
+}
+.Minus  {
+  position: absolute;
+  min-width: 36px ;
+  width: 36px;
+  padding: 0;
+  height: 36px;
+  right: 36px;
+  bottom: 48px;
+}
+.Value {
+  position: absolute;
+  width: 100%;
+  height: 36px;
+  right: 0;
+  font-size: 30px;
+  top: 48px;
+  text-align: center;
+  color: #c5c5c5;
+}
+
+
+
+
+
+
   .Bathrooms-Tile {
     width: 150px;
     min-width: 150px;
@@ -497,4 +566,36 @@
   height: 36px;
   width: 36px;
   padding: 12px;
+}
+.Next-Button  {
+  margin-left: 2%;
+  margin-top: 0;
+  width: 96%;
+  background-color: #7acc85;
+  opacity: 1;
+  transition: .5s ease;
+  height: 48px;
+}
+.Next-Text  {
+  text-align: center;
+  color: white;
+  transition: .5s ease;
+}
+.Next-Icon  {
+  color: white;
+  transition: .5s ease;
+  top: calc(50% - 15px);
+  left: calc(50% + 38px);
+  position: absolute;
+}
+
+.inline {
+  display: inline-flex;
+  position: absolute;
+  left: calc(50% - 47px);
+  top: calc(50% - 20px);
+}
+.nextrow  {
+  margin-top: 24px;
+  height: 48px;
 }

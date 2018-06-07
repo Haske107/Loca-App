@@ -1,5 +1,6 @@
 <!-- DETAILS ROW 1 -->
 <div class="Details-Row-1">
+
   <mat-card class="Bathrooms-Tile">
     <img [ngStyle]="BathroomValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="svg Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
     <h4 class="Bathrooms-Title">Bathrooms</h4>
@@ -15,17 +16,20 @@
   </mat-card>
 
 
-  <mat-card class="Power-Tile">
-    <h4 class="Power-Title">Electricity</h4>
-    <button mat-raised-button class="Power-Toggle" (click)="toggleElectricity()">
-      <img class="Add-Icon" src="./../../../../assets/icons/circle.svg">
+
+  <mat-card class="Tile">
+    <img  [ngStyle]="MaxValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Icon" src="./../../../../assets/icons/group.svg">
+    <h4 class="Title">Max Crew</h4>
+    <button mat-raised-button class="Add" (click)="increaseMax()">
+      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
     </button>
-    <h4 class="Power-Value">
-      <img  class="Power-Value-Icon" src="./../../../../assets/icons/Power.svg">
-      <img [ngStyle]="!ElectricityValue ? {opacity: '1'} : {}" class="Power-No-Icon" src="./../../../../assets/icons/No.svg">
+    <button mat-raised-button class="Minus" (click)="decreaseMax()">
+      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
+    </button>
+    <h4 class="Value">
+      {{MaxValue < 0 ? "" : MaxValue}}
     </h4>
   </mat-card>
-
 
   <mat-card class="Cars-Tile">
     <img [ngStyle]="CarValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Car-Icon" src="./../../../../assets/icons/Car.svg">
@@ -53,32 +57,7 @@
       {{TruckValue < 0 ? "" : TruckValue}}
     </h4>
   </mat-card>
-  <mat-card class="Rate-Tile">
-    <img [ngStyle]="RateValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Rate-Icon" src="./../../../../assets/icons/Rate.svg">
-    <h4 class="Rate-Title">Rate / Day</h4>
-    <button mat-raised-button class="Rate-Add" (click)="increaseRate()">
-      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-    </button>
-    <button mat-raised-button class="Rate-Minus" (click)="decreaseRate()">
-      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-    </button>
-    <h4 class="Rate-Value">
-      {{RateValue < 0 ? "" : RateValue | currency}}
-    </h4>
-  </mat-card>
-  <mat-card class="Deposit-Tile">
-    <img  [ngStyle]="DepositValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Deposit-Icon" src="./../../../../assets/icons/Deposit.svg">
-    <h4 class="Deposit-Title">Deposit </h4>
-    <button mat-raised-button class="Deposit-Add" (click)="increaseDeposit()">
-      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
-    </button>
-    <button mat-raised-button class="Deposit-Minus" (click)="decreaseDeposit()">
-      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
-    </button>
-    <h4 class="Deposit-Value">
-      {{DepositValue < 0 ? "" : DepositValue | currency}}
-    </h4>
-  </mat-card>
+
 
   <mat-card class="Wifi-Tile">
     <h4 class="Wifi-Title">Wifi</h4>
@@ -103,6 +82,17 @@
     </h4>
   </mat-card>
 
+  <mat-card class="Power-Tile">
+    <h4 class="Power-Title">Electricity</h4>
+    <button mat-raised-button class="Power-Toggle" (click)="toggleElectricity()">
+      <img class="Add-Icon" src="./../../../../assets/icons/circle.svg">
+    </button>
+    <h4 class="Power-Value">
+      <img  class="Power-Value-Icon" src="./../../../../assets/icons/Power.svg">
+      <img [ngStyle]="!ElectricityValue ? {opacity: '1'} : {}" class="Power-No-Icon" src="./../../../../assets/icons/No.svg">
+    </h4>
+  </mat-card>
+
   <mat-card class="Soft-Tile">
     <h4 class="Soft-Title">Soft Wrap</h4>
     <button mat-raised-button class="Soft-Toggle" (click)="toggleSoft()">
@@ -114,8 +104,74 @@
     </h4>
   </mat-card>
 
+  <mat-card class="Rate-Tile">
+    <img [ngStyle]="RateValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Rate-Icon" src="./../../../../assets/icons/Rate.svg">
+    <h4 class="Rate-Title">Rate / Day</h4>
+    <button mat-raised-button class="Rate-Add" (click)="increaseRate()">
+      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
+    </button>
+    <button mat-raised-button class="Rate-Minus" (click)="decreaseRate()">
+      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
+    </button>
+    <h4 class="Rate-Value">
+      {{RateValue < 0 ? "" : RateValue | currency}}
+    </h4>
+  </mat-card>
+
+  <mat-card class="Deposit-Tile">
+    <img  [ngStyle]="DepositValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Deposit-Icon" src="./../../../../assets/icons/Deposit.svg">
+    <h4 class="Deposit-Title">Deposit </h4>
+    <button mat-raised-button class="Deposit-Add" (click)="increaseDeposit()">
+      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
+    </button>
+    <button mat-raised-button class="Deposit-Minus" (click)="decreaseDeposit()">
+      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
+    </button>
+    <h4 class="Deposit-Value">
+      {{DepositValue < 0 ? "" : DepositValue | currency}}
+    </h4>
+  </mat-card>
+
+  <mat-card class="Tile">
+    <img  [ngStyle]="{transformOrigin: '75px 45px', transform: 'rotate('+ (SoundValue < 0 ? -225 : ((SoundValue * 16) - 94))  +'deg)'}" class="Icon Big Dial" src="../../../../assets/icons/volume/Dial.svg">
+    <img *ngIf="SoundValue >= 0" class="Icon Big" src="../../../../assets/icons/volume/Notch1.svg">
+    <img *ngIf="SoundValue >= 1" class="Icon Big" src="../../../../assets/icons/volume/Notch2.svg">
+    <img *ngIf="SoundValue >= 2" class="Icon Big" src="../../../../assets/icons/volume/Notch3.svg">
+    <img *ngIf="SoundValue >= 3" class="Icon Big" src="../../../../assets/icons/volume/Notch4.svg">
+    <img *ngIf="SoundValue >= 4" class="Icon Big" src="../../../../assets/icons/volume/Notch5.svg">
+    <img *ngIf="SoundValue >= 5" class="Icon Big" src="../../../../assets/icons/volume/Notch6.svg">
+    <img *ngIf="SoundValue >= 6" class="Icon Big" src="../../../../assets/icons/volume/Notch7.svg">
+
+    <h4 class="Title smaller">Ambient Noise</h4>
+    <button mat-raised-button class="Add" (click)="increaseSound()">
+      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
+    </button>
+    <button mat-raised-button class="Minus" (click)="decreaseSound()">
+      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
+    </button>
+  </mat-card>
+
+  <mat-card class="Tile">
+    <img id="Light" class="Icon Big" src="../../../../assets/icons/light%20rays/sunny.svg">
+    <h4 class="Title smaller">Natural Light</h4>
+    <button mat-raised-button class="Add" (click)="increaseLight()">
+      <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
+    </button>
+    <button mat-raised-button class="Minus" (click)="decreaseLight()">
+      <img class="Add-Icon" src="./../../../../assets/icons/minus.svg">
+    </button>
+  </mat-card>
 
 
+  <!-- NEXT BUTTON -->
+  <div class="col-md-12 nextrow" style="padding:0">
+    <mat-card class="Next-Button" (click)="submit(null)" [ngStyle]="{'background-color': color, 'cursor' : cursor}" > <!-- ( -->
+      <div class="inline">
+        <h3 class="Next-Text"  [ngStyle]="{color: textcolor}">Next</h3>  <!-- -->
+        <mat-icon class="Next-Icon" [ngStyle]="{color: textcolor}" >arrow_forward</mat-icon> <!--  -->
+      </div>
+    </mat-card>
+  </div>
 
 </div>
 

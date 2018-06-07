@@ -1,6 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {UploadService} from "../upload.service";
+import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {UploadService} from '../upload.service';
+import {DOCUMENT} from "@angular/common";
+
 
 @Component({
   selector: 'app-amenities',
@@ -9,102 +11,78 @@ import {UploadService} from "../upload.service";
 })
 export class AmenitiesComponent implements OnInit {
 
-    DetailsForm: FormGroup;
     @Output() nextClick = new EventEmitter();
-
-    Types = [
-        'House',
-        'Office',
-        'Apartment',
-        'Park',
-        'Chapman',
-        'Bar',
-        'School',
-        'Street',
-        'Hotel',
-        'Cafe',
-        'Theatre',
-        'Studio',
-        'University'
-    ];
+    Numbers = 7;
 
     // DETAIL VALUES
-    BathroomValue = -1;
-    ElectricityValue = false;
-    CarValue = -1;
-    TruckValue = -1;
-    RateValue = -1;
-    DepositValue = -1;
-    TypeValue = '';
-    WifiValue = false;
-    ACValue = false;
-    SoftValue = false;
+    BathroomValue = -1; //
+    ElectricityValue = false; //
+    CarValue = -1; //
+    TruckValue = -1; //
+    RateValue = -1; //
+    DepositValue = -1; //
+    WifiValue = false; //
+    ACValue = false; //
+    SoftValue = false; //
+    WindowValue = -1;
+    SoundValue = -1;
+    MaxValue = -1;
 
-  constructor(private fb: FormBuilder, private uploadService: UploadService) { }
 
-  ngOnInit() {
-      this.DetailsForm = this.fb.group({
-          Description: [],
-          Bathrooms: [],
-          Electricity: [],
-          CarParking: [],
-          TruckParking: [],
-          Deposit: [],
-          Rate: [],
-      });
-  }
 
-    // TYPE SELECT
-    selectType(type: string)    {
-        this.DetailsForm.value.Type = type;
-        console.log(type);
+    // NG STYLE VARIABLES FOR NEXT BUTTON
+    textcolor = 'lightgrey';
+    color = 'grey';
+    cursor = 'not-allowed';
+    height = '0px';
+
+  constructor(@Inject(DOCUMENT) private document: any, private fb: FormBuilder, private uploadService: UploadService) { }
+
+    ngOnInit() {
     }
     // BATHROOM FUNCTIONS
     increaseBathroom()  {
         if (this.BathroomValue < 10) {
             this.BathroomValue++;
         }
-        this.DetailsForm.value.Bathrooms = this.BathroomValue;
+        this.setValid();
+        this.updateNewLocation();
     }
     decreaseBathroom()  {
         if (this.BathroomValue > 0)  {
             this.BathroomValue--;
         }
-        this.DetailsForm.value.Bathrooms = this.BathroomValue;
+        this.setValid();
+        this.updateNewLocation();
     }
-
-    // ELECTRCITY FUNCTION
-    toggleElectricity() {
-        this.ElectricityValue = !this.ElectricityValue;
-        this.DetailsForm.value.Electricity = this.ElectricityValue;
-    }
-
     // CAR FUNCTIONS
     increaseCar()    {
         this.CarValue++;
-        this.DetailsForm.value.carParking = this.CarValue;
-
+        this.setValid();
+        this.updateNewLocation();
     }
     decreaseCar()   {
         if (this.CarValue > 0)  {
             this.CarValue--;
         }
-        this.DetailsForm.value.carParking = this.CarValue;
-
+        this.setValid();
+        this.updateNewLocation();
     }
     // TRUCK FUNCTIONS
     increaseTruck() {
         this.TruckValue++;
-        this.DetailsForm.value.truckParking = this.TruckValue;
+        this.setValid();
+        this.updateNewLocation();
 
     }
     decreaseTruck() {
         if (this.TruckValue > 0)    {
             this.TruckValue--;
         }
-        this.DetailsForm.value.truckParking = this.TruckValue;
-    }
+        this.setValid();
+        this.updateNewLocation();
 
+    }
     // RATE FUNCTIONS
     increaseRate()  {
         if (this.RateValue < 0)   {
@@ -112,14 +90,17 @@ export class AmenitiesComponent implements OnInit {
         }   else {
             this.RateValue += 25;
         }
-        this.DetailsForm.value.Rate = this.RateValue;
+        this.setValid();
+        this.updateNewLocation();
 
     }
     decreaseRate()  {
         if ( this.RateValue  >= 25)   {
             this.RateValue -= 25;
         }
-        this.DetailsForm.value.Rate = this.RateValue;
+        this.setValid();
+        this.updateNewLocation();
+
     }
     // DEPOSIT FUNCTIONS
     increaseDeposit()   {
@@ -128,45 +109,122 @@ export class AmenitiesComponent implements OnInit {
         }   else {
             this.DepositValue += 25;
         }
-        this.DetailsForm.value.Deposit = this.DepositValue;
+        this.setValid();
+        this.updateNewLocation();
+
     }
     decreaseDeposit()   {
         if (this.DepositValue >= 25)    {
             this.DepositValue -= 25;
         }
-        this.DetailsForm.value.Deposit = this.DepositValue;
+        this.setValid();
+        this.updateNewLocation();
+
+    }
+    // MAX PEOPLE
+    increaseMax()   {
+      this.MaxValue++;
+      this.setValid();
+    }
+    decreaseMax()   {
+      if (this.MaxValue > 0)    {
+          this.MaxValue--;
+      }
+    }
+    // SOUND QUALITY
+    increaseSound()   {
+        if (this.SoundValue < 6)    {
+            this.SoundValue++;
+        }
+        this.setDialPosition();
+        console.log(this.SoundValue);
+
+    }
+    decreaseSound()   {
+        if (this.SoundValue > 0)    {
+            this.SoundValue--;
+        }
+        console.log(this.SoundValue);
+        this.setDialPosition();
+
+    }
+    // NATURAL LIGHT
+    increaseLight()  {
+      if (this.WindowValue < 4) {
+          this.WindowValue++;
+      }
+    }
+    decreaseLight() {
+      if (this.WindowValue > 0) {
+          this.WindowValue--;
+      }
     }
 
-    // WIFI FUNCTIONS
+    // TOGGLE FUNCTIONS
     toggleWifi()    {
       this.WifiValue = !this.WifiValue;
+        this.updateNewLocation();
     }
-
     toggleAC()  {
       this.ACValue = !this.ACValue;
+        this.updateNewLocation();
     }
-
     toggleSoft()    {
       this.SoftValue = !this.SoftValue;
+        this.updateNewLocation();
+
+    }
+    toggleElectricity() {
+        this.ElectricityValue = !this.ElectricityValue;
+        this.updateNewLocation();
+    }
+    // AUDIO SETTINGS
+    setDialPosition() {
     }
 
+    isValid()   {
+        if (
+            this.BathroomValue >= 0 &&
+            this.TruckValue >= 0 &&
+            this.CarValue >= 0 &&
+            this.RateValue >= 0 &&
+            this.DepositValue >= 0
+            // this.MaxValue *
+            // this.SoundValue *
+            // this.WindowValue;
+        ) {
+            return true;
+        }
+    }
+    setValid()  {
+      if (this.isValid()) {
+              this.color = '#7acc85';
+              this.textcolor = 'white';
+              this.cursor = 'pointer';
+      }
+    }
 
-    submit(event) {
-        if (this.DetailsForm.valid) {
-            this.uploadService.NewLocation.name = this.DetailsForm.value.Name;
-            this.uploadService.NewLocation.type = this.DetailsForm.value.Type;
-            this.uploadService.NewLocation.description = this.DetailsForm.value.Description;
-            this.uploadService.NewLocation.bathrooms = this.DetailsForm.value.Bathrooms;
-            this.uploadService.NewLocation.electricity = this.DetailsForm.value.Electricity;
-            this.uploadService.NewLocation.carParking = this.DetailsForm.value.CarParking;
-            this.uploadService.NewLocation.truckParking = this.DetailsForm.value.TruckParking;
-            this.uploadService.NewLocation.deposit = this.DetailsForm.value.Deposit;
-            this.uploadService.NewLocation.rate = this.DetailsForm.value.Rate;
-            this.DetailsForm.reset();
-            this.nextClick.emit();
-            console.log(this.uploadService.NewLocation);
+    updateNewLocation() {
+        this.uploadService.NewLocation.bathrooms = this.BathroomValue;
+        this.uploadService.NewLocation.electricity = this.ElectricityValue;
+        this.uploadService.NewLocation.carParking = this.CarValue;
+        this.uploadService.NewLocation.truckParking = this.TruckValue;
+        this.uploadService.NewLocation.deposit = this.DepositValue;
+        this.uploadService.NewLocation.rate = this.RateValue;
+        this.uploadService.NewLocation.windows = this.WindowValue;
+        this.uploadService.NewLocation.wifi = this.WifiValue;
+        this.uploadService.NewLocation.softwrap = this.SoftValue;
+        this.uploadService.NewLocation.ac = this.ACValue;
+        this.uploadService.NewLocation.soundQuality = this.SoundValue;
+        this.uploadService.NewLocation.maxPeople = this.MaxValue;
+
+    }
+    submit() {
+        if (this.isValid()) {
+           this.updateNewLocation();
+           this.nextClick.emit();
         }   else {
-            console.log("Not Ready");
+            console.log('Not Ready');
         }
     }
 }

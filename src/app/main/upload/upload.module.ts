@@ -8,7 +8,6 @@ import {FillOutDetailsComponent} from './fill-out-details/fill-out-details.compo
 import {ReviewAndSubmitComponent} from './review-and-submit/review-and-submit.component';
 import {UploadPhotosComponent} from './upload-photos/upload-photos.component';
 import {VerifyLocationComponent} from './verify-location/verify-location.component';
-import {LocationRulesComponent} from './location-rules/location-rules.component';
 import {AgmCoreModule} from '@agm/core';
 import {UploadService} from './upload.service';
 import {MatExpansionModule, MatRadioModule, } from '@angular/material';
@@ -38,7 +37,6 @@ import { AmenitiesComponent } from './amenities/amenities.component';
       ReviewAndSubmitComponent,
       UploadPhotosComponent,
       VerifyLocationComponent,
-      LocationRulesComponent,
       AmenitiesComponent,
   ],
     providers: [

@@ -4,15 +4,15 @@
 
 
 export class Location       {
-    //DB tools
+    // DB tools
     _id: string;
 
-    //stats
+    // stats
     collections: [string];
     views: number;
     uploadDate: String;
 
-    //form info
+    // form info
     user: string;
     address: {
       streetAddress: string,
@@ -39,6 +39,14 @@ export class Location       {
     carParking: number;
     truckParking: number;
     deleted: boolean;
+    maxPeople: number;
+    soundQuality: number;
+    windows: number;
+    softwrap: boolean;
+    ac: boolean;
+    wifi: boolean;
+
+
 
     constructor (
       user: string,
@@ -58,7 +66,13 @@ export class Location       {
       bathrooms?: number,
       electricity?: boolean,
       carParking?: number,
-      truckParking?: number
+      truckParking?: number,
+      maxPeople?: number,
+      windows?: number,
+      soundQuality?: number,
+      softwrap?: boolean,
+      ac?: boolean,
+      wifi?: boolean
     ) {
       this.user =  user;
       this.address =  address;
@@ -67,6 +81,10 @@ export class Location       {
       this.rules = rules;
       this.deposit = deposit;
       this.rate = rate;
+      this.maxPeople = maxPeople;
+      this.soundQuality = soundQuality;
+      this.windows = windows;
+      this.softwrap = softwrap;
       this.type = type;
       this.bathrooms = bathrooms;
       this.electricity = electricity;
@@ -74,5 +92,7 @@ export class Location       {
       this.truckParking = truckParking;
       this.deleted = false;
       this.coordinates = null;
+      this.ac = ac;
+      this.wifi = wifi;
     }
 }

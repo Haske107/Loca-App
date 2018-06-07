@@ -54,9 +54,15 @@ export class LocationService    {
             electricity: loca.electricity,
             carParking: loca.carParking,
             truckParking: loca.truckParking,
-            deleted: loca.deleted
-          };
-          transformedLocations.push(location);
+            deleted: loca.deleted,
+            maxPeople: loca.maxPeople,
+            soundQuality: loca.soundQuality,
+            windows: loca.windows,
+            softwrap: loca.softwrap,
+            ac: loca.ac,
+            wifi: loca.wifi
+            };
+            transformedLocations.push(location);
         }
         return transformedLocations;
       })
@@ -101,7 +107,13 @@ export class LocationService    {
             electricity: loca.electricity,
             carParking: loca.carParking,
             truckParking: loca.TruckParking,
-            deleted: loca.deleted
+            deleted: loca.deleted,
+            maxPeople: loca.maxPeople,
+            soundQuality: loca.soundQuality,
+            windows: loca.windows,
+            softwrap: loca.softwrap,
+            ac: loca.ac,
+            wifi: loca.wifi
           };
           transformedLocations.push(location);
         }

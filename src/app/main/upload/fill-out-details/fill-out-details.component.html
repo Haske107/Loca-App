@@ -1,5 +1,5 @@
 <!-- FORM CONTAINER -->
-  <form class="DetailsForm" [formGroup]="DetailsForm" (ngSubmit)="submit($event)" (keyup)="onChange()">
+  <form class="DetailsForm" [formGroup]="DetailsForm"  (keyup)="onChange()">
   <!-- NAME AND TYPE ROW -->
     <div class="row Name-Type-Row">
       <!-- LEFT PANEL -->
@@ -32,7 +32,7 @@
           <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">
         </button>
         <!--  RULES INPUT -->
-        <div class="rule-row" *ngFor="let Rule of Rules; let i = index">
+        <div class="rule-row" *ngFor="let Rule of Rules;trackBy: trackByFn; let i = index">
           <input
                   type="text"
                   class="form-control Rule-Input"
@@ -40,7 +40,7 @@
                   [(ngModel)]="Rules[i]"
                   [ngModelOptions]="{standalone: true}"
           >
-          <button mat-raised-button class="minus" (click)="Rules.splice(i, 1)" [ngStyle]="{position: 'relative'}">
+          <button mat-raised-button class="minus" (click)="removeRule(i)" [ngStyle]="{position: 'relative'}">
             <img class="Minus-Icon" src="./../../../../assets/icons/minus.svg">
           </button>
         </div>
