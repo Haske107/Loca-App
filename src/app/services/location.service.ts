@@ -27,7 +27,7 @@ export class LocationService    {
         const token = localStorage.getItem('id_token') ? '?token=' + localStorage.getItem('id_token') : '';
 
       // SET UP THE REQUEST AND SEND
-      return this.http.post(this.BaseURl + token, location).pipe();
+      return this.http.post(this.BaseURl + token, location);
   }
 
   getLocationsInRange(DistanceObject: any) {

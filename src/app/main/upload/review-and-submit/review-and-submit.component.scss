@@ -54,3 +54,23 @@ mat-progress-spinner {
   top: calc(50% - 50px);
   z-index: 2;
 }
+
+.message-container  {
+  position: fixed;
+  width: 800px;
+  height: 48px;
+  left: calc(50% - 400px);
+  top: calc(50vh - 122px);
+  justify-content: center;
+}
+
+h3 {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 34px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 40px;
+  text-align: center;
+  color: black;
+}

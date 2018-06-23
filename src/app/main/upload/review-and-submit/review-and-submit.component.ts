@@ -44,7 +44,7 @@ export class ReviewAndSubmitComponent implements OnInit {
   }
 
   viewLocation()    {
-      this.router.navigateByUrl('main/locationprofile');
+      this.locationService.toProfilePage(this.locationService.location);
   }
 
   upload()  {
@@ -55,6 +55,9 @@ export class ReviewAndSubmitComponent implements OnInit {
       this.locationService.saveLocation(this.uploadService.NewLocation).subscribe(
     data => {
 
+        // SET CURRENT LOCATION
+        this.locationService.location = data.obj;
+
         // BEGIN LISTENING TO MAIN PERCENTAGE
         const MainPercentWatcher = this.fileService.MainPercentage.subscribe(
             percent =>  {
@@ -62,9 +65,6 @@ export class ReviewAndSubmitComponent implements OnInit {
             }
         );
         this.MainSpinDisplay = 'block';
-
-        // SET CURRENT LOCATION TO NEW LOCATION
-        this.locationService.location = data;
 
         //  CREATE FORMS TO UPLOAD PHOTOS IN
             const galleryphotoformdata = new FormData();
@@ -78,7 +78,7 @@ export class ReviewAndSubmitComponent implements OnInit {
                 galleryphotoformdata.append('gallery', this.uploadService.Photos[i].file);
             }
             //  UPLOAD MAIN PHOTO
-            this.fileService.uploadMainPhoto(data._id, mainphotoformdata).subscribe(
+            this.fileService.uploadMainPhoto(data.obj._id, mainphotoformdata).subscribe(
                 data1 => {
 
                     // UNSUBSCRIBE AFTER UPLOAD
@@ -96,7 +96,7 @@ export class ReviewAndSubmitComponent implements OnInit {
                     this.GallerySpinDisplay = 'block';
 
                     // UPLOAD GALLERY PHOTO AFTER WAITING FOR MAIN PHOTO TO UPLOAD
-                    this.fileService.uploadGalleryPhotos(data._id, galleryphotoformdata).subscribe(
+                    this.fileService.uploadGalleryPhotos(data.obj._id, galleryphotoformdata).subscribe(
                         data2 => {
 
                             // UNSUBSCRIBE AFTER UPLOAD
