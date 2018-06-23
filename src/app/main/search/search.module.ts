@@ -27,6 +27,7 @@ import {FormsModule} from "@angular/forms";
 import {AgmCoreModule} from "@agm/core";
 import {Routing} from "../../app.routing";
 import {MatSliderModule} from '@angular/material';
+import { LandingComponent } from './landing/landing.component';
 
 
 
@@ -61,6 +62,7 @@ import {MatSliderModule} from '@angular/material';
       CardComponent,
       CollectionButtonComponent,
       FilterDrawerComponent,
+      LandingComponent,
 
   ],
     providers: [

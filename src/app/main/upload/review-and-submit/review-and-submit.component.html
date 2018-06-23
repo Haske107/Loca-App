@@ -1,23 +1,14 @@
-<div class="row Background">
-    <div class="col-md-4 Left-Panel">
-        <h3><strong>Name : </strong>{{location.name}}</h3>
-        <br>
-        <h3><strong>Description : </strong>{{location.description}}</h3>
-        <br>
-        <br>
+ <div class="row">
+    <div class="col-md-11" style="padding:0">
+        <mat-card class="Next-Button" (click)="upload()" [ngStyle]="{'background-color': color, 'cursor' : cursor, 'display': display}">
+                <h3 class="Next-Text" [ngStyle]="{color: textcolor}">You're all done! Upload Location here!</h3>
+        </mat-card>
+        <h3 [ngStyle]="{'display': MainSpinDisplay}">Uploading your main Photo</h3>
+        <mat-progress-spinner [mode]="'determinate'" [value]="MainValue" [ngStyle]="{'display': MainSpinDisplay}"></mat-progress-spinner>
+        <h3 [ngStyle]="{'display': GallerySpinDisplay}">Uploading the rest of your photos!</h3>
+        <mat-progress-spinner [mode]="'determinate'" [value]="GalleryValue" [ngStyle]="{'display': GallerySpinDisplay}"></mat-progress-spinner>
+        <mat-card class="Next-Button" (click)="viewLocation()" [ngStyle]="{'background-color': color, 'cursor' : cursor, 'display': CompletedDisplay}">
+            <h3 class="Next-Text" [ngStyle]="{color: textcolor}">Check out your location!</h3>
+        </mat-card>
     </div>
-    <div class="col-md-4 Center-Panel">
-        <h3><strong>Name : </strong>{{location.name}}</h3>
-        <br>
-        <h3><strong>Description : </strong>{{location.description}}</h3>
-        <br>
-        <br>
-    </div>
-    <div class="col-md-4 Right-Panel">
-        <h3><strong>Name : </strong>{{location.name}}</h3>
-        <br>
-        <h3><strong>Description : </strong>{{location.description}}</h3>
-        <br>
-        <br>
-    </div>
-</div>
+ </div>

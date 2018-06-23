@@ -1,7 +1,6 @@
 import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UploadService} from '../upload.service';
-import {DOCUMENT} from "@angular/common";
 
 
 @Component({
@@ -12,7 +11,6 @@ import {DOCUMENT} from "@angular/common";
 export class AmenitiesComponent implements OnInit {
 
     @Output() nextClick = new EventEmitter();
-    Numbers = 7;
 
     // DETAIL VALUES
     BathroomValue = -1; //
@@ -36,10 +34,11 @@ export class AmenitiesComponent implements OnInit {
     cursor = 'not-allowed';
     height = '0px';
 
-  constructor(@Inject(DOCUMENT) private document: any, private fb: FormBuilder, private uploadService: UploadService) { }
+  constructor(private fb: FormBuilder, private uploadService: UploadService) { }
 
     ngOnInit() {
     }
+
     // BATHROOM FUNCTIONS
     increaseBathroom()  {
         if (this.BathroomValue < 10) {
@@ -136,21 +135,15 @@ export class AmenitiesComponent implements OnInit {
         if (this.SoundValue < 6)    {
             this.SoundValue++;
         }
-        this.setDialPosition();
-        console.log(this.SoundValue);
-
     }
     decreaseSound()   {
         if (this.SoundValue > 0)    {
             this.SoundValue--;
         }
-        console.log(this.SoundValue);
-        this.setDialPosition();
-
     }
     // NATURAL LIGHT
     increaseLight()  {
-      if (this.WindowValue < 4) {
+      if (this.WindowValue < 11) {
           this.WindowValue++;
       }
     }
@@ -159,7 +152,6 @@ export class AmenitiesComponent implements OnInit {
           this.WindowValue--;
       }
     }
-
     // TOGGLE FUNCTIONS
     toggleWifi()    {
       this.WifiValue = !this.WifiValue;
@@ -178,17 +170,13 @@ export class AmenitiesComponent implements OnInit {
         this.ElectricityValue = !this.ElectricityValue;
         this.updateNewLocation();
     }
-    // AUDIO SETTINGS
-    setDialPosition() {
-    }
+
 
     isValid()   {
         if (
             this.BathroomValue >= 0 &&
             this.TruckValue >= 0 &&
-            this.CarValue >= 0 &&
-            this.RateValue >= 0 &&
-            this.DepositValue >= 0
+            this.CarValue >= 0
             // this.MaxValue *
             // this.SoundValue *
             // this.WindowValue;

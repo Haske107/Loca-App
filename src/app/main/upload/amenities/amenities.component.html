@@ -1,5 +1,16 @@
 <!-- DETAILS ROW 1 -->
+
+
+
+
+
 <div class="Details-Row-1">
+  <div class="block">
+      <h3 class="h3">Location Details</h3>
+      <h5 class="h5">
+        Let people know if this location is right for their production.
+      </h5>
+  </div>
 
   <mat-card class="Bathrooms-Tile">
     <img [ngStyle]="BathroomValue < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="svg Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
@@ -152,7 +163,21 @@
   </mat-card>
 
   <mat-card class="Tile">
-    <img id="Light" class="Icon Big" src="../../../../assets/icons/light%20rays/sunny.svg">
+    <img  class="Icon Big" src="../../../../assets/icons/lightrays/sun.svg">
+    <img *ngIf="WindowValue >= 0" class="Icon Big" src="../../../../assets/icons/lightrays/Ray0.svg">
+    <img *ngIf="WindowValue >= 1" class="Icon Big" src="../../../../assets/icons/lightrays/Ray1.svg">
+    <img *ngIf="WindowValue >= 2" class="Icon Big" src="../../../../assets/icons/lightrays/Ray2.svg">
+    <img *ngIf="WindowValue >= 3" class="Icon Big" src="../../../../assets/icons/lightrays/Ray3.svg">
+    <img *ngIf="WindowValue >= 4" class="Icon Big" src="../../../../assets/icons/lightrays/Ray4.svg">
+    <img *ngIf="WindowValue >= 5" class="Icon Big" src="../../../../assets/icons/lightrays/Ray5.svg">
+    <img *ngIf="WindowValue >= 6" class="Icon Big" src="../../../../assets/icons/lightrays/Ray6.svg">
+    <img *ngIf="WindowValue >= 7" class="Icon Big" src="../../../../assets/icons/lightrays/Ray7.svg">
+    <img *ngIf="WindowValue >= 8" class="Icon Big" src="../../../../assets/icons/lightrays/Ray8.svg">
+    <img *ngIf="WindowValue >= 9" class="Icon Big" src="../../../../assets/icons/lightrays/Ray9.svg">
+    <img *ngIf="WindowValue >= 10" class="Icon Big" src="../../../../assets/icons/lightrays/Ray10.svg">
+    <img *ngIf="WindowValue >= 11" class="Icon Big" src="../../../../assets/icons/lightrays/Ray11.svg">
+
+
     <h4 class="Title smaller">Natural Light</h4>
     <button mat-raised-button class="Add" (click)="increaseLight()">
       <img class="Add-Icon" src="./../../../../assets/icons/plus.svg">

@@ -58,7 +58,6 @@ export class UploadPhotosComponent implements OnInit {
 
     // ALLOW AND VERIFY DROP
     allow(event) {
-        console.log(event);
         event.preventDefault();
 
     }

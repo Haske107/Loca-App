@@ -93,9 +93,15 @@ locationRoutes.use('/', function(req, res, next)  {
 
 //ADD LOCATION
 locationRoutes.post('/', function (req, res) {
+    console.log('test');
     var decoded = jwtoken.decode(req.query.token);
     User.findOne({email : decoded.email}, function (err, user) {
         var location = new Location(req.body);
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        location.uploadDate = mm + '/' + dd + '/' + yyyy;
         location.save(function (err, result) {
             if (err) {
                 return res.status(500).json({

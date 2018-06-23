@@ -7,10 +7,50 @@ h3  {
   height: 500px;
   width: 100%;
 }
-  .Left-Panel {
-  }
-  .Center-Panel {
 
-  }
-  .Right-Panel  {
-  }
+.Next-Button  {
+  position: fixed;
+  width: 800px;
+  height: 48px;
+  left: calc(50% - 400px);
+  top: calc(50vh - 24px);
+  background-color: #7acc85;
+  opacity: 1;
+  transition: .5s ease;
+
+}
+.Next-Text  {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  text-align: center;
+  color: white;
+  transition: .5s ease;
+  font-size: 24px;
+  width: 800px;
+}
+.Next-Icon  {
+  color: white;
+  transition: .5s ease;
+  top: calc(50% - 15px);
+  left: calc(50% + 38px);
+  position: absolute;
+}
+
+.inline {
+  display: inline-flex;
+  position: absolute;
+  left: calc(50% - 47px);
+  top: calc(50% - 20px);
+}
+.nextrow  {
+  margin-top: 24px;
+  height: 48px;
+}
+
+mat-progress-spinner {
+  position: fixed;
+  left: calc(50% - 50px);
+  top: calc(50% - 50px);
+  z-index: 2;
+}

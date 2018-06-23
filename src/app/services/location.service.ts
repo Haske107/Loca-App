@@ -8,125 +8,53 @@ import {Observable} from 'rxjs/Observable';
 import {Location} from '../ts models/location.model';
 import {Router} from '@angular/router';
 import {Prod, Dev} from '../../URLSwitcher';
+import {HttpClient, HttpEvent, HttpEventType, HttpHeaders, HttpRequest, HttpResponse} from '@angular/common/http';
+import {catchError, last, map, tap} from 'rxjs/operators';
 
 
 @Injectable()
 export class LocationService    {
 
   public location: Location;
+  public locations: Location[];
 
-  constructor(private http: Http, private router: Router) {}
+  BaseURl = 'http://' + Dev + '/location';
 
+  constructor(private http: HttpClient, private router: Router) {}
 
-  getLocation(location_id: string) {
-    return this.http.get('https://' + Prod + '/location/find?_ID=' + location_id)
-        .map((response: Response) =>  {
-          const Location = response.json().location;
-          console.log(Location);
-          return null;
-        })
-        .catch((error: Response) => Observable.throw(error.json()));
+  saveLocation(location: Location): Observable<any>  {
+      // SET ID TOKEN
+        const token = localStorage.getItem('id_token') ? '?token=' + localStorage.getItem('id_token') : '';
+
+      // SET UP THE REQUEST AND SEND
+      return this.http.post(this.BaseURl + token, location).pipe();
   }
-  getLocations() {
-    return this.http.get('https://' + Prod + '/location')
-      .map((response: Response) => {
-        const Locations = response.json().obj;
-        const transformedLocations: Location[] = [];
-        for (const loca of Locations)  {
-          const location: Location = {
-            _id: loca._id,
-            collections: loca.collections,
-            views: loca.views,
-            uploadDate: loca.uploadDate,
-            user: loca.user,
-            address: loca.address,
-            coordinates: loca.coordinates,
-            name: loca.name,
-            description: loca.description,
-            rules: loca.rules,
-            deposit: loca.deposit,
-            rate: loca.rate,
-            type: loca.type,
-            mainPhoto: loca.mainPhoto,
-            otherPhotos: loca.otherPhotos,
-            shootPhotos: loca.shootPhotos,
-            bathrooms: loca.bathrooms,
-            electricity: loca.electricity,
-            carParking: loca.carParking,
-            truckParking: loca.truckParking,
-            deleted: loca.deleted,
-            maxPeople: loca.maxPeople,
-            soundQuality: loca.soundQuality,
-            windows: loca.windows,
-            softwrap: loca.softwrap,
-            ac: loca.ac,
-            wifi: loca.wifi
-            };
-            transformedLocations.push(location);
-        }
-        return transformedLocations;
-      })
-      .catch((error: Response) => Observable.throw(error.json()));
-  }
-  saveLocation(location: Location) {
-        const body = JSON.stringify(location);
-        const headers = new Headers({
-            'Content-Type': 'application/json'});
-        const token = localStorage.getItem('id_token')
-            ? '?token=' + localStorage.getItem('id_token')
-            : '';
-        return this.http.post('https://' + Prod + '/location' + token , body, {headers: headers})
-            .map((response: Response) => response.json())
-            .catch((error: Response) => Observable.throw(error.json()));
-    }
+
   getLocationsInRange(DistanceObject: any) {
-    const body = DistanceObject;
-    return this.http.post('http://' + Prod + '/location/search', body )
-      .map((response: Response) => {
-        const Locations = response.json().obj;
-        const transformedLocations: Location[] = [];
-        for (const loca of Locations)  {
-          const location: Location = {
-            _id: loca._id,
-            collections: loca.collections,
-            views: loca.views,
-            uploadDate: loca.uploadDate,
-            user: loca.user,
-            address: loca.address,
-            coordinates: loca.coordinates,
-            name: loca.name,
-            description: loca.description,
-            rules: loca.rules,
-            deposit: loca.deposit,
-            rate: loca.rate,
-            type: loca.type,
-            mainPhoto: loca.mainPhoto,
-            otherPhotos: loca.otherPhotos,
-            shootPhotos: loca.shootPhotos,
-            bathrooms: loca.bathrooms,
-            electricity: loca.electricity,
-            carParking: loca.carParking,
-            truckParking: loca.TruckParking,
-            deleted: loca.deleted,
-            maxPeople: loca.maxPeople,
-            soundQuality: loca.soundQuality,
-            windows: loca.windows,
-            softwrap: loca.softwrap,
-            ac: loca.ac,
-            wifi: loca.wifi
-          };
-          transformedLocations.push(location);
-        }
-        return transformedLocations;
-      })
-      .catch((error: Response) => Observable.throw(error.json()));
+      // SET UP THE REQUEST
+      const req = new HttpRequest('POST', this.BaseURl + '/search', DistanceObject);
+
+      // SEND WITH INTERCEPT CAPABILITY
+      return this.http.request(req).pipe(
+          // FORMAT RESPONSE
+          map(response => this.formatLocationArray(response))
+      );
   }
+
+
   toProfilePage(location: Location) {
       this.location = location;
       localStorage.setItem('currloc', JSON.stringify(location));
       this.router.navigateByUrl('/main/locationprofile');
   }
-  getCurrentLocation() {
-    return this.location;
+
+  formatLocationArray(event: HttpEvent<any>) {
+      if (event.type === HttpEventType.Response) {
+          this.locations = [];
+          event.body.obj.forEach(location => {
+              this.locations.push(location);
+          });
+          return this.locations;
+      }
   }
 }

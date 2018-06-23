@@ -79,7 +79,7 @@ export class ListComponent implements OnInit, AfterContentInit {
   }
 
     colorFromType(Type: String) {
-    if (Type === 'Home')  {
+    if (Type === 'House')  {
       return '#5192da';
     }
     if (Type === 'Business')  {

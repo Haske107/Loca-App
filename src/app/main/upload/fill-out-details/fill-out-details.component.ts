@@ -68,9 +68,10 @@ export class FillOutDetailsComponent implements OnInit {
 
 
     submit()    {
-        this.DetailsForm.value.Rules = this.filterEmptyRules();
-        this.nextClick.emit();
-
+        if (this.DetailsForm.valid) {
+            this.DetailsForm.value.Rules = this.filterEmptyRules();
+            this.nextClick.emit();
+        }
     }
 
     trackByFn(index, item) {

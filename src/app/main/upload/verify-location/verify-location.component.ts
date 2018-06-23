@@ -159,18 +159,20 @@ export class VerifyLocationComponent implements OnInit {
     getCurrentLocation() {
         this.MapDisplay = 'none';
         this.LoadingDisplay = 'inline';
-        navigator.geolocation.getCurrentPosition(position => {
-            this.LoadingDisplay = 'none';
-            this.MapDisplay = 'inline';
-            this.lat = position.coords.latitude;
-            this.lng = position.coords.longitude;
-            this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
-            this.uploadService.emitChanges(1);
-            this.googlemap.triggerResize();
-            this.height = '50px';
-            this.display = 'inline';
-            this.buttonDisplay = 'inline';
-        });
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                this.LoadingDisplay = 'none';
+                this.MapDisplay = 'inline';
+                this.lat = position.coords.latitude;
+                this.lng = position.coords.longitude;
+                this.uploadService.NewLocation.coordinates = {lat: this.lat, lng: this.lng};
+                this.uploadService.emitChanges(1);
+                this.googlemap.triggerResize();
+                this.height = '50px';
+                this.display = 'inline';
+                this.buttonDisplay = 'inline';
+            }
+        );
     }
 
     onSubmit() {
@@ -227,6 +229,7 @@ export class VerifyLocationComponent implements OnInit {
 
     ifDone()    {
         if (this.Done) {
+            this.emitAddressObject();
             this.nextClick.emit();
             this.uploadService.NewLocation.user = localStorage.getItem('userID');
         }
@@ -235,6 +238,7 @@ export class VerifyLocationComponent implements OnInit {
     getAddress()    {
         this.mapService.reverseGeoCode(this.lat, this.lng).subscribe(
             data => {
+                console.log(data);
                 this.Street = data.results[0].address_components[0].short_name
                     + ' ' + data.results[0].address_components[1].short_name;
                 this.City = data.results[0].address_components[2].short_name;

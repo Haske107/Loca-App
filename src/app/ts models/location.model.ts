@@ -4,15 +4,10 @@
 
 
 export class Location       {
-    // DB tools
     _id: string;
-
-    // stats
     collections: [string];
     views: number;
     uploadDate: String;
-
-    // form info
     user: string;
     address: {
       streetAddress: string,
@@ -32,8 +27,7 @@ export class Location       {
     rate: number;
     type: string;
     mainPhoto: string;
-    otherPhotos: string[];
-    shootPhotos: string[];
+    galleryPhotos: string[];
     bathrooms: number;
     electricity: boolean;
     carParking: number;

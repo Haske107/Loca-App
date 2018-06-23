@@ -25,12 +25,17 @@ var LocationSchema = new schema({
     rate:{type: Number},
     type:{type: String},
     mainPhoto: {type: String},
-    otherPhotos: {type: String},
-    shootPhotos: {type: String},
+    galleryPhotos: {type: String},
     bathrooms: {type: Number},
     electricity: {type: Number},
     carParking: {type: Number},
     truckParking: {type: Number},
+    maxPeople: {type: Number},
+    soundQuality: {type: Number},
+    windows: {type: Number},
+    softwrap:  {type: Boolean},
+    ac:  {type: Boolean},
+    wifi:  {type: Boolean},
     deleted: {type: Boolean}
 });
 

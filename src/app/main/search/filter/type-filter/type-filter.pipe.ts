@@ -11,41 +11,41 @@ export class TypeFilterPipe implements PipeTransform {
     // IF TYPE ARRAY IS EMPTY SKIP THIS FILTER
 
 
-    if(!value || !typeObject){
+    if (!value || !typeObject) {
       return value;
     }
-    if(!typeObject.Apartment
+    if (!typeObject.Apartment
       && !typeObject.School
       && !typeObject.Park
       && !typeObject.Restaurant
       && !typeObject.Street
-      && !typeObject.Home
+      && !typeObject.House
       && !typeObject.Business
       && !typeObject.Bar
     )  {
       return value;
     }
 
-    //LOOP THROUGH EACH LOCATION AND STORE THEM IN
-    //RESULT ARRAY IF THEY HAVE A TYPE MATCH
-    //RETURN THE RESULTING ARRAY
-    let resultArray = [];
+    // LOOP THROUGH EACH LOCATION AND STORE THEM IN
+    // RESULT ARRAY IF THEY HAVE A TYPE MATCH
+    // RETURN THE RESULTING ARRAY
+    const resultArray = [];
     value.forEach(location => {
-      if(location.type === 'Apartment' && typeObject.Apartment) {
-        resultArray.push(location)
-      } else  if(location.type === 'School' && typeObject.School) {
+      if (location.type === 'Apartment' && typeObject.Apartment) {
         resultArray.push(location);
-      } else  if(location.type === 'Bar' && typeObject.Bar) {
+      } else  if (location.type === 'School' && typeObject.School) {
         resultArray.push(location);
-      }else  if(location.type === 'Business' && typeObject.Business) {
+      } else  if (location.type === 'Bar' && typeObject.Bar) {
         resultArray.push(location);
-      }else  if(location.type === 'Park' && typeObject.Park) {
+      }else  if (location.type === 'Business' && typeObject.Business) {
         resultArray.push(location);
-      }else  if(location.type === 'Restaurant' && typeObject.Restaurant) {
+      }else  if (location.type === 'Park' && typeObject.Park) {
         resultArray.push(location);
-      }else  if(location.type === 'Street' && typeObject.Street) {
+      }else  if (location.type === 'Restaurant' && typeObject.Restaurant) {
         resultArray.push(location);
-      }else  if(location.type === 'Home' && typeObject.Home) {
+      }else  if (location.type === 'Street' && typeObject.Street) {
+        resultArray.push(location);
+      }else  if (location.type === 'Home' && typeObject.Home) {
         resultArray.push(location);
       }
 
