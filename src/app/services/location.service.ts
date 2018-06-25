@@ -37,7 +37,8 @@ export class LocationService    {
       // SEND WITH INTERCEPT CAPABILITY
       return this.http.request(req).pipe(
           // FORMAT RESPONSE
-          map(response => this.formatLocationArray(response))
+          map(response => this.formatLocationArray(response)),
+          last()
       );
   }
 

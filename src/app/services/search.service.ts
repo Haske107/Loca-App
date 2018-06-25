@@ -35,6 +35,11 @@ export class SearchService {
     this.TempDistance.Distance = value;
     this.onDistance.emit(this.TempDistance);
   }
+  set LocationValue(value: any) {
+    this.TempDistance.CurrentLocation = value;
+    this.onDistance.emit(this.TempDistance);
+  }
+
   set RateFilter(value: any)  {
     this.TempRate = value;
     this.onRate.emit(value);
@@ -57,7 +62,7 @@ export class SearchService {
   TempBathroom =  0;
   TempDistance = {
     CurrentLocation: {lat: 33.7928203, lng: -117.8514},
-    Distance: 30
+    Distance: 50
   };
   TempRate = {
     low: 0

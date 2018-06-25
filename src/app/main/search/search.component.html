@@ -1,28 +1,28 @@
-<!-- GRID -->
-<div class="grid" *ngIf="state === 'grid'">
-    <grid  [locations]="locations"></grid>
-</div>
 
-<!-- MAP ONLY -->
-<div class="map" *ngIf="state === 'map'" >
-  <app-map [locations]="locations" ></app-map>
-</div>
+
 
 <!-- SPLIT VIEW -->
-<div class="row" *ngIf="state === 'split'">
+<div class="row" >
   <div class="col-md-8 map-split">
-    <app-map  [locations]="locations" ></app-map>
+      <!-- GRID -->
+      <div class="grid" *ngIf="state === 'grid'">
+          <grid  [locations]="locations"></grid>
+      </div>
+      <!-- MAP -->
+     <app-map *ngIf="state === 'map'" [locations]="locations" >
+
+     </app-map>
   </div>
   <div class="col-md-4 right-panel">
       <app-filter-drawer
               (filterClick)="filterClicked($event)"
+              (GridClicked)="GridClicked()"
               (closeAll)="DrawerHeight = '100px'"
               [ngStyle]="{height: DrawerHeight}"
               [DrawerHeight]="DrawerHeight"
       >
       </app-filter-drawer>
       <app-list
-              [locations]="locations ? locations : []"
               [ngStyle]="{top: (DrawerHeight.substr(0,3).valueOf() - 100) + 'px'}"
       ></app-list>
   </div>

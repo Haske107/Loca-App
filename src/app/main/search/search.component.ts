@@ -6,7 +6,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {LocationService} from '../../services/location.service';
 import {Location} from '../../ts models/location.model';
 import {SearchService} from '../../services/search.service';
-import {PageStateService} from "../../services/page.state.service";
+import {PageStateService} from '../../services/page.state.service';
 
 /**
  * Created by Jeff on 7/8/2017.
@@ -19,6 +19,10 @@ import {PageStateService} from "../../services/page.state.service";
 })
 
 export class SearchComponent implements OnInit, OnDestroy {
+
+    // INJECTED LOCATIONS
+    locations: Location[];
+
 
   // FILTER DIMENSION VARIABLES
   DrawerHeight = '100px';
@@ -113,11 +117,13 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
     // VIEW STATE MONITOR
-    state = 'split';
-    // INJECTED LOCATIONS
-    locations: Location[];
+    state = 'map';
+
+
+
 
     @Input() opened;
+
 
     constructor(private dialog: MatDialog,
                 private snackBar: MatSnackBar,
@@ -143,7 +149,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       // GET USER LOCATION
      navigator.geolocation.getCurrentPosition(position => {
         // SET GLOBAL CURRENT LOCATION
-        this.searchService.TempDistance.CurrentLocation = {
+        this.searchService.LocationValue = {
           lat: position.coords.latitude, lng: position.coords.longitude
         };
       });
@@ -161,7 +167,6 @@ export class SearchComponent implements OnInit, OnDestroy {
           this.LocationService.getLocationsInRange(this.searchService.TempDistance)
             .subscribe(
               (locations: Location[]) => {
-                console.log(locations);
                 this.locations = locations;
               }
             );
@@ -204,8 +209,6 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
   }
 
-
-
   filterClicked(event: any) {
       if ( event === 'Type')  {
           this.DrawerHeight = '330px';
@@ -214,7 +217,13 @@ export class SearchComponent implements OnInit, OnDestroy {
       }
   }
 
-
+  GridClicked() {
+        if (this.state === 'map')   {
+            this.state = 'grid';
+        } else  {
+            this.state = 'map';
+        }
+  }
 
   ngOnDestroy() {
       this.pageStateService.Search = false;

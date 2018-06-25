@@ -32,7 +32,6 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.CurrentLocation = this.searchService.TempDistance.CurrentLocation;
     this.searchService.onQuery.subscribe(
-
       res =>  {
         this.searchString = res;
       }
@@ -59,6 +58,11 @@ export class MapComponent implements OnInit {
       res => {
         this.rateObject = res;
       }
+    );
+    this.searchService.onDistance.subscribe(
+        res =>  {
+            this.CurrentLocation = {lat: res.CurrentLocation.lat, lng: res.CurrentLocation.lng};
+        }
     );
 
     // STYLE THE MAP

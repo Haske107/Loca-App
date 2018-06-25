@@ -4,26 +4,25 @@
      | typeFilter: typeObject
      | electricityFilter: electrictyObject
      | bathroomFilter: bathroomObject
-     | rateFilter: rateObject">
+     | rateFilter: rateObject;
+    let i = index;">
 
-  <div class="col-sm-4 photo-container">
-    <div class="color-bar" [ngStyle]="{'background-color': colorFromType(location.type)}">
-    </div>
-    <img src="http://{{Dev}}/files/{{location._id}}" (click)="toLocationProfile(location)">
-    <i class="material-icons add">add_circle_outline</i>
-  </div>
+      <div class="col-sm-4 photo-container">
+        <div class="color-bar" [ngStyle]="{'background-color': colorFromType(location.type)}">
+        </div>
+        <img src="http://{{Dev}}/files/{{location._id}}" (click)="toLocationProfile(location)">
+        <i class="material-icons add">add_circle_outline</i>
+      </div>
 
-  <div class="col-sm-8">
-    <h5>{{location.name}}</h5>
-    <hr>
-    <p>{{location.description}}</p>
+      <div class="col-sm-8 List-Card">
+        <h5 class="Card-Name" >{{location.name}}</h5>
+        <p class="Card-Distance">{{distanceArray[i].toFixed(2)}} Mi</p>
+        <hr>
+        <p class="Card-Description">{{location.description}}</p>
 
-    <i class="material-icons flash" *ngIf="location.electricity">power</i>
-    <i class="material-icons wc" *ngIf="location.bathrooms">wc</i>
-
-
-
-  </div>
+        <i class="material-icons flash" *ngIf="location.electricity">power</i>
+        <i class="material-icons wc" *ngIf="location.bathrooms">wc</i>
+      </div>
   </div>
 </div>
 

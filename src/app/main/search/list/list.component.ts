@@ -10,7 +10,7 @@ import {LocationService} from "../../../services/location.service";
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit, AfterContentInit {
+export class ListComponent implements OnInit {
   Prod;
   Dev;
   electrictyObject: {};
@@ -18,8 +18,8 @@ export class ListComponent implements OnInit, AfterContentInit {
   bathroomObject: {};
   searchString = '';
   rateObject: {};
-  @Input() locations: Location[];
-  distanceArray: number[];
+  locations: Location[] = [];
+  distanceArray: number[] = [];
 
 
 
@@ -32,24 +32,11 @@ export class ListComponent implements OnInit, AfterContentInit {
       iconRegistry.addSvgIcon('flash', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/Power.svg'));
       iconRegistry.addSvgIcon('bathroom', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/Bathroom.svg'));
       iconRegistry.addSvgIcon('like', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/Star.svg'));
-
   }
 
   ngOnInit() {
+    this.updateLocations();
 
-
-    }
-
-   ngAfterContentInit() {
-        for (let i = 0; i < this.locations.length; ++i) {
-            console.log('TEST');
-            this.distanceArray[i] = this.getDistanceFromLatLonInMi(
-                this.locations[i].coordinates.lat,
-                this.locations[i].coordinates.lng,
-                this.searchService.TempDistance.CurrentLocation.lat,
-                this.searchService.TempDistance.CurrentLocation.lng
-            );
-      }
     this.searchService.onRate.subscribe(
       res => {
         this.rateObject = res;
@@ -75,6 +62,11 @@ export class ListComponent implements OnInit, AfterContentInit {
       res =>  {
         this.bathroomObject = res;
       }
+    );
+    this.searchService.onDistance.subscribe(
+        res =>  {
+            this.updateLocations();
+        }
     );
   }
 
@@ -127,6 +119,20 @@ export class ListComponent implements OnInit, AfterContentInit {
         this.locationService.toProfilePage(location);
     }
 
-
+    updateLocations()   {
+        this.locationService.getLocationsInRange(this.searchService.TempDistance)
+            .subscribe(
+                (locations: Location[]) => {
+                    this.locations = locations;
+                    for (let i = 0; i < this.locations.length; ++i) {
+                        this.distanceArray[i] = this.getDistanceFromLatLonInMi(
+                            this.locations[i].coordinates.lat,
+                            this.locations[i].coordinates.lng,
+                            this.searchService.TempDistance.CurrentLocation.lat,
+                            this.searchService.TempDistance.CurrentLocation.lng
+                        );
+                    }
+                });
+    }
 
 }

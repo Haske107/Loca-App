@@ -4,8 +4,8 @@ import {LocationService} from '../../services/location.service';
 import {AuthService} from '../../services/auth.service';
 import {Location} from '../../ts models/location.model';
 import {PageStateService} from '../../services/page.state.service';
-import {FileService} from "../../services/file.service";
-import {UploadService} from "../upload/upload.service";
+import {FileService} from '../../services/file.service';
+import {UploadService} from '../upload/upload.service';
 
 @Component({
   selector: 'app-main-toolbar',
@@ -35,6 +35,7 @@ export class MainToolbarComponent implements OnInit {
       true
   );
 
+  ProfilePicture = '';
 
   constructor(private router: Router,
               private locationService: LocationService,
@@ -44,7 +45,8 @@ export class MainToolbarComponent implements OnInit {
               private uploadService: UploadService) { }
 
   ngOnInit() {
-
+      this.ProfilePicture = localStorage.getItem('profile') ?
+          JSON.parse(localStorage.getItem('profile')).picture_large : '';
   }
 
   routeToPost() {
@@ -53,45 +55,5 @@ export class MainToolbarComponent implements OnInit {
       } else  {
           this.authService.login();
       }
-
-  }
-
-  logoClick() {
-      this.locationService.saveLocation(this.TestLocation).subscribe(
-          data => {
-              console.log(data);
-              // SET CURRENT LOCATION TO NEW LOCATION
-              this.locationService.location = data;
-              //  CREATE FORMS TO UPLOAD PHOTOS IN
-              const galleryphotoformdata = new FormData();
-              const mainphotoformdata = new FormData();
-              // USE FIRST PHOTO FOR MAIN DISPLAY
-              mainphotoformdata.append('main', this.uploadService.Photos[0].file);
-              // ITERATE THROUGH REMAINING PHOTOS FOR GALLERY
-              for (let i = 1; i < this.uploadService.Photos.length; i++ ) {
-                  galleryphotoformdata.append('gallery', this.uploadService.Photos[i].file);
-              }
-              //  UPLOAD MAIN PHOTO
-              this.fileService.uploadMainPhoto(data._id, mainphotoformdata).subscribe(
-                  data1 => {
-                      // UPLOAD GALLERY PHOTO AFTER WAITING FOR MAIN PHOTO TO UPLOAD
-                      this.fileService.uploadGalleryPhotos(data._id, galleryphotoformdata).subscribe(
-                          data2 => {
-                              localStorage.removeItem('location');
-                          },
-                          err2 =>  {
-                              console.error(err2);
-                          }
-                      );
-                  },
-                  err1 => {
-                      console.error(err1);
-                  }
-              );
-          },
-          err =>  {
-              console.error(err);
-          }
-      );
   }
 }

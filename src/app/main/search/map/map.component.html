@@ -1,4 +1,4 @@
-<agm-map #googlemap [latitude]="CurrentLocation.lat" [longitude]="CurrentLocation.lng" [styles]="">
+<agm-map #googlemap [latitude]="CurrentLocation.lat" [longitude]="CurrentLocation.lng" [styles]="" [usePanning]="true">
   <agm-marker
     *ngFor="let location of locations
      | filter: searchString: 'name'
