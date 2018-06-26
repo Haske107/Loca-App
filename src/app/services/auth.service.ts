@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {Prod, Dev} from '../../URLSwitcher';
 @Injectable()
 export class AuthService   {
   listener: any;
-
+  @Output() SignInEvent: EventEmitter<any> = new EventEmitter();
   lock = new Auth0Lock('5d7Sac7i0PN5qK0VdzdDaPSSDOqpCyhP', 'haske107.auth0.com', {
     languageDictionary: {
       title: 'Join the Community'
@@ -65,6 +65,7 @@ export class AuthService   {
     this.listener = setInterval(() => {
       if (this.isAuthenticated()) {
         if (localStorage.getItem('profile')) {
+          this.SignInEvent.emit();
           this.router.navigateByUrl('/');
         }
       }

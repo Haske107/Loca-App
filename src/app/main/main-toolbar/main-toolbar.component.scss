@@ -8,9 +8,60 @@
   padding: 0 !important;
 }
 
+.Drop-Down  {
+  position: absolute;
+  width: 125px;
+  left: 6px;
+  top: 0;
+  padding-top: 48px;
+  justify-content: center;
+  transition: .3s ease;
+  z-index:0;
+  background-color: white;
+}
+        .option  {
+            padding: 2px !important;
+            width: 100px;
+            margin-left: 24px;
+            justify-content: center;
+            position: absolute;
+        }
+              .o1  {
+                z-index: 4;
+              }
+              .o2  {
+                z-index: 3;
+              }
+              .o3  {
+                z-index: 2;
+              }
+              .o4  {
+                z-index: 1;
+              }
+              .o5 {
+                z-index: 0;
+}
+
+
+    .dropdown-hr  {
+      margin: 0;
+    }
+    .dropdown-text  {
+      font-family: Roboto , sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 200;
+      line-height: 20px;
+      text-align: center;
+      outline: none;
+      cursor: pointer;
+      color: #66b9fb;
+      margin: 2px;
+    }
+
 .profile-picture{
   position: absolute;
-  top: -24px;
   left: 185px;
   height: 76px;
   width: 76px;
@@ -23,6 +74,7 @@
   font-size: 20px;
   margin-top: 2px;
   color: grey;
+  cursor: default;
 }
 
 .labels  {
@@ -36,6 +88,20 @@
   cursor: pointer;
   color: #66b9fb;
   margin: 6px 40px 2px;
+}
+._labels  {
+  position: absolute;
+  left: 188px;
+  top: 6px;
+  font-family: Roboto , sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+  cursor: pointer;
+  color: #66b9fb;
 }
 
 .Header  {

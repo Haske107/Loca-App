@@ -14,39 +14,26 @@ import {UploadService} from '../upload/upload.service';
   encapsulation: ViewEncapsulation.None
 })
 export class MainToolbarComponent implements OnInit {
-  TestLocation = new Location(
-      '5a63b604d1306000148da27a',
-      {streetAddress: '338 W Kelly Ave', 'city': 'Orange', 'state': 'CA', 'zip': '92866', 'country': 'US'},
-      'Test Location',
-      'This is a description',
-      [],
-      25,
-      25,
-      'House',
-      2,
-      true,
-      2,
-      2,
-      2,
-      2,
-      2,
-      true,
-      true,
-      true
-  );
 
+  SignedIn = false;
   ProfilePicture = '';
+  PictureTop = '-24px';
+  DropDown = false;
+  ProfileTop = '-104px';
+  CollectionTop = '-52px';
+  MessageTop = '-78px';
+  LocationTop = '-26px';
+  LogTop = '-130px';
 
-  constructor(private router: Router,
-              private locationService: LocationService,
-              private authService: AuthService,
-              private pageStateService: PageStateService,
-              private fileService: FileService,
-              private uploadService: UploadService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-      this.ProfilePicture = localStorage.getItem('profile') ?
-          JSON.parse(localStorage.getItem('profile')).picture_large : '';
+      if (this.authService.isAuthenticated())    {
+          this.SignedIn = true;
+          this.ProfilePicture = JSON.parse(localStorage.getItem('profile')).picture_large ?
+              JSON.parse(localStorage.getItem('profile')).picture_large :
+              JSON.parse(localStorage.getItem('profile')).picture;
+      }
   }
 
   routeToPost() {
@@ -55,5 +42,45 @@ export class MainToolbarComponent implements OnInit {
       } else  {
           this.authService.login();
       }
+  }
+
+  signIn()  {
+      this.authService.login();
+      // const SignInWaiter = this.authService.SignInEvent.subscribe(
+      //     event =>  {
+      //         this.SignedIn = true;
+      //         this.ProfilePicture = JSON.parse(localStorage.getItem('profile')).picture_large ?
+      //             JSON.parse(localStorage.getItem('profile')).picture_large :
+      //             JSON.parse(localStorage.getItem('profile')).picture;
+      //         SignInWaiter.unsubscribe();
+      //     }
+      // );
+  }
+
+  logOut()  {
+      this.authService.logout();
+      this.toggleDropDown();
+      this.SignedIn = false;
+
+  }
+
+  toggleDropDown()  {
+    if (this.DropDown)  {
+        this.ProfileTop = '-104px';
+        this.CollectionTop = '-52px';
+        this.MessageTop = '-78px';
+        this.LocationTop = '-26px';
+        this.LogTop = '-130px';
+        this.PictureTop = '-24px';
+        this.DropDown = false;
+    }   else    {
+        this.PictureTop = '-38px';
+        this.ProfileTop = '0';
+        this.CollectionTop = '0';
+        this.MessageTop = '0';
+        this.LocationTop = '0';
+        this.LogTop = '0';
+        this.DropDown = true;
+    }
   }
 }

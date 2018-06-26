@@ -1,7 +1,12 @@
 <!-- MAIN TOOLBAR -->
 <mat-card class="FloatBar">
   <div class="Header row">
-    <img src="{{ProfilePicture}}" class="profile-picture">
+      <h5 *ngIf="!SignedIn" class="_labels" (click)="signIn()" >SIGN IN</h5>
+      <img *ngIf="SignedIn"
+         src="{{ProfilePicture}}"
+         class="profile-picture"
+         (click)="toggleDropDown()"
+         [ngStyle]="{top: PictureTop, transition: '.4s ease'}">
     <h5 class="pipe" style="margin-left: 300px;">|</h5>
     <h5 class="labels"  [routerLink]="'/main/search'">SEARCH</h5>
     <h5 class="pipe">|</h5>
@@ -11,4 +16,29 @@
   </div>
 </mat-card>
 
-<!-- [routerLink]="'/main/permits'" -->
+
+<mat-card class="option o1"  [ngStyle]="{top: LocationTop, transition: '.1s ease'}">
+    <h4 class="dropdown-text">
+        Locations
+    </h4>
+</mat-card>
+<mat-card class="option o2" [ngStyle]="{top: CollectionTop, transition: '.2s ease'}">
+    <h4 class="dropdown-text">
+        Collections
+    </h4>
+</mat-card>
+<mat-card class="option o3" [ngStyle]="{top: MessageTop, transition: '.3s ease'}">
+    <h4 class="dropdown-text">
+        Messages
+    </h4>
+</mat-card>
+<mat-card class="option o4" [ngStyle]="{top: ProfileTop, transition: '.4s ease'}">
+    <h4 class="dropdown-text">
+        Profile
+    </h4>
+</mat-card>
+<mat-card class="option 05" [ngStyle]="{top: LogTop, transition: '.5s ease'}" (click)="logOut()">
+    <h4 class="dropdown-text">
+        Log Out
+    </h4>
+</mat-card>
