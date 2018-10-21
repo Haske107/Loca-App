@@ -23,7 +23,7 @@
       >
       </app-filter-drawer>
       <app-list
-              [ngStyle]="{top: DrawerHeight}"
+              [ngStyle]="{top: (DrawerHeight.substr(0,3).valueOf() - 100) + 'px'}"
 
       ></app-list>
   </div>

@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
   // FILTER DIMENSION VARIABLES
-  DrawerHeight = '0px';
+  DrawerHeight = '100px';
 
   //SEARCH
   query = '';
