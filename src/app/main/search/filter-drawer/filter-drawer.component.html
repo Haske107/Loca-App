@@ -47,12 +47,15 @@
 </mat-card>
 
 <!-- SEARCH INPUT -->
+
 <mat-card class="Search">
     <input
-            placeholder=""
+            placeholder="..."
             type="text"
             class="Search-Input"
             [(ngModel)]="Query"
             (keyup)="updateInput()"
     >
+    <img src="./../../../../assets/icons/magnifying-glass.svg" class="Mag-Icon">
+
 </mat-card>

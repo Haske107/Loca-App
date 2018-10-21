@@ -16,7 +16,7 @@ export class TypeFilterComponent implements OnInit {
 
   states: {
       Apartment: boolean,
-      Home: boolean,
+      House: boolean,
       School: boolean,
       Restaurant: boolean,
       Bar: boolean,

@@ -47,7 +47,7 @@ export class SearchService {
 
   TempType = {
     Apartment: false,
-    Home: false,
+    House: false,
     School: false,
     Restaurant: false,
     Bar: false,

@@ -95,6 +95,12 @@ export class ListComponent implements OnInit {
     if (Type === 'Studio')  {
         return '#bfe25f';
     }
+    if (Type === 'Theatre')    {
+        return '#e288df';
+    }
+    if (Type === 'Grocery Store')   {
+        return '#aae26c';
+    }
   }
 
   getDistanceFromLatLonInMi(lat1, lon1, lat2, lon2) {

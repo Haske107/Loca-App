@@ -267,10 +267,12 @@ app-type-filter {
     padding-left: 10px;
     z-index: 3;
   }
-
-
-
-
-
-
-
+  .Mag-Icon {
+    position: absolute;
+    z-index: 0;
+    right: 2px;
+    top: 125px;
+    height: 100px;
+    width: 100px;
+    background-color: red;
+  }

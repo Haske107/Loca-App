@@ -27,7 +27,9 @@ export class FillOutDetailsComponent implements OnInit {
         'Cafe',
         'Theatre',
         'Studio',
-        'University'
+        'University',
+        'Grocery Store',
+        'Church'
     ];
 
     // NG STYLE VARIABLES

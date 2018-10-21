@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
   // FILTER DIMENSION VARIABLES
-  DrawerHeight = '100px';
+  DrawerHeight = '0px';
 
   //SEARCH
   query = '';
@@ -158,6 +158,7 @@ export class SearchComponent implements OnInit, OnDestroy {
         .subscribe(
           (locations: Location[]) => {
             this.locations = locations;
+            console.log(this.locations);
           });
       // RETRIEVE TYPE BUTTON COORDINATES
       this.onResize();

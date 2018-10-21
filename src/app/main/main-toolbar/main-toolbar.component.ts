@@ -37,7 +37,7 @@ export class MainToolbarComponent implements OnInit {
   }
 
   routeToPost() {
-      if (this.authService.isAuthenticated()) {
+      if (!this.authService.isAuthenticated()) {
       this.router.navigateByUrl('/main/post');
       } else  {
           this.authService.login();

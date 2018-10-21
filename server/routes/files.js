@@ -63,10 +63,16 @@ filesRoutes.get('/:id', function(req,res) {
   });
 });
 
+// //GET GALLERY PHOTO IDS
+// filesRoutes.get('/gallery/:locationID', function(req, res)  {
+//    gfs.find({_id: req.params.locationID}).exec(function(err, Photos)  {
+//        console.log(Photos);
+//    });
+// });
 
 //SERVE GALLERY PHOTOS
-filesRoutes.get('/gallery/:id', function(req,res) {
-    gfs.findOne({ filename: req.params.id, root: 'Images', metadata: 'gallery' }, function (err, file){
+filesRoutes.get('/gallery/:photoid', function(req,res) {
+    gfs.findOne({ _id: req.params.photoid, root: 'Images', metadata: 'gallery' }, function (err, file){
         if(!err){
             if(file){
                 var readstream = gfs.createReadStream({

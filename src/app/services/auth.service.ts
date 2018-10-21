@@ -16,11 +16,11 @@ export class AuthService   {
       title: 'Join the Community'
     },
     theme: {
-      logo: './../../../assets/icons/binoculars-black.svg',
+      logo: './../../../assets/icons/Logo.png',
       primaryColor: '#00bcd4',
     },
     auth: {
-      redirectUrl: 'http://localhost:4200/loading',
+      redirectUrl: 'http://localhost:4201/loading',
       responseType: 'token id_token',
       params: {
         scope: 'openid profile email'

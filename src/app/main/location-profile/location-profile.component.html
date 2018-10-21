@@ -11,9 +11,12 @@
                 </div>
             </div>
         </div>
+        <!--<div class="row Other-Photos-Row">-->
+            <!--test-->
+        <!--</div>-->
+
         <!-- DETAILS -->
         <div class="row Second-Row">
-
             <div class="col-md-12 Details-Container">
                 <div class="General-Title">
                     <h2>{{location.name}}</h2>
@@ -23,29 +26,150 @@
                         {{location.description}}
                 </div>
             </div>
-            <div class="col-md-12 Details-Container-2">
-                <div class="Details-Card">
-                    <div class="Details-Title">
-                        <h4>Details</h4>
-                    </div>
-                    <div class="Details-Body">
-                        <mat-grid-list class="Details-Grid" [rowHeight]="1" [gutterSize]="1" [cols]="4">
-                            <mat-grid-tile class="Details-Tile">
-Test
-                            </mat-grid-tile>
-                        </mat-grid-list>
-                    </div>
-                </div>
-            </div>
-
         </div>
-        <!-- DESCRIPTION -->
-        <div class="row Third-Row">
+        <div class="container1">
+            <mat-card class="Bathrooms-Tile">
+                <img [ngStyle]="location.bathrooms < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="svg Bathrooms-Icon" src="./../../../../assets/icons/Toilet.svg">
+                <h4 class="Bathrooms-Title">Bathrooms</h4>
+                <h4 class="Bathrooms-Value">
+                    {{location.bathrooms < 0 ? "" : location.bathrooms}}
+                </h4>
+            </mat-card>
+            <mat-card class="Tile">
+                <img  [ngStyle]="location.maxPeople < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Icon" src="./../../../../assets/icons/group.svg">
+                <h4 class="Title">Max Crew</h4>
 
+                <h4 class="Value">
+                    {{location.maxPeople < 0 ? "" : location.maxPeople}}
+                </h4>
+            </mat-card>
+            <mat-card class="Cars-Tile">
+                <img [ngStyle]="location.carParking < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Car-Icon" src="./../../../../assets/icons/Car.svg">
+                <h4 class="Car-Title">Parking </h4>
+
+                <h4 class="Car-Value">
+                    {{location.carParking < 0 ? "" : location.carParking}}
+                </h4>
+            </mat-card>
+            <mat-card class="Truck-Tile">
+                <img [ngStyle]="location.truckParking < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Truck-Icon" src="./../../../../assets/icons/Truck.svg">
+                <h4 class="Truck-Title">Trucks </h4>
+
+                <h4 class="Truck-Value">
+                    {{location.truckParking < 0 ? "" : location.truckParking}}
+                </h4>
+            </mat-card>
+            <mat-card class="Wifi-Tile">
+                <h4 class="Wifi-Title">Wifi</h4>
+
+                <h4 class="Wifi-Value">
+                    <img  class="Wifi-Value-Icon" src="./../../../../assets/icons/Wifi.svg">
+                    <img [ngStyle]="!location.wifi ? {opacity: '1'} : {}"  class="Wifi-No-Icon" src="./../../../../assets/icons/No.svg">
+                </h4>
+            </mat-card>
+            <mat-card class="AC-Tile">
+                <h4 class="AC-Title">AC</h4>
+
+                <h4 class="AC-Value">
+                    <img  class="AC-Value-Icon" src="./../../../../assets/icons/AC.svg">
+                    <img [ngStyle]="!location.ac ? {opacity: '1'} : {}"  class="AC-No-Icon" src="./../../../../assets/icons/No.svg">
+                </h4>
+            </mat-card>
+
+            <mat-card class="Power-Tile">
+                <h4 class="Power-Title">Electricity</h4>
+
+                <h4 class="Power-Value">
+                    <img  class="Power-Value-Icon" src="./../../../../assets/icons/Power.svg">
+                    <img [ngStyle]="!location.electricity ? {opacity: '1'} : {}" class="Power-No-Icon" src="./../../../../assets/icons/No.svg">
+                </h4>
+            </mat-card>
+
+            <mat-card class="Soft-Tile">
+                <h4 class="Soft-Title">Soft Wrap</h4>
+
+                <h4 class="Soft-Value">
+                    <img  class="Soft-Value-Icon" src="./../../../../assets/icons/Soft.svg">
+                    <img [ngStyle]="!location.softwrap ? {opacity: '1'} : {}"  class="Soft-No-Icon" src="./../../../../assets/icons/No.svg">
+                </h4>
+            </mat-card>
+
+            <mat-card class="Rate-Tile">
+                <img [ngStyle]="location.rate < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Rate-Icon" src="./../../../../assets/icons/Rate.svg">
+                <h4 class="Rate-Title">Rate / Day</h4>
+
+                <h4 class="Rate-Value">
+                    {{location.rate  < 0 ? "" : location.rate | currency}}
+                </h4>
+            </mat-card>
+
+            <mat-card class="Deposit-Tile">
+                <img  [ngStyle]="location.deposit < 0 ? {width: '100%', height: '68px', top: '20px', right: '0', left: '0', transition: '.3s ease'} : {}" class="Deposit-Icon" src="./../../../../assets/icons/Deposit.svg">
+                <h4 class="Deposit-Title">Deposit </h4>
+
+                <h4 class="Deposit-Value">
+                    {{location.deposit < 0 ? "" : location.deposit | currency}}
+                </h4>
+            </mat-card>
+
+            <mat-card class="Tile">
+                <img  [ngStyle]="{transformOrigin: '75px 45px', transform: 'rotate('+ (location.soundQuality < 0 ? -225 : ((location.soundQuality * 16) - 94))  +'deg)'}" class="Icon Big Dial" src="../../../../assets/icons/volume/Dial.svg">
+                <img *ngIf="location.soundQuality >= 0" class="Icon Big" src="../../../../assets/icons/volume/Notch1.svg">
+                <img *ngIf="location.soundQuality >= 1" class="Icon Big" src="../../../../assets/icons/volume/Notch2.svg">
+                <img *ngIf="location.soundQuality >= 2" class="Icon Big" src="../../../../assets/icons/volume/Notch3.svg">
+                <img *ngIf="location.soundQuality >= 3" class="Icon Big" src="../../../../assets/icons/volume/Notch4.svg">
+                <img *ngIf="location.soundQuality >= 4" class="Icon Big" src="../../../../assets/icons/volume/Notch5.svg">
+                <img *ngIf="location.soundQuality >= 5" class="Icon Big" src="../../../../assets/icons/volume/Notch6.svg">
+                <img *ngIf="location.soundQuality >= 6" class="Icon Big" src="../../../../assets/icons/volume/Notch7.svg">
+
+                <h4 class="Title smaller">Ambient Noise</h4>
+
+            </mat-card>
+
+            <mat-card class="Tile">
+                <img  class="Icon Big Sun" src="../../../../assets/icons/lightrays/sun.svg">
+                <img *ngIf="location.windows >= 0" class="Icon Big Sun" src="../../assets/icons/lightrays/Ray0.svg">
+                <img *ngIf="location.windows >= 1" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray1.svg">
+                <img *ngIf="location.windows >= 2" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray2.svg">
+                <img *ngIf="location.windows >= 3" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray3.svg">
+                <img *ngIf="location.windows >= 4" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray4.svg">
+                <img *ngIf="location.windows >= 5" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray5.svg">
+                <img *ngIf="location.windows >= 6" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray6.svg">
+                <img *ngIf="location.windows >= 7" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray7.svg">
+                <img *ngIf="location.windows >= 8" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray8.svg">
+                <img *ngIf="location.windows >= 9" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray9.svg">
+                <img *ngIf="location.windows >= 10" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray10.svg">
+                <img *ngIf="location.windows >= 11" class="Icon Big Sun" src="../../../../assets/icons/lightrays/Ray11.svg">
+                <h4 class="Title smaller">Natural Light</h4>
+            </mat-card>
         </div>
-        <!-- PHOTO GALLERY -->
-        <div class="row">
+        <div class="row4">
+            <mat-grid-list cols="4" rowHeight="1:1" gutterSize="2px">
+                <mat-grid-tile class="tile1">
 
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+                <mat-grid-tile class="tile1">
+
+                </mat-grid-tile>
+            </mat-grid-list>
         </div>
     </div>
     <!-- RIGHT SUBPANEL -->
@@ -56,33 +180,7 @@ Test
             <div class="City-Banner" [style.background-image]="CityPhoto"></div>
         </mat-card>
         <div id="mapid" class="City-Map">
-
-
-        </div>
-
-        <div class="City-Summary">
-            <h3 class="Right-Panel-Title City-General-Rules">General Filming Guidelines</h3>
-            <ul class="City-General-List">
-                <li>Population: {{city.population}}</li>
-                <li>County: {{city.county}}</li>
-                <li>Processing Period: {{city.permitoffice.processingperiod}} Days</li>
-            </ul>
-            <h3 class="Right-Panel-Title City-General-Rules">Permit Office</h3>
-            <ul class="City-General-List">
-                <li>Phone: <strong>{{city.permitoffice.phone}}</strong></li>
-                <li>Address:<br> <strong>{{city.permitoffice.address}}</strong></li>
-                <li>Hours:
-                    <ul>
-                        <li>S | {{city.permitoffice.hours.sunday.open}} - {{city.permitoffice.hours.sunday.close}}</li>
-                        <li>M | {{city.permitoffice.hours.monday.open}} - {{city.permitoffice.hours.monday.close}}</li>
-                        <li>T | {{city.permitoffice.hours.tuesday.open}} - {{city.permitoffice.hours.tuesday.close}}</li>
-                        <li>W | {{city.permitoffice.hours.wednesday.open}} - {{city.permitoffice.hours.wednesday.close}}</li>
-                        <li>TH | {{city.permitoffice.hours.thursday.open}} - {{city.permitoffice.hours.thursday.close}}</li>
-                        <li>F | {{city.permitoffice.hours.friday.open}} - {{city.permitoffice.hours.friday.close}}</li>
-                        <li>SA | {{city.permitoffice.hours.saturday.open}} - {{city.permitoffice.hours.saturday.close}}</li>
-                    </ul>
-                <li>Film Contact: <strong>{{city.permitoffice.filmcontact.fname}} {{city.permitoffice.filmcontact.lname}}</strong></li>
-            </ul>
         </div>
     </div>
+
 </div>

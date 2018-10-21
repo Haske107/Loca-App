@@ -9,7 +9,7 @@ import {PageStateService} from '../../services/page.state.service';
 import {UserService} from '../../services/user.service';
 import {City} from '../../ts models/city.model';
 import {CityService} from '../../services/city.service';
-import mapboxgl from 'mapbox-gl';
+import * as mapboxgl from 'mapbox-gl';
 
 
 @Component({
@@ -42,6 +42,7 @@ export class LocationProfileComponent implements OnInit, OnDestroy {
                 private userService: UserService,
                 private pageStateService: PageStateService) {
         if (localStorage.getItem('currloc')) {
+            console.log(this.city);
             // POPULATE LOCATION WITH CURRENT LOCATION
             this.location = JSON.parse(localStorage.getItem('currloc'));
             this.locationService.location = this.location;

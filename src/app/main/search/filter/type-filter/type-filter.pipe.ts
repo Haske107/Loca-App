@@ -45,7 +45,7 @@ export class TypeFilterPipe implements PipeTransform {
         resultArray.push(location);
       }else  if (location.type === 'Street' && typeObject.Street) {
         resultArray.push(location);
-      }else  if (location.type === 'Home' && typeObject.Home) {
+      }else  if (location.type === 'House' && typeObject.House) {
         resultArray.push(location);
       }
 
