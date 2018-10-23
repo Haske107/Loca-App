@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
   // FILTER DIMENSION VARIABLES
-  DrawerHeight = '100px';
+  DrawerHeight = 100;
 
   //SEARCH
   query = '';
@@ -212,9 +212,9 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   filterClicked(event: any) {
       if ( event === 'Type')  {
-          this.DrawerHeight = '330px';
+          this.DrawerHeight = 330;
       } else  {
-          this.DrawerHeight = '174px';
+          this.DrawerHeight = 174;
       }
   }
 

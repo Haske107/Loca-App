@@ -17,13 +17,13 @@
       <app-filter-drawer
               (filterClick)="filterClicked($event)"
               (GridClicked)="GridClicked()"
-              (closeAll)="DrawerHeight = '100px'"
+              (closeAll)="DrawerHeight = 100"
               [ngStyle]="{height: DrawerHeight}"
               [DrawerHeight]="DrawerHeight"
       >
       </app-filter-drawer>
       <app-list
-              [ngStyle]="{top: (DrawerHeight.substr(0,3).valueOf() - 100) + 'px'}"
+              [ngStyle]="{top: DrawerHeight - 100 + 'px'}"
 
       ></app-list>
   </div>
