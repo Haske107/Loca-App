@@ -18,8 +18,8 @@
               (filterClick)="filterClicked($event)"
               (GridClicked)="GridClicked()"
               (closeAll)="DrawerHeight = 100"
-              [ngStyle]="{height: DrawerHeight}"
-              [DrawerHeight]="DrawerHeight"
+              [ngStyle]="{height: DrawerHeight + 'px'}"
+              [DrawerHeight]="DrawerHeight + 'px'"
       >
       </app-filter-drawer>
       <app-list
