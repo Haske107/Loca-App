@@ -20,7 +20,7 @@ export class AuthService   {
       primaryColor: '#00bcd4',
     },
     auth: {
-      redirectUrl: 'http://localhost:4201/loading',
+      redirectUrl: 'https://loca-app.herokuapp.com/loading',
       responseType: 'token id_token',
       params: {
         scope: 'openid profile email'
