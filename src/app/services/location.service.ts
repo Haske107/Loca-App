@@ -18,7 +18,7 @@ export class LocationService    {
   public location: Location;
   public locations: Location[];
 
-  BaseURl = 'http://' + Dev + '/location';
+  BaseURl = 'http://' + Prod + '/location';
 
   constructor(private http: HttpClient, private router: Router) {}
 

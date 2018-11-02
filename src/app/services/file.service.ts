@@ -9,7 +9,7 @@ import {catchError, last, map, tap} from 'rxjs/operators';
 @Injectable()
 export class FileService {
 
-    BaseURl = 'http://' + Dev + '/files';
+    BaseURl = 'http://' + Prod + '/files';
     MainPercentage = new EventEmitter();
     GalleryPercentage = new EventEmitter();
 
